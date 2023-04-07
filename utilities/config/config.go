@@ -2,9 +2,9 @@ package config
 
 import (
 	"fmt"
-	"io/ioutil"
 
 	"github.com/jeffadavidson/development-bot/utilities/exit"
+	"github.com/jeffadavidson/development-bot/utilities/fileio"
 	"gopkg.in/yaml.v3"
 )
 
@@ -38,7 +38,7 @@ func ManualInit() {
 
 func loadConfig(filePath string) error {
 	// Load the YAML file into a byte slice
-	yamlFile, err := ioutil.ReadFile("config.yaml")
+	yamlFile, err := fileio.GetFileContents("config.yaml")
 	if err != nil {
 		return fmt.Errorf("error reading YAML file: %v", err)
 	}
