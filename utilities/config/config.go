@@ -4,19 +4,21 @@ import (
 	"fmt"
 	"io/ioutil"
 
+	"github.com/jeffadavidson/development-bot/utilities/exit"
 	"gopkg.in/yaml.v3"
 )
 
-type Config struct {
-	RunMode      string             `yaml:"runmode"`
-	Neighborhood NeighborhoodConfig `yaml:"neighborhood"`
+type DevBot struct {
+	RunMode      string       `yaml:"runmode"`
+	Neighborhood Neighborhood `yaml:"neighborhood"`
 }
 
-type NeighborhoodConfig struct {
-	BoundingBox BoundingBoxConfig `yaml:"bounding-box"`
+type Neighborhood struct {
+	Name        string      `yaml:"name"`
+	BoundingBox BoundingBox `yaml:"bounding-box"`
 }
 
-type BoundingBoxConfig struct {
+type BoundingBox struct {
 	NWLatitude  float64 `yaml:"nw-latitude"`
 	NWLongitude float64 `yaml:"nw-longitude"`
 	NELatitude  float64 `yaml:"ne-latitude"`
@@ -27,20 +29,17 @@ type BoundingBoxConfig struct {
 	SELongitude float64 `yaml:"se-longitude"`
 }
 
-var theconfig Config
+var Config DevBot
 
 func init() {
-	fmt.Println("config init")
-
 	// Load the YAML file into a byte slice
 	yamlFile, err := ioutil.ReadFile("config.yaml")
 	if err != nil {
-		fmt.Printf("error reading YAML file: %v", err)
+		exit.ExitError(fmt.Errorf("error reading YAML file: %v", err))
 	}
 
 	// Unmarshal the YAML data into a Config struct
-
-	if err := yaml.Unmarshal(yamlFile, &theconfig); err != nil {
-		fmt.Printf("error unmarshalling YAML data: %v", err)
+	if err := yaml.Unmarshal(yamlFile, &Config); err != nil {
+		exit.ExitError(fmt.Errorf("error unmarshalling YAML data: %v", err))
 	}
 }

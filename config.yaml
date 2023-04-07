@@ -1,5 +1,6 @@
 runmode: DEVELOPMENT
 neighborhood:
+  name: Killarney
   bounding-box:
     nw-latitude: 51.038912
     nw-longitude: -114.142638
