@@ -8,6 +8,8 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+var configFilePath string = "config.yaml"
+
 type DevBot struct {
 	RunMode      string       `yaml:"runmode"`
 	Neighborhood Neighborhood `yaml:"neighborhood"`
@@ -31,15 +33,33 @@ type BoundingBox struct {
 
 var Config DevBot
 
-func init() {
+func ManualInit() {
+	loaderr := loadConfig(configFilePath)
+	if loaderr != nil {
+		exit.ExitError(loaderr)
+	}
+}
+
+func loadConfig(filePath string) error {
 	// Load the YAML file into a byte slice
 	yamlFile, err := ioutil.ReadFile("config.yaml")
 	if err != nil {
-		exit.ExitError(fmt.Errorf("error reading YAML file: %v", err))
+		return fmt.Errorf("error reading YAML file: %v", err)
 	}
 
-	// Unmarshal the YAML data into a Config struct
-	if err := yaml.Unmarshal(yamlFile, &Config); err != nil {
-		exit.ExitError(fmt.Errorf("error unmarshalling YAML data: %v", err))
+	parseerr := parseConfig(yamlFile)
+	if parseerr != nil {
+		return parseerr
 	}
+
+	return nil
+}
+
+func parseConfig(configBytes []byte) error {
+	// Unmarshal the YAML data into a DevBot struct
+	if err := yaml.Unmarshal(configBytes, &Config); err != nil {
+		return fmt.Errorf("error unmarshalling YAML data: %v", err)
+	}
+
+	return nil
 }
