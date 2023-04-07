@@ -21,14 +21,10 @@ type Neighborhood struct {
 }
 
 type BoundingBox struct {
-	NWLatitude  float64 `yaml:"nw-latitude"`
-	NWLongitude float64 `yaml:"nw-longitude"`
-	NELatitude  float64 `yaml:"ne-latitude"`
-	NELongitude float64 `yaml:"ne-longitude"`
-	SWLatitude  float64 `yaml:"sw-latitude"`
-	SWLongitude float64 `yaml:"sw-longitude"`
-	SELatitude  float64 `yaml:"se-latitude"`
-	SELongitude float64 `yaml:"se-longitude"`
+	NorthLatitude float64 `yaml:"north-latitude"`
+	EastLongitude float64 `yaml:"east-longitude"`
+	SouthLatitude float64 `yaml:"south-latitude"`
+	WestLongitude float64 `yaml:"west-longitude"`
 }
 
 var Config DevBot

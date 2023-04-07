@@ -2,11 +2,7 @@ runmode: DEVELOPMENT
 neighborhood:
   name: Killarney
   bounding-box:
-    nw-latitude: 51.038912
-    nw-longitude: -114.142638
-    ne-latitude: 51.038912
-    ne-longitude: -114.117927
-    sw-latitude: 51.022361
-    sw-longitude: -114.142638
-    se-latitude: 51.022361
-    se-longitude: -114.117927
+    north-latitude: 51.038912
+    east-longitude: -114.117927
+    south-latitude: 51.022361
+    west-longitude: -114.142638

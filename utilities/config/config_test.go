@@ -8,9 +8,9 @@ import (
 
 func Test_ParseConfig_NoBoundingBox(t *testing.T) {
 	configYaml := []byte(`
-runmode: DEVELOPMENT
-neighborhood:
-  name: TestNeighborhood
+  runmode: DEVELOPMENT
+  neighborhood:
+    name: Killarney
 `)
 
 	err := parseConfig(configYaml)
@@ -19,18 +19,14 @@ neighborhood:
 
 func Test_ParseConfig_ValidConfig(t *testing.T) {
 	configYaml := []byte(`
-runmode: DEVELOPMENT
-neighborhood:
-  name: TestNeighborhood
-  bounding-box:
-    nw-latitude: 51.038912
-    nw-longitude: -114.142638
-    ne-latitude: 51.038912
-    ne-longitude: -114.117927
-    sw-latitude: 51.022361
-    sw-longitude: -114.142638
-    se-latitude: 51.022361
-    se-longitude: -114.117927
+  runmode: DEVELOPMENT
+  neighborhood:
+    name: Killarney
+    bounding-box:
+      north-latitude: 51.038912
+      east-longitude: -114.117927
+      south-latitude: 51.022361
+      west-longitude: -114.142638 
 `)
 
 	err := parseConfig(configYaml)
@@ -39,18 +35,14 @@ neighborhood:
 
 func Test_PaseConfig_InvalidLatitude(t *testing.T) {
 	configYaml := []byte(`
-runmode: DEVELOPMENT
-neighborhood:
-  name: TestNeighborhood
-  bounding-box:
-    nw-latitude: invalid
-    nw-longitude: -114.142638
-    ne-latitude: 51.038912
-    ne-longitude: -114.117927
-    sw-latitude: 51.022361
-    sw-longitude: -114.142638
-    se-latitude: 51.022361
-    se-longitude: -114.117927
+  runmode: DEVELOPMENT
+  neighborhood:
+    name: Killarney
+    bounding-box:
+      north-latitude: invalid
+      east-longitude: -114.117927
+      south-latitude: 51.022361
+      west-longitude: -114.142638 
 `)
 
 	err := parseConfig(configYaml)
