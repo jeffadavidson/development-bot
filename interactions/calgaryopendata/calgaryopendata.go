@@ -10,35 +10,36 @@ import (
 )
 
 type DevelopmentPermit struct {
-	Point               Point  `json:"point"`
-	PermitNum           string `json:"permitnum"`
-	Address             string `json:"address"`
-	Applicant           string `json:"applicant"`
-	Category            string `json:"category"`
-	Description         string `json:"description"`
-	ProposedUseCode     string `json:"proposedusecode"`
-	ProposedUseDesc     string `json:"proposedusedescription"`
-	PermittedDiscretion string `json:"permitteddiscretionary"`
-	LandUseDistrict     string `json:"landusedistrict"`
-	LandUseDistrictDesc string `json:"landusedistrictdescription"`
-	StatusCurrent       string `json:"statuscurrent"`
-	AppliedDate         string `json:"applieddate"`
-	DecisionDate        string `json:"decisiondate"`
-	ReleaseDate         string `json:"releasedate"`
-	MustCommenceDate    string `json:"mustcommencedate"`
-	Decision            string `json:"decision"`
-	DecisionBy          string `json:"decisionby"`
-	CommunityCode       string `json:"communitycode"`
-	CommunityName       string `json:"communityname"`
-	Ward                string `json:"ward"`
-	Quadrant            string `json:"quadrant"`
-	Latitude            string `json:"latitude"`
-	Longitude           string `json:"longitude"`
-	LocationCount       string `json:"locationcount"`
-	LocationTypes       string `json:"locationtypes"`
-	LocationAddresses   string `json:"locationaddresses"`
-	LocationsGeoJSON    string `json:"locationsgeojson"`
-	LocationsWKT        string `json:"locationswkt"`
+	Point                  Point  `json:"point"`
+	PermitNum              string `json:"permitnum"`
+	Address                string `json:"address"`
+	Applicant              string `json:"applicant"`
+	Category               string `json:"category"`
+	Description            string `json:"description"`
+	ProposedUseCode        string `json:"proposedusecode"`
+	ProposedUseDesc        string `json:"proposedusedescription"`
+	PermittedDiscretion    string `json:"permitteddiscretionary"`
+	LandUseDistrict        string `json:"landusedistrict"`
+	LandUseDistrictDesc    string `json:"landusedistrictdescription"`
+	StatusCurrent          string `json:"statuscurrent"`
+	AppliedDate            string `json:"applieddate"`
+	DecisionDate           string `json:"decisiondate"`
+	ReleaseDate            string `json:"releasedate"`
+	MustCommenceDate       string `json:"mustcommencedate"`
+	Decision               string `json:"decision"`
+	DecisionBy             string `json:"decisionby"`
+	CommunityCode          string `json:"communitycode"`
+	CommunityName          string `json:"communityname"`
+	Ward                   string `json:"ward"`
+	Quadrant               string `json:"quadrant"`
+	Latitude               string `json:"latitude"`
+	Longitude              string `json:"longitude"`
+	LocationCount          string `json:"locationcount"`
+	LocationTypes          string `json:"locationtypes"`
+	LocationAddresses      string `json:"locationaddresses"`
+	LocationsGeoJSON       string `json:"locationsgeojson"`
+	LocationsWKT           string `json:"locationswkt"`
+	GithubDiscussionClosed bool   `json:"github_discussion_closed"`
 }
 
 type Point struct {
@@ -63,7 +64,7 @@ func GetDevelopmentPermits() ([]DevelopmentPermit, error) {
 	}
 
 	var parseErr error
-	developmentPermits, parseErr = parseDevelopmentPermits(response.Body)
+	developmentPermits, parseErr = ParseDevelopmentPermits(response.Body)
 	if parseErr != nil {
 		return developmentPermits, fmt.Errorf("error parsing development permits. Error %s", parseErr.Error())
 	}
@@ -71,7 +72,7 @@ func GetDevelopmentPermits() ([]DevelopmentPermit, error) {
 	return developmentPermits, nil
 }
 
-func parseDevelopmentPermits(developmentPermitByte []byte) ([]DevelopmentPermit, error) {
+func ParseDevelopmentPermits(developmentPermitByte []byte) ([]DevelopmentPermit, error) {
 	var developmentPermits []DevelopmentPermit
 	err := json.Unmarshal(developmentPermitByte, &developmentPermits)
 	if err != nil {
