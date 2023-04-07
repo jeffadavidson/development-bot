@@ -20,7 +20,7 @@ func Test_HttpGet_ProcessesBody(t *testing.T) {
 	}))
 	defer ts.Close()
 
-	response, err := Get(ts.URL, nil)
+	response, err := SimpleGet(ts.URL, nil)
 	assert.NoError(t, err)
 	assert.Equal(t, http.StatusOK, response.StatusCode)
 	assert.Equal(t, expectedBody, string(response.Body))
@@ -36,7 +36,7 @@ func Test_HttpGet_ProcessesEmptyBody(t *testing.T) {
 	}))
 	defer ts.Close()
 
-	response, err := Get(ts.URL, nil)
+	response, err := SimpleGet(ts.URL, nil)
 	assert.NoError(t, err)
 	assert.Equal(t, http.StatusOK, response.StatusCode)
 	assert.Equal(t, "", string(response.Body))
@@ -49,7 +49,7 @@ func Test_HttpGet_404IsNotTreatedAsError(t *testing.T) {
 	}))
 	defer ts.Close()
 
-	response, err := Get(ts.URL, nil)
+	response, err := SimpleGet(ts.URL, nil)
 	assert.NoError(t, err)
 	assert.Equal(t, http.StatusNotFound, response.StatusCode)
 }
