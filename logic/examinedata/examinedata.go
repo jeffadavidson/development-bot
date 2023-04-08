@@ -22,5 +22,11 @@ func ExamineDevelopmentPermits() error {
 		fmt.Println("\tMessage: " + val.Message)
 	}
 
+	// Send actions to GH actions
+	// Update stored DP
+	// Add action log for changes
+
+	//TODO: What if update is not in the lookback window?
+
 	return nil
 }
