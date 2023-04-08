@@ -1,17 +1,15 @@
 package calgaryopendata
 
 import (
-	"encoding/json"
 	"fmt"
 	"net/http"
 
-	"github.com/jeffadavidson/development-bot/objects/developmentpermit"
 	"github.com/jeffadavidson/development-bot/utilities/config"
 	"github.com/jeffadavidson/development-bot/utilities/simplehttp"
 )
 
-func GetDevelopmentPermits() ([]developmentpermit.DevelopmentPermit, error) {
-	var developmentPermits []developmentpermit.DevelopmentPermit
+func GetDevelopmentPermits() ([]byte, error) {
+	var developmentPermits []byte
 
 	// Build URL
 	baseUrl := "https://data.calgary.ca/resource/6933-unw5.json"
@@ -26,21 +24,7 @@ func GetDevelopmentPermits() ([]developmentpermit.DevelopmentPermit, error) {
 		return developmentPermits, fmt.Errorf("error getting development permits from Calgary Open Data. Http Status %d", response.StatusCode)
 	}
 
-	var parseErr error
-	developmentPermits, parseErr = ParseDevelopmentPermits(response.Body)
-	if parseErr != nil {
-		return developmentPermits, fmt.Errorf("error parsing development permits. Error %s", parseErr.Error())
-	}
-
-	return developmentPermits, nil
-}
-
-func ParseDevelopmentPermits(developmentPermitByte []byte) ([]developmentpermit.DevelopmentPermit, error) {
-	var developmentPermits []developmentpermit.DevelopmentPermit
-	err := json.Unmarshal(developmentPermitByte, &developmentPermits)
-	if err != nil {
-		return developmentPermits, fmt.Errorf("failed to parse development permit json. Error: %s", err.Error())
-	}
+	developmentPermits = response.Body
 
 	return developmentPermits, nil
 }
