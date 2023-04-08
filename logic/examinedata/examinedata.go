@@ -5,9 +5,9 @@ import (
 
 	"github.com/jeffadavidson/development-bot/interactions/calgaryopendata"
 	"github.com/jeffadavidson/development-bot/interactions/githubdiscussions"
+	"github.com/jeffadavidson/development-bot/objects/developmentpermit"
 	"github.com/jeffadavidson/development-bot/utilities/fileio"
-
-	"golang.org/x/exp/slices"
+	"github.com/jeffadavidson/development-bot/utilities/toolbox"
 )
 
 // ExamineDevelopmentPermits - Produces a list of development permits where the stale and fresh state do not match
@@ -26,39 +26,55 @@ func ExamineDevelopmentPermits() error {
 	fetchedDevelopmentPermits, _ := calgaryopendata.GetDevelopmentPermits()
 	fmt.Println(len(fetchedDevelopmentPermits))
 
-	//var discussionsActions []githubdiscussions.DiscussionAction
+	var discussionsActions []githubdiscussions.DiscussionAction
 	for _, fetchedDP := range fetchedDevelopmentPermits {
-		var storedDP calgaryopendata.DevelopmentPermit
-
-		//fmt.Printf("Index: %d, PermitNum %s, Status: %s\n", index, fetchedDP.PermitNum, fetchedDP.StatusCurrent)
-
-		storedDPIndex := slices.IndexFunc(storedDevelopmentPermits, func(c calgaryopendata.DevelopmentPermit) bool { return c.PermitNum == fetchedDP.PermitNum })
-		if storedDPIndex == -1 {
-			//TODO:
-			//fmt.Printf("Fresh Permit '%s' not found\n", fetchedDP.PermitNum)
+		storedDP := developmentpermit.FindDevelopmentPermit(storedDevelopmentPermits, fetchedDP.PermitNum)
+		if storedDP == nil {
+			discussionsActions = append(discussionsActions, githubdiscussions.DiscussionAction{Action: "CREATE", Message: fetchedDP.CreateInformationMessage()})
 		} else {
-			storedDP = storedDevelopmentPermits[storedDPIndex]
-			//fmt.Printf("Found Indexc: %d - %s\n", storedDPIndex, storedDP.PermitNum)
+			//TODO: Make function to find development permit in array by permit num
 
 			if storedDP.GithubDiscussionClosed {
 				//fmt.Printf("Skipping '%s' as discussion is closed\n", storedDP.PermitNum)
+
 			} else {
 				fmt.Printf("Checking '%s' for updates\n", storedDP.PermitNum)
+				hasUpdate := false
+				updateMessage := ""
 
-				// compare status for update
-				// compare decision for update
-				// compare must comment by date for update
+				// Check Status
+				if storedDP.StatusCurrent != fetchedDP.StatusCurrent {
+					hasUpdate = true
+					updateMessage += "STATUS UPDATE "
+				}
+
+				// Check Decision
+				if storedDP.Decision != fetchedDP.Decision {
+					hasUpdate = true
+					updateMessage += "DECITION UPDATE "
+				}
+
+				// Check Must Comment By Date
+				if storedDP.MustCommenceDate != fetchedDP.MustCommenceDate {
+					hasUpdate = true
+					updateMessage += "MUST COMMENT BY UPDATE "
+				}
+
+				if hasUpdate {
+					discussionsActions = append(discussionsActions, githubdiscussions.DiscussionAction{Action: "UPDATE", Message: updateMessage})
+				}
+
+				// Check for close
+				close_discussion_statuses := [3]string{"Released", "Cancelled", "Cancelled - Pending Refund"}
+				if toolbox.SliceContains([]string(close_discussion_statuses[:]), fetchedDP.StatusCurrent) {
+					discussionsActions = append(discussionsActions, githubdiscussions.DiscussionAction{Action: "CLOSE", Message: "Close"})
+				}
+
 			}
 		}
 
 	}
 
-	//itterate through all fresh development permits
-	//find stored permit
-	//if no find
-	// create
-	// if find
-	// if archived, skip
-
+	fmt.Println(discussionsActions)
 	return nil
 }

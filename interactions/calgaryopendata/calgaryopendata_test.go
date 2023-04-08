@@ -47,7 +47,7 @@ func Test_ParseDevelopmentPermit_Valid(t *testing.T) {
 	
 `)
 
-	permits, err := parseDevelopmentPermits(dpJson)
+	permits, err := ParseDevelopmentPermits(dpJson)
 	assert.Equal(t, nil, err)
 	assert.Equal(t, 1, len(permits))
 }
@@ -92,7 +92,7 @@ func Test_ParseDevelopmentPermit_MalformedJson(t *testing.T) {
 	
 `)
 
-	permits, err := parseDevelopmentPermits(dpJson)
+	permits, err := ParseDevelopmentPermits(dpJson)
 	assert.NotEqual(t, nil, err)
 	assert.ErrorContains(t, err, "failed to parse development permit json")
 	assert.Equal(t, 0, len(permits))
