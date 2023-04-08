@@ -12,8 +12,14 @@ import (
 var configFilePath string = "config.yaml"
 
 type DevBot struct {
-	RunMode      string       `yaml:"runmode"`
-	Neighborhood Neighborhood `yaml:"neighborhood"`
+	RunMode           string           `yaml:"runmode"`
+	GithubDiscussions GithubDiscussion `yaml:"github-discussion"`
+	Neighborhood      Neighborhood     `yaml:"neighborhood"`
+}
+
+type GithubDiscussion struct {
+	Owner      string `yaml:"owner"`
+	Repository string `yaml:"repository"`
 }
 
 type Neighborhood struct {

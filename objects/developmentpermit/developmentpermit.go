@@ -42,6 +42,7 @@ type DevelopmentPermit struct {
 	LocationAddresses      string `json:"locationaddresses"`
 	LocationsGeoJSON       string `json:"locationsgeojson"`
 	LocationsWKT           string `json:"locationswkt"`
+	GithubDiscussionId     string `json:"github_discussion_id"`
 	GithubDiscussionClosed bool   `json:"github_discussion_closed"`
 }
 
@@ -124,6 +125,20 @@ func GetDevelopmentPermits() ([]DevelopmentPermit, []DevelopmentPermit, error) {
 	}
 
 	return fetchedDevelopmentPermits, storedDevelopmentPermits, nil
+}
+
+func SaveDevelopmentPermits(permits []DevelopmentPermit) error {
+	// Encode permits as JSON
+	permitsBytes, encodeErr := json.MarshalIndent(permits, "", "  ")
+	if encodeErr != nil {
+		return encodeErr
+	}
+
+	writeErr := fileio.WriteFileContents("./data/development-permits.json", permitsBytes)
+	if writeErr != nil {
+		return writeErr
+	}
+	return nil
 }
 
 func parseDevelopmentPermits(developmentPermitByte []byte) ([]DevelopmentPermit, error) {
