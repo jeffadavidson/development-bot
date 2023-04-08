@@ -123,7 +123,7 @@ func GetDevelopmentPermits() ([]DevelopmentPermit, []DevelopmentPermit, error) {
 		return nil, nil, parseErr
 	}
 
-	return storedDevelopmentPermits, fetchedDevelopmentPermits, nil
+	return fetchedDevelopmentPermits, storedDevelopmentPermits, nil
 }
 
 func parseDevelopmentPermits(developmentPermitByte []byte) ([]DevelopmentPermit, error) {
