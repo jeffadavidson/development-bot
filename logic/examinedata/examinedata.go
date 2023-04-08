@@ -55,7 +55,7 @@ func ExamineDevelopmentPermits() error {
 
 			//Append change to stored DPs to be saved
 			createdDP := developmentpermit.FindDevelopmentPermit(fetchedDevelopmentPermits, val.PermitNum)
-			createdDP.GithubDiscussionId = discussionId
+			createdDP.GithubDiscussionId = &discussionId
 			storedDevelopmentPermits = append(storedDevelopmentPermits, *createdDP)
 		}
 	}
