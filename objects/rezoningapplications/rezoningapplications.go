@@ -4,11 +4,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/url"
+	"strings"
 	"time"
 
 	"github.com/jeffadavidson/development-bot/interactions/calgaryopendata"
 	"github.com/jeffadavidson/development-bot/interactions/githubdiscussions"
 	"github.com/jeffadavidson/development-bot/objects/fileaction"
+	"github.com/jeffadavidson/development-bot/utilities/config"
 	"github.com/jeffadavidson/development-bot/utilities/fileio"
 	"github.com/jeffadavidson/development-bot/utilities/toolbox"
 	"golang.org/x/exp/slices"
@@ -95,6 +97,12 @@ func EvaluateDevelopmentPermits(repositoryID string, categoryID string) error {
 		return fmt.Errorf("failed to load development permits: %v", err)
 	}
 	fileActions := getRezoningApplicationActions(fetchedPermits, storedPermits)
+
+	//Update Manually Closed Applications
+	storedPermits, closeErr := updateManuallyClosedRezoneingApplications(storedPermits)
+	if closeErr != nil {
+		return closeErr
+	}
 
 	// Execute actions for Rezoning Applications
 	for _, val := range fileActions {
@@ -200,6 +208,28 @@ func findRezoningApplicationByID(searchSlice []RezoningApplication, id string) *
 	}
 
 	return &searchSlice[foundIndex]
+}
+
+// updateManuallyClosedRezoneingApplications - Gets recently closed permits and makes them as closed
+func updateManuallyClosedRezoneingApplications(storedDevelopmentPermits []RezoningApplication) ([]RezoningApplication, error) {
+	//Update Manually Closed Permits
+	recentlyClosed, findErr := githubdiscussions.FindRecentlyClosedDiscussions(config.Config.GithubDiscussions.Owner, config.Config.GithubDiscussions.Repository)
+	if findErr != nil {
+		return storedDevelopmentPermits, findErr
+	}
+	for _, closedPermit := range recentlyClosed {
+		//Get DP by discussion id
+		if strings.Contains(closedPermit, "LOC") {
+			storedDp := findRezoningApplicationByID(storedDevelopmentPermits, closedPermit)
+			if storedDp != nil && storedDp.GithubDiscussionClosed == false {
+				fmt.Printf("Land Use Change '%s' was manually closed. Marking as closed...\n", closedPermit)
+				storedDp.GithubDiscussionClosed = true
+				storedDevelopmentPermits = upsertRezoningApplication(storedDevelopmentPermits, *storedDp)
+			}
+		}
+	}
+
+	return storedDevelopmentPermits, nil
 }
 
 // getRezoningApplicationActions - Compares fetched and stored rezoning applications and returns a list of actions to execute
