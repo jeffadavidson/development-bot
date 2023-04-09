@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/jeffadavidson/development-bot/interactions/githubdiscussions"
 	"github.com/jeffadavidson/development-bot/logic/examinedata"
 	"github.com/jeffadavidson/development-bot/utilities/config"
 	"github.com/jeffadavidson/development-bot/utilities/exit"
@@ -39,6 +40,10 @@ func ManualInits() error {
 	examineErr := examinedata.ManualInit()
 	if examineErr != nil {
 		return fmt.Errorf("Failed to start due to date initialization error: %s", examineErr.Error())
+	}
+	ghDisErr := githubdiscussions.ManualInit()
+	if ghDisErr != nil {
+		return fmt.Errorf("Failed to start due to date github initialization error: %s", examineErr.Error())
 	}
 
 	return nil

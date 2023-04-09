@@ -18,15 +18,17 @@ type GithubDiscussionCatagory struct {
 
 var githubClient *githubv4.Client
 
-// init - Initilize client on startup
-func init() {
+// ManualInit - Initilize client on startup
+func ManualInit() error {
 	// Get PAT from environment variable
 	githubPat := os.Getenv("GITHUB_PAT")
 	if githubPat == "" {
-		panic("error, github pat not set")
+		return fmt.Errorf("error, github pat not set")
 	}
 
 	githubClient = newGitHubClient(githubPat)
+
+	return nil
 }
 
 // newGitHubClient - creates a new github client
