@@ -22,9 +22,9 @@ var githubClient *githubv4.Client
 // init - Initilize client on startup
 func ManualInit() error {
 	// Get PAT from environment variable
-	githubPat := os.Getenv("GITHUB_PAT")
+	githubPat := os.Getenv("DEVELOPMENT_BOT_GITHUB_PAT")
 	if githubPat == "" {
-		return fmt.Errorf("Error: environment variable GITHUB_PAT pat not set")
+		return fmt.Errorf("Error: environment variable 'DEVELOPMENT_BOT_GITHUB_PAT' not set")
 	}
 
 	githubClient = newGitHubClient(githubPat)
