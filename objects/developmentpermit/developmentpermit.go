@@ -4,11 +4,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/url"
+	"os"
 	"time"
 
 	"github.com/jeffadavidson/development-bot/interactions/calgaryopendata"
 	"github.com/jeffadavidson/development-bot/interactions/githubdiscussions"
 	"github.com/jeffadavidson/development-bot/objects/fileaction"
+	"github.com/jeffadavidson/development-bot/utilities/config"
 	"github.com/jeffadavidson/development-bot/utilities/fileio"
 	"github.com/jeffadavidson/development-bot/utilities/toolbox"
 	"golang.org/x/exp/slices"
@@ -119,6 +121,15 @@ func EvaluateDevelopmentPermits(repositoryId string, catagoryId string) error {
 		return err
 	}
 	fileActions := getDevelopmentPermitActions(fetchedDevelopmentPermits, storedDevelopmentPermits)
+
+	// Get Recently Closed Discussions
+	recentlyClosedDiscussions, findErr := githubdiscussions.FindRecentlyClosedDiscussions(config.Config.GithubDiscussions.Owner, config.Config.GithubDiscussions.Repository)
+	if findErr != nil {
+		fmt.Println("FIND ERR")
+	}
+	fmt.Println(recentlyClosedDiscussions)
+
+	os.Exit(1)
 
 	// Execut Actions for Development Permits
 	for _, val := range fileActions {
