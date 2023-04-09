@@ -922,5 +922,279 @@
     },
     "github_discussion_id": "D_kwDOJSUT984ATUA3",
     "github_discussion_closed": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2023-0078",
+    "description": "Land Use Amendment to accommodate H-GO",
+    "statuscurrent": "Submitted",
+    "applieddate": "2023-03-30T00:00:00.000",
+    "completeddate": null,
+    "applicant": "HORIZON LAND SURVEYS",
+    "fromlud": "DC",
+    "proposedlud": "H-GO",
+    "address": "3216 30 ST SW",
+    "locationaddresses": "3216 30 ST SW",
+    "locationcount": "1",
+    "latitude": "51.0263391512711",
+    "longitude": "-114.13105444613221",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.131054446132,
+          51.026339151271
+        ]
+      ]
+    },
+    "github_discussion_id": "D_kwDOJSUT984ATUA9",
+    "github_discussion_closed": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2023-0077",
+    "description": "Land Use Amendment to accommodate R-C2",
+    "statuscurrent": "Under Review",
+    "applieddate": "2023-03-29T00:00:00.000",
+    "completeddate": null,
+    "applicant": "MEDIATED SOLUTIONS",
+    "fromlud": "DC",
+    "proposedlud": "R-C2",
+    "address": "3418 RICHMOND RD SW",
+    "locationaddresses": "3418 RICHMOND RD SW;3422 RICHMOND RD SW",
+    "locationcount": "2",
+    "latitude": "51.02422521626344",
+    "longitude": "-114.13567065573653",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.135670655737,
+          51.024225216263
+        ],
+        [
+          -114.135866880648,
+          51.024166572764
+        ]
+      ]
+    },
+    "github_discussion_id": "D_kwDOJSUT984ATUA_",
+    "github_discussion_closed": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2023-0076",
+    "description": "Land Use Amendment to accommodate R-CG",
+    "statuscurrent": "Submitted",
+    "applieddate": "2023-03-27T00:00:00.000",
+    "completeddate": null,
+    "applicant": "SAVOY DESIGNS",
+    "fromlud": "DC",
+    "proposedlud": "R-CG",
+    "address": "3432 RICHMOND RD SW",
+    "locationaddresses": "3432 RICHMOND RD SW",
+    "locationcount": "1",
+    "latitude": "51.02401946856918",
+    "longitude": "-114.13635706869876",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.136357068699,
+          51.024019468569
+        ]
+      ]
+    },
+    "github_discussion_id": "D_kwDOJSUT984ATUBA",
+    "github_discussion_closed": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2023-0070",
+    "description": "Land Use Amendment to accommodate H-GO",
+    "statuscurrent": "Under Review",
+    "applieddate": "2023-03-23T00:00:00.000",
+    "completeddate": null,
+    "applicant": "CIVICWORKS",
+    "fromlud": "R-C2",
+    "proposedlud": "H-GO",
+    "address": "3616 RICHMOND RD SW",
+    "locationaddresses": "3616 RICHMOND RD SW",
+    "locationcount": "1",
+    "latitude": "51.02320965130487",
+    "longitude": "-114.13907337871952",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.13907337872,
+          51.023209651305
+        ]
+      ]
+    },
+    "github_discussion_id": "D_kwDOJSUT984ATUBB",
+    "github_discussion_closed": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2023-0071",
+    "description": "Land Use Amendment to accommodate DC",
+    "statuscurrent": "Under Review",
+    "applieddate": "2023-03-23T00:00:00.000",
+    "completeddate": null,
+    "applicant": "CIVICWORKS",
+    "fromlud": "DC",
+    "proposedlud": "C-COR1",
+    "address": "1750 29 ST SW",
+    "locationaddresses": "1750 29 ST SW",
+    "locationcount": "1",
+    "latitude": "51.038116845246925",
+    "longitude": "-114.12935432048317",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.129354320483,
+          51.038116845247
+        ]
+      ]
+    },
+    "github_discussion_id": "D_kwDOJSUT984ATUBC",
+    "github_discussion_closed": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2023-0051",
+    "description": "Land Use Amendment to accommodate R-C2",
+    "statuscurrent": "Under Review",
+    "applieddate": "2023-02-24T00:00:00.000",
+    "completeddate": null,
+    "applicant": "PRIMAL SOLUTIONS",
+    "fromlud": "DC",
+    "proposedlud": "R-C2",
+    "address": "3410 RICHMOND RD SW",
+    "locationaddresses": "3410 RICHMOND RD SW",
+    "locationcount": "1",
+    "latitude": "51.02434172983245",
+    "longitude": "-114.13527761774849",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.135277617748,
+          51.024341729832
+        ]
+      ]
+    },
+    "github_discussion_id": "D_kwDOJSUT984ATUBD",
+    "github_discussion_closed": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2023-0044",
+    "description": "3207 29 St SW- H-GO townhouses and suites",
+    "statuscurrent": "Under Review",
+    "applieddate": "2023-02-22T00:00:00.000",
+    "completeddate": null,
+    "applicant": "CIVICWORKS",
+    "fromlud": "DC",
+    "proposedlud": "H-GO",
+    "address": "3207 29 ST SW",
+    "locationaddresses": "3207 29 ST SW",
+    "locationcount": "1",
+    "latitude": "51.026660886282954",
+    "longitude": "-114.12972476910272",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.129724769103,
+          51.026660886283
+        ]
+      ]
+    },
+    "github_discussion_id": "D_kwDOJSUT984ATUBE",
+    "github_discussion_closed": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2023-0042",
+    "description": "Land Use Amendment to accommodate H-GO",
+    "statuscurrent": "Under Review",
+    "applieddate": "2023-02-22T00:00:00.000",
+    "completeddate": null,
+    "applicant": "CIVICWORKS",
+    "fromlud": "DC",
+    "proposedlud": "H-GO",
+    "address": "3206 29 ST SW",
+    "locationaddresses": "3206 29 ST SW",
+    "locationcount": "1",
+    "latitude": "51.026841753245776",
+    "longitude": "-114.12936625812966",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.12936625813,
+          51.026841753246
+        ]
+      ]
+    },
+    "github_discussion_id": "D_kwDOJSUT984ATUBF",
+    "github_discussion_closed": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2023-0028",
+    "description": "Land Use Amendment to accommodate R-CG",
+    "statuscurrent": "Submitted",
+    "applieddate": "2023-01-31T00:00:00.000",
+    "completeddate": null,
+    "applicant": "NEW CENTURY DESIGN",
+    "fromlud": "R-C2",
+    "proposedlud": "R-CG",
+    "address": "2240 27 ST SW",
+    "locationaddresses": "2240 27 ST SW",
+    "locationcount": "1",
+    "latitude": "51.033317125376534",
+    "longitude": "-114.12646443952015",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.12646443952,
+          51.033317125377
+        ]
+      ]
+    },
+    "github_discussion_id": "D_kwDOJSUT984ATUBG",
+    "github_discussion_closed": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2022-0101",
+    "description": "Land Use Amendment to accommodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2022-06-15T00:00:00.000",
+    "completeddate": "2022-11-07T00:00:00.000",
+    "applicant": "TRICOR DESIGN GROUP",
+    "fromlud": "DC",
+    "proposedlud": "R-CG",
+    "address": "3003 26 ST SW",
+    "locationaddresses": "3003 26 ST SW",
+    "locationcount": "1",
+    "latitude": "51.02834801060915",
+    "longitude": "-114.12389485845311",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.123894858453,
+          51.028348010609
+        ]
+      ]
+    },
+    "github_discussion_id": "D_kwDOJSUT984ATUBH",
+    "github_discussion_closed": false
   }
 ]
