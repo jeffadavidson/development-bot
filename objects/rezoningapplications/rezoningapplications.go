@@ -144,7 +144,6 @@ func EvaluateDevelopmentPermits(repositoryID string, categoryID string) error {
 			storedPermits = upsertRezoningApplication(storedPermits, *updatedRA)
 
 		}
-		break
 	}
 
 	// Save Rezoning Applications
