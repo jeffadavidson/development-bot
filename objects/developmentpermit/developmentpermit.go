@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/url"
+	"time"
 
 	"github.com/jeffadavidson/development-bot/interactions/calgaryopendata"
 	"github.com/jeffadavidson/development-bot/objects/fileaction"
@@ -54,48 +55,57 @@ type Point struct {
 // CreateInformationMessage - Builds an information message from the development permit
 func (dp DevelopmentPermit) CreateInformationMessage() string {
 	var lineSeparator string = "\n"
-	var message string
+	var message string = ""
 
-	message += fmt.Sprintf("Development Permit Application: %v", dp.PermitNum)
+	// Markdown
+	message += "## About\n\n"
+	message += fmt.Sprintf("**Permit Number:** %v", dp.PermitNum)
 	if dp.AppliedDate != nil {
-		message += fmt.Sprintf("%vDate Applied: %v", lineSeparator, dp.AppliedDate)
+		appliedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.AppliedDate)
+		if err != nil {
+			message += fmt.Sprintf("%v**Date Applied:** %v", lineSeparator, *dp.AppliedDate)
+		} else {
+			dateStr := appliedDate.Format("2006-01-02")
+			message += fmt.Sprintf("%v**Date Applied:** %v", lineSeparator, dateStr)
+		}
 	}
 	if dp.Address != nil {
-		message += fmt.Sprintf("%vAddress: %v", lineSeparator, dp.Address)
+		message += fmt.Sprintf("%v**Address:** %v", lineSeparator, *dp.Address)
 	}
 	if dp.CommunityName != nil {
-		message += fmt.Sprintf("%vCommunity: %v", lineSeparator, dp.CommunityName)
+		message += fmt.Sprintf("%v**Community:** %v", lineSeparator, *dp.CommunityName)
 	}
 	if dp.Applicant != nil {
-		message += fmt.Sprintf("%vApplicant: %v", lineSeparator, dp.Applicant)
+		message += fmt.Sprintf("%v**Applicant:** %v", lineSeparator, *dp.Applicant)
 	}
 	if dp.Description != nil {
-		message += fmt.Sprintf("%vDescription: %v", lineSeparator, dp.Description)
+		message += fmt.Sprintf("%v**Description:** %v", lineSeparator, *dp.Description)
 	}
 	if dp.LandUseDistrictDesc != nil {
-		message += fmt.Sprintf("%vCurrent Land Use: %v", lineSeparator, dp.LandUseDistrictDesc)
+		message += fmt.Sprintf("%v**Current Land Use:** %v", lineSeparator, *dp.LandUseDistrictDesc)
 	}
 	if dp.StatusCurrent != "" {
-		message += fmt.Sprintf("%vCurrent Permit Status: %v", lineSeparator, dp.StatusCurrent)
+		message += fmt.Sprintf("%v**Permit Status:** %v", lineSeparator, dp.StatusCurrent)
 	}
 	if dp.MustCommenceDate != nil {
-		message += fmt.Sprintf("%vMust Comment By Date: %v", lineSeparator, dp.MustCommenceDate)
+		message += fmt.Sprintf("%v**Must Comment By Date:** %v", lineSeparator, *dp.MustCommenceDate)
 	}
 	if dp.PermittedDiscretion != nil {
-		message += fmt.Sprintf("%vApplication Type: %v", lineSeparator, dp.PermittedDiscretion)
+		message += fmt.Sprintf("%v**Application Type:** %v", lineSeparator, *dp.PermittedDiscretion)
 	}
 	if dp.Decision != nil {
-		message += fmt.Sprintf("%vDecision: %v", lineSeparator, dp.Decision)
+		message += fmt.Sprintf("%v**Decision:** %v", lineSeparator, *dp.Decision)
 	}
 	if dp.ReleaseDate != nil {
-		message += fmt.Sprintf("%vRelease Date: %v", lineSeparator, dp.ReleaseDate)
+		message += fmt.Sprintf("%v**Release Date:** %v", lineSeparator, *dp.ReleaseDate)
 	}
 
 	// Add google and dmap links
+	message += "\n## Links\n\n"
 	message += lineSeparator + lineSeparator
-	message += fmt.Sprintf("%vDmap: https://dmap.calgary.ca/?find=%v", lineSeparator, dp.PermitNum)
+	message += fmt.Sprintf("%v[Development Map](https://dmap.calgary.ca/?find=%v)", lineSeparator, dp.PermitNum)
 	if dp.Address != nil {
-		message += fmt.Sprintf("%vGoogle Maps: https://maps.google.com/?q=%v", lineSeparator, url.QueryEscape(fmt.Sprintf("%v, Calgary, Alberta", dp.Address)))
+		message += fmt.Sprintf("%v [Google Maps](https://maps.google.com/?q=%v)", lineSeparator, url.QueryEscape(fmt.Sprintf("%v, Calgary, Alberta", dp.Address)))
 	}
 	message += lineSeparator
 
@@ -177,6 +187,12 @@ func GetDevelopmentPermitActions(fetchedDevelopmentPermits []DevelopmentPermit, 
 				continue
 			}
 
+			// Create if discussion does not exist but its still stored(from when we switched from slack)
+			if storedDP.GithubDiscussionId == nil {
+				fileActions = append(fileActions, fileaction.FileAction{PermitNum: fetchedDP.PermitNum, Action: "CREATE", Message: fetchedDP.CreateInformationMessage()})
+				continue
+			}
+
 			hasUpdate, updateMessage := getDevelopmentPermitUpdates(fetchedDP, storedDP)
 			toClose, closeMessage := isDevelopmentPermitClosed(fetchedDP, storedDP)
 
@@ -232,13 +248,13 @@ func getDevelopmentPermitUpdates(fetchedDP DevelopmentPermit, storedDP Developme
 	// check decision
 	if fetchedDP.Decision != storedDP.Decision {
 		hasUpdate = true
-		updateMessage += fmt.Sprintf("Decision updated to '%s'\n", fetchedDP.Decision)
+		updateMessage += fmt.Sprintf("Decision updated to '%s'\n", *fetchedDP.Decision)
 	}
 
 	// check comment by date
 	if fetchedDP.MustCommenceDate != storedDP.MustCommenceDate {
 		hasUpdate = true
-		updateMessage += fmt.Sprintf("Must Commence By Date updated to '%s'\n", fetchedDP.MustCommenceDate)
+		updateMessage += fmt.Sprintf("Must Commence By Date updated to '%s'\n", *fetchedDP.MustCommenceDate)
 	}
 
 	return hasUpdate, updateMessage

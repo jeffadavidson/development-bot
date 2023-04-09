@@ -38,36 +38,28 @@ func ExamineDevelopmentPermits() error {
 	}
 
 	for _, val := range fileActions {
+		//Create
 		if val.Action == "CREATE" {
-			fmt.Println("------------------------------------------------")
-			fmt.Println("RepositoryId " + repositoryId)
-			fmt.Println("Discussion catagopry " + developmentPermitCatagory.ID)
-			fmt.Println("Will Create discussion for " + val.PermitNum)
-			fmt.Println(val.Message)
+			fmt.Printf("Development Permit %s:\n\tCreating Discussion...\n", val.PermitNum)
 
 			//Find or create the discussion
 			discussionId, err := FindOrCreateDiscussion(val.PermitNum, repositoryId, developmentPermitCatagory.ID, val.Message)
 			if err != nil {
-				return err
+				fmt.Printf("\tFailed to create discussion. Error: %s\n", err.Error())
 			}
-
-			fmt.Println("Discussion ID: " + discussionId)
+			fmt.Printf("\tDiscussion Created!")
 
 			//Append change to stored DPs to be saved
 			createdDP := developmentpermit.FindDevelopmentPermit(fetchedDevelopmentPermits, val.PermitNum)
 			createdDP.GithubDiscussionId = &discussionId
 			storedDevelopmentPermits = append(storedDevelopmentPermits, *createdDP)
+
+			break
 		}
 	}
 
 	// Save Development Permits
 	developmentpermit.SaveDevelopmentPermits(storedDevelopmentPermits)
-
-	// Send actions to GH actions
-	// Update stored DP
-	// Add action log for changes
-
-	//TODO: What if update is not in the lookback window?
 
 	return nil
 }

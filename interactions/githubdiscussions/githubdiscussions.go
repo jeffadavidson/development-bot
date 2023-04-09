@@ -126,7 +126,7 @@ func FindDiscussionByTitle(title string) (string, error) {
 		return "", err
 	}
 	if len(q.Search.Edges) == 0 {
-		return "", fmt.Errorf("discussion not found")
+		return "", nil
 	}
 	return q.Search.Edges[0].Node.Discussion.ID, nil
 }
