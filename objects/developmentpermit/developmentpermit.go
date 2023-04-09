@@ -127,7 +127,7 @@ func EvaluateDevelopmentPermits(repositoryId string, catagoryId string) error {
 			fmt.Printf("Development Permit %s:\n\tCreating Discussion...\n", val.PermitNum)
 
 			//Find or create the discussion
-			discussionId, err := findOrCreateDevelopmentPermitDiscussion(val.PermitNum, repositoryId, catagoryId, val.Message)
+			discussionId, err := githubdiscussions.FindOrCreateDiscussion(val.PermitNum, repositoryId, catagoryId, val.Message)
 			if err != nil {
 				fmt.Printf("\tFailed to create discussion. Error: %s\n", err.Error())
 			}
@@ -212,25 +212,6 @@ func saveDevelopmentPermits(permits []DevelopmentPermit) error {
 		return writeErr
 	}
 	return nil
-}
-
-// findOrCreateDevelopmentPermitDiscussion - attempts to find a discussion by its title, if not found creates it
-func findOrCreateDevelopmentPermitDiscussion(permitNum, repositoryId, developmentPermitCategoryId, message string) (string, error) {
-	discussionId, err := githubdiscussions.FindDiscussionByTitle(permitNum)
-	if err != nil {
-		fmt.Println(err.Error())
-		return "", err
-	}
-
-	// Only create a discussion if it does not already exist
-	if discussionId == "" {
-		discussionId, err = githubdiscussions.CreateDiscussion(repositoryId, developmentPermitCategoryId, permitNum, message)
-		if err != nil {
-			fmt.Println(err.Error())
-			return "", err
-		}
-	}
-	return discussionId, nil
 }
 
 // findDevelopmentPermitByPermitNum - finds a development permit in a list of permits

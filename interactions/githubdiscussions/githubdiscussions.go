@@ -131,7 +131,26 @@ func FindDiscussionByTitle(title string) (string, error) {
 	return q.Search.Edges[0].Node.Discussion.ID, nil
 }
 
-func CreateDiscussion(repositoryID, categoryID, title, body string) (string, error) {
+// FindOrCreateDiscussion - attempts to find a discussion by its title, if not found creates it
+func FindOrCreateDiscussion(title, repositoryId, rezoningApplicationCategoryId, message string) (string, error) {
+	discussionId, err := FindDiscussionByTitle(title)
+	if err != nil {
+		fmt.Println(err.Error())
+		return "", err
+	}
+
+	// Only create a discussion if it does not already exist
+	if discussionId == "" {
+		discussionId, err = createDiscussion(repositoryId, rezoningApplicationCategoryId, title, message)
+		if err != nil {
+			fmt.Println(err.Error())
+			return "", err
+		}
+	}
+	return discussionId, nil
+}
+
+func createDiscussion(repositoryID, categoryID, title, body string) (string, error) {
 	var mutation struct {
 		CreateDiscussion struct {
 			Discussion struct {
