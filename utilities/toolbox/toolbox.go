@@ -1,5 +1,7 @@
 package toolbox
 
+import "reflect"
+
 func SliceContains[T comparable](arr []T, elem T) bool {
 	for _, v := range arr {
 		if v == elem {
@@ -15,7 +17,7 @@ func ArePointersEqual(a, b interface{}) bool {
 	}
 
 	if a != nil && b != nil {
-		return a == b
+		return reflect.DeepEqual(a, b)
 	}
 
 	return false

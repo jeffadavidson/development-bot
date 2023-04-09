@@ -176,3 +176,29 @@ func AddDiscussionComment(discussionID, body string) (string, error) {
 
 	return mutation.AddDiscussionComment.Comment.ID, nil
 }
+
+func CloseDiscussion(discussionID string) error {
+	var mutation struct {
+		CloseDiscussion struct {
+			Discussion struct {
+				ID string
+			}
+		} `graphql:"closeDiscussion(input: $input)"`
+	}
+
+	resolution := "RESOLVED"
+	input := struct {
+		DiscussionID githubv4.ID
+		Resolution   *string
+	}{
+		DiscussionID: githubv4.ID(discussionID),
+		Resolution:   &resolution,
+	}
+
+	err := githubClient.Mutate(context.Background(), &mutation, input, nil)
+	if err != nil {
+		return fmt.Errorf("failed to close discussion: %w", err)
+	}
+
+	return nil
+}
