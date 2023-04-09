@@ -37,6 +37,7 @@ func ExamineDevelopmentPermits() error {
 		return fmt.Errorf("Error: Unable to idetify the Github Discussion Catagory ID for 'Development Permits'")
 	}
 
+	// Do actions for DPs
 	for _, val := range fileActions {
 		//Create
 		if val.Action == "CREATE" {
@@ -54,6 +55,21 @@ func ExamineDevelopmentPermits() error {
 			createdDP.GithubDiscussionId = &discussionId
 			storedDevelopmentPermits = developmentpermit.UpsertDevelopmentPermit(storedDevelopmentPermits, *createdDP)
 		}
+
+		//Update
+		if val.Action == "UPDATE" {
+			fmt.Printf("Development Permit %s:\n\tUpdating Discussion...\n", val.PermitNum)
+			storedDP := developmentpermit.FindDevelopmentPermit(storedDevelopmentPermits, val.PermitNum)
+			githubdiscussions.AddDiscussionComment(*storedDP.GithubDiscussionId, val.Message)
+
+			//Append or Update change to stored DPs to be saved
+			updatedDP := developmentpermit.FindDevelopmentPermit(fetchedDevelopmentPermits, val.PermitNum)
+			updatedDP.GithubDiscussionId = storedDP.GithubDiscussionId
+			updatedDP.GithubDiscussionClosed = storedDP.GithubDiscussionClosed
+			storedDevelopmentPermits = developmentpermit.UpsertDevelopmentPermit(storedDevelopmentPermits, *updatedDP)
+		}
+
+		break
 	}
 
 	// Save Development Permits

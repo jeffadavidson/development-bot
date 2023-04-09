@@ -195,8 +195,7 @@ func GetDevelopmentPermitActions(fetchedDevelopmentPermits []DevelopmentPermit, 
 
 			hasUpdate, updateMessage := getDevelopmentPermitUpdates(fetchedDP, storedDP)
 			toClose, closeMessage := isDevelopmentPermitClosed(fetchedDP, storedDP)
-
-			message := fmt.Sprintf("%s:\n", storedDP.PermitNum)
+			var message string
 
 			if hasUpdate && !toClose {
 				message += updateMessage
@@ -246,15 +245,12 @@ func getDevelopmentPermitUpdates(fetchedDP DevelopmentPermit, storedDP Developme
 	}
 
 	// check decision
-	if fetchedDP.Decision != storedDP.Decision {
+	if fetchedDP.Decision != nil && !toolbox.ArePointersEqual(fetchedDP.Decision, storedDP.Decision) {
 		hasUpdate = true
 		updateMessage += fmt.Sprintf("Decision updated to '%s'\n", *fetchedDP.Decision)
-	}
-
-	// check comment by date
-	if fetchedDP.MustCommenceDate != storedDP.MustCommenceDate {
-		hasUpdate = true
-		updateMessage += fmt.Sprintf("Must Commence By Date updated to '%s'\n", *fetchedDP.MustCommenceDate)
+		if *&fetchedDP.DecisionBy != nil {
+			updateMessage += fmt.Sprintf("Decision By '%s'\n", *fetchedDP.DecisionBy)
+		}
 	}
 
 	return hasUpdate, updateMessage

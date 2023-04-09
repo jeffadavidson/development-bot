@@ -8,3 +8,15 @@ func SliceContains[T comparable](arr []T, elem T) bool {
 	}
 	return false
 }
+
+func ArePointersEqual(a, b interface{}) bool {
+	if a == nil && b == nil {
+		return true
+	}
+
+	if a != nil && b != nil {
+		return a == b
+	}
+
+	return false
+}

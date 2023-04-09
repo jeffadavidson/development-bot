@@ -154,3 +154,25 @@ func CreateDiscussion(repositoryID, categoryID, title, body string) (string, err
 
 	return mutation.CreateDiscussion.Discussion.ID, nil
 }
+
+func AddDiscussionComment(discussionID, body string) (string, error) {
+	var mutation struct {
+		AddDiscussionComment struct {
+			Comment struct {
+				ID string
+			}
+		} `graphql:"addDiscussionComment(input: $input)"`
+	}
+
+	input := githubv4.AddDiscussionCommentInput{
+		DiscussionID: githubv4.String(discussionID),
+		Body:         githubv4.String(body),
+	}
+
+	err := githubClient.Mutate(context.Background(), &mutation, input, nil)
+	if err != nil {
+		return "", fmt.Errorf("failed to add comment to discussion: %w", err)
+	}
+
+	return mutation.AddDiscussionComment.Comment.ID, nil
+}
