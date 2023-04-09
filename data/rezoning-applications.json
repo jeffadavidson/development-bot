@@ -24,7 +24,7 @@
     },
     "completeddate": null,
     "slack_channel_id": "C03CFCJ72RY",
-    "slack_channel_archived_status": false
+    "github_discussion_closed": false
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -51,7 +51,7 @@
     },
     "completeddate": null,
     "slack_channel_id": "C03CU1NRQ3B",
-    "slack_channel_archived_status": false
+    "github_discussion_closed": false
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -78,7 +78,7 @@
     },
     "completeddate": null,
     "slack_channel_id": "C03CFCJBBD0",
-    "slack_channel_archived_status": false
+    "github_discussion_closed": false
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -105,7 +105,7 @@
     },
     "completeddate": null,
     "slack_channel_id": "C03CU1P0J1F",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -132,7 +132,7 @@
     },
     "completeddate": "2022-06-10T00:00:00.000",
     "slack_channel_id": "C03CCG6U18D",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -159,7 +159,7 @@
     },
     "completeddate": "2022-07-27T00:00:00.000",
     "slack_channel_id": "C03D55KM6PJ",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -186,7 +186,7 @@
     },
     "completeddate": "2022-05-12T00:00:00.000",
     "slack_channel_id": "C03CFCYLBMH",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -212,7 +212,7 @@
       ]
     },
     "completeddate": "2022-02-23T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -238,7 +238,7 @@
       ]
     },
     "completeddate": "2022-02-16T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -264,7 +264,7 @@
       ]
     },
     "completeddate": "2022-04-13T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -290,7 +290,7 @@
       ]
     },
     "completeddate": "2022-03-10T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -316,7 +316,7 @@
       ]
     },
     "completeddate": "2022-03-10T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -346,7 +346,7 @@
       ]
     },
     "completeddate": "2022-03-31T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -372,7 +372,7 @@
       ]
     },
     "completeddate": "2021-11-19T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -398,7 +398,7 @@
       ]
     },
     "completeddate": "2021-09-17T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -424,7 +424,7 @@
       ]
     },
     "completeddate": "2022-03-10T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -454,7 +454,7 @@
       ]
     },
     "completeddate": "2021-08-11T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -480,7 +480,7 @@
       ]
     },
     "completeddate": "2021-09-20T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -506,7 +506,7 @@
       ]
     },
     "completeddate": "2021-11-19T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -536,7 +536,7 @@
       ]
     },
     "completeddate": "2021-09-17T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -562,7 +562,7 @@
       ]
     },
     "completeddate": "2022-01-18T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -588,7 +588,7 @@
       ]
     },
     "completeddate": "2020-12-17T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -614,7 +614,7 @@
       ]
     },
     "completeddate": "2020-12-17T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -640,7 +640,7 @@
       ]
     },
     "completeddate": "2020-05-26T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -666,7 +666,7 @@
       ]
     },
     "completeddate": "2020-04-28T00:00:00.000",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -693,7 +693,7 @@
     },
     "completeddate": null,
     "slack_channel_id": "C03G5S7H1V0",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -720,7 +720,7 @@
     },
     "completeddate": "2022-11-07T00:00:00.000",
     "slack_channel_id": "C03KC7U38F9",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -747,7 +747,7 @@
     },
     "completeddate": "2023-02-13T00:00:00.000",
     "slack_channel_id": "C04206F8K2A",
-    "slack_channel_archived_status": true
+    "github_discussion_closed": true
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -778,7 +778,7 @@
     },
     "completeddate": null,
     "slack_channel_id": "C0460PQG63Y",
-    "slack_channel_archived_status": false
+    "github_discussion_closed": false
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -837,7 +837,7 @@
     },
     "completeddate": null,
     "slack_channel_id": "C04DU93Q9PS",
-    "slack_channel_archived_status": false
+    "github_discussion_closed": false
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
@@ -876,6 +876,6 @@
     },
     "completeddate": "2023-03-07T00:00:00.000",
     "slack_channel_id": "C04DZBY7EN6",
-    "slack_channel_archived_status": false
+    "github_discussion_closed": false
   }
 ]
