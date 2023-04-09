@@ -4,11 +4,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/url"
+	"strings"
 	"time"
 
 	"github.com/jeffadavidson/development-bot/interactions/calgaryopendata"
 	"github.com/jeffadavidson/development-bot/interactions/githubdiscussions"
 	"github.com/jeffadavidson/development-bot/objects/fileaction"
+	"github.com/jeffadavidson/development-bot/utilities/config"
 	"github.com/jeffadavidson/development-bot/utilities/fileio"
 	"github.com/jeffadavidson/development-bot/utilities/toolbox"
 	"golang.org/x/exp/slices"
@@ -120,6 +122,12 @@ func EvaluateDevelopmentPermits(repositoryId string, catagoryId string) error {
 	}
 	fileActions := getDevelopmentPermitActions(fetchedDevelopmentPermits, storedDevelopmentPermits)
 
+	//Update Manually Closed Permits
+	storedDevelopmentPermits, closeErr := updateManuallyClosedDevelopmentPermits(storedDevelopmentPermits)
+	if closeErr != nil {
+		return closeErr
+	}
+
 	// Execut Actions for Development Permits
 	for _, val := range fileActions {
 		//Create
@@ -222,6 +230,28 @@ func findDevelopmentPermitByPermitNum(searchSlice []DevelopmentPermit, permitNum
 	}
 
 	return &searchSlice[foundIndex]
+}
+
+// updateManuallyClosedDevelopmentPermits - Gets recently closed permits and makes them as closed
+func updateManuallyClosedDevelopmentPermits(storedDevelopmentPermits []DevelopmentPermit) ([]DevelopmentPermit, error) {
+	//Update Manually Closed Permits
+	recentlyClosed, findErr := githubdiscussions.FindRecentlyClosedDiscussions(config.Config.GithubDiscussions.Owner, config.Config.GithubDiscussions.Repository)
+	if findErr != nil {
+		return storedDevelopmentPermits, findErr
+	}
+	for _, closedPermit := range recentlyClosed {
+		//Get DP by discussion id
+		if strings.Contains(closedPermit, "DP") {
+			storedDp := findDevelopmentPermitByPermitNum(storedDevelopmentPermits, closedPermit)
+			if storedDp != nil && storedDp.GithubDiscussionClosed == false {
+				fmt.Printf("Development Permit '%s' was manually closed. Marking as closed...\n", closedPermit)
+				storedDp.GithubDiscussionClosed = true
+				storedDevelopmentPermits = upsertDevelopmentPermit(storedDevelopmentPermits, *storedDp)
+			}
+		}
+	}
+
+	return storedDevelopmentPermits, nil
 }
 
 // getDevelopmentPermitActions - For a list of fetched and stored development permits compares permits and gets a list of actions to execute

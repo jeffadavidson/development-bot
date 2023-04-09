@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"time"
 
 	"github.com/shurcooL/githubv4"
 	"golang.org/x/exp/slices"
@@ -129,6 +130,35 @@ func FindDiscussionByTitle(title string) (string, error) {
 		return "", nil
 	}
 	return q.Search.Edges[0].Node.Discussion.ID, nil
+}
+
+// FindRecentlyClosedDiscussions - gets all discussions closed in the last 2 weeks
+func FindRecentlyClosedDiscussions(owner string, repo string) ([]string, error) {
+	var q struct {
+		Search struct {
+			Edges []struct {
+				Node struct {
+					Discussion struct {
+						Title string
+					} `graphql:"... on Discussion"`
+				}
+			}
+		} `graphql:"search(query: $query, type: DISCUSSION, first: 100)"`
+	}
+	query := fmt.Sprintf("repo:%s/%s is:closed closed:>%s", owner, repo, time.Now().AddDate(0, 0, -14).Format("2006-01-02"))
+
+	variables := map[string]interface{}{
+		"query": githubv4.String(query),
+	}
+	err := githubClient.Query(context.Background(), &q, variables)
+	if err != nil {
+		return nil, err
+	}
+	ids := make([]string, len(q.Search.Edges))
+	for i, edge := range q.Search.Edges {
+		ids[i] = edge.Node.Discussion.Title
+	}
+	return ids, nil
 }
 
 // FindOrCreateDiscussion - attempts to find a discussion by its title, if not found creates it
