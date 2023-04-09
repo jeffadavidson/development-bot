@@ -1,15 +1,11 @@
 name: Development-Bot-Runs
 run-name: Development-Bot-Runs-${{ github.run_number }}
 on:
-  workflow_dispatch: #allow for manual triggering
+  #workflow_dispatch for manual triggering
+  workflow_dispatch: 
   # Schedule 3PM UTC/9AM MT for just kgca-development/killarney-development main branch
   schedule:
-    - cron: '0 16 * * *' 
-    repos:
-      - kgca-development/killarney-development
-    branches:
-      - main
-
+    - cron: '00 16 * * *'
   push:
     branches:
       - '*'
