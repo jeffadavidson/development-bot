@@ -11657,7 +11657,46 @@
     "decision": null,
     "decisionby": null,
     "releasedate": null,
-    "github_discussion_id": "D_kwDOJSUT984ATTQF",
+    "github_discussion_id": "D_kwDOJSUT984ATTV1",
+    "github_discussion_closed": false
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.11953140030917,
+        51.029865630811216
+      ]
+    },
+    "permitnum": "DP2023-02038",
+    "address": "2801 24A ST SW",
+    "applicant": null,
+    "category": "Change of Use - Discretionary Use or Relaxations Required",
+    "description": "CHANGE OF USE: BREWERY, WINERY AND DISTILLERY, RESTAURANT: LICENSED, RETAIL AND CONSUMER SERVICE; CHANGES TO SITE PLAN: OUTDOOR CAFE",
+    "proposedusecode": "C1225; C2130; C2485 ; C2515",
+    "proposedusedescription": "BREWERY, WINERY AND DISTILLERY; OUTDOOR CAFE; RESTAURANT: LICENSED; RETAIL AND CONSUMER SERVICE",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "MU-1 f3.3h19",
+    "landusedistrictdescription": "Mixed Use - General",
+    "statuscurrent": "Under Review",
+    "applieddate": "2023-04-03T00:00:00.000",
+    "communitycode": "RIC",
+    "communityname": "RICHMOND",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.030",
+    "longitude": "-114.120",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "2801 24A ST SW;2801 24A ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1195314,51.0298656],[-114.1197654,51.0298861]]}",
+    "locationswkt": "MULTIPOINT ((-114.11953140030917 51.029865630811216),(-114.11976543796058 51.0298861036086))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "github_discussion_id": "D_kwDOJSUT984ATTV5",
     "github_discussion_closed": false
   }
 ]

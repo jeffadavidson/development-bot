@@ -105,7 +105,7 @@ func (dp DevelopmentPermit) CreateInformationMessage() string {
 	message += lineSeparator + lineSeparator
 	message += fmt.Sprintf("%v[Development Map](https://dmap.calgary.ca/?find=%v)", lineSeparator, dp.PermitNum)
 	if dp.Address != nil {
-		message += fmt.Sprintf("%v [Google Maps](https://maps.google.com/?q=%v)", lineSeparator, url.QueryEscape(fmt.Sprintf("%v, Calgary, Alberta", dp.Address)))
+		message += fmt.Sprintf("%v [Google Maps](https://maps.google.com/?q=%v)", lineSeparator, url.QueryEscape(fmt.Sprintf("%v, Calgary, Alberta", *dp.Address)))
 	}
 	message += lineSeparator
 
