@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/jeffadavidson/development-bot/interactions/githubdiscussions"
 	"github.com/jeffadavidson/development-bot/logic/examinedata"
 	"github.com/jeffadavidson/development-bot/utilities/config"
 	"github.com/jeffadavidson/development-bot/utilities/exit"
@@ -36,6 +37,13 @@ func ManualInits() error {
 	if configErr != nil {
 		return fmt.Errorf("Failed to start due to configuration error: %s", configErr.Error())
 	}
+
+	ghDiscErr := githubdiscussions.ManualInit()
+	if ghDiscErr != nil {
+		return fmt.Errorf("Failed to start due to Github configuration error: %s", ghDiscErr.Error())
+	}
+
+	// Relies on githubdiscussions ManualInit
 	examineErr := examinedata.ManualInit()
 	if examineErr != nil {
 		return fmt.Errorf("Failed to start due to date initialization error: %s", examineErr.Error())
