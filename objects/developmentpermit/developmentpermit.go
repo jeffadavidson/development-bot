@@ -259,3 +259,16 @@ func getDevelopmentPermitUpdates(fetchedDP DevelopmentPermit, storedDP Developme
 
 	return hasUpdate, updateMessage
 }
+
+// UpsertDevelopmentPermit - updates or inserts a development permet to a list of permits
+func UpsertDevelopmentPermit(permits []DevelopmentPermit, thePermit DevelopmentPermit) []DevelopmentPermit {
+	//Search the permits for the index of the permit to add. If found update, if not append
+	foundIndex := slices.IndexFunc(permits, func(c DevelopmentPermit) bool { return c.PermitNum == thePermit.PermitNum })
+	if foundIndex != -1 {
+		permits[foundIndex] = thePermit
+	} else {
+		permits = append(permits, thePermit)
+	}
+
+	return permits
+}

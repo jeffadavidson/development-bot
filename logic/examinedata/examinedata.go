@@ -49,12 +49,10 @@ func ExamineDevelopmentPermits() error {
 			}
 			fmt.Printf("\tDiscussion Created!")
 
-			//Append change to stored DPs to be saved
+			//Append or Update change to stored DPs to be saved
 			createdDP := developmentpermit.FindDevelopmentPermit(fetchedDevelopmentPermits, val.PermitNum)
 			createdDP.GithubDiscussionId = &discussionId
-			storedDevelopmentPermits = append(storedDevelopmentPermits, *createdDP)
-
-			break
+			storedDevelopmentPermits = developmentpermit.UpsertDevelopmentPermit(storedDevelopmentPermits, *createdDP)
 		}
 	}
 
