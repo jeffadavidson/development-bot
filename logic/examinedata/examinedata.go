@@ -74,12 +74,12 @@ func ExamineDevelopmentPermits() error {
 			if val.Action == "CLOSE" {
 				fmt.Printf("\tClosing Discussion")
 
-				// closeErr := githubdiscussions.CloseDiscussion(*storedDP.GithubDiscussionId)
-				// if closeErr != nil {
-				// 	fmt.Printf("\tFailed to close discussion. Error: %s\n", updateErr.Error())
-				// 	continue
-				// }
-				// updatedDP.GithubDiscussionClosed = true
+				closeErr := githubdiscussions.CloseDiscussion(*storedDP.GithubDiscussionId)
+				if closeErr != nil {
+					fmt.Printf("\tFailed to close discussion. Error: %s\n", closeErr.Error())
+					continue
+				}
+				updatedDP.GithubDiscussionClosed = true
 			}
 
 			storedDevelopmentPermits = developmentpermit.UpsertDevelopmentPermit(storedDevelopmentPermits, *updatedDP)

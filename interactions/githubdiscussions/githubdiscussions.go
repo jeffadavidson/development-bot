@@ -178,6 +178,10 @@ func AddDiscussionComment(discussionID, body string) (string, error) {
 }
 
 func CloseDiscussion(discussionID string) error {
+	type CloseDiscussionInput struct {
+		DiscussionID string `json:"discussionId"`
+	}
+
 	var mutation struct {
 		CloseDiscussion struct {
 			Discussion struct {
@@ -186,13 +190,8 @@ func CloseDiscussion(discussionID string) error {
 		} `graphql:"closeDiscussion(input: $input)"`
 	}
 
-	resolution := "RESOLVED"
-	input := struct {
-		DiscussionID githubv4.ID
-		Resolution   *string
-	}{
-		DiscussionID: githubv4.ID(discussionID),
-		Resolution:   &resolution,
+	input := CloseDiscussionInput{
+		DiscussionID: discussionID,
 	}
 
 	err := githubClient.Mutate(context.Background(), &mutation, input, nil)
