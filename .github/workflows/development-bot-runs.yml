@@ -1,5 +1,5 @@
-name: Development-Bot-Tests
-run-name: Development-Bot-Tests-${{ github.run_number }}
+name: Development-Bot-Runs
+run-name: Development-Bot-Runs-${{ github.run_number }}
 on:
   workflow_dispatch: #allow for manual triggering
   push:
@@ -22,4 +22,4 @@ jobs:
       - name: Install dependencies
         run: go mod download
       - name: Run tests
-        run: go test ./...
+        run: go run main.go
