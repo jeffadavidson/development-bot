@@ -261,7 +261,7 @@ func parseRezoningApplications(raw []byte) ([]RezoningApplication, error) {
 	var applications []RezoningApplication
 	err := json.Unmarshal(raw, &applications)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to parse rezoning application json. Error: %s", err.Error())
 	}
 	return applications, nil
 }
