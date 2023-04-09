@@ -15,9 +15,14 @@ func main() {
 	}
 
 	//Trigger process for development permits
-	dpErr := examinedata.DevelopmentPermits()
-	if err != nil {
-		exit.ExitError(dpErr)
+	// dpErr := examinedata.DevelopmentPermits()
+	// if dpErr != nil {
+	// 	exit.ExitError(dpErr)
+	// }
+
+	raErr := examinedata.RezoningApplication()
+	if raErr != nil {
+		exit.ExitError(raErr)
 	}
 
 	exit.ExitSuccess()

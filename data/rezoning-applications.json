@@ -1,0 +1,881 @@
+[
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2022-0062",
+    "description": "Land Use Amendment to accommodate R-CG",
+    "statuscurrent": "Submitted",
+    "applieddate": "2022-04-11T00:00:00.000",
+    "applicant": "SAVOY DESIGNS",
+    "fromlud": "DC",
+    "proposedlud": "R-CG",
+    "address": "2803 31 ST SW",
+    "locationaddresses": "2803 31 ST SW",
+    "locationcount": "1",
+    "latitude": "51.02988281804691",
+    "longitude": "-114.13283726820971",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.13283726821,
+          51.029882818047
+        ]
+      ]
+    },
+    "completeddate": null,
+    "slack_channel_id": "C03CFCJ72RY",
+    "slack_channel_archived_status": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2022-0061",
+    "description": "Land Use Amendment to accommodate R-CG",
+    "statuscurrent": "Submitted",
+    "applieddate": "2022-04-08T00:00:00.000",
+    "applicant": "SAVOY DESIGNS",
+    "fromlud": "R-C2",
+    "proposedlud": "R-CG",
+    "address": "2240 26 ST SW",
+    "locationaddresses": "2240 26 ST SW",
+    "locationcount": "1",
+    "latitude": "51.033304622799044",
+    "longitude": "-114.12354600022752",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.123546000228,
+          51.033304622799
+        ]
+      ]
+    },
+    "completeddate": null,
+    "slack_channel_id": "C03CU1NRQ3B",
+    "slack_channel_archived_status": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2022-0057",
+    "description": "Land Use Amendment to accommodate R-CG",
+    "statuscurrent": "Submitted",
+    "applieddate": "2022-04-01T00:00:00.000",
+    "applicant": "SAVOY DESIGNS",
+    "fromlud": "R-C2",
+    "proposedlud": "R-CG",
+    "address": "2240 26 ST SW",
+    "locationaddresses": "2240 26 ST SW",
+    "locationcount": "1",
+    "latitude": "51.033304622799044",
+    "longitude": "-114.12354600022752",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.123546000228,
+          51.033304622799
+        ]
+      ]
+    },
+    "completeddate": null,
+    "slack_channel_id": "C03CFCJBBD0",
+    "slack_channel_archived_status": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2022-0033",
+    "description": "Land Use Amendment to accommodate  DC (R-CG)",
+    "statuscurrent": "Approved",
+    "applieddate": "2022-02-28T00:00:00.000",
+    "applicant": "CIVICWORKS",
+    "fromlud": "DC",
+    "proposedlud": "R-CG",
+    "address": "2734 RICHMOND RD SW",
+    "locationaddresses": "2734 RICHMOND RD SW",
+    "locationcount": "1",
+    "latitude": "51.02709880672344",
+    "longitude": "-114.12624247111276",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.126242471113,
+          51.027098806723
+        ]
+      ]
+    },
+    "completeddate": null,
+    "slack_channel_id": "C03CU1P0J1F",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2022-0003",
+    "description": "Land Use Amendment to accomodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2022-01-07T00:00:00.000",
+    "applicant": "NEW CENTURY DESIGN",
+    "fromlud": "R-C2",
+    "proposedlud": "R-CG",
+    "address": "3216 26 AV SW",
+    "locationaddresses": "3216 26 AV SW",
+    "locationcount": "1",
+    "latitude": "51.03016071671609",
+    "longitude": "-114.1335251526079",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.133525152608,
+          51.030160716716
+        ]
+      ]
+    },
+    "completeddate": "2022-06-10T00:00:00.000",
+    "slack_channel_id": "C03CCG6U18D",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0217",
+    "description": "Land Use Amendment to accomodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2021-12-20T00:00:00.000",
+    "applicant": "SAVOY DESIGNS",
+    "fromlud": "R-C2",
+    "proposedlud": "R-CG",
+    "address": "3602 21 AV SW",
+    "locationaddresses": "3602 21 AV SW",
+    "locationcount": "1",
+    "latitude": "51.03480666263031",
+    "longitude": "-114.13889071688699",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.138890716887,
+          51.03480666263
+        ]
+      ]
+    },
+    "completeddate": "2022-07-27T00:00:00.000",
+    "slack_channel_id": "C03D55KM6PJ",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0204",
+    "description": "Land Use Amendment to accomodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2021-11-30T00:00:00.000",
+    "applicant": "JG DESIGN",
+    "fromlud": "DC",
+    "proposedlud": "R-CG",
+    "address": "2839 25A ST SW",
+    "locationaddresses": "2839 25A ST SW",
+    "locationcount": "1",
+    "latitude": "51.02866706563746",
+    "longitude": "-114.1224454335533",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.122445433553,
+          51.028667065637
+        ]
+      ]
+    },
+    "completeddate": "2022-05-12T00:00:00.000",
+    "slack_channel_id": "C03CFCYLBMH",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0167",
+    "description": "Land Use Amendment to accommodate R-CG, with a minor map amendment to the Killarney/Glengarry ARP.",
+    "statuscurrent": "Approved",
+    "applieddate": "2021-10-14T00:00:00.000",
+    "applicant": "HORIZON LAND SURVEYS",
+    "fromlud": "R-C2",
+    "proposedlud": "R-CG",
+    "address": "2440 34 ST SW",
+    "locationaddresses": "2440 34 ST SW",
+    "locationcount": "1",
+    "latitude": "51.03176182960221",
+    "longitude": "-114.13672010741097",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.136720107411,
+          51.031761829602
+        ]
+      ]
+    },
+    "completeddate": "2022-02-23T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0159",
+    "description": "Land Use Amendment to accomodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2021-10-04T00:00:00.000",
+    "applicant": null,
+    "fromlud": "DC",
+    "proposedlud": "R-CG",
+    "address": "2837 34 ST SW",
+    "locationaddresses": "2837 34 ST SW",
+    "locationcount": "1",
+    "latitude": "51.028682278933154",
+    "longitude": "-114.1370809831108",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.137080983111,
+          51.028682278933
+        ]
+      ]
+    },
+    "completeddate": "2022-02-16T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0146",
+    "description": "Land Use Amendment to accomodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2021-09-21T00:00:00.000",
+    "applicant": "ARC1 DESIGN",
+    "fromlud": "R-C2",
+    "proposedlud": "R-CG",
+    "address": "2838 26A ST SW",
+    "locationaddresses": "2838 26A ST SW",
+    "locationcount": "1",
+    "latitude": "51.02867335905199",
+    "longitude": "-114.12499240298071",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.124992402981,
+          51.028673359052
+        ]
+      ]
+    },
+    "completeddate": "2022-04-13T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0147",
+    "description": "Land Use Amendment to accomodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2021-09-21T00:00:00.000",
+    "applicant": "HORIZON LAND SURVEYS",
+    "fromlud": "DC",
+    "proposedlud": "R-CG",
+    "address": "2804 26 ST SW",
+    "locationaddresses": "2804 26 ST SW",
+    "locationcount": "1",
+    "latitude": "51.02987054231814",
+    "longitude": "-114.12353940791968",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.12353940792,
+          51.029870542318
+        ]
+      ]
+    },
+    "completeddate": "2022-03-10T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0144",
+    "description": "Land Use Amendment to accomodate R-C2",
+    "statuscurrent": "Approved",
+    "applieddate": "2021-09-17T00:00:00.000",
+    "applicant": null,
+    "fromlud": "DC",
+    "proposedlud": "R-C2",
+    "address": "3012 29 ST SW",
+    "locationaddresses": "3012 29 ST SW",
+    "locationcount": "1",
+    "latitude": "51.02807295180037",
+    "longitude": "-114.12936954272413",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.129369542724,
+          51.0280729518
+        ]
+      ]
+    },
+    "completeddate": "2022-03-10T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0136",
+    "description": "Land Use Amendment to accommodate M-U1 District",
+    "statuscurrent": "Approved",
+    "applieddate": "2021-09-01T00:00:00.000",
+    "applicant": "POSTAL PROJECTS COMPANY INC.",
+    "fromlud": "M-C1",
+    "proposedlud": "MU-1",
+    "address": "2801 24A ST SW",
+    "locationaddresses": "2805 24A ST SW;2801 24A ST SW",
+    "locationcount": "2",
+    "latitude": "51.02972714402152",
+    "longitude": "-114.11953094430854",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.119530944309,
+          51.029727144022
+        ],
+        [
+          -114.119531400309,
+          51.029865630811
+        ]
+      ]
+    },
+    "completeddate": "2022-03-31T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0074",
+    "description": "Land Use Amendment to accomodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2021-05-11T00:00:00.000",
+    "applicant": null,
+    "fromlud": "R-C2",
+    "proposedlud": "R-CG",
+    "address": "2239 27 ST SW",
+    "locationaddresses": "2239 27 ST SW",
+    "locationcount": "1",
+    "latitude": "51.033315264455396",
+    "longitude": "-114.12682948826576",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.126829488266,
+          51.033315264455
+        ]
+      ]
+    },
+    "completeddate": "2021-11-19T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0058",
+    "description": "Land Use Amendment to accomodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2021-04-12T00:00:00.000",
+    "applicant": "HORIZON LAND SURVEYS",
+    "fromlud": "R-C2",
+    "proposedlud": "R-CG",
+    "address": "2204 35 ST SW",
+    "locationaddresses": "2204 35 ST SW",
+    "locationcount": "1",
+    "latitude": "51.034542739265255",
+    "longitude": "-114.1381416369068",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.138141636907,
+          51.034542739265
+        ]
+      ]
+    },
+    "completeddate": "2021-09-17T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0059",
+    "description": "Land Use Amendment to accomodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2021-04-12T00:00:00.000",
+    "applicant": "LES MARCH",
+    "fromlud": "R-C2",
+    "proposedlud": "R-CG",
+    "address": "2604 33 ST SW",
+    "locationaddresses": "2604 33 ST SW",
+    "locationcount": "1",
+    "latitude": "51.0314448450341",
+    "longitude": "-114.13530369824662",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.135303698247,
+          51.031444845034
+        ]
+      ]
+    },
+    "completeddate": "2022-03-10T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0043",
+    "description": null,
+    "statuscurrent": "Approved",
+    "applieddate": "2021-03-12T00:00:00.000",
+    "applicant": "O2 PLANNING AND DESIGN",
+    "fromlud": "S-R;S-R",
+    "proposedlud": "MU-1;MU-1",
+    "address": "2539 33 AV SW",
+    "locationaddresses": "3435 CROWCHILD TR SW;2539 33 AV SW",
+    "locationcount": "2",
+    "latitude": "51.02345675689893",
+    "longitude": "-114.11823976072893",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.118239760729,
+          51.023456756899
+        ],
+        [
+          -114.123807151279,
+          51.023240306906
+        ]
+      ]
+    },
+    "completeddate": "2021-08-11T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0022",
+    "description": "Land Use Amendment to accomodate MU-1",
+    "statuscurrent": "Approved",
+    "applieddate": "2021-02-10T00:00:00.000",
+    "applicant": "CIVICWORKS",
+    "fromlud": "M-C2",
+    "proposedlud": "MU-1",
+    "address": "1744 33 ST SW",
+    "locationaddresses": "1744 33 ST SW",
+    "locationcount": "1",
+    "latitude": "51.03870351665705",
+    "longitude": "-114.1352309580444",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.135230958044,
+          51.038703516657
+        ]
+      ]
+    },
+    "completeddate": "2021-09-20T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0016",
+    "description": "Land Use Amendment to accomodate R-C2",
+    "statuscurrent": "Approved",
+    "applieddate": "2021-01-29T00:00:00.000",
+    "applicant": null,
+    "fromlud": "DC",
+    "proposedlud": "R-C2",
+    "address": "2808 31 ST SW",
+    "locationaddresses": "2808 31 ST SW",
+    "locationcount": "1",
+    "latitude": "51.02973609534276",
+    "longitude": "-114.13247367637933",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.132473676379,
+          51.029736095343
+        ]
+      ]
+    },
+    "completeddate": "2021-11-19T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2021-0008",
+    "description": "Land Use Amendment to accomodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2021-01-20T00:00:00.000",
+    "applicant": null,
+    "fromlud": "DC",
+    "proposedlud": "R-C2",
+    "address": "2819 25 ST SW",
+    "locationaddresses": "2819 25 ST SW;2821 25 ST SW",
+    "locationcount": "2",
+    "latitude": "51.02938327261584",
+    "longitude": "-114.12098510485349",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.120985104853,
+          51.029383272616
+        ],
+        [
+          -114.12098619798,
+          51.029315803328
+        ]
+      ]
+    },
+    "completeddate": "2021-09-17T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2020-0192",
+    "description": "Land Use Amendment to accomodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2020-12-09T00:00:00.000",
+    "applicant": "K5 DESIGNS",
+    "fromlud": "DC",
+    "proposedlud": "R-CG",
+    "address": "2904 RICHMOND RD SW",
+    "locationaddresses": "2904 RICHMOND RD SW",
+    "locationcount": "1",
+    "latitude": "51.0263500692595",
+    "longitude": "-114.12861490583782",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.128614905838,
+          51.02635006926
+        ]
+      ]
+    },
+    "completeddate": "2022-01-18T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2020-0126",
+    "description": "Land Use Amendment to accomodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2020-08-18T00:00:00.000",
+    "applicant": "NEW CENTURY DESIGN",
+    "fromlud": "R-C2",
+    "proposedlud": "R-CG",
+    "address": "2037 32 ST SW",
+    "locationaddresses": "2037 32 ST SW",
+    "locationcount": "1",
+    "latitude": "51.03486601048136",
+    "longitude": "-114.13426187706278",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.134261877063,
+          51.034866010481
+        ]
+      ]
+    },
+    "completeddate": "2020-12-17T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2020-0087",
+    "description": "Land Use Amendment to accomodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2020-06-24T00:00:00.000",
+    "applicant": "THAD",
+    "fromlud": "DC",
+    "proposedlud": "R-CG",
+    "address": "3711 30 AV SW",
+    "locationaddresses": "3711 30 AV SW",
+    "locationcount": "1",
+    "latitude": "51.026844492102256",
+    "longitude": "-114.14034546498262",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.140345464983,
+          51.026844492102
+        ]
+      ]
+    },
+    "completeddate": "2020-12-17T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2020-0006",
+    "description": "Land Use Amendment to accomodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2020-01-16T00:00:00.000",
+    "applicant": "SINCLAIR SIGNATURE HOMES",
+    "fromlud": "DC",
+    "proposedlud": "R-CG",
+    "address": "3235 KINSALE RD SW",
+    "locationaddresses": "3235 KINSALE RD SW",
+    "locationcount": "1",
+    "latitude": "51.02402080184876",
+    "longitude": "-114.13732201609437",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.137322016094,
+          51.024020801849
+        ]
+      ]
+    },
+    "completeddate": "2020-05-26T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2020-0004",
+    "description": "Land Use Amendment to accomodate C-N1",
+    "statuscurrent": "Approved",
+    "applieddate": "2020-01-08T00:00:00.000",
+    "applicant": "CLEM LAU ARCHITECTS \u0026 DESIGNERS",
+    "fromlud": "DC",
+    "proposedlud": "C-N1",
+    "address": "3535 26 AV SW",
+    "locationaddresses": "3535 26 AV SW",
+    "locationcount": "1",
+    "latitude": "51.02994002647718",
+    "longitude": "-114.13777758221006",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.13777758221,
+          51.029940026477
+        ]
+      ]
+    },
+    "completeddate": "2020-04-28T00:00:00.000",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2022-0088",
+    "description": "Land Use Amendment to accommodate R-C2",
+    "statuscurrent": "Approved",
+    "applieddate": "2022-05-17T00:00:00.000",
+    "applicant": null,
+    "fromlud": "DC",
+    "proposedlud": "R-C2",
+    "address": "2811 26 ST SW",
+    "locationaddresses": "2811 26 ST SW",
+    "locationcount": "1",
+    "latitude": "51.02962478641848",
+    "longitude": "-114.12390720085581",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.123907200856,
+          51.029624786418
+        ]
+      ]
+    },
+    "completeddate": null,
+    "slack_channel_id": "C03G5S7H1V0",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2022-0100",
+    "description": "Land Use Amendment to accommodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2022-06-14T00:00:00.000",
+    "applicant": "ARC1 DESIGN",
+    "fromlud": "R-C2",
+    "proposedlud": "R-CG",
+    "address": "2201 32 ST SW",
+    "locationaddresses": "2201 32 ST SW",
+    "locationcount": "1",
+    "latitude": "51.03454615536991",
+    "longitude": "-114.13426159438778",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.134261594388,
+          51.03454615537
+        ]
+      ]
+    },
+    "completeddate": "2022-11-07T00:00:00.000",
+    "slack_channel_id": "C03KC7U38F9",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2022-0167",
+    "description": "Land Use Amendment to accommodate R-CG",
+    "statuscurrent": "Approved",
+    "applieddate": "2022-09-12T00:00:00.000",
+    "applicant": "NEW CENTURY DESIGN",
+    "fromlud": "R-C2",
+    "proposedlud": "R-CG",
+    "address": "3104 25 AV SW",
+    "locationaddresses": "3104 25 AV SW",
+    "locationcount": "1",
+    "latitude": "51.031713015359806",
+    "longitude": "-114.13177397924395",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.131773979244,
+          51.03171301536
+        ]
+      ]
+    },
+    "completeddate": "2023-02-13T00:00:00.000",
+    "slack_channel_id": "C04206F8K2A",
+    "slack_channel_archived_status": true
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2022-0185",
+    "description": "Land Use Amendment to accommodate MU-1",
+    "statuscurrent": "Under Review",
+    "applieddate": "2022-10-11T00:00:00.000",
+    "applicant": "K5 DESIGNS",
+    "fromlud": "M-C1",
+    "proposedlud": "MU-1",
+    "address": "2431 37 ST SW",
+    "locationaddresses": "2431 37 ST SW;3804 25 AV SW",
+    "locationcount": "2",
+    "latitude": "51.031922348475916",
+    "longitude": "-114.14147290940693",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.141472909407,
+          51.031922348476
+        ],
+        [
+          -114.141623515005,
+          51.031715797164
+        ]
+      ]
+    },
+    "completeddate": null,
+    "slack_channel_id": "C0460PQG63Y",
+    "slack_channel_archived_status": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2022-0209",
+    "description": "Land Use Amendment to accommodate MU-1",
+    "statuscurrent": "Submitted",
+    "applieddate": "2022-11-28T00:00:00.000",
+    "applicant": "CIVICWORKS",
+    "fromlud": "MU-1 f3.0h16",
+    "proposedlud": "MU-1",
+    "address": "2620 37 ST SW",
+    "locationaddresses": "2632 37 ST SW;2628 37 ST SW;2616 37 ST SW;2612 37 ST SW;2608 37 ST SW;2640 37 ST SW;2620 37 ST SW;2636 37 ST SW;2604 37 ST SW",
+    "locationcount": "9",
+    "latitude": "51.030483005555034",
+    "longitude": "-114.1409682609432",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.140968260943,
+          51.030483005555
+        ],
+        [
+          -114.140968263007,
+          51.030619973546
+        ],
+        [
+          -114.140969481259,
+          51.031063859465
+        ],
+        [
+          -114.140969796707,
+          51.031167843636
+        ],
+        [
+          -114.140970212217,
+          51.031304811111
+        ],
+        [
+          -114.140964977909,
+          51.030209073519
+        ],
+        [
+          -114.140968267137,
+          51.030893909517
+        ],
+        [
+          -114.140968244624,
+          51.030346037578
+        ],
+        [
+          -114.14097062773,
+          51.031441778584
+        ]
+      ]
+    },
+    "completeddate": null,
+    "slack_channel_id": "C04DU93Q9PS",
+    "slack_channel_archived_status": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2022-0216",
+    "description": "Land Use Amendment to accommodate MU-1",
+    "statuscurrent": "Submitted",
+    "applieddate": "2022-12-05T00:00:00.000",
+    "applicant": "O2 PLANNING AND DESIGN",
+    "fromlud": "M-C1",
+    "proposedlud": "MU-1",
+    "address": "2028 37 ST SW",
+    "locationaddresses": "2032 37 ST SW;2036 37 ST SW;2028 37 ST SW;2040 37 ST SW",
+    "locationcount": "4",
+    "latitude": "51.03513373035816",
+    "longitude": "-114.14096842686652",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.140968426867,
+          51.035133730358
+        ],
+        [
+          -114.14096843917,
+          51.034996807405
+        ],
+        [
+          -114.140968485753,
+          51.035294116478
+        ],
+        [
+          -114.140968422958,
+          51.034859884484
+        ]
+      ]
+    },
+    "completeddate": "2023-03-07T00:00:00.000",
+    "slack_channel_id": "C04DZBY7EN6",
+    "slack_channel_archived_status": false
+  }
+]

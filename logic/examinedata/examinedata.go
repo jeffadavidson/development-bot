@@ -7,6 +7,7 @@ import (
 
 	"github.com/jeffadavidson/development-bot/interactions/githubdiscussions"
 	"github.com/jeffadavidson/development-bot/objects/developmentpermit"
+	"github.com/jeffadavidson/development-bot/objects/rezoningapplications"
 	"github.com/jeffadavidson/development-bot/utilities/config"
 )
 
@@ -43,6 +44,22 @@ func DevelopmentPermits() error {
 	dpErr := developmentpermit.EvaluateDevelopmentPermits(repositoryId, developmentPermitCatagory.ID)
 	if dpErr != nil {
 		return dpErr
+	}
+
+	return nil
+}
+
+// RezoningApplication - Evaluates Rezoning Applicationss, determines actions to take
+func RezoningApplication() error {
+	// Get the catagoryId for 'development permits'
+	rezoningApplicationsCatagory := githubdiscussions.FindCatagory(repositoryCatagories, "Land Use Changes")
+	if rezoningApplicationsCatagory == nil {
+		return fmt.Errorf("Error: Unable to idetify the Github Discussion Catagory ID for 'Land Use Changes'")
+	}
+
+	raErr := rezoningapplications.EvaluateDevelopmentPermits(repositoryId, rezoningApplicationsCatagory.ID)
+	if raErr != nil {
+		return raErr
 	}
 
 	return nil
