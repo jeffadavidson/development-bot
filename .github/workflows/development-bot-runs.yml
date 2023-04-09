@@ -6,9 +6,6 @@ on:
   # Schedule 3PM UTC/9AM MT for just kgca-development/killarney-development main branch
   schedule:
     - cron: '00 16 * * *'
-  push:
-    branches:
-      - '*'
     repos:
       - jeffadavidson/development-bot
 
