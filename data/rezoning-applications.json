@@ -5,6 +5,7 @@
     "description": "Land Use Amendment to accommodate R-CG",
     "statuscurrent": "Submitted",
     "applieddate": "2022-04-11T00:00:00.000",
+    "completeddate": null,
     "applicant": "SAVOY DESIGNS",
     "fromlud": "DC",
     "proposedlud": "R-CG",
@@ -22,8 +23,7 @@
         ]
       ]
     },
-    "completeddate": null,
-    "slack_channel_id": "C03CFCJ72RY",
+    "github_discussion_id": null,
     "github_discussion_closed": false
   },
   {
@@ -32,6 +32,7 @@
     "description": "Land Use Amendment to accommodate R-CG",
     "statuscurrent": "Submitted",
     "applieddate": "2022-04-08T00:00:00.000",
+    "completeddate": null,
     "applicant": "SAVOY DESIGNS",
     "fromlud": "R-C2",
     "proposedlud": "R-CG",
@@ -49,8 +50,7 @@
         ]
       ]
     },
-    "completeddate": null,
-    "slack_channel_id": "C03CU1NRQ3B",
+    "github_discussion_id": null,
     "github_discussion_closed": false
   },
   {
@@ -59,6 +59,7 @@
     "description": "Land Use Amendment to accommodate R-CG",
     "statuscurrent": "Submitted",
     "applieddate": "2022-04-01T00:00:00.000",
+    "completeddate": null,
     "applicant": "SAVOY DESIGNS",
     "fromlud": "R-C2",
     "proposedlud": "R-CG",
@@ -76,8 +77,7 @@
         ]
       ]
     },
-    "completeddate": null,
-    "slack_channel_id": "C03CFCJBBD0",
+    "github_discussion_id": null,
     "github_discussion_closed": false
   },
   {
@@ -86,6 +86,7 @@
     "description": "Land Use Amendment to accommodate  DC (R-CG)",
     "statuscurrent": "Approved",
     "applieddate": "2022-02-28T00:00:00.000",
+    "completeddate": null,
     "applicant": "CIVICWORKS",
     "fromlud": "DC",
     "proposedlud": "R-CG",
@@ -103,8 +104,7 @@
         ]
       ]
     },
-    "completeddate": null,
-    "slack_channel_id": "C03CU1P0J1F",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -113,6 +113,7 @@
     "description": "Land Use Amendment to accomodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2022-01-07T00:00:00.000",
+    "completeddate": "2022-06-10T00:00:00.000",
     "applicant": "NEW CENTURY DESIGN",
     "fromlud": "R-C2",
     "proposedlud": "R-CG",
@@ -130,8 +131,7 @@
         ]
       ]
     },
-    "completeddate": "2022-06-10T00:00:00.000",
-    "slack_channel_id": "C03CCG6U18D",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -140,6 +140,7 @@
     "description": "Land Use Amendment to accomodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2021-12-20T00:00:00.000",
+    "completeddate": "2022-07-27T00:00:00.000",
     "applicant": "SAVOY DESIGNS",
     "fromlud": "R-C2",
     "proposedlud": "R-CG",
@@ -157,8 +158,7 @@
         ]
       ]
     },
-    "completeddate": "2022-07-27T00:00:00.000",
-    "slack_channel_id": "C03D55KM6PJ",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -167,6 +167,7 @@
     "description": "Land Use Amendment to accomodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2021-11-30T00:00:00.000",
+    "completeddate": "2022-05-12T00:00:00.000",
     "applicant": "JG DESIGN",
     "fromlud": "DC",
     "proposedlud": "R-CG",
@@ -184,8 +185,7 @@
         ]
       ]
     },
-    "completeddate": "2022-05-12T00:00:00.000",
-    "slack_channel_id": "C03CFCYLBMH",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -194,6 +194,7 @@
     "description": "Land Use Amendment to accommodate R-CG, with a minor map amendment to the Killarney/Glengarry ARP.",
     "statuscurrent": "Approved",
     "applieddate": "2021-10-14T00:00:00.000",
+    "completeddate": "2022-02-23T00:00:00.000",
     "applicant": "HORIZON LAND SURVEYS",
     "fromlud": "R-C2",
     "proposedlud": "R-CG",
@@ -211,7 +212,7 @@
         ]
       ]
     },
-    "completeddate": "2022-02-23T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -220,6 +221,7 @@
     "description": "Land Use Amendment to accomodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2021-10-04T00:00:00.000",
+    "completeddate": "2022-02-16T00:00:00.000",
     "applicant": null,
     "fromlud": "DC",
     "proposedlud": "R-CG",
@@ -237,7 +239,7 @@
         ]
       ]
     },
-    "completeddate": "2022-02-16T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -246,6 +248,7 @@
     "description": "Land Use Amendment to accomodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2021-09-21T00:00:00.000",
+    "completeddate": "2022-04-13T00:00:00.000",
     "applicant": "ARC1 DESIGN",
     "fromlud": "R-C2",
     "proposedlud": "R-CG",
@@ -263,7 +266,7 @@
         ]
       ]
     },
-    "completeddate": "2022-04-13T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -272,6 +275,7 @@
     "description": "Land Use Amendment to accomodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2021-09-21T00:00:00.000",
+    "completeddate": "2022-03-10T00:00:00.000",
     "applicant": "HORIZON LAND SURVEYS",
     "fromlud": "DC",
     "proposedlud": "R-CG",
@@ -289,7 +293,7 @@
         ]
       ]
     },
-    "completeddate": "2022-03-10T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -298,6 +302,7 @@
     "description": "Land Use Amendment to accomodate R-C2",
     "statuscurrent": "Approved",
     "applieddate": "2021-09-17T00:00:00.000",
+    "completeddate": "2022-03-10T00:00:00.000",
     "applicant": null,
     "fromlud": "DC",
     "proposedlud": "R-C2",
@@ -315,7 +320,7 @@
         ]
       ]
     },
-    "completeddate": "2022-03-10T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -324,6 +329,7 @@
     "description": "Land Use Amendment to accommodate M-U1 District",
     "statuscurrent": "Approved",
     "applieddate": "2021-09-01T00:00:00.000",
+    "completeddate": "2022-03-31T00:00:00.000",
     "applicant": "POSTAL PROJECTS COMPANY INC.",
     "fromlud": "M-C1",
     "proposedlud": "MU-1",
@@ -345,7 +351,7 @@
         ]
       ]
     },
-    "completeddate": "2022-03-31T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -354,6 +360,7 @@
     "description": "Land Use Amendment to accomodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2021-05-11T00:00:00.000",
+    "completeddate": "2021-11-19T00:00:00.000",
     "applicant": null,
     "fromlud": "R-C2",
     "proposedlud": "R-CG",
@@ -371,7 +378,7 @@
         ]
       ]
     },
-    "completeddate": "2021-11-19T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -380,6 +387,7 @@
     "description": "Land Use Amendment to accomodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2021-04-12T00:00:00.000",
+    "completeddate": "2021-09-17T00:00:00.000",
     "applicant": "HORIZON LAND SURVEYS",
     "fromlud": "R-C2",
     "proposedlud": "R-CG",
@@ -397,7 +405,7 @@
         ]
       ]
     },
-    "completeddate": "2021-09-17T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -406,6 +414,7 @@
     "description": "Land Use Amendment to accomodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2021-04-12T00:00:00.000",
+    "completeddate": "2022-03-10T00:00:00.000",
     "applicant": "LES MARCH",
     "fromlud": "R-C2",
     "proposedlud": "R-CG",
@@ -423,7 +432,7 @@
         ]
       ]
     },
-    "completeddate": "2022-03-10T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -432,6 +441,7 @@
     "description": null,
     "statuscurrent": "Approved",
     "applieddate": "2021-03-12T00:00:00.000",
+    "completeddate": "2021-08-11T00:00:00.000",
     "applicant": "O2 PLANNING AND DESIGN",
     "fromlud": "S-R;S-R",
     "proposedlud": "MU-1;MU-1",
@@ -453,7 +463,7 @@
         ]
       ]
     },
-    "completeddate": "2021-08-11T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -462,6 +472,7 @@
     "description": "Land Use Amendment to accomodate MU-1",
     "statuscurrent": "Approved",
     "applieddate": "2021-02-10T00:00:00.000",
+    "completeddate": "2021-09-20T00:00:00.000",
     "applicant": "CIVICWORKS",
     "fromlud": "M-C2",
     "proposedlud": "MU-1",
@@ -479,7 +490,7 @@
         ]
       ]
     },
-    "completeddate": "2021-09-20T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -488,6 +499,7 @@
     "description": "Land Use Amendment to accomodate R-C2",
     "statuscurrent": "Approved",
     "applieddate": "2021-01-29T00:00:00.000",
+    "completeddate": "2021-11-19T00:00:00.000",
     "applicant": null,
     "fromlud": "DC",
     "proposedlud": "R-C2",
@@ -505,7 +517,7 @@
         ]
       ]
     },
-    "completeddate": "2021-11-19T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -514,6 +526,7 @@
     "description": "Land Use Amendment to accomodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2021-01-20T00:00:00.000",
+    "completeddate": "2021-09-17T00:00:00.000",
     "applicant": null,
     "fromlud": "DC",
     "proposedlud": "R-C2",
@@ -535,7 +548,7 @@
         ]
       ]
     },
-    "completeddate": "2021-09-17T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -544,6 +557,7 @@
     "description": "Land Use Amendment to accomodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2020-12-09T00:00:00.000",
+    "completeddate": "2022-01-18T00:00:00.000",
     "applicant": "K5 DESIGNS",
     "fromlud": "DC",
     "proposedlud": "R-CG",
@@ -561,7 +575,7 @@
         ]
       ]
     },
-    "completeddate": "2022-01-18T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -570,6 +584,7 @@
     "description": "Land Use Amendment to accomodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2020-08-18T00:00:00.000",
+    "completeddate": "2020-12-17T00:00:00.000",
     "applicant": "NEW CENTURY DESIGN",
     "fromlud": "R-C2",
     "proposedlud": "R-CG",
@@ -587,7 +602,7 @@
         ]
       ]
     },
-    "completeddate": "2020-12-17T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -596,6 +611,7 @@
     "description": "Land Use Amendment to accomodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2020-06-24T00:00:00.000",
+    "completeddate": "2020-12-17T00:00:00.000",
     "applicant": "THAD",
     "fromlud": "DC",
     "proposedlud": "R-CG",
@@ -613,7 +629,7 @@
         ]
       ]
     },
-    "completeddate": "2020-12-17T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -622,6 +638,7 @@
     "description": "Land Use Amendment to accomodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2020-01-16T00:00:00.000",
+    "completeddate": "2020-05-26T00:00:00.000",
     "applicant": "SINCLAIR SIGNATURE HOMES",
     "fromlud": "DC",
     "proposedlud": "R-CG",
@@ -639,7 +656,7 @@
         ]
       ]
     },
-    "completeddate": "2020-05-26T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -648,6 +665,7 @@
     "description": "Land Use Amendment to accomodate C-N1",
     "statuscurrent": "Approved",
     "applieddate": "2020-01-08T00:00:00.000",
+    "completeddate": "2020-04-28T00:00:00.000",
     "applicant": "CLEM LAU ARCHITECTS \u0026 DESIGNERS",
     "fromlud": "DC",
     "proposedlud": "C-N1",
@@ -665,7 +683,7 @@
         ]
       ]
     },
-    "completeddate": "2020-04-28T00:00:00.000",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -674,6 +692,7 @@
     "description": "Land Use Amendment to accommodate R-C2",
     "statuscurrent": "Approved",
     "applieddate": "2022-05-17T00:00:00.000",
+    "completeddate": null,
     "applicant": null,
     "fromlud": "DC",
     "proposedlud": "R-C2",
@@ -691,8 +710,7 @@
         ]
       ]
     },
-    "completeddate": null,
-    "slack_channel_id": "C03G5S7H1V0",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -701,6 +719,7 @@
     "description": "Land Use Amendment to accommodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2022-06-14T00:00:00.000",
+    "completeddate": "2022-11-07T00:00:00.000",
     "applicant": "ARC1 DESIGN",
     "fromlud": "R-C2",
     "proposedlud": "R-CG",
@@ -718,8 +737,7 @@
         ]
       ]
     },
-    "completeddate": "2022-11-07T00:00:00.000",
-    "slack_channel_id": "C03KC7U38F9",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -728,6 +746,7 @@
     "description": "Land Use Amendment to accommodate R-CG",
     "statuscurrent": "Approved",
     "applieddate": "2022-09-12T00:00:00.000",
+    "completeddate": "2023-02-13T00:00:00.000",
     "applicant": "NEW CENTURY DESIGN",
     "fromlud": "R-C2",
     "proposedlud": "R-CG",
@@ -745,8 +764,7 @@
         ]
       ]
     },
-    "completeddate": "2023-02-13T00:00:00.000",
-    "slack_channel_id": "C04206F8K2A",
+    "github_discussion_id": null,
     "github_discussion_closed": true
   },
   {
@@ -755,6 +773,7 @@
     "description": "Land Use Amendment to accommodate MU-1",
     "statuscurrent": "Under Review",
     "applieddate": "2022-10-11T00:00:00.000",
+    "completeddate": null,
     "applicant": "K5 DESIGNS",
     "fromlud": "M-C1",
     "proposedlud": "MU-1",
@@ -776,8 +795,7 @@
         ]
       ]
     },
-    "completeddate": null,
-    "slack_channel_id": "C0460PQG63Y",
+    "github_discussion_id": null,
     "github_discussion_closed": false
   },
   {
@@ -786,6 +804,7 @@
     "description": "Land Use Amendment to accommodate MU-1",
     "statuscurrent": "Submitted",
     "applieddate": "2022-11-28T00:00:00.000",
+    "completeddate": null,
     "applicant": "CIVICWORKS",
     "fromlud": "MU-1 f3.0h16",
     "proposedlud": "MU-1",
@@ -835,8 +854,7 @@
         ]
       ]
     },
-    "completeddate": null,
-    "slack_channel_id": "C04DU93Q9PS",
+    "github_discussion_id": null,
     "github_discussion_closed": false
   },
   {
@@ -845,6 +863,7 @@
     "description": "Land Use Amendment to accommodate MU-1",
     "statuscurrent": "Submitted",
     "applieddate": "2022-12-05T00:00:00.000",
+    "completeddate": "2023-03-07T00:00:00.000",
     "applicant": "O2 PLANNING AND DESIGN",
     "fromlud": "M-C1",
     "proposedlud": "MU-1",
@@ -874,8 +893,34 @@
         ]
       ]
     },
-    "completeddate": "2023-03-07T00:00:00.000",
-    "slack_channel_id": "C04DZBY7EN6",
+    "github_discussion_id": null,
+    "github_discussion_closed": false
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2023-0084",
+    "description": "Land Use Amendment to accommodate R-CG",
+    "statuscurrent": "Under Review",
+    "applieddate": "2023-04-03T00:00:00.000",
+    "completeddate": null,
+    "applicant": "CIVICWORKS",
+    "fromlud": "R-C2",
+    "proposedlud": "R-CG",
+    "address": "2639 28 ST SW",
+    "locationaddresses": "2639 28 ST SW",
+    "locationcount": "1",
+    "latitude": "51.03021485020591",
+    "longitude": "-114.1282787918704",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.12827879187,
+          51.030214850206
+        ]
+      ]
+    },
+    "github_discussion_id": "D_kwDOJSUT984ATUA3",
     "github_discussion_closed": false
   }
 ]
