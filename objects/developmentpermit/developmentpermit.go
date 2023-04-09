@@ -167,8 +167,6 @@ func EvaluateDevelopmentPermits(repositoryId string, catagoryId string) error {
 
 			storedDevelopmentPermits = upsertDevelopmentPermit(storedDevelopmentPermits, *updatedDP)
 		}
-
-		return nil
 	}
 
 	// Save Development Permits
@@ -257,7 +255,7 @@ func getDevelopmentPermitActions(fetchedDevelopmentPermits []DevelopmentPermit, 
 
 			// Skip if discussion closed
 			if storedDP.GithubDiscussionClosed {
-				fileActions = append(fileActions, fileaction.FileAction{PermitNum: fetchedDP.PermitNum, Action: "SKIP"})
+				//fileActions = append(fileActions, fileaction.FileAction{PermitNum: fetchedDP.PermitNum, Action: "SKIP"})
 				continue
 			}
 
