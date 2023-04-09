@@ -6,8 +6,6 @@ on:
   # Schedule 3PM UTC/9AM MT for just kgca-development/killarney-development main branch
   schedule:
     - cron: '00 16 * * *'
-    repos:
-      - jeffadavidson/development-bot
 
 # Need to grant actions token write permissions to be able to push to git repo
 permissions:
@@ -15,6 +13,8 @@ permissions:
 
 jobs:
   test:
+    # Onjy run if in the proper repository
+    if: (github.event_name == 'schedule' && github.repository == 'jeffadavidson/development-bot') || (github.event_name != 'schedule')
     name: Execute Script
     runs-on: ubuntu-latest
     env:
