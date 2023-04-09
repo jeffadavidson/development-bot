@@ -3,7 +3,6 @@ package config
 import (
 	"fmt"
 
-	"github.com/jeffadavidson/development-bot/utilities/exit"
 	"github.com/jeffadavidson/development-bot/utilities/fileio"
 
 	"gopkg.in/yaml.v3"
@@ -36,11 +35,13 @@ type BoundingBox struct {
 
 var Config DevBot
 
-func ManualInit() {
+func ManualInit() error {
 	loaderr := loadConfig(configFilePath)
 	if loaderr != nil {
-		exit.ExitError(loaderr)
+		return loaderr
 	}
+
+	return nil
 }
 
 func loadConfig(filePath string) error {

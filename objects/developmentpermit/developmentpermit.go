@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/jeffadavidson/development-bot/interactions/calgaryopendata"
+	"github.com/jeffadavidson/development-bot/interactions/githubdiscussions"
 	"github.com/jeffadavidson/development-bot/objects/fileaction"
 	"github.com/jeffadavidson/development-bot/utilities/fileio"
 	"github.com/jeffadavidson/development-bot/utilities/toolbox"
@@ -112,8 +113,91 @@ func (dp DevelopmentPermit) CreateInformationMessage() string {
 	return message
 }
 
-// getDevelopmentPermits - Gets fetched development permits, gets stored development permits
-func GetDevelopmentPermits() ([]DevelopmentPermit, []DevelopmentPermit, error) {
+func EvaluateDevelopmentPermits(repositoryId string, catagoryId string) error {
+	fetchedDevelopmentPermits, storedDevelopmentPermits, err := loadDevelopmentPermits()
+	if err != nil {
+		return err
+	}
+	fileActions := getDevelopmentPermitActions(fetchedDevelopmentPermits, storedDevelopmentPermits)
+
+	// Execut Actions for Development Permits
+	for _, val := range fileActions {
+		//Create
+		if val.Action == "CREATE" {
+			fmt.Printf("Development Permit %s:\n\tCreating Discussion...\n", val.PermitNum)
+
+			//Find or create the discussion
+			discussionId, err := findOrCreateDevelopmentPermitDiscussion(val.PermitNum, repositoryId, catagoryId, val.Message)
+			if err != nil {
+				fmt.Printf("\tFailed to create discussion. Error: %s\n", err.Error())
+			}
+			fmt.Printf("\tDiscussion Created!")
+
+			//Append or Update change to stored DPs to be saved
+			createdDP := findDevelopmentPermitByPermitNum(fetchedDevelopmentPermits, val.PermitNum)
+			createdDP.GithubDiscussionId = &discussionId
+			storedDevelopmentPermits = upsertDevelopmentPermit(storedDevelopmentPermits, *createdDP)
+		}
+
+		//Update
+		if val.Action == "UPDATE" || val.Action == "CLOSE" {
+			fmt.Printf("Development Permit %s:\n\tUpdating Discussion...\n", val.PermitNum)
+			storedDP := findDevelopmentPermitByPermitNum(storedDevelopmentPermits, val.PermitNum)
+			_, updateErr := githubdiscussions.AddDiscussionComment(*storedDP.GithubDiscussionId, val.Message)
+			if updateErr != nil {
+				fmt.Printf("\tFailed to comment on discussion. Error: %s\n", updateErr.Error())
+				continue
+			}
+
+			//Append or Update change to stored DPs to be saved
+			updatedDP := findDevelopmentPermitByPermitNum(fetchedDevelopmentPermits, val.PermitNum)
+			updatedDP.GithubDiscussionId = storedDP.GithubDiscussionId
+			updatedDP.GithubDiscussionClosed = storedDP.GithubDiscussionClosed
+
+			if val.Action == "CLOSE" {
+				fmt.Printf("\tClosing Discussion\n")
+
+				closeErr := githubdiscussions.CloseDiscussion(*storedDP.GithubDiscussionId)
+				if closeErr != nil {
+					fmt.Printf("\tFailed to close discussion. Error: %s\n", closeErr.Error())
+					continue
+				}
+				updatedDP.GithubDiscussionClosed = true
+			}
+
+			storedDevelopmentPermits = upsertDevelopmentPermit(storedDevelopmentPermits, *updatedDP)
+		}
+
+		return nil
+	}
+
+	// Save Development Permits
+	saveDevelopmentPermits(storedDevelopmentPermits)
+
+	return nil
+}
+
+// findOrCreateDevelopmentPermitDiscussion - attempts to find a discussion by its title, if not found creates it
+func findOrCreateDevelopmentPermitDiscussion(permitNum, repositoryId, developmentPermitCategoryId, message string) (string, error) {
+	discussionId, err := githubdiscussions.FindDiscussionByTitle(permitNum)
+	if err != nil {
+		fmt.Println(err.Error())
+		return "", err
+	}
+
+	// Only create a discussion if it does not already exist
+	if discussionId == "" {
+		discussionId, err = githubdiscussions.CreateDiscussion(repositoryId, developmentPermitCategoryId, permitNum, message)
+		if err != nil {
+			fmt.Println(err.Error())
+			return "", err
+		}
+	}
+	return discussionId, nil
+}
+
+// loadDevelopmentPermits - Gets fetched development permits, gets stored development permits
+func loadDevelopmentPermits() ([]DevelopmentPermit, []DevelopmentPermit, error) {
 	// Load existing development permits
 	storedDevelopmentPermitsBytes, loadErr := fileio.GetFileContents("./data/development-permits.json")
 	if loadErr != nil {
@@ -137,7 +221,7 @@ func GetDevelopmentPermits() ([]DevelopmentPermit, []DevelopmentPermit, error) {
 	return fetchedDevelopmentPermits, storedDevelopmentPermits, nil
 }
 
-func SaveDevelopmentPermits(permits []DevelopmentPermit) error {
+func saveDevelopmentPermits(permits []DevelopmentPermit) error {
 	// Encode permits as JSON
 	permitsBytes, encodeErr := json.MarshalIndent(permits, "", "  ")
 	if encodeErr != nil {
@@ -151,18 +235,8 @@ func SaveDevelopmentPermits(permits []DevelopmentPermit) error {
 	return nil
 }
 
-func parseDevelopmentPermits(developmentPermitByte []byte) ([]DevelopmentPermit, error) {
-	var developmentPermits []DevelopmentPermit
-	err := json.Unmarshal(developmentPermitByte, &developmentPermits)
-	if err != nil {
-		return developmentPermits, fmt.Errorf("failed to parse development permit json. Error: %s", err.Error())
-	}
-
-	return developmentPermits, nil
-}
-
-// FindDevelopmentPermit - finds a development permit in a list of permits
-func FindDevelopmentPermit(searchSlice []DevelopmentPermit, permitNum string) *DevelopmentPermit {
+// findDevelopmentPermitByPermitNum - finds a development permit in a list of permits
+func findDevelopmentPermitByPermitNum(searchSlice []DevelopmentPermit, permitNum string) *DevelopmentPermit {
 	foundIndex := slices.IndexFunc(searchSlice, func(c DevelopmentPermit) bool { return c.PermitNum == permitNum })
 	if foundIndex == -1 {
 		return nil
@@ -172,10 +246,10 @@ func FindDevelopmentPermit(searchSlice []DevelopmentPermit, permitNum string) *D
 }
 
 // getDevelopmentPermitActions - For a list of fetched and stored development permits compares permits and gets a list of actions to execute
-func GetDevelopmentPermitActions(fetchedDevelopmentPermits []DevelopmentPermit, storedDevelopmentPermits []DevelopmentPermit) []fileaction.FileAction {
+func getDevelopmentPermitActions(fetchedDevelopmentPermits []DevelopmentPermit, storedDevelopmentPermits []DevelopmentPermit) []fileaction.FileAction {
 	var fileActions []fileaction.FileAction
 	for _, fetchedDP := range fetchedDevelopmentPermits {
-		storedDpPtr := FindDevelopmentPermit(storedDevelopmentPermits, fetchedDP.PermitNum)
+		storedDpPtr := findDevelopmentPermitByPermitNum(storedDevelopmentPermits, fetchedDP.PermitNum)
 		if storedDpPtr == nil {
 			fileActions = append(fileActions, fileaction.FileAction{PermitNum: fetchedDP.PermitNum, Action: "CREATE", Message: fetchedDP.CreateInformationMessage()})
 		} else {
@@ -218,19 +292,28 @@ func GetDevelopmentPermitActions(fetchedDevelopmentPermits []DevelopmentPermit, 
 	return fileActions
 }
 
-// isDevelopmentPermitClosed - Checks if a development permit is ready to be closed
-func isDevelopmentPermitClosed(fetchedDP DevelopmentPermit, storedDP DevelopmentPermit) (bool, string) {
-	toClose := false
-	closeMessage := ""
-
-	// Check for close
-	close_statuses := [3]string{"Released", "Cancelled", "Cancelled - Pending Refund"}
-	if toolbox.SliceContains([]string(close_statuses[:]), fetchedDP.StatusCurrent) {
-		toClose = true
-		closeMessage = fmt.Sprintf("Closing file as it is in status '%s'", fetchedDP.StatusCurrent)
+// upsertDevelopmentPermit - updates or inserts a development permet to a list of permits
+func upsertDevelopmentPermit(permits []DevelopmentPermit, thePermit DevelopmentPermit) []DevelopmentPermit {
+	//Search the permits for the index of the permit to add. If found update, if not append
+	foundIndex := slices.IndexFunc(permits, func(c DevelopmentPermit) bool { return c.PermitNum == thePermit.PermitNum })
+	if foundIndex != -1 {
+		permits[foundIndex] = thePermit
+	} else {
+		permits = append(permits, thePermit)
 	}
 
-	return toClose, closeMessage
+	return permits
+}
+
+// parseDevelopmentPermits - parses a json byte array into objects
+func parseDevelopmentPermits(developmentPermitByte []byte) ([]DevelopmentPermit, error) {
+	var developmentPermits []DevelopmentPermit
+	err := json.Unmarshal(developmentPermitByte, &developmentPermits)
+	if err != nil {
+		return developmentPermits, fmt.Errorf("failed to parse development permit json. Error: %s", err.Error())
+	}
+
+	return developmentPermits, nil
 }
 
 // getDevelopmentPermitUpdates - Checks if a development permit needs updates
@@ -256,15 +339,17 @@ func getDevelopmentPermitUpdates(fetchedDP DevelopmentPermit, storedDP Developme
 	return hasUpdate, updateMessage
 }
 
-// UpsertDevelopmentPermit - updates or inserts a development permet to a list of permits
-func UpsertDevelopmentPermit(permits []DevelopmentPermit, thePermit DevelopmentPermit) []DevelopmentPermit {
-	//Search the permits for the index of the permit to add. If found update, if not append
-	foundIndex := slices.IndexFunc(permits, func(c DevelopmentPermit) bool { return c.PermitNum == thePermit.PermitNum })
-	if foundIndex != -1 {
-		permits[foundIndex] = thePermit
-	} else {
-		permits = append(permits, thePermit)
+// isDevelopmentPermitClosed - Checks if a development permit is ready to be closed
+func isDevelopmentPermitClosed(fetchedDP DevelopmentPermit, storedDP DevelopmentPermit) (bool, string) {
+	toClose := false
+	closeMessage := ""
+
+	// Check for close
+	close_statuses := [3]string{"Released", "Cancelled", "Cancelled - Pending Refund"}
+	if toolbox.SliceContains([]string(close_statuses[:]), fetchedDP.StatusCurrent) {
+		toClose = true
+		closeMessage = fmt.Sprintf("Closing file as it is in status '%s'", fetchedDP.StatusCurrent)
 	}
 
-	return permits
+	return toClose, closeMessage
 }
