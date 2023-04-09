@@ -119,11 +119,11 @@ func EvaluateDevelopmentPermits(repositoryID string, categoryID string) error {
 		if val.Action == "UPDATE" || val.Action == "CLOSE" {
 			fmt.Printf("Rezoning Application %s:\n\tUpdating Discussion...\n", val.PermitNum)
 			storedRA := findRezoningApplicationByID(storedPermits, val.PermitNum)
-			// _, updateErr := githubdiscussions.AddDiscussionComment(*storedRA.GithubDiscussionId, val.Message)
-			// if updateErr != nil {
-			// 	fmt.Printf("\tFailed to comment on discussion. Error: %s\n", updateErr.Error())
-			// 	continue
-			// }
+			_, updateErr := githubdiscussions.AddDiscussionComment(*storedRA.GithubDiscussionId, val.Message)
+			if updateErr != nil {
+				fmt.Printf("\tFailed to comment on discussion. Error: %s\n", updateErr.Error())
+				continue
+			}
 
 			// Append or update change to stored RAs to be saved
 			updatedRA := findRezoningApplicationByID(fetchedPermits, val.PermitNum)
@@ -133,18 +133,18 @@ func EvaluateDevelopmentPermits(repositoryID string, categoryID string) error {
 			if val.Action == "CLOSE" {
 				fmt.Printf("\tClosing Discussion\n")
 
-				// closeErr := githubdiscussions.CloseDiscussion(*storedRA.GithubDiscussionId)
-				// if closeErr != nil {
-				// 	fmt.Printf("\tFailed to close discussion. Error: %s\n", closeErr.Error())
-				// 	continue
-				// }
+				closeErr := githubdiscussions.CloseDiscussion(*storedRA.GithubDiscussionId)
+				if closeErr != nil {
+					fmt.Printf("\tFailed to close discussion. Error: %s\n", closeErr.Error())
+					continue
+				}
 				updatedRA.GithubDiscussionClosed = true
 			}
 
 			storedPermits = upsertRezoningApplication(storedPermits, *updatedRA)
 
 		}
-		//break
+		break
 	}
 
 	// Save Rezoning Applications
