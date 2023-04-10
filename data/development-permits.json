@@ -12087,7 +12087,7 @@
     "decisionby": "Development Authority",
     "releasedate": null,
     "github_discussion_id": "D_kwDOJSUT984ATT1z",
-    "github_discussion_closed": false
+    "github_discussion_closed": true
   },
   {
     "point": {
@@ -12478,5 +12478,44 @@
     "releasedate": "2023-03-06T00:00:00.000",
     "github_discussion_id": "D_kwDOJSUT984ATT9k",
     "github_discussion_closed": true
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.13424996589983,
+        51.02407143285602
+      ]
+    },
+    "permitnum": "DP2023-02165",
+    "address": "3431 32 ST SW",
+    "applicant": "ELEVATED INDEPENDENCE OCCUPATIONAL THERAPY",
+    "category": "Home Occupation Class 2",
+    "description": "TEMPORARY USE: HOME OCCUPATION - CLASS 2 (PERSONAL HOME HEALTH CARE PROVIDER)",
+    "proposedusecode": "C1730",
+    "proposedusedescription": "HOME OCCUPATION - CLASS 2",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-C1",
+    "landusedistrictdescription": "Residential - Contextual One Dwelling",
+    "statuscurrent": "New",
+    "applieddate": "2023-04-09T00:00:00.000",
+    "communitycode": "RUT",
+    "communityname": "RUTLAND PARK",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.024",
+    "longitude": "-114.134",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "3431 32 ST SW;3431 32 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.13425,51.0240714],[-114.1343784,51.024067]]}",
+    "locationswkt": "MULTIPOINT ((-114.13424996589983 51.02407143285602),(-114.13437841281032 51.02406700609466))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "github_discussion_id": "D_kwDOJSUT984ATVLf",
+    "github_discussion_closed": false
   }
 ]
