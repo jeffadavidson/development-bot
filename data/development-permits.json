@@ -11945,13 +11945,13 @@
     "address": "#2 2412 24A ST SW",
     "applicant": "TRICOR DESIGN GROUP",
     "category": "Residential - Multi-Family",
-    "description": "NEW: MULTI-RESIDENTIAL DEVELOPMENT (1 BUILDING)",
+    "description": "REVISION: MULTI-RESIDENTIAL DEVELOPMENT (LANDSCAPE)",
     "proposedusecode": "C2050",
     "proposedusedescription": "MULTI-RESIDENTIAL DEVELOPMENT",
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "M-CG d72",
     "landusedistrictdescription": "Multi-Residential - Contextual Grade-Oriented  ",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "In Circulation",
     "applieddate": "2023-03-23T00:00:00.000",
     "communitycode": "RIC",
     "communityname": "RICHMOND",
@@ -11961,9 +11961,9 @@
     "longitude": "-114.119",
     "locationcount": "5",
     "locationtypes": "Titled Parcel;Building;Building;Building;Building",
-    "locationaddresses": "2412 24A ST SW;#2 2410 24A ST SW;#1 2410 24A ST SW;#2 2412 24A ST SW;#1 2412 24A ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1191665,51.0327024],[-114.118815,51.0327416],[-114.1191205,51.0327334],[-114.1188145,51.0327149],[-114.1191201,51.0327218]]}",
-    "locationswkt": "MULTIPOINT ((-114.11916647720606 51.032702361999135),(-114.11881497279201 51.03274157361059),(-114.11912050689222 51.03273341453164),(-114.11881453400262 51.032714937410766),(-114.1191200920882 51.032721764231106))",
+    "locationaddresses": "2412 24A ST SW;#1 2410 24A ST SW;#2 2412 24A ST SW;#2 2410 24A ST SW;#1 2412 24A ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1191665,51.0327024],[-114.1191205,51.0327334],[-114.1188145,51.0327149],[-114.118815,51.0327416],[-114.1191201,51.0327218]]}",
+    "locationswkt": "MULTIPOINT ((-114.11916647720606 51.032702361999135),(-114.11912050689222 51.03273341453164),(-114.11881453400262 51.032714937410766),(-114.11881497279201 51.03274157361059),(-114.1191200920882 51.032721764231106))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -12009,7 +12009,7 @@
     "decisionby": null,
     "releasedate": null,
     "github_discussion_id": "D_kwDOJSUT984ATT1x",
-    "github_discussion_closed": false
+    "github_discussion_closed": true
   },
   {
     "point": {
