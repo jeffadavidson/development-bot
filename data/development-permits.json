@@ -11678,7 +11678,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "MU-1 f3.3h19",
     "landusedistrictdescription": "Mixed Use - General",
-    "statuscurrent": "Hold",
+    "statuscurrent": "In Circulation",
     "applieddate": "2023-04-03T00:00:00.000",
     "communitycode": "RIC",
     "communityname": "RICHMOND",
@@ -12595,5 +12595,44 @@
     "releasedate": null,
     "github_discussion_id": "D_kwDOJSUT984ATZG-",
     "github_discussion_closed": true
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.1282787918704,
+        51.03021485020591
+      ]
+    },
+    "permitnum": "DP2023-02307",
+    "address": "2639 28 ST SW",
+    "applicant": "ANDISON RESIDENTIAL DESIGN",
+    "category": "Residential - Multi-Family",
+    "description": "NEW: ROWHOUSE BUILDING (1 BUILDING)",
+    "proposedusecode": "C9999",
+    "proposedusedescription": "OTHER",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-C2",
+    "landusedistrictdescription": "Residential - Contextual One/Two Dwelling",
+    "statuscurrent": "Application Received",
+    "applieddate": "2023-04-14T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.030",
+    "longitude": "-114.128",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "2639 28 ST SW;2639 28 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1282788,51.0302149],[-114.1284191,51.0302287]]}",
+    "locationswkt": "MULTIPOINT ((-114.1282787918704 51.03021485020591),(-114.12841911104867 51.03022873810502))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "github_discussion_id": "D_kwDOJSUT984ATa9O",
+    "github_discussion_closed": false
   }
 ]
