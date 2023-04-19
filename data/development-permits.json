@@ -12263,7 +12263,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-C2",
     "landusedistrictdescription": "Residential - Contextual One/Two Dwelling",
-    "statuscurrent": "Hold",
+    "statuscurrent": "In Circulation",
     "applieddate": "2023-01-24T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -12536,7 +12536,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Application Received",
+    "statuscurrent": "Under Review",
     "applieddate": "2023-04-11T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -12653,7 +12653,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "DC",
     "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
-    "statuscurrent": "Application Received",
+    "statuscurrent": "Under Review",
     "applieddate": "2023-04-17T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -12672,6 +12672,6 @@
     "decisionby": null,
     "releasedate": null,
     "github_discussion_id": "D_kwDOJSUT984ATdtt",
-    "github_discussion_closed": false
+    "github_discussion_closed": true
   }
 ]
