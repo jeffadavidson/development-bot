@@ -215,10 +215,16 @@ func saveDevelopmentPermits(permits []DevelopmentPermit) error {
 		return encodeErr
 	}
 
-	writeErr := fileio.WriteFileContents("./data/development-permits.json", permitsBytes)
-	if writeErr != nil {
-		return writeErr
+	if config.Config.RunMode == "PRODUCTION" {
+		writeErr := fileio.WriteFileContents("./data/development-permits.json", permitsBytes)
+		if writeErr != nil {
+			return writeErr
+		}
+	} else {
+		fmt.Println("Run Mode: " + config.Config.RunMode)
+		fmt.Println("Would save development permists")
 	}
+
 	return nil
 }
 
