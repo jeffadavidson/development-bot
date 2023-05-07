@@ -23,7 +23,7 @@
         ]
       ]
     },
-    "github_discussion_id": null,
+    "github_discussion_id": "D_kwDOJSUT984ATumx",
     "github_discussion_closed": false
   },
   {
@@ -50,7 +50,7 @@
         ]
       ]
     },
-    "github_discussion_id": null,
+    "github_discussion_id": "D_kwDOJSUT984ATumy",
     "github_discussion_closed": false
   },
   {
@@ -77,7 +77,7 @@
         ]
       ]
     },
-    "github_discussion_id": null,
+    "github_discussion_id": "D_kwDOJSUT984ATumz",
     "github_discussion_closed": false
   },
   {
@@ -86,25 +86,25 @@
     "description": "Land Use Amendment to accommodate  DC (R-CG)",
     "statuscurrent": "Approved",
     "applieddate": "2022-02-28T00:00:00.000",
-    "completeddate": null,
+    "completeddate": "2022-09-16T00:00:00.000",
     "applicant": "CIVICWORKS",
     "fromlud": "DC",
     "proposedlud": "R-CG",
-    "address": "2734 RICHMOND RD SW",
-    "locationaddresses": "2734 RICHMOND RD SW",
+    "address": "2728 RICHMOND RD SW",
+    "locationaddresses": "2728 RICHMOND RD SW",
     "locationcount": "1",
-    "latitude": "51.02709880672344",
-    "longitude": "-114.12624247111276",
+    "latitude": "51.02717999357988",
+    "longitude": "-114.12598395889664",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
         [
-          -114.126242471113,
-          51.027098806723
+          -114.125983958897,
+          51.02717999358
         ]
       ]
     },
-    "github_discussion_id": null,
+    "github_discussion_id": "D_kwDOJSUT984ATum0",
     "github_discussion_closed": true
   },
   {
@@ -120,18 +120,18 @@
     "address": "3216 26 AV SW",
     "locationaddresses": "3216 26 AV SW",
     "locationcount": "1",
-    "latitude": "51.03016071671609",
-    "longitude": "-114.1335251526079",
+    "latitude": "51.030160800740525",
+    "longitude": "-114.13345159104892",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
         [
-          -114.133525152608,
-          51.030160716716
+          -114.133451591049,
+          51.030160800741
         ]
       ]
     },
-    "github_discussion_id": null,
+    "github_discussion_id": "D_kwDOJSUT984ATum_",
     "github_discussion_closed": true
   },
   {
@@ -692,25 +692,25 @@
     "description": "Land Use Amendment to accommodate R-C2",
     "statuscurrent": "Approved",
     "applieddate": "2022-05-17T00:00:00.000",
-    "completeddate": null,
+    "completeddate": "2022-09-16T00:00:00.000",
     "applicant": null,
     "fromlud": "DC",
     "proposedlud": "R-C2",
     "address": "2811 26 ST SW",
     "locationaddresses": "2811 26 ST SW",
     "locationcount": "1",
-    "latitude": "51.02962478641848",
-    "longitude": "-114.12390720085581",
+    "latitude": "51.029636415130526",
+    "longitude": "-114.12391100970166",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
         [
-          -114.123907200856,
-          51.029624786418
+          -114.123911009702,
+          51.029636415131
         ]
       ]
     },
-    "github_discussion_id": null,
+    "github_discussion_id": "D_kwDOJSUT984ATumw",
     "github_discussion_closed": true
   },
   {
@@ -737,7 +737,7 @@
         ]
       ]
     },
-    "github_discussion_id": null,
+    "github_discussion_id": "D_kwDOJSUT984ATumv",
     "github_discussion_closed": true
   },
   {
@@ -764,7 +764,7 @@
         ]
       ]
     },
-    "github_discussion_id": null,
+    "github_discussion_id": "D_kwDOJSUT984ATumu",
     "github_discussion_closed": true
   },
   {
@@ -795,27 +795,43 @@
         ]
       ]
     },
-    "github_discussion_id": null,
+    "github_discussion_id": "D_kwDOJSUT984ATumt",
     "github_discussion_closed": false
   },
   {
     "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2022-0209",
-    "description": "Land Use Amendment to accommodate MU-1",
-    "statuscurrent": "Submitted",
+    "description": "Land Use Amendment to accommodate MU-2",
+    "statuscurrent": "Under Review",
     "applieddate": "2022-11-28T00:00:00.000",
     "completeddate": null,
     "applicant": "CIVICWORKS",
     "fromlud": "MU-1 f3.0h16",
-    "proposedlud": "MU-1",
+    "proposedlud": "MU-2",
     "address": "2620 37 ST SW",
-    "locationaddresses": "2632 37 ST SW;2628 37 ST SW;2616 37 ST SW;2612 37 ST SW;2608 37 ST SW;2640 37 ST SW;2620 37 ST SW;2636 37 ST SW;2604 37 ST SW",
+    "locationaddresses": "2640 37 ST SW;2620 37 ST SW;2612 37 ST SW;2636 37 ST SW;2632 37 ST SW;2628 37 ST SW;2616 37 ST SW;2608 37 ST SW;2604 37 ST SW",
     "locationcount": "9",
-    "latitude": "51.030483005555034",
-    "longitude": "-114.1409682609432",
+    "latitude": "51.030209073519316",
+    "longitude": "-114.14096497790892",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
+        [
+          -114.140964977909,
+          51.030209073519
+        ],
+        [
+          -114.140968267137,
+          51.030893909517
+        ],
+        [
+          -114.140969796707,
+          51.031167843636
+        ],
+        [
+          -114.140968244624,
+          51.030346037578
+        ],
         [
           -114.140968260943,
           51.030483005555
@@ -829,24 +845,8 @@
           51.031063859465
         ],
         [
-          -114.140969796707,
-          51.031167843636
-        ],
-        [
           -114.140970212217,
           51.031304811111
-        ],
-        [
-          -114.140964977909,
-          51.030209073519
-        ],
-        [
-          -114.140968267137,
-          51.030893909517
-        ],
-        [
-          -114.140968244624,
-          51.030346037578
         ],
         [
           -114.14097062773,
@@ -854,7 +854,7 @@
         ]
       ]
     },
-    "github_discussion_id": null,
+    "github_discussion_id": "D_kwDOJSUT984ATums",
     "github_discussion_closed": false
   },
   {
@@ -868,21 +868,13 @@
     "fromlud": "M-C1",
     "proposedlud": "MU-1",
     "address": "2028 37 ST SW",
-    "locationaddresses": "2032 37 ST SW;2036 37 ST SW;2028 37 ST SW;2040 37 ST SW",
+    "locationaddresses": "2028 37 ST SW;2040 37 ST SW;2032 37 ST SW;2036 37 ST SW",
     "locationcount": "4",
-    "latitude": "51.03513373035816",
-    "longitude": "-114.14096842686652",
+    "latitude": "51.03529411647804",
+    "longitude": "-114.14096848575258",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
-        [
-          -114.140968426867,
-          51.035133730358
-        ],
-        [
-          -114.14096843917,
-          51.034996807405
-        ],
         [
           -114.140968485753,
           51.035294116478
@@ -890,10 +882,18 @@
         [
           -114.140968422958,
           51.034859884484
+        ],
+        [
+          -114.140968426867,
+          51.035133730358
+        ],
+        [
+          -114.14096843917,
+          51.034996807405
         ]
       ]
     },
-    "github_discussion_id": null,
+    "github_discussion_id": "D_kwDOJSUT984ATumr",
     "github_discussion_closed": false
   },
   {
@@ -927,7 +927,7 @@
     "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2023-0078",
     "description": "Land Use Amendment to accommodate H-GO",
-    "statuscurrent": "Submitted",
+    "statuscurrent": "Under Review",
     "applieddate": "2023-03-30T00:00:00.000",
     "completeddate": null,
     "applicant": "HORIZON LAND SURVEYS",
@@ -985,7 +985,7 @@
     "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2023-0076",
     "description": "Land Use Amendment to accommodate R-CG",
-    "statuscurrent": "Submitted",
+    "statuscurrent": "Under Review",
     "applieddate": "2023-03-27T00:00:00.000",
     "completeddate": null,
     "applicant": "SAVOY DESIGNS",
@@ -1093,7 +1093,7 @@
     "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2023-0044",
     "description": "3207 29 St SW- H-GO townhouses and suites",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "Submitted",
     "applieddate": "2023-02-22T00:00:00.000",
     "completeddate": null,
     "applicant": "CIVICWORKS",
@@ -1120,7 +1120,7 @@
     "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2023-0042",
     "description": "Land Use Amendment to accommodate H-GO",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "Submitted",
     "applieddate": "2023-02-22T00:00:00.000",
     "completeddate": null,
     "applicant": "CIVICWORKS",
@@ -1147,7 +1147,7 @@
     "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2023-0028",
     "description": "Land Use Amendment to accommodate R-CG",
-    "statuscurrent": "Submitted",
+    "statuscurrent": "Under Review",
     "applieddate": "2023-01-31T00:00:00.000",
     "completeddate": null,
     "applicant": "NEW CENTURY DESIGN",
