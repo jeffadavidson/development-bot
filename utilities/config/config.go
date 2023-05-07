@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/jeffadavidson/development-bot/utilities/fileio"
 
@@ -41,6 +42,16 @@ func ManualInit() error {
 		return loaderr
 	}
 
+	// Check for environmental variable overrides
+	runmode := os.Getenv("DEVELOPMENT_BOT_RUNMODE")
+	if runmode != "" {
+		Config.RunMode = runmode
+	}
+
+	fmt.Println("CONFIG")
+	fmt.Println(Config.RunMode)
+
+	fmt.Println("CONFIG")
 	return nil
 }
 
