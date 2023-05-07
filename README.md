@@ -63,7 +63,6 @@ The bot loads a files from persistent storage, the directory `data/`. This shoul
 
 * Add labels to discussions
 * Trigger issue create and assign to Jeff for LOCs in <some> state
-* Will Failed Actions Alert me?
 * Archive/Unarchive on Hold permits
 * v2: Community bots
   * Water main breaks

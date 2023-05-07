@@ -245,7 +245,7 @@ func getRezoningApplicationActions(fetchedRezoningApplications []RezoningApplica
 	for _, fetchedRA := range fetchedRezoningApplications {
 		storedRAPtr := findRezoningApplicationByID(storedPermits, fetchedRA.PermitNum)
 
-		if storedRAPtr.GithubDiscussionId == nil {
+		if storedRAPtr == nil || storedRAPtr.GithubDiscussionId == nil {
 			fileActions = append(fileActions, fileaction.FileAction{PermitNum: fetchedRA.PermitNum, Action: "CREATE", Message: fetchedRA.CreateInformationMessage()})
 		} else {
 			storedRA := *storedRAPtr

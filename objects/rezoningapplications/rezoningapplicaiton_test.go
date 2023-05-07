@@ -134,7 +134,7 @@ func Test_RezoningApplication_NoUpdate(t *testing.T) {
 					[-114.123, 51.123]
 				]
 			},
-			"github_discussion_id": null,
+			"github_discussion_id": "12345",
 			"github_discussion_closed": false
 		}
 	]
@@ -162,7 +162,7 @@ func Test_RezoningApplication_NoUpdate(t *testing.T) {
 					[-114.123, 51.123]
 				]
 			},
-			"github_discussion_id": null,
+			"github_discussion_id": "12345",
 			"github_discussion_closed": false
 		}
 	]
@@ -202,7 +202,7 @@ func Test_RezoningApplication_StatusUpdate(t *testing.T) {
 					[-114.123, 51.123]
 				]
 			},
-			"github_discussion_id": null,
+			"github_discussion_id": "12345",
 			"github_discussion_closed": false
 		}
 	]
@@ -230,7 +230,7 @@ func Test_RezoningApplication_StatusUpdate(t *testing.T) {
 					[-114.123, 51.123]
 				]
 			},
-			"github_discussion_id": null,
+			"github_discussion_id": "12345",
 			"github_discussion_closed": false
 		}
 	]
@@ -278,7 +278,7 @@ func Test_RezoningApplication_StatusUpdateApproved(t *testing.T) {
 					[-114.123, 51.123]
 				]
 			},
-			"github_discussion_id": null,
+			"github_discussion_id": "12345",
 			"github_discussion_closed": false
 		}
 	]
@@ -306,7 +306,7 @@ func Test_RezoningApplication_StatusUpdateApproved(t *testing.T) {
 					[-114.123, 51.123]
 				]
 			},
-			"github_discussion_id": null,
+			"github_discussion_id": "12345",
 			"github_discussion_closed": false
 		}
 	]
