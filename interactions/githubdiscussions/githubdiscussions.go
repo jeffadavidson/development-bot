@@ -6,6 +6,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/jeffadavidson/development-bot/utilities/config"
 	"github.com/shurcooL/githubv4"
 	"golang.org/x/exp/slices"
 	"golang.org/x/oauth2"
@@ -198,12 +199,18 @@ func createDiscussion(repositoryID, categoryID, title, body string) (string, err
 		Body:         githubv4.String(body),
 	}
 
-	err := githubClient.Mutate(context.Background(), &mutation, input, nil)
-	if err != nil {
-		return "", fmt.Errorf("failed to create discussion: %w", err)
+	if config.Config.RunMode == "PRODUCTION" {
+		err := githubClient.Mutate(context.Background(), &mutation, input, nil)
+		if err != nil {
+			return "", fmt.Errorf("failed to create discussion: %w", err)
+		}
+		return mutation.CreateDiscussion.Discussion.ID, nil
+	} else {
+		fmt.Println("Run Mode: " + config.Config.RunMode)
+		fmt.Println("Would Create Discussion:" + title)
 	}
 
-	return mutation.CreateDiscussion.Discussion.ID, nil
+	return "", nil
 }
 
 func AddDiscussionComment(discussionID, body string) (string, error) {
@@ -220,12 +227,19 @@ func AddDiscussionComment(discussionID, body string) (string, error) {
 		Body:         githubv4.String(body),
 	}
 
-	err := githubClient.Mutate(context.Background(), &mutation, input, nil)
-	if err != nil {
-		return "", fmt.Errorf("failed to add comment to discussion: %w", err)
+	if config.Config.RunMode == "PRODUCTION" {
+		err := githubClient.Mutate(context.Background(), &mutation, input, nil)
+		if err != nil {
+			return "", fmt.Errorf("failed to add comment to discussion: %w", err)
+		}
+
+		return mutation.AddDiscussionComment.Comment.ID, nil
+	} else {
+		fmt.Println("Run Mode: " + config.Config.RunMode)
+		fmt.Println("Would Add Comment Discussion:")
 	}
 
-	return mutation.AddDiscussionComment.Comment.ID, nil
+	return "", nil
 }
 
 func CloseDiscussion(discussionID string) error {
@@ -245,9 +259,14 @@ func CloseDiscussion(discussionID string) error {
 		DiscussionID: discussionID,
 	}
 
-	err := githubClient.Mutate(context.Background(), &mutation, input, nil)
-	if err != nil {
-		return fmt.Errorf("failed to close discussion: %w", err)
+	if config.Config.RunMode == "PRODUCTION" {
+		err := githubClient.Mutate(context.Background(), &mutation, input, nil)
+		if err != nil {
+			return fmt.Errorf("failed to close discussion: %w", err)
+		}
+	} else {
+		fmt.Println("Run Mode: " + config.Config.RunMode)
+		fmt.Println("Would close discussion:")
 	}
 
 	return nil
