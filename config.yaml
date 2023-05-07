@@ -1,4 +1,4 @@
-runmode: DEVELOPMENT
+runmode: PRODUCTION
 github-discussion:
   owner: kgca-development
   repository: killarney-development
