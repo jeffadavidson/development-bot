@@ -24,9 +24,10 @@ We care about Development Permits and Land Use Redesignations in Killarney/Gleng
 
 ### Setting Environment Variable
 
-| Variable Name                  | Purpose                                                             | Allowed Values             |
-| ------------------------------ | ------------------------------------------------------------------- | -------------------------- |
-| `DEVELOPMENT_BOT_GITHUB_PAT`   | The development bot GitHub PAT with Repo and Discussion Permissions | A Valid GitHub Classic PAT |
+| Variable Name                  | Purpose                                                             | Allowed Values              |
+| ------------------------------ | ------------------------------------------------------------------- | --------------------------- |
+| `DEVELOPMENT_BOT_GITHUB_PAT`   | The development bot GitHub PAT with Repo and Discussion Permissions | A Valid GitHub Classic PAT  |
+| `DEVELOPMENT_BOT_RUNMODE`      | The development bot run mode. Will actions actually be performed    | `PRODUCTION`, `DEVELOPMENT` |
 
 ### Running on local machine:
 
@@ -36,7 +37,9 @@ Unix:
 
 ```Shell
 export DEVELOPMENT_BOT_GITHUB_PAT=<somekey>
+export DEVELOPMENT_BOT_RUNMODE=DEVELOPMENT
 printenv DEVELOPMENT_BOT_GITHUB_PAT
+printenv DEVELOPMENT_BOT_RUNMODE
 
 go test -v ./...
 go run main.go
@@ -46,7 +49,9 @@ Windows:
 
 ```Shell
 $env:DEVELOPMENT_BOT_GITHUB_PAT="<token>"
+$env:DEVELOPMENT_BOT_RUNMODE="DEVELOPMENT"
 $env:DEVELOPMENT_BOT_GITHUB_PAT
+$env:DEVELOPMENT_BOT_RUNMODE
 go test -v ./...
 go run main.go
 ```
