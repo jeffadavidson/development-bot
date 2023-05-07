@@ -127,6 +127,7 @@ func EvaluateDevelopmentPermits(repositoryID string, categoryID string) error {
 		if val.Action == "UPDATE" || val.Action == "CLOSE" {
 			fmt.Printf("Rezoning Application %s:\n\tUpdating Discussion...\n", val.PermitNum)
 			storedRA := findRezoningApplicationByID(storedPermits, val.PermitNum)
+
 			_, updateErr := githubdiscussions.AddDiscussionComment(*storedRA.GithubDiscussionId, val.Message)
 			if updateErr != nil {
 				fmt.Printf("\tFailed to comment on discussion. Error: %s\n", updateErr.Error())
@@ -193,10 +194,16 @@ func saveRezoningApplications(applications []RezoningApplication) error {
 		return encodeErr
 	}
 
-	writeErr := fileio.WriteFileContents("./data/rezoning-applications.json", applicationsBytes)
-	if writeErr != nil {
-		return writeErr
+	if config.Config.RunMode == "PRODUCTION" {
+		writeErr := fileio.WriteFileContents("./data/rezoning-applications.json", applicationsBytes)
+		if writeErr != nil {
+			return writeErr
+		}
+	} else {
+		fmt.Println("Run Mode: " + config.Config.RunMode)
+		fmt.Println("Would save rezoning applications")
 	}
+
 	return nil
 }
 
@@ -237,7 +244,8 @@ func getRezoningApplicationActions(fetchedRezoningApplications []RezoningApplica
 	var fileActions []fileaction.FileAction
 	for _, fetchedRA := range fetchedRezoningApplications {
 		storedRAPtr := findRezoningApplicationByID(storedPermits, fetchedRA.PermitNum)
-		if storedRAPtr == nil {
+
+		if storedRAPtr.GithubDiscussionId == nil {
 			fileActions = append(fileActions, fileaction.FileAction{PermitNum: fetchedRA.PermitNum, Action: "CREATE", Message: fetchedRA.CreateInformationMessage()})
 		} else {
 			storedRA := *storedRAPtr
