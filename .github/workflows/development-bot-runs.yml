@@ -14,7 +14,7 @@ permissions:
 jobs:
   test:
     # Onjy run if in the proper repository
-    if: (github.event_name == 'schedule' && github.repository == 'jeffadavidson/development-bot') || (github.event_name != 'schedule')
+    if: (github.event_name == 'schedule' && github.repository == 'kgca-development/development-bot') || (github.event_name != 'schedule')
     name: Execute Script
     runs-on: ubuntu-latest
     env:
