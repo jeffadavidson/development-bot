@@ -48,10 +48,6 @@ func ManualInit() error {
 		Config.RunMode = runmode
 	}
 
-	fmt.Println("CONFIG")
-	fmt.Println(Config.RunMode)
-
-	fmt.Println("CONFIG")
 	return nil
 }
 
