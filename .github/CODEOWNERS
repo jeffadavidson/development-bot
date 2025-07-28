@@ -1,0 +1,24 @@
+# Global Owners
+# These users are the default owners for everything in the repository
+# Unless a later match takes precedence, they will be requested for review when someone opens a pull request
+
+* @jeffadavidson
+
+# Critical Configuration Files
+# Extra protection for configuration and deployment files
+config.yaml @jeffadavidson
+.github/ @jeffadavidson
+*.yml @jeffadavidson
+*.yaml @jeffadavidson
+
+# Core RSS Feed Logic
+# Ensure changes to core functionality are reviewed carefully
+interactions/rssfeed/ @jeffadavidson
+logic/examinedata/ @jeffadavidson
+
+# Documentation
+# Maintain quality of project documentation
+README.md @jeffadavidson
+CONTRIBUTING.md @jeffadavidson
+CODE_OF_CONDUCT.md @jeffadavidson
+LICENSE @jeffadavidson 
