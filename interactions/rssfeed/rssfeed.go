@@ -25,16 +25,21 @@ type Channel struct {
 }
 
 type Item struct {
-	Title          string   `xml:"title"`
-	Link           string   `xml:"link"`
-	Description    string   `xml:"description"`
-	ContentEncoded string   `xml:"content:encoded,omitempty"`
-	PubDate        string   `xml:"pubDate"`
-	GUID           string   `xml:"guid"`
-	Category       string   `xml:"category,omitempty"`
-	Author         string   `xml:"author,omitempty"`
-	Source         string   `xml:"source,omitempty"`
-	Comments       string   `xml:"comments,omitempty"`
+	Title          string        `xml:"title"`
+	Link           string        `xml:"link"`
+	Description    CDataText     `xml:"description"`
+	ContentEncoded CDataText     `xml:"content:encoded,omitempty"`
+	PubDate        string        `xml:"pubDate"`
+	GUID           string        `xml:"guid"`
+	Category       string        `xml:"category,omitempty"`
+	Author         string        `xml:"author,omitempty"`
+	Source         string        `xml:"source,omitempty"`
+	Comments       string        `xml:"comments,omitempty"`
+}
+
+// CDataText wraps text in CDATA sections for proper RSS compatibility
+type CDataText struct {
+	Text string `xml:",cdata"`
 }
 
 // CreateRSSFeed creates a new RSS feed with the given title and description
@@ -58,8 +63,8 @@ func (rss *RSS) AddItem(title, description, link, guid string, pubDate time.Time
 	item := Item{
 		Title:          title,
 		Link:           link,
-		Description:    description,
-		ContentEncoded: contentEncoded,
+		Description:    CDataText{Text: description},
+		ContentEncoded: CDataText{Text: contentEncoded},
 		PubDate:        pubDate.Format(time.RFC1123Z),
 		GUID:           guid,
 		Category:       category,
@@ -111,8 +116,8 @@ func (rss *RSS) UpdateItem(title, description, link, guid string, pubDate time.T
 	if item != nil {
 		// Update existing item
 		item.Title = title
-		item.Description = description
-		item.ContentEncoded = contentEncoded
+		item.Description = CDataText{Text: description}
+		item.ContentEncoded = CDataText{Text: contentEncoded}
 		item.Link = link
 		item.PubDate = pubDate.Format(time.RFC1123Z)
 		item.Category = category

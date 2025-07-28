@@ -275,11 +275,10 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 				source := "City of Calgary Open Data"
 				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
 				
-				// Use full content and create summary
+				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := ra.generateRSSDescription()
-				summary := fmt.Sprintf("Rezoning application for %s - Status: %s", *ra.Address, ra.StatusCurrent)
 				
-				rss.UpdateItem(title, summary, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
+				rss.UpdateItem(title, fullContent, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
 				fmt.Printf("\tUpdated RSS feed!\n")
 			}
 		}
@@ -316,11 +315,10 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 				source := "City of Calgary Open Data"
 				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
 				
-				// Use full content and create summary
+				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := ra.generateRSSDescription()
-				summary := fmt.Sprintf("Rezoning application for %s - Status: %s", *ra.Address, ra.StatusCurrent)
 				
-				rss.UpdateItem(title, summary, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
+				rss.UpdateItem(title, fullContent, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
 				fmt.Printf("\tUpdated in RSS feed!\n")
 			}
 		}
