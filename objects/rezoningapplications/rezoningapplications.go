@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/jeffadavidson/development-bot/interactions/calgaryopendata"
-	"github.com/jeffadavidson/development-bot/interactions/githubdiscussions"
+	"github.com/jeffadavidson/development-bot/interactions/rssfeed"
 	"github.com/jeffadavidson/development-bot/objects/fileaction"
 	"github.com/jeffadavidson/development-bot/utilities/config"
 	"github.com/jeffadavidson/development-bot/utilities/fileio"
@@ -32,8 +32,6 @@ type RezoningApplication struct {
 	Latitude               *string    `json:"latitude"`
 	Longitude              *string    `json:"longitude"`
 	Multipoint             Multipoint `json:"multipoint"`
-	GithubDiscussionId     *string    `json:"github_discussion_id"`
-	GithubDiscussionClosed bool       `json:"github_discussion_closed"`
 }
 
 type Multipoint struct {
@@ -89,70 +87,83 @@ func (ra RezoningApplication) CreateInformationMessage() string {
 	return message
 }
 
-// EvaluateDevelopmentPermits - Evaluates development permits for rezoning applications
-func EvaluateDevelopmentPermits(repositoryID string, categoryID string) error {
-	// Load development permits
+// EvaluateRezoningApplications - Evaluates rezoning applications and generates RSS feed
+func EvaluateRezoningApplications() error {
+	// Load rezoning applications
 	fetchedPermits, storedPermits, err := loadRezoningApplications()
 	if err != nil {
-		return fmt.Errorf("failed to load development permits: %v", err)
+		return fmt.Errorf("failed to load rezoning applications: %v", err)
 	}
 	fileActions := getRezoningApplicationActions(fetchedPermits, storedPermits)
 
-	//Update Manually Closed Applications
-	storedPermits, closeErr := updateManuallyClosedRezoneingApplications(storedPermits)
-	if closeErr != nil {
-		return closeErr
+	// Load or create RSS feed
+	rss, err := rssfeed.GetOrCreateRSSFeed(
+		"./data/rezoning-applications.xml",
+		"Killarney Rezoning Applications",
+		"Land use rezoning application updates for the Killarney neighborhood in Calgary",
+		"https://calgary.ca/rezoning-applications",
+	)
+	if err != nil {
+		return fmt.Errorf("failed to load RSS feed: %v", err)
 	}
 
-	// Execute actions for Rezoning Applications
+	// Process actions for Rezoning Applications
 	for _, val := range fileActions {
-		// Create
 		if val.Action == "CREATE" {
-			fmt.Printf("Rezoning Application %s:\n\tCreating Discussion...\n", val.PermitNum)
-
-			// Find or create the discussion
-			discussionId, err := githubdiscussions.FindOrCreateDiscussion(val.PermitNum, repositoryID, categoryID, val.Message)
-			if err != nil {
-				fmt.Printf("\tFailed to create discussion. Error: %s\n", err.Error())
-			}
-			fmt.Printf("\tDiscussion Created!\n")
-
-			//Append or update change to stored RAs to be saved
-			createdRA := findRezoningApplicationByID(fetchedPermits, val.PermitNum)
-			createdRA.GithubDiscussionId = &discussionId
-			storedPermits = upsertRezoningApplication(storedPermits, *createdRA)
-		}
-
-		// Update
-		if val.Action == "UPDATE" || val.Action == "CLOSE" {
-			fmt.Printf("Rezoning Application %s:\n\tUpdating Discussion...\n", val.PermitNum)
-			storedRA := findRezoningApplicationByID(storedPermits, val.PermitNum)
-
-			_, updateErr := githubdiscussions.AddDiscussionComment(*storedRA.GithubDiscussionId, val.Message)
-			if updateErr != nil {
-				fmt.Printf("\tFailed to comment on discussion. Error: %s\n", updateErr.Error())
-				continue
-			}
-
-			// Append or update change to stored RAs to be saved
-			updatedRA := findRezoningApplicationByID(fetchedPermits, val.PermitNum)
-			updatedRA.GithubDiscussionId = storedRA.GithubDiscussionId
-			updatedRA.GithubDiscussionClosed = storedRA.GithubDiscussionClosed
-
-			if val.Action == "CLOSE" {
-				fmt.Printf("\tClosing Discussion\n")
-
-				closeErr := githubdiscussions.CloseDiscussion(*storedRA.GithubDiscussionId)
-				if closeErr != nil {
-					fmt.Printf("\tFailed to close discussion. Error: %s\n", closeErr.Error())
-					continue
+			fmt.Printf("Rezoning Application %s:\n\tAdding to RSS feed...\n", val.PermitNum)
+			
+			// Add new RSS item
+			ra := findRezoningApplicationByID(fetchedPermits, val.PermitNum)
+			if ra != nil {
+				pubDate := time.Now()
+				if ra.AppliedDate != nil {
+					if parsedDate, parseErr := time.Parse("2006-01-02T15:04:05.000", *ra.AppliedDate); parseErr == nil {
+						pubDate = parsedDate
+					}
 				}
-				updatedRA.GithubDiscussionClosed = true
+				
+				title := fmt.Sprintf("New Rezoning Application: %s", val.PermitNum)
+				if ra.Address != nil {
+					title = fmt.Sprintf("New Rezoning Application: %s - %s", val.PermitNum, *ra.Address)
+				}
+				
+				rss.AddItem(title, val.Message, "", val.PermitNum, pubDate)
+				fmt.Printf("\tAdded to RSS feed!\n")
 			}
-
-			storedPermits = upsertRezoningApplication(storedPermits, *updatedRA)
-
 		}
+
+		if val.Action == "UPDATE" || val.Action == "CLOSE" {
+			fmt.Printf("Rezoning Application %s:\n\tUpdating RSS feed...\n", val.PermitNum)
+			
+			// Update existing RSS item
+			ra := findRezoningApplicationByID(fetchedPermits, val.PermitNum)
+			if ra != nil {
+				pubDate := time.Now()
+				
+				title := fmt.Sprintf("Rezoning Application Update: %s", val.PermitNum)
+				if ra.Address != nil {
+					title = fmt.Sprintf("Rezoning Application Update: %s - %s", val.PermitNum, *ra.Address)
+				}
+				
+				if val.Action == "CLOSE" {
+					title = fmt.Sprintf("Rezoning Application Closed: %s", val.PermitNum)
+					if ra.Address != nil {
+						title = fmt.Sprintf("Rezoning Application Closed: %s - %s", val.PermitNum, *ra.Address)
+					}
+				}
+				
+				rss.UpdateItem(title, val.Message, "", val.PermitNum, pubDate)
+				fmt.Printf("\tUpdated in RSS feed!\n")
+			}
+		}
+	}
+
+	// Trim RSS feed to keep only recent items
+	rss.TrimToMaxItems(100)
+
+	// Save RSS feed
+	if err := rssfeed.SaveRSSFeed(rss, "./data/rezoning-applications.xml"); err != nil {
+		return fmt.Errorf("failed to save RSS feed: %v", err)
 	}
 
 	// Save Rezoning Applications
@@ -194,14 +205,9 @@ func saveRezoningApplications(applications []RezoningApplication) error {
 		return encodeErr
 	}
 
-	if config.Config.RunMode == "PRODUCTION" {
-		writeErr := fileio.WriteFileContents("./data/rezoning-applications.json", applicationsBytes)
-		if writeErr != nil {
-			return writeErr
-		}
-	} else {
-		fmt.Println("Run Mode: " + config.Config.RunMode)
-		fmt.Println("Would save rezoning applications")
+	writeErr := fileio.WriteFileContents("./data/rezoning-applications.json", applicationsBytes)
+	if writeErr != nil {
+		return writeErr
 	}
 
 	return nil
@@ -217,27 +223,7 @@ func findRezoningApplicationByID(searchSlice []RezoningApplication, id string) *
 	return &searchSlice[foundIndex]
 }
 
-// updateManuallyClosedRezoneingApplications - Gets recently closed permits and makes them as closed
-func updateManuallyClosedRezoneingApplications(storedDevelopmentPermits []RezoningApplication) ([]RezoningApplication, error) {
-	//Update Manually Closed Permits
-	recentlyClosed, findErr := githubdiscussions.FindRecentlyClosedDiscussions(config.Config.GithubDiscussions.Owner, config.Config.GithubDiscussions.Repository)
-	if findErr != nil {
-		return storedDevelopmentPermits, findErr
-	}
-	for _, closedPermit := range recentlyClosed {
-		//Get DP by discussion id
-		if strings.Contains(closedPermit, "LOC") {
-			storedDp := findRezoningApplicationByID(storedDevelopmentPermits, closedPermit)
-			if storedDp != nil && storedDp.GithubDiscussionClosed == false {
-				fmt.Printf("Land Use Change '%s' was manually closed. Marking as closed...\n", closedPermit)
-				storedDp.GithubDiscussionClosed = true
-				storedDevelopmentPermits = upsertRezoningApplication(storedDevelopmentPermits, *storedDp)
-			}
-		}
-	}
 
-	return storedDevelopmentPermits, nil
-}
 
 // getRezoningApplicationActions - Compares fetched and stored rezoning applications and returns a list of actions to execute
 func getRezoningApplicationActions(fetchedRezoningApplications []RezoningApplication, storedPermits []RezoningApplication) []fileaction.FileAction {
@@ -245,16 +231,11 @@ func getRezoningApplicationActions(fetchedRezoningApplications []RezoningApplica
 	for _, fetchedRA := range fetchedRezoningApplications {
 		storedRAPtr := findRezoningApplicationByID(storedPermits, fetchedRA.PermitNum)
 
-		if storedRAPtr == nil || storedRAPtr.GithubDiscussionId == nil {
+		if storedRAPtr == nil {
+			// New application - create RSS entry
 			fileActions = append(fileActions, fileaction.FileAction{PermitNum: fetchedRA.PermitNum, Action: "CREATE", Message: fetchedRA.CreateInformationMessage()})
 		} else {
 			storedRA := *storedRAPtr
-
-			// Skip if discussion closed
-			if storedRA.GithubDiscussionClosed {
-				//fileActions = append(fileActions, fileaction.FileAction{PermitNum: fetchedDP.PermitNum, Action: "SKIP"})
-				continue
-			}
 
 			hasUpdate, updateMessage := getRezoningApplicationUpdates(fetchedRA, storedRA)
 			toClose, closeMessage := isRezoningApplicationClosed(fetchedRA, storedRA)
