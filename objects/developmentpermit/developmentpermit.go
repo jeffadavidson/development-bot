@@ -197,9 +197,17 @@ func (dp *DevelopmentPermit) generateRSSDescription() string {
 	html.WriteString(fmt.Sprintf("<h3>🏗️ DEVELOPMENT PERMIT %s</h3>", dp.PermitNum))
 	html.WriteString(fmt.Sprintf("<p><strong>Status:</strong> %s</p>", dp.StatusCurrent))
 	
-	// Address and location details
+	// Address and location details with map links
 	if dp.Address != nil {
 		html.WriteString(fmt.Sprintf("<p>📍 <strong>Address:</strong> %s</p>", *dp.Address))
+		
+		// Map links right under address
+		html.WriteString("<ul style='margin-top: 5px; margin-bottom: 15px;'>")
+		googleMapsURL := fmt.Sprintf("https://maps.google.com/?q=%s", url.QueryEscape(fmt.Sprintf("%s, Calgary, Alberta", *dp.Address)))
+		html.WriteString(fmt.Sprintf("<li>📍 <a href='%s' target='_blank'>View on Google Maps</a></li>", googleMapsURL))
+		dmapURL := "https://developmentmap.calgary.ca/?find=" + dp.PermitNum
+		html.WriteString(fmt.Sprintf("<li>📋 <a href='%s' target='_blank'>View on Calgary Development Map</a></li>", dmapURL))
+		html.WriteString("</ul>")
 	}
 	
 	if dp.CommunityName != nil {
@@ -266,27 +274,7 @@ func (dp *DevelopmentPermit) generateRSSDescription() string {
 		html.WriteString("</div>")
 	}
 	
-	// Location coordinates (if available)
-	if dp.Latitude != nil && dp.Longitude != nil {
-		html.WriteString(fmt.Sprintf("<p>📍 <strong>Coordinates:</strong> %s, %s</p>", *dp.Latitude, *dp.Longitude))
-	}
-	
-	// Clickable links section
-	html.WriteString("<hr/>")
-	html.WriteString("<h4>🗺️ MAPS & DETAILS:</h4>")
-	html.WriteString("<ul>")
-	
-	// Google Maps link using address
-	if dp.Address != nil {
-		googleMapsURL := fmt.Sprintf("https://maps.google.com/?q=%s", url.QueryEscape(fmt.Sprintf("%s, Calgary, Alberta", *dp.Address)))
-		html.WriteString(fmt.Sprintf("<li>📍 <a href='%s' target='_blank'>View on Google Maps</a></li>", googleMapsURL))
-	}
-	
-	// Development Map link
-	dmapURL := "https://developmentmap.calgary.ca/?find=" + dp.PermitNum
-	html.WriteString(fmt.Sprintf("<li>📋 <a href='%s' target='_blank'>View on Calgary Development Map</a></li>", dmapURL))
-	
-	html.WriteString("</ul>")
+
 	
 	return html.String()
 }
@@ -313,11 +301,10 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 					}
 				}
 
-				// Generate status-based title
-				status := strings.Title(strings.ToLower(dp.StatusCurrent))
-				title := fmt.Sprintf("🏗️ Development Permit (%s): %s", status, val.PermitNum)
+				// Generate consistent title without status
+				title := fmt.Sprintf("🏗️ Development Permit: %s", val.PermitNum)
 				if dp.Address != nil {
-					title = fmt.Sprintf("🏗️ Development Permit (%s): %s - %s", status, val.PermitNum, *dp.Address)
+					title = fmt.Sprintf("🏗️ Development Permit: %s - %s", val.PermitNum, *dp.Address)
 				}
 
 				link := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s", val.PermitNum)
@@ -353,11 +340,10 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 					}
 				}
 
-				// Generate status-based title (always show current status)
-				status := strings.Title(strings.ToLower(dp.StatusCurrent))
-				title := fmt.Sprintf("🏗️ Development Permit (%s): %s", status, val.PermitNum)
+				// Generate consistent title without status
+				title := fmt.Sprintf("🏗️ Development Permit: %s", val.PermitNum)
 				if dp.Address != nil {
-					title = fmt.Sprintf("🏗️ Development Permit (%s): %s - %s", status, val.PermitNum, *dp.Address)
+					title = fmt.Sprintf("🏗️ Development Permit: %s - %s", val.PermitNum, *dp.Address)
 				}
 
 				link := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s", val.PermitNum)
