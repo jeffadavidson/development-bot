@@ -148,6 +148,91 @@ func (ra RezoningApplication) CreateInformationMessage() string {
 	return message
 }
 
+// generateRSSDescription creates a self-contained HTML description for RSS feeds
+func (ra *RezoningApplication) generateRSSDescription() string {
+	var html strings.Builder
+	
+	// Header with application number and status
+	html.WriteString(fmt.Sprintf("<h3>🏛️ REZONING APPLICATION %s</h3>", ra.PermitNum))
+	html.WriteString(fmt.Sprintf("<p><strong>Status:</strong> %s</p>", ra.StatusCurrent))
+	
+	// Address and location details
+	if ra.Address != nil {
+		html.WriteString(fmt.Sprintf("<p>📍 <strong>Address:</strong> %s</p>", *ra.Address))
+	}
+	
+	// Project details
+	if ra.Description != nil {
+		html.WriteString(fmt.Sprintf("<p>🏗️ <strong>Project:</strong> %s</p>", *ra.Description))
+	}
+	
+	// Land use change details
+	html.WriteString("<div style='background-color: #fff3cd; padding: 10px; margin: 10px 0; border-left: 4px solid #ffc107;'>")
+	html.WriteString("<h4>🏘️ LAND USE CHANGE:</h4>")
+	html.WriteString("<ul>")
+	
+	if ra.FromLud != nil {
+		html.WriteString(fmt.Sprintf("<li><strong>From:</strong> %s</li>", *ra.FromLud))
+	}
+	
+	if ra.ProposedLud != nil {
+		html.WriteString(fmt.Sprintf("<li><strong>To:</strong> %s</li>", *ra.ProposedLud))
+	}
+	html.WriteString("</ul></div>")
+	
+	// Applicant information
+	if ra.Applicant != nil {
+		html.WriteString(fmt.Sprintf("<p>👤 <strong>Applicant:</strong> %s</p>", *ra.Applicant))
+	}
+	
+	// Timeline information
+	html.WriteString("<h4>📅 TIMELINE:</h4><ul>")
+	
+	if ra.AppliedDate != nil {
+		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *ra.AppliedDate); err == nil {
+			html.WriteString(fmt.Sprintf("<li>Applied: %s</li>", parsedDate.Format("January 2, 2006")))
+		}
+	}
+	
+	if ra.CompletedDate != nil && *ra.CompletedDate != "" {
+		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *ra.CompletedDate); err == nil {
+			html.WriteString(fmt.Sprintf("<li>Completed: %s</li>", parsedDate.Format("January 2, 2006")))
+		}
+	}
+	html.WriteString("</ul>")
+	
+	// Status information
+	if ra.StatusCurrent != "" && strings.Contains(strings.ToLower(ra.StatusCurrent), "approv") {
+		html.WriteString("<div style='background-color: #d4edda; padding: 10px; margin: 10px 0; border-left: 4px solid #28a745;'>")
+		html.WriteString(fmt.Sprintf("<strong>✅ STATUS:</strong> %s", ra.StatusCurrent))
+		html.WriteString("</div>")
+	}
+	
+	// Location coordinates (if available)
+	if ra.Latitude != nil && ra.Longitude != nil {
+		html.WriteString(fmt.Sprintf("<p>📍 <strong>Coordinates:</strong> %s, %s</p>", *ra.Latitude, *ra.Longitude))
+	}
+	
+	// Clickable links section
+	html.WriteString("<hr/>")
+	html.WriteString("<h4>🗺️ MAPS & DETAILS:</h4>")
+	html.WriteString("<ul>")
+	
+	// Google Maps link using address
+	if ra.Address != nil {
+		googleMapsURL := fmt.Sprintf("https://maps.google.com/?q=%s", url.QueryEscape(fmt.Sprintf("%s, Calgary, Alberta", *ra.Address)))
+		html.WriteString(fmt.Sprintf("<li>📍 <a href='%s' target='_blank'>View on Google Maps</a></li>", googleMapsURL))
+	}
+	
+	// Development Map link
+	dmapURL := "https://developmentmap.calgary.ca/?find=" + ra.PermitNum
+	html.WriteString(fmt.Sprintf("<li>📋 <a href='%s' target='_blank'>View on Calgary Development Map</a></li>", dmapURL))
+	
+	html.WriteString("</ul>")
+	
+	return html.String()
+}
+
 // EvaluateRezoningApplications - Evaluates rezoning applications and generates RSS feed
 func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, error) {
 	// Load rezoning applications
@@ -190,7 +275,11 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 				source := "City of Calgary Open Data"
 				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
 				
-				rss.UpdateItem(title, val.Message, link, ra.RSSGuid, pubDate, category, author, source, comments)
+				// Use full content and create summary
+				fullContent := ra.generateRSSDescription()
+				summary := fmt.Sprintf("Rezoning application for %s - Status: %s", *ra.Address, ra.StatusCurrent)
+				
+				rss.UpdateItem(title, summary, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
 				fmt.Printf("\tUpdated RSS feed!\n")
 			}
 		}
@@ -227,7 +316,11 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 				source := "City of Calgary Open Data"
 				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
 				
-				rss.UpdateItem(title, val.Message, link, ra.RSSGuid, pubDate, category, author, source, comments)
+				// Use full content and create summary
+				fullContent := ra.generateRSSDescription()
+				summary := fmt.Sprintf("Rezoning application for %s - Status: %s", *ra.Address, ra.StatusCurrent)
+				
+				rss.UpdateItem(title, summary, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
 				fmt.Printf("\tUpdated in RSS feed!\n")
 			}
 		}

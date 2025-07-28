@@ -9,9 +9,10 @@ import (
 )
 
 type RSS struct {
-	XMLName xml.Name `xml:"rss"`
-	Version string   `xml:"version,attr"`
-	Channel Channel  `xml:"channel"`
+	XMLName        xml.Name `xml:"rss"`
+	Version        string   `xml:"version,attr"`
+	ContentNS      string   `xml:"xmlns:content,attr"`
+	Channel        Channel  `xml:"channel"`
 }
 
 type Channel struct {
@@ -24,21 +25,23 @@ type Channel struct {
 }
 
 type Item struct {
-	Title       string   `xml:"title"`
-	Link        string   `xml:"link"`
-	Description string   `xml:"description"`
-	PubDate     string   `xml:"pubDate"`
-	GUID        string   `xml:"guid"`
-	Category    string   `xml:"category,omitempty"`
-	Author      string   `xml:"author,omitempty"`
-	Source      string   `xml:"source,omitempty"`
-	Comments    string   `xml:"comments,omitempty"`
+	Title          string   `xml:"title"`
+	Link           string   `xml:"link"`
+	Description    string   `xml:"description"`
+	ContentEncoded string   `xml:"content:encoded,omitempty"`
+	PubDate        string   `xml:"pubDate"`
+	GUID           string   `xml:"guid"`
+	Category       string   `xml:"category,omitempty"`
+	Author         string   `xml:"author,omitempty"`
+	Source         string   `xml:"source,omitempty"`
+	Comments       string   `xml:"comments,omitempty"`
 }
 
 // CreateRSSFeed creates a new RSS feed with the given title and description
 func CreateRSSFeed(title, description, link string) *RSS {
 	return &RSS{
-		Version: "2.0",
+		Version:   "2.0",
+		ContentNS: "http://purl.org/rss/1.0/modules/content/",
 		Channel: Channel{
 			Title:         title,
 			Link:          link,
@@ -51,17 +54,18 @@ func CreateRSSFeed(title, description, link string) *RSS {
 }
 
 // AddItem adds a new item to the RSS feed
-func (rss *RSS) AddItem(title, description, link, guid string, pubDate time.Time, category, author, source, comments string) {
+func (rss *RSS) AddItem(title, description, link, guid string, pubDate time.Time, category, author, source, comments, contentEncoded string) {
 	item := Item{
-		Title:       title,
-		Link:        link,
-		Description: description,
-		PubDate:     pubDate.Format(time.RFC1123Z),
-		GUID:        guid,
-		Category:    category,
-		Author:      author,
-		Source:      source,
-		Comments:    comments,
+		Title:          title,
+		Link:           link,
+		Description:    description,
+		ContentEncoded: contentEncoded,
+		PubDate:        pubDate.Format(time.RFC1123Z),
+		GUID:           guid,
+		Category:       category,
+		Author:         author,
+		Source:         source,
+		Comments:       comments,
 	}
 
 	// Add to beginning of slice (newest first)
@@ -102,12 +106,13 @@ func (rss *RSS) FindItemByGUID(guid string) *Item {
 }
 
 // UpdateItem updates an existing item or adds it if not found
-func (rss *RSS) UpdateItem(title, description, link, guid string, pubDate time.Time, category, author, source, comments string) {
+func (rss *RSS) UpdateItem(title, description, link, guid string, pubDate time.Time, category, author, source, comments, contentEncoded string) {
 	item := rss.FindItemByGUID(guid)
 	if item != nil {
 		// Update existing item
 		item.Title = title
 		item.Description = description
+		item.ContentEncoded = contentEncoded
 		item.Link = link
 		item.PubDate = pubDate.Format(time.RFC1123Z)
 		item.Category = category
@@ -116,7 +121,7 @@ func (rss *RSS) UpdateItem(title, description, link, guid string, pubDate time.T
 		item.Comments = comments
 	} else {
 		// Add new item
-		rss.AddItem(title, description, link, guid, pubDate, category, author, source, comments)
+		rss.AddItem(title, description, link, guid, pubDate, category, author, source, comments, contentEncoded)
 	}
 	rss.Channel.LastBuildDate = time.Now().Format(time.RFC1123Z)
 }
