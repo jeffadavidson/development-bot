@@ -2,7 +2,6 @@ package config
 
 import (
 	"fmt"
-	"os"
 
 	"github.com/jeffadavidson/development-bot/utilities/fileio"
 

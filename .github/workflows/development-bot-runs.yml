@@ -3,20 +3,25 @@ run-name: Development-Bot-Runs-${{ github.run_number }}
 on:
   #workflow_dispatch for manual triggering
   workflow_dispatch: 
-  # Schedule 3PM UTC/9AM MT for just kgca-development/killarney-development main branch
+  # Schedule 12PM UTC/6AM MT for just kgca-development/development-bot main branch
   schedule:
-    - cron: '00 16 * * *'
+    - cron: '00 12 * * *'
 
-# Need to grant actions token write permissions to be able to push to git repo
+# Need to grant actions token write permissions to push to git repo and deploy to GitHub Pages
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   test:
-    # Onjy run if in the proper repository
+    # Only run if in the proper repository
     if: (github.event_name == 'schedule' && github.repository == 'kgca-development/development-bot') || (github.event_name != 'schedule')
-    name: Execute Script
+    name: Execute Script and Deploy RSS Feed
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout code
@@ -31,12 +36,42 @@ jobs:
         run: go mod download
       - name: Execute Script
         run: go run main.go
-      - name: Commit Data Changes
+      - name: Commit Data and RSS Feed Changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data/
-          git commit -m "Update data" || true
+          git add data/ killarney-development.xml
+          git commit -m "Update development data and RSS feed" || true
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Create Pages deployment directory
+        run: |
+          mkdir -p _site
+          cp killarney-development.xml _site/
+          cp README.md _site/
+          # Create a simple index.html that redirects to the RSS feed
+          cat > _site/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>Killarney Development RSS Feed</title>
+              <meta http-equiv="refresh" content="0; url=killarney-development.xml">
+              <link rel="canonical" href="killarney-development.xml">
+          </head>
+          <body>
+              <h1>Killarney Development Activity RSS Feed</h1>
+              <p>If you are not redirected automatically, <a href="killarney-development.xml">click here for the RSS feed</a>.</p>
+              <p><a href="README.md">View documentation</a></p>
+          </body>
+          </html>
+          EOF
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

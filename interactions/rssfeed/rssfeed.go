@@ -24,11 +24,15 @@ type Channel struct {
 }
 
 type Item struct {
-	Title       string `xml:"title"`
-	Link        string `xml:"link"`
-	Description string `xml:"description"`
-	PubDate     string `xml:"pubDate"`
-	GUID        string `xml:"guid"`
+	Title       string   `xml:"title"`
+	Link        string   `xml:"link"`
+	Description string   `xml:"description"`
+	PubDate     string   `xml:"pubDate"`
+	GUID        string   `xml:"guid"`
+	Category    string   `xml:"category,omitempty"`
+	Author      string   `xml:"author,omitempty"`
+	Source      string   `xml:"source,omitempty"`
+	Comments    string   `xml:"comments,omitempty"`
 }
 
 // CreateRSSFeed creates a new RSS feed with the given title and description
@@ -47,15 +51,19 @@ func CreateRSSFeed(title, description, link string) *RSS {
 }
 
 // AddItem adds a new item to the RSS feed
-func (rss *RSS) AddItem(title, description, link, guid string, pubDate time.Time) {
+func (rss *RSS) AddItem(title, description, link, guid string, pubDate time.Time, category, author, source, comments string) {
 	item := Item{
 		Title:       title,
 		Link:        link,
 		Description: description,
 		PubDate:     pubDate.Format(time.RFC1123Z),
 		GUID:        guid,
+		Category:    category,
+		Author:      author,
+		Source:      source,
+		Comments:    comments,
 	}
-	
+
 	// Add to beginning of slice (newest first)
 	rss.Channel.Items = append([]Item{item}, rss.Channel.Items...)
 	rss.Channel.LastBuildDate = time.Now().Format(time.RFC1123Z)
@@ -94,7 +102,7 @@ func (rss *RSS) FindItemByGUID(guid string) *Item {
 }
 
 // UpdateItem updates an existing item or adds it if not found
-func (rss *RSS) UpdateItem(title, description, link, guid string, pubDate time.Time) {
+func (rss *RSS) UpdateItem(title, description, link, guid string, pubDate time.Time, category, author, source, comments string) {
 	item := rss.FindItemByGUID(guid)
 	if item != nil {
 		// Update existing item
@@ -102,9 +110,13 @@ func (rss *RSS) UpdateItem(title, description, link, guid string, pubDate time.T
 		item.Description = description
 		item.Link = link
 		item.PubDate = pubDate.Format(time.RFC1123Z)
+		item.Category = category
+		item.Author = author
+		item.Source = source
+		item.Comments = comments
 	} else {
 		// Add new item
-		rss.AddItem(title, description, link, guid, pubDate)
+		rss.AddItem(title, description, link, guid, pubDate, category, author, source, comments)
 	}
 	rss.Channel.LastBuildDate = time.Now().Format(time.RFC1123Z)
 }

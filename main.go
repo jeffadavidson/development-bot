@@ -14,19 +14,12 @@ func main() {
 		exit.ExitError(err)
 	}
 
-	//Trigger process for development permits
-	dpErr := examinedata.DevelopmentPermits()
-	if dpErr != nil {
-		exit.ExitError(dpErr)
+	//Process all development activity into combined RSS feed
+	err = examinedata.ProcessAllDevelopmentActivity()
+	if err != nil {
+		exit.ExitError(err)
 	}
-	fmt.Println("Development Permits Processed Successfully")
-
-	//Trigger process for rezoning applications
-	raErr := examinedata.RezoningApplication()
-	if raErr != nil {
-		exit.ExitError(raErr)
-	}
-	fmt.Println("Rezoning Applications Processed Successfully")
+	fmt.Println("All Development Activity Processed Successfully")
 
 	exit.ExitSuccess()
 }

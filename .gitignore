@@ -1,0 +1,25 @@
+# Generated RSS feed (not tracked in version control)
+killarney-development.xml
+
+# Go build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go mod cache
+go.sum.backup
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db 

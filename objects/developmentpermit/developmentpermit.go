@@ -1,6 +1,8 @@
 package developmentpermit
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"net/url"
@@ -10,11 +12,77 @@ import (
 	"github.com/jeffadavidson/development-bot/interactions/calgaryopendata"
 	"github.com/jeffadavidson/development-bot/interactions/rssfeed"
 	"github.com/jeffadavidson/development-bot/objects/fileaction"
-	"github.com/jeffadavidson/development-bot/utilities/config"
 	"github.com/jeffadavidson/development-bot/utilities/fileio"
 	"github.com/jeffadavidson/development-bot/utilities/toolbox"
 	"golang.org/x/exp/slices"
 )
+
+// generateUniqueGUID creates a unique GUID based on the permit number and type
+func generateUniqueGUID(permitNum, permitType string) string {
+	// Create a deterministic GUID by hashing the permit number + type
+	hash := sha256.Sum256([]byte(permitType + ":" + permitNum))
+	return hex.EncodeToString(hash[:16]) // Use first 16 bytes for a shorter GUID
+}
+
+// updateStateHistory tracks state changes for development permits
+func updateStateHistory(fetchedPermit *DevelopmentPermit, storedPermit *DevelopmentPermit) {
+	// Initialize state history from stored permit if it exists
+	if storedPermit != nil {
+		fetchedPermit.StateHistory = storedPermit.StateHistory
+	}
+
+	// Check if this is a new state we haven't seen before
+	currentStatus := strings.ToLower(strings.TrimSpace(fetchedPermit.StatusCurrent))
+	timestamp := time.Now().Format(time.RFC3339)
+
+	// If this is the first time we're seeing this permit, add initial state
+	if len(fetchedPermit.StateHistory) == 0 {
+		decision := ""
+		if fetchedPermit.Decision != nil {
+			decision = *fetchedPermit.Decision
+		}
+		fetchedPermit.StateHistory = append(fetchedPermit.StateHistory, StateChange{
+			Status:    currentStatus,
+			Timestamp: timestamp,
+			Decision:  decision,
+		})
+		return
+	}
+
+	// Check if the status has changed from the last recorded state
+	lastState := fetchedPermit.StateHistory[len(fetchedPermit.StateHistory)-1]
+	if strings.ToLower(strings.TrimSpace(lastState.Status)) != currentStatus {
+		decision := ""
+		if fetchedPermit.Decision != nil {
+			decision = *fetchedPermit.Decision
+		}
+		fetchedPermit.StateHistory = append(fetchedPermit.StateHistory, StateChange{
+			Status:    currentStatus,
+			Timestamp: timestamp,
+			Decision:  decision,
+		})
+	}
+}
+
+// GetStateHistorySummary returns a human-readable summary of the permit's lifecycle
+func (dp DevelopmentPermit) GetStateHistorySummary() string {
+	if len(dp.StateHistory) == 0 {
+		return "No state history available"
+	}
+	
+	summary := fmt.Sprintf("Permit %s lifecycle:\n", dp.PermitNum)
+	for i, state := range dp.StateHistory {
+		timestamp, _ := time.Parse(time.RFC3339, state.Timestamp)
+		summary += fmt.Sprintf("  %d. %s - %s", i+1, 
+			strings.Title(state.Status), 
+			timestamp.Format("Jan 2, 2006 3:04 PM"))
+		if state.Decision != "" {
+			summary += fmt.Sprintf(" (Decision: %s)", state.Decision)
+		}
+		summary += "\n"
+	}
+	return summary
+}
 
 type DevelopmentPermit struct {
 	Point                  Point   `json:"point"`
@@ -46,6 +114,14 @@ type DevelopmentPermit struct {
 	Decision               *string `json:"decision"`
 	DecisionBy             *string `json:"decisionby"`
 	ReleaseDate            *string `json:"releasedate"`
+	RSSGuid                string         `json:"rss_guid"`
+	StateHistory           []StateChange `json:"state_history"`
+}
+
+type StateChange struct {
+	Status    string `json:"status"`
+	Timestamp string `json:"timestamp"`
+	Decision  string `json:"decision,omitempty"`
 }
 
 type Point struct {
@@ -113,30 +189,19 @@ func (dp DevelopmentPermit) CreateInformationMessage() string {
 	return message
 }
 
-func EvaluateDevelopmentPermits() error {
+func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, error) {
 	fetchedDevelopmentPermits, storedDevelopmentPermits, err := loadDevelopmentPermits()
 	if err != nil {
-		return err
+		return nil, err
 	}
 	fileActions := getDevelopmentPermitActions(fetchedDevelopmentPermits, storedDevelopmentPermits)
-
-	// Load or create RSS feed
-	rss, err := rssfeed.GetOrCreateRSSFeed(
-		"./data/development-permits.xml",
-		"Killarney Development Permits",
-		"Development permit updates for the Killarney neighborhood in Calgary",
-		"https://calgary.ca/development-permits",
-	)
-	if err != nil {
-		return fmt.Errorf("failed to load RSS feed: %v", err)
-	}
 
 	// Process actions for Development Permits
 	for _, val := range fileActions {
 		if val.Action == "CREATE" {
-			fmt.Printf("Development Permit %s:\n\tAdding to RSS feed...\n", val.PermitNum)
+			fmt.Printf("Development Permit %s:\n\tUpdating RSS feed...\n", val.PermitNum)
 			
-			// Add new RSS item
+						// Add new RSS item
 			dp := findDevelopmentPermitByPermitNum(fetchedDevelopmentPermits, val.PermitNum)
 			if dp != nil {
 				pubDate := time.Now()
@@ -145,55 +210,72 @@ func EvaluateDevelopmentPermits() error {
 						pubDate = parsedDate
 					}
 				}
-				
-				title := fmt.Sprintf("New Development Permit: %s", val.PermitNum)
+
+				// Generate status-based title
+				status := strings.Title(strings.ToLower(dp.StatusCurrent))
+				title := fmt.Sprintf("🏗️ Development Permit (%s): %s", status, val.PermitNum)
 				if dp.Address != nil {
-					title = fmt.Sprintf("New Development Permit: %s - %s", val.PermitNum, *dp.Address)
+					title = fmt.Sprintf("🏗️ Development Permit (%s): %s - %s", status, val.PermitNum, *dp.Address)
 				}
+
+				link := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s", val.PermitNum)
 				
-				rss.AddItem(title, val.Message, "", val.PermitNum, pubDate)
-				fmt.Printf("\tAdded to RSS feed!\n")
+				// Enhanced RSS metadata
+				category := "Development Permit"
+				author := "Unknown"
+				if dp.Applicant != nil {
+					author = *dp.Applicant
+				}
+				source := "City of Calgary Open Data"
+				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
+				
+				rss.UpdateItem(title, val.Message, link, dp.RSSGuid, pubDate, category, author, source, comments)
+				fmt.Printf("\tUpdated RSS feed!\n")
 			}
 		}
 
 		if val.Action == "UPDATE" || val.Action == "CLOSE" {
 			fmt.Printf("Development Permit %s:\n\tUpdating RSS feed...\n", val.PermitNum)
 			
-			// Update existing RSS item
+						// Update existing RSS item
 			dp := findDevelopmentPermitByPermitNum(fetchedDevelopmentPermits, val.PermitNum)
 			if dp != nil {
+				// Keep original publication date for updates
 				pubDate := time.Now()
-				
-				title := fmt.Sprintf("Development Permit Update: %s", val.PermitNum)
-				if dp.Address != nil {
-					title = fmt.Sprintf("Development Permit Update: %s - %s", val.PermitNum, *dp.Address)
-				}
-				
-				if val.Action == "CLOSE" {
-					title = fmt.Sprintf("Development Permit Closed: %s", val.PermitNum)
-					if dp.Address != nil {
-						title = fmt.Sprintf("Development Permit Closed: %s - %s", val.PermitNum, *dp.Address)
+				if dp.AppliedDate != nil {
+					if parsedDate, parseErr := time.Parse("2006-01-02T15:04:05.000", *dp.AppliedDate); parseErr == nil {
+						pubDate = parsedDate
 					}
 				}
+
+				// Generate status-based title (always show current status)
+				status := strings.Title(strings.ToLower(dp.StatusCurrent))
+				title := fmt.Sprintf("🏗️ Development Permit (%s): %s", status, val.PermitNum)
+				if dp.Address != nil {
+					title = fmt.Sprintf("🏗️ Development Permit (%s): %s - %s", status, val.PermitNum, *dp.Address)
+				}
+
+				link := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s", val.PermitNum)
 				
-				rss.UpdateItem(title, val.Message, "", val.PermitNum, pubDate)
+				// Enhanced RSS metadata
+				category := "Development Permit"
+				author := "Unknown"
+				if dp.Applicant != nil {
+					author = *dp.Applicant
+				}
+				source := "City of Calgary Open Data"
+				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
+				
+				rss.UpdateItem(title, val.Message, link, dp.RSSGuid, pubDate, category, author, source, comments)
 				fmt.Printf("\tUpdated in RSS feed!\n")
 			}
 		}
 	}
 
-	// Trim RSS feed to keep only recent items
-	rss.TrimToMaxItems(100)
+	// Save Development Permits (save the fetched data so we can compare next time)
+	saveDevelopmentPermits(fetchedDevelopmentPermits)
 
-	// Save RSS feed
-	if err := rssfeed.SaveRSSFeed(rss, "./data/development-permits.xml"); err != nil {
-		return fmt.Errorf("failed to save RSS feed: %v", err)
-	}
-
-	// Save Development Permits
-	saveDevelopmentPermits(storedDevelopmentPermits)
-
-	return nil
+	return fileActions, nil
 }
 
 // loadDevelopmentPermits - Gets fetched development permits, gets stored development permits
@@ -216,6 +298,21 @@ func loadDevelopmentPermits() ([]DevelopmentPermit, []DevelopmentPermit, error) 
 	fetchedDevelopmentPermits, parseErr2 := parseDevelopmentPermits(fetchedDevelopmentPermitsRaw)
 	if parseErr2 != nil {
 		return nil, nil, parseErr
+	}
+
+	// Ensure all fetched permits have GUIDs (generate if new, preserve if existing)
+	for i := range fetchedDevelopmentPermits {
+		storedPermit := findDevelopmentPermitByPermitNum(storedDevelopmentPermits, fetchedDevelopmentPermits[i].PermitNum)
+		if storedPermit != nil && storedPermit.RSSGuid != "" {
+			// Use existing GUID from stored data
+			fetchedDevelopmentPermits[i].RSSGuid = storedPermit.RSSGuid
+		} else {
+			// Generate new GUID for new permit
+			fetchedDevelopmentPermits[i].RSSGuid = generateUniqueGUID(fetchedDevelopmentPermits[i].PermitNum, "development-permit")
+		}
+
+		// Update state history if status changed
+		updateStateHistory(&fetchedDevelopmentPermits[i], storedPermit)
 	}
 
 	return fetchedDevelopmentPermits, storedDevelopmentPermits, nil
