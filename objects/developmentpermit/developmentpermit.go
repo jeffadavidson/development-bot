@@ -331,11 +331,10 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 				source := "City of Calgary Open Data"
 				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
 				
-				// Use full content and create summary
+				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := dp.generateRSSDescription()
-				summary := fmt.Sprintf("Development permit for %s - Status: %s", *dp.Address, dp.StatusCurrent)
 				
-				rss.UpdateItem(title, summary, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
+				rss.UpdateItem(title, fullContent, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
 				fmt.Printf("\tUpdated RSS feed!\n")
 			}
 		}
@@ -372,11 +371,10 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 				source := "City of Calgary Open Data"
 				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
 				
-				// Use full content and create summary
+				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := dp.generateRSSDescription()
-				summary := fmt.Sprintf("Development permit for %s - Status: %s", *dp.Address, dp.StatusCurrent)
 				
-				rss.UpdateItem(title, summary, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
+				rss.UpdateItem(title, fullContent, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
 				fmt.Printf("\tUpdated in RSS feed!\n")
 			}
 		}
