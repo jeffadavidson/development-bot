@@ -156,9 +156,17 @@ func (ra *RezoningApplication) generateRSSDescription() string {
 	html.WriteString(fmt.Sprintf("<h3>🏛️ REZONING APPLICATION %s</h3>", ra.PermitNum))
 	html.WriteString(fmt.Sprintf("<p><strong>Status:</strong> %s</p>", ra.StatusCurrent))
 	
-	// Address and location details
+	// Address and location details with map links
 	if ra.Address != nil {
 		html.WriteString(fmt.Sprintf("<p>📍 <strong>Address:</strong> %s</p>", *ra.Address))
+		
+		// Map links right under address
+		html.WriteString("<ul style='margin-top: 5px; margin-bottom: 15px;'>")
+		googleMapsURL := fmt.Sprintf("https://maps.google.com/?q=%s", url.QueryEscape(fmt.Sprintf("%s, Calgary, Alberta", *ra.Address)))
+		html.WriteString(fmt.Sprintf("<li>📍 <a href='%s' target='_blank'>View on Google Maps</a></li>", googleMapsURL))
+		dmapURL := "https://developmentmap.calgary.ca/?find=" + ra.PermitNum
+		html.WriteString(fmt.Sprintf("<li>📋 <a href='%s' target='_blank'>View on Calgary Development Map</a></li>", dmapURL))
+		html.WriteString("</ul>")
 	}
 	
 	// Project details
@@ -208,27 +216,7 @@ func (ra *RezoningApplication) generateRSSDescription() string {
 		html.WriteString("</div>")
 	}
 	
-	// Location coordinates (if available)
-	if ra.Latitude != nil && ra.Longitude != nil {
-		html.WriteString(fmt.Sprintf("<p>📍 <strong>Coordinates:</strong> %s, %s</p>", *ra.Latitude, *ra.Longitude))
-	}
-	
-	// Clickable links section
-	html.WriteString("<hr/>")
-	html.WriteString("<h4>🗺️ MAPS & DETAILS:</h4>")
-	html.WriteString("<ul>")
-	
-	// Google Maps link using address
-	if ra.Address != nil {
-		googleMapsURL := fmt.Sprintf("https://maps.google.com/?q=%s", url.QueryEscape(fmt.Sprintf("%s, Calgary, Alberta", *ra.Address)))
-		html.WriteString(fmt.Sprintf("<li>📍 <a href='%s' target='_blank'>View on Google Maps</a></li>", googleMapsURL))
-	}
-	
-	// Development Map link
-	dmapURL := "https://developmentmap.calgary.ca/?find=" + ra.PermitNum
-	html.WriteString(fmt.Sprintf("<li>📋 <a href='%s' target='_blank'>View on Calgary Development Map</a></li>", dmapURL))
-	
-	html.WriteString("</ul>")
+
 	
 	return html.String()
 }
@@ -257,11 +245,10 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 					}
 				}
 
-				// Generate status-based title
-				status := strings.Title(strings.ToLower(ra.StatusCurrent))
-				title := fmt.Sprintf("🏛️ Rezoning Application (%s): %s", status, val.PermitNum)
+				// Generate consistent title without status
+				title := fmt.Sprintf("🏛️ Rezoning Application: %s", val.PermitNum)
 				if ra.Address != nil {
-					title = fmt.Sprintf("🏛️ Rezoning Application (%s): %s - %s", status, val.PermitNum, *ra.Address)
+					title = fmt.Sprintf("🏛️ Rezoning Application: %s - %s", val.PermitNum, *ra.Address)
 				}
 
 				link := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s", val.PermitNum)
@@ -297,11 +284,10 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 					}
 				}
 
-				// Generate status-based title (always show current status)
-				status := strings.Title(strings.ToLower(ra.StatusCurrent))
-				title := fmt.Sprintf("🏛️ Rezoning Application (%s): %s", status, val.PermitNum)
+				// Generate consistent title without status
+				title := fmt.Sprintf("🏛️ Rezoning Application: %s", val.PermitNum)
 				if ra.Address != nil {
-					title = fmt.Sprintf("🏛️ Rezoning Application (%s): %s - %s", status, val.PermitNum, *ra.Address)
+					title = fmt.Sprintf("🏛️ Rezoning Application: %s - %s", val.PermitNum, *ra.Address)
 				}
 
 				link := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s", val.PermitNum)
