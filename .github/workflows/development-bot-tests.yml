@@ -7,6 +7,8 @@ on:
       - '*'
     repos:
       - jeffadavidson/development-bot
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   test:

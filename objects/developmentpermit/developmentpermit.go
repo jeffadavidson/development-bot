@@ -189,6 +189,108 @@ func (dp DevelopmentPermit) CreateInformationMessage() string {
 	return message
 }
 
+// generateRSSDescription creates a self-contained HTML description for RSS feeds
+func (dp *DevelopmentPermit) generateRSSDescription() string {
+	var html strings.Builder
+	
+	// Header with permit number and status
+	html.WriteString(fmt.Sprintf("<h3>🏗️ DEVELOPMENT PERMIT %s</h3>", dp.PermitNum))
+	html.WriteString(fmt.Sprintf("<p><strong>Status:</strong> %s</p>", dp.StatusCurrent))
+	
+	// Address and location details
+	if dp.Address != nil {
+		html.WriteString(fmt.Sprintf("<p>📍 <strong>Address:</strong> %s</p>", *dp.Address))
+	}
+	
+	if dp.CommunityName != nil {
+		html.WriteString(fmt.Sprintf("<p>🏘️ <strong>Community:</strong> %s", *dp.CommunityName))
+		if dp.Ward != nil {
+			html.WriteString(fmt.Sprintf(" (Ward %s)", *dp.Ward))
+		}
+		html.WriteString("</p>")
+	}
+	
+	// Project details
+	if dp.Description != nil {
+		html.WriteString(fmt.Sprintf("<p>🏗️ <strong>Project:</strong> %s</p>", *dp.Description))
+	}
+	
+	if dp.LandUseDistrictDesc != nil {
+		html.WriteString(fmt.Sprintf("<p>🏘️ <strong>Land Use:</strong> %s</p>", *dp.LandUseDistrictDesc))
+	}
+	
+	if dp.PermittedDiscretion != nil {
+		html.WriteString(fmt.Sprintf("<p>📋 <strong>Application Type:</strong> %s</p>", *dp.PermittedDiscretion))
+	}
+	
+	// Applicant information
+	if dp.Applicant != nil {
+		html.WriteString(fmt.Sprintf("<p>👤 <strong>Applicant:</strong> %s</p>", *dp.Applicant))
+	}
+	
+	// Timeline information
+	html.WriteString("<h4>📅 TIMELINE:</h4><ul>")
+	
+	if dp.AppliedDate != nil {
+		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.AppliedDate); err == nil {
+			html.WriteString(fmt.Sprintf("<li>Applied: %s</li>", parsedDate.Format("January 2, 2006")))
+		}
+	}
+	
+	if dp.DecisionDate != nil && *dp.DecisionDate != "" {
+		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.DecisionDate); err == nil {
+			html.WriteString(fmt.Sprintf("<li>Decision: %s</li>", parsedDate.Format("January 2, 2006")))
+		}
+	}
+	
+	if dp.ReleaseDate != nil && *dp.ReleaseDate != "" {
+		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.ReleaseDate); err == nil {
+			html.WriteString(fmt.Sprintf("<li>Released: %s</li>", parsedDate.Format("January 2, 2006")))
+		}
+	}
+	
+	if dp.MustCommenceDate != nil && *dp.MustCommenceDate != "" {
+		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.MustCommenceDate); err == nil {
+			html.WriteString(fmt.Sprintf("<li>Must Commence By: %s</li>", parsedDate.Format("January 2, 2006")))
+		}
+	}
+	html.WriteString("</ul>")
+	
+	// Decision information
+	if dp.Decision != nil && *dp.Decision != "" {
+		html.WriteString("<div style='background-color: #d4edda; padding: 10px; margin: 10px 0; border-left: 4px solid #28a745;'>")
+		html.WriteString(fmt.Sprintf("<strong>✅ DECISION:</strong> %s", *dp.Decision))
+		if dp.DecisionBy != nil && *dp.DecisionBy != "" {
+			html.WriteString(fmt.Sprintf(" (by %s)", *dp.DecisionBy))
+		}
+		html.WriteString("</div>")
+	}
+	
+	// Location coordinates (if available)
+	if dp.Latitude != nil && dp.Longitude != nil {
+		html.WriteString(fmt.Sprintf("<p>📍 <strong>Coordinates:</strong> %s, %s</p>", *dp.Latitude, *dp.Longitude))
+	}
+	
+	// Clickable links section
+	html.WriteString("<hr/>")
+	html.WriteString("<h4>🗺️ MAPS & DETAILS:</h4>")
+	html.WriteString("<ul>")
+	
+	// Google Maps link using address
+	if dp.Address != nil {
+		googleMapsURL := fmt.Sprintf("https://maps.google.com/?q=%s", url.QueryEscape(fmt.Sprintf("%s, Calgary, Alberta", *dp.Address)))
+		html.WriteString(fmt.Sprintf("<li>📍 <a href='%s' target='_blank'>View on Google Maps</a></li>", googleMapsURL))
+	}
+	
+	// Development Map link
+	dmapURL := "https://developmentmap.calgary.ca/?find=" + dp.PermitNum
+	html.WriteString(fmt.Sprintf("<li>📋 <a href='%s' target='_blank'>View on Calgary Development Map</a></li>", dmapURL))
+	
+	html.WriteString("</ul>")
+	
+	return html.String()
+}
+
 func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, error) {
 	fetchedDevelopmentPermits, storedDevelopmentPermits, err := loadDevelopmentPermits()
 	if err != nil {
@@ -229,7 +331,11 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 				source := "City of Calgary Open Data"
 				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
 				
-				rss.UpdateItem(title, val.Message, link, dp.RSSGuid, pubDate, category, author, source, comments)
+				// Use full content and create summary
+				fullContent := dp.generateRSSDescription()
+				summary := fmt.Sprintf("Development permit for %s - Status: %s", *dp.Address, dp.StatusCurrent)
+				
+				rss.UpdateItem(title, summary, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
 				fmt.Printf("\tUpdated RSS feed!\n")
 			}
 		}
@@ -266,7 +372,11 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 				source := "City of Calgary Open Data"
 				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
 				
-				rss.UpdateItem(title, val.Message, link, dp.RSSGuid, pubDate, category, author, source, comments)
+				// Use full content and create summary
+				fullContent := dp.generateRSSDescription()
+				summary := fmt.Sprintf("Development permit for %s - Status: %s", *dp.Address, dp.StatusCurrent)
+				
+				rss.UpdateItem(title, summary, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
 				fmt.Printf("\tUpdated in RSS feed!\n")
 			}
 		}
