@@ -1,6 +1,8 @@
 package developmentpermit
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"net/url"
@@ -8,13 +10,79 @@ import (
 	"time"
 
 	"github.com/jeffadavidson/development-bot/interactions/calgaryopendata"
-	"github.com/jeffadavidson/development-bot/interactions/githubdiscussions"
+	"github.com/jeffadavidson/development-bot/interactions/rssfeed"
 	"github.com/jeffadavidson/development-bot/objects/fileaction"
-	"github.com/jeffadavidson/development-bot/utilities/config"
 	"github.com/jeffadavidson/development-bot/utilities/fileio"
 	"github.com/jeffadavidson/development-bot/utilities/toolbox"
 	"golang.org/x/exp/slices"
 )
+
+// generateUniqueGUID creates a unique GUID based on the permit number and type
+func generateUniqueGUID(permitNum, permitType string) string {
+	// Create a deterministic GUID by hashing the permit number + type
+	hash := sha256.Sum256([]byte(permitType + ":" + permitNum))
+	return hex.EncodeToString(hash[:16]) // Use first 16 bytes for a shorter GUID
+}
+
+// updateStateHistory tracks state changes for development permits
+func updateStateHistory(fetchedPermit *DevelopmentPermit, storedPermit *DevelopmentPermit) {
+	// Initialize state history from stored permit if it exists
+	if storedPermit != nil {
+		fetchedPermit.StateHistory = storedPermit.StateHistory
+	}
+
+	// Check if this is a new state we haven't seen before
+	currentStatus := strings.ToLower(strings.TrimSpace(fetchedPermit.StatusCurrent))
+	timestamp := time.Now().Format(time.RFC3339)
+
+	// If this is the first time we're seeing this permit, add initial state
+	if len(fetchedPermit.StateHistory) == 0 {
+		decision := ""
+		if fetchedPermit.Decision != nil {
+			decision = *fetchedPermit.Decision
+		}
+		fetchedPermit.StateHistory = append(fetchedPermit.StateHistory, StateChange{
+			Status:    currentStatus,
+			Timestamp: timestamp,
+			Decision:  decision,
+		})
+		return
+	}
+
+	// Check if the status has changed from the last recorded state
+	lastState := fetchedPermit.StateHistory[len(fetchedPermit.StateHistory)-1]
+	if strings.ToLower(strings.TrimSpace(lastState.Status)) != currentStatus {
+		decision := ""
+		if fetchedPermit.Decision != nil {
+			decision = *fetchedPermit.Decision
+		}
+		fetchedPermit.StateHistory = append(fetchedPermit.StateHistory, StateChange{
+			Status:    currentStatus,
+			Timestamp: timestamp,
+			Decision:  decision,
+		})
+	}
+}
+
+// GetStateHistorySummary returns a human-readable summary of the permit's lifecycle
+func (dp DevelopmentPermit) GetStateHistorySummary() string {
+	if len(dp.StateHistory) == 0 {
+		return "No state history available"
+	}
+	
+	summary := fmt.Sprintf("Permit %s lifecycle:\n", dp.PermitNum)
+	for i, state := range dp.StateHistory {
+		timestamp, _ := time.Parse(time.RFC3339, state.Timestamp)
+		summary += fmt.Sprintf("  %d. %s - %s", i+1, 
+			strings.Title(state.Status), 
+			timestamp.Format("Jan 2, 2006 3:04 PM"))
+		if state.Decision != "" {
+			summary += fmt.Sprintf(" (Decision: %s)", state.Decision)
+		}
+		summary += "\n"
+	}
+	return summary
+}
 
 type DevelopmentPermit struct {
 	Point                  Point   `json:"point"`
@@ -46,8 +114,14 @@ type DevelopmentPermit struct {
 	Decision               *string `json:"decision"`
 	DecisionBy             *string `json:"decisionby"`
 	ReleaseDate            *string `json:"releasedate"`
-	GithubDiscussionId     *string `json:"github_discussion_id"`
-	GithubDiscussionClosed bool    `json:"github_discussion_closed"`
+	RSSGuid                string         `json:"rss_guid"`
+	StateHistory           []StateChange `json:"state_history"`
+}
+
+type StateChange struct {
+	Status    string `json:"status"`
+	Timestamp string `json:"timestamp"`
+	Decision  string `json:"decision,omitempty"`
 }
 
 type Point struct {
@@ -115,72 +189,93 @@ func (dp DevelopmentPermit) CreateInformationMessage() string {
 	return message
 }
 
-func EvaluateDevelopmentPermits(repositoryId string, catagoryId string) error {
+func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, error) {
 	fetchedDevelopmentPermits, storedDevelopmentPermits, err := loadDevelopmentPermits()
 	if err != nil {
-		return err
+		return nil, err
 	}
 	fileActions := getDevelopmentPermitActions(fetchedDevelopmentPermits, storedDevelopmentPermits)
 
-	//Update Manually Closed Permits
-	storedDevelopmentPermits, closeErr := updateManuallyClosedDevelopmentPermits(storedDevelopmentPermits)
-	if closeErr != nil {
-		return closeErr
-	}
-
-	// Execut Actions for Development Permits
+	// Process actions for Development Permits
 	for _, val := range fileActions {
-		//Create
 		if val.Action == "CREATE" {
-			fmt.Printf("Development Permit %s:\n\tCreating Discussion...\n", val.PermitNum)
+			fmt.Printf("Development Permit %s:\n\tUpdating RSS feed...\n", val.PermitNum)
+			
+						// Add new RSS item
+			dp := findDevelopmentPermitByPermitNum(fetchedDevelopmentPermits, val.PermitNum)
+			if dp != nil {
+				pubDate := time.Now()
+				if dp.AppliedDate != nil {
+					if parsedDate, parseErr := time.Parse("2006-01-02T15:04:05.000", *dp.AppliedDate); parseErr == nil {
+						pubDate = parsedDate
+					}
+				}
 
-			//Find or create the discussion
-			discussionId, err := githubdiscussions.FindOrCreateDiscussion(val.PermitNum, repositoryId, catagoryId, val.Message)
-			if err != nil {
-				fmt.Printf("\tFailed to create discussion. Error: %s\n", err.Error())
+				// Generate status-based title
+				status := strings.Title(strings.ToLower(dp.StatusCurrent))
+				title := fmt.Sprintf("🏗️ Development Permit (%s): %s", status, val.PermitNum)
+				if dp.Address != nil {
+					title = fmt.Sprintf("🏗️ Development Permit (%s): %s - %s", status, val.PermitNum, *dp.Address)
+				}
+
+				link := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s", val.PermitNum)
+				
+				// Enhanced RSS metadata
+				category := "Development Permit"
+				author := "Unknown"
+				if dp.Applicant != nil {
+					author = *dp.Applicant
+				}
+				source := "City of Calgary Open Data"
+				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
+				
+				rss.UpdateItem(title, val.Message, link, dp.RSSGuid, pubDate, category, author, source, comments)
+				fmt.Printf("\tUpdated RSS feed!\n")
 			}
-			fmt.Printf("\tDiscussion Created!")
-
-			//Append or Update change to stored DPs to be saved
-			createdDP := findDevelopmentPermitByPermitNum(fetchedDevelopmentPermits, val.PermitNum)
-			createdDP.GithubDiscussionId = &discussionId
-			storedDevelopmentPermits = upsertDevelopmentPermit(storedDevelopmentPermits, *createdDP)
 		}
 
-		//Update
 		if val.Action == "UPDATE" || val.Action == "CLOSE" {
-			fmt.Printf("Development Permit %s:\n\tUpdating Discussion...\n", val.PermitNum)
-			storedDP := findDevelopmentPermitByPermitNum(storedDevelopmentPermits, val.PermitNum)
-			_, updateErr := githubdiscussions.AddDiscussionComment(*storedDP.GithubDiscussionId, val.Message)
-			if updateErr != nil {
-				fmt.Printf("\tFailed to comment on discussion. Error: %s\n", updateErr.Error())
-				continue
-			}
-
-			//Append or Update change to stored DPs to be saved
-			updatedDP := findDevelopmentPermitByPermitNum(fetchedDevelopmentPermits, val.PermitNum)
-			updatedDP.GithubDiscussionId = storedDP.GithubDiscussionId
-			updatedDP.GithubDiscussionClosed = storedDP.GithubDiscussionClosed
-
-			if val.Action == "CLOSE" {
-				fmt.Printf("\tClosing Discussion\n")
-
-				closeErr := githubdiscussions.CloseDiscussion(*storedDP.GithubDiscussionId)
-				if closeErr != nil {
-					fmt.Printf("\tFailed to close discussion. Error: %s\n", closeErr.Error())
-					continue
+			fmt.Printf("Development Permit %s:\n\tUpdating RSS feed...\n", val.PermitNum)
+			
+						// Update existing RSS item
+			dp := findDevelopmentPermitByPermitNum(fetchedDevelopmentPermits, val.PermitNum)
+			if dp != nil {
+				// Keep original publication date for updates
+				pubDate := time.Now()
+				if dp.AppliedDate != nil {
+					if parsedDate, parseErr := time.Parse("2006-01-02T15:04:05.000", *dp.AppliedDate); parseErr == nil {
+						pubDate = parsedDate
+					}
 				}
-				updatedDP.GithubDiscussionClosed = true
-			}
 
-			storedDevelopmentPermits = upsertDevelopmentPermit(storedDevelopmentPermits, *updatedDP)
+				// Generate status-based title (always show current status)
+				status := strings.Title(strings.ToLower(dp.StatusCurrent))
+				title := fmt.Sprintf("🏗️ Development Permit (%s): %s", status, val.PermitNum)
+				if dp.Address != nil {
+					title = fmt.Sprintf("🏗️ Development Permit (%s): %s - %s", status, val.PermitNum, *dp.Address)
+				}
+
+				link := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s", val.PermitNum)
+				
+				// Enhanced RSS metadata
+				category := "Development Permit"
+				author := "Unknown"
+				if dp.Applicant != nil {
+					author = *dp.Applicant
+				}
+				source := "City of Calgary Open Data"
+				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
+				
+				rss.UpdateItem(title, val.Message, link, dp.RSSGuid, pubDate, category, author, source, comments)
+				fmt.Printf("\tUpdated in RSS feed!\n")
+			}
 		}
 	}
 
-	// Save Development Permits
-	saveDevelopmentPermits(storedDevelopmentPermits)
+	// Save Development Permits (save the fetched data so we can compare next time)
+	saveDevelopmentPermits(fetchedDevelopmentPermits)
 
-	return nil
+	return fileActions, nil
 }
 
 // loadDevelopmentPermits - Gets fetched development permits, gets stored development permits
@@ -205,6 +300,21 @@ func loadDevelopmentPermits() ([]DevelopmentPermit, []DevelopmentPermit, error) 
 		return nil, nil, parseErr
 	}
 
+	// Ensure all fetched permits have GUIDs (generate if new, preserve if existing)
+	for i := range fetchedDevelopmentPermits {
+		storedPermit := findDevelopmentPermitByPermitNum(storedDevelopmentPermits, fetchedDevelopmentPermits[i].PermitNum)
+		if storedPermit != nil && storedPermit.RSSGuid != "" {
+			// Use existing GUID from stored data
+			fetchedDevelopmentPermits[i].RSSGuid = storedPermit.RSSGuid
+		} else {
+			// Generate new GUID for new permit
+			fetchedDevelopmentPermits[i].RSSGuid = generateUniqueGUID(fetchedDevelopmentPermits[i].PermitNum, "development-permit")
+		}
+
+		// Update state history if status changed
+		updateStateHistory(&fetchedDevelopmentPermits[i], storedPermit)
+	}
+
 	return fetchedDevelopmentPermits, storedDevelopmentPermits, nil
 }
 
@@ -215,14 +325,9 @@ func saveDevelopmentPermits(permits []DevelopmentPermit) error {
 		return encodeErr
 	}
 
-	if config.Config.RunMode == "PRODUCTION" {
-		writeErr := fileio.WriteFileContents("./data/development-permits.json", permitsBytes)
-		if writeErr != nil {
-			return writeErr
-		}
-	} else {
-		fmt.Println("Run Mode: " + config.Config.RunMode)
-		fmt.Println("Would save development permists")
+	writeErr := fileio.WriteFileContents("./data/development-permits.json", permitsBytes)
+	if writeErr != nil {
+		return writeErr
 	}
 
 	return nil
@@ -238,27 +343,7 @@ func findDevelopmentPermitByPermitNum(searchSlice []DevelopmentPermit, permitNum
 	return &searchSlice[foundIndex]
 }
 
-// updateManuallyClosedDevelopmentPermits - Gets recently closed permits and makes them as closed
-func updateManuallyClosedDevelopmentPermits(storedDevelopmentPermits []DevelopmentPermit) ([]DevelopmentPermit, error) {
-	//Update Manually Closed Permits
-	recentlyClosed, findErr := githubdiscussions.FindRecentlyClosedDiscussions(config.Config.GithubDiscussions.Owner, config.Config.GithubDiscussions.Repository)
-	if findErr != nil {
-		return storedDevelopmentPermits, findErr
-	}
-	for _, closedPermit := range recentlyClosed {
-		//Get DP by discussion id
-		if strings.Contains(closedPermit, "DP") {
-			storedDp := findDevelopmentPermitByPermitNum(storedDevelopmentPermits, closedPermit)
-			if storedDp != nil && storedDp.GithubDiscussionClosed == false {
-				fmt.Printf("Development Permit '%s' was manually closed. Marking as closed...\n", closedPermit)
-				storedDp.GithubDiscussionClosed = true
-				storedDevelopmentPermits = upsertDevelopmentPermit(storedDevelopmentPermits, *storedDp)
-			}
-		}
-	}
 
-	return storedDevelopmentPermits, nil
-}
 
 // getDevelopmentPermitActions - For a list of fetched and stored development permits compares permits and gets a list of actions to execute
 func getDevelopmentPermitActions(fetchedDevelopmentPermits []DevelopmentPermit, storedDevelopmentPermits []DevelopmentPermit) []fileaction.FileAction {
@@ -266,21 +351,10 @@ func getDevelopmentPermitActions(fetchedDevelopmentPermits []DevelopmentPermit, 
 	for _, fetchedDP := range fetchedDevelopmentPermits {
 		storedDpPtr := findDevelopmentPermitByPermitNum(storedDevelopmentPermits, fetchedDP.PermitNum)
 		if storedDpPtr == nil {
+			// New permit - create RSS entry
 			fileActions = append(fileActions, fileaction.FileAction{PermitNum: fetchedDP.PermitNum, Action: "CREATE", Message: fetchedDP.CreateInformationMessage()})
 		} else {
 			storedDP := *storedDpPtr
-
-			// Skip if discussion closed
-			if storedDP.GithubDiscussionClosed {
-				//fileActions = append(fileActions, fileaction.FileAction{PermitNum: fetchedDP.PermitNum, Action: "SKIP"})
-				continue
-			}
-
-			// Create if discussion does not exist but its still stored(from when we switched from slack)
-			if storedDP.GithubDiscussionId == nil {
-				fileActions = append(fileActions, fileaction.FileAction{PermitNum: fetchedDP.PermitNum, Action: "CREATE", Message: fetchedDP.CreateInformationMessage()})
-				continue
-			}
 
 			hasUpdate, updateMessage := getDevelopmentPermitUpdates(fetchedDP, storedDP)
 			toClose, closeMessage := isDevelopmentPermitClosed(fetchedDP, storedDP)

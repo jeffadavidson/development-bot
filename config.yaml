@@ -1,7 +1,3 @@
-runmode: PRODUCTION
-github-discussion:
-  owner: kgca-development
-  repository: killarney-development
 neighborhood:
   name: Killarney
   bounding-box:

@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 
-	"github.com/jeffadavidson/development-bot/interactions/githubdiscussions"
 	"github.com/jeffadavidson/development-bot/logic/examinedata"
 	"github.com/jeffadavidson/development-bot/utilities/config"
 	"github.com/jeffadavidson/development-bot/utilities/exit"
@@ -15,19 +14,12 @@ func main() {
 		exit.ExitError(err)
 	}
 
-	//Trigger process for development permits
-	dpErr := examinedata.DevelopmentPermits()
-	if dpErr != nil {
-		exit.ExitError(dpErr)
+	//Process all development activity into combined RSS feed
+	err = examinedata.ProcessAllDevelopmentActivity()
+	if err != nil {
+		exit.ExitError(err)
 	}
-	fmt.Println("Development Permits Processed Successfully")
-
-	//Trigger process for rezoning applications
-	raErr := examinedata.RezoningApplication()
-	if raErr != nil {
-		exit.ExitError(raErr)
-	}
-	fmt.Println("Rezoning Applications Processed Successfully")
+	fmt.Println("All Development Activity Processed Successfully")
 
 	exit.ExitSuccess()
 }
@@ -38,15 +30,9 @@ func ManualInits() error {
 		return fmt.Errorf("Failed to start due to configuration error: %s", configErr.Error())
 	}
 
-	ghDiscErr := githubdiscussions.ManualInit()
-	if ghDiscErr != nil {
-		return fmt.Errorf("Failed to start due to Github configuration error: %s", ghDiscErr.Error())
-	}
-
-	// Relies on githubdiscussions ManualInit
 	examineErr := examinedata.ManualInit()
 	if examineErr != nil {
-		return fmt.Errorf("Failed to start due to date initialization error: %s", examineErr.Error())
+		return fmt.Errorf("Failed to start due to initialization error: %s", examineErr.Error())
 	}
 
 	return nil

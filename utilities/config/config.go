@@ -2,7 +2,6 @@ package config
 
 import (
 	"fmt"
-	"os"
 
 	"github.com/jeffadavidson/development-bot/utilities/fileio"
 
@@ -12,14 +11,7 @@ import (
 var configFilePath string = "config.yaml"
 
 type DevBot struct {
-	RunMode           string           `yaml:"runmode"`
-	GithubDiscussions GithubDiscussion `yaml:"github-discussion"`
-	Neighborhood      Neighborhood     `yaml:"neighborhood"`
-}
-
-type GithubDiscussion struct {
-	Owner      string `yaml:"owner"`
-	Repository string `yaml:"repository"`
+	Neighborhood Neighborhood `yaml:"neighborhood"`
 }
 
 type Neighborhood struct {
@@ -40,12 +32,6 @@ func ManualInit() error {
 	loaderr := loadConfig(configFilePath)
 	if loaderr != nil {
 		return loaderr
-	}
-
-	// Check for environmental variable overrides
-	runmode := os.Getenv("DEVELOPMENT_BOT_RUNMODE")
-	if runmode != "" {
-		Config.RunMode = runmode
 	}
 
 	return nil

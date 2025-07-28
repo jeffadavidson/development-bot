@@ -1,66 +1,53 @@
 package examinedata
 
 import (
-	//"fmt"
-
 	"fmt"
 
-	"github.com/jeffadavidson/development-bot/interactions/githubdiscussions"
+	"github.com/jeffadavidson/development-bot/interactions/rssfeed"
 	"github.com/jeffadavidson/development-bot/objects/developmentpermit"
 	"github.com/jeffadavidson/development-bot/objects/rezoningapplications"
-	"github.com/jeffadavidson/development-bot/utilities/config"
 )
 
-var repositoryId string
-var repositoryCatagories []githubdiscussions.GithubDiscussionCatagory
-
 func ManualInit() error {
-	// Get Repository Id
-	repoId, repoIdErr := githubdiscussions.GetRepository(config.Config.GithubDiscussions.Owner, config.Config.GithubDiscussions.Repository)
-	if repoIdErr != nil {
-		return repoIdErr
-	}
-
-	// Get github discussion catagories
-	catagories, catagoriesErr := githubdiscussions.GetDiscussionCategories(config.Config.GithubDiscussions.Owner, config.Config.GithubDiscussions.Repository)
-	if catagoriesErr != nil {
-		return catagoriesErr
-	}
-
-	repositoryId = repoId
-	repositoryCatagories = catagories
-
+	// No initialization needed for RSS feeds
 	return nil
 }
 
-// DevelopmentPermits - Evaluates Development permits, determines actions to take
-func DevelopmentPermits() error {
-	// Get the catagoryId for 'development permits'
-	developmentPermitCatagory := githubdiscussions.FindCatagory(repositoryCatagories, "Development Permits")
-	if developmentPermitCatagory == nil {
-		return fmt.Errorf("Error: Unable to idetify the Github Discussion Catagory ID for 'Development Permits'")
+// ProcessAllDevelopmentActivity - Evaluates both development permits and rezoning applications and generates a combined RSS feed
+func ProcessAllDevelopmentActivity() error {
+	// Load or create combined RSS feed
+	rss, err := rssfeed.GetOrCreateRSSFeed(
+		"./killarney-development.xml",
+		"Killarney Development Activity",
+		"All development permits and land use rezoning applications for the Killarney neighborhood in Calgary",
+		"https://calgary.ca/development",
+	)
+	if err != nil {
+		return fmt.Errorf("failed to load RSS feed: %v", err)
 	}
 
-	dpErr := developmentpermit.EvaluateDevelopmentPermits(repositoryId, developmentPermitCatagory.ID)
+	// Process development permits
+	dpActions, dpErr := developmentpermit.EvaluateDevelopmentPermits(rss)
 	if dpErr != nil {
-		return dpErr
+		return fmt.Errorf("failed to process development permits: %v", dpErr)
 	}
 
-	return nil
-}
-
-// RezoningApplication - Evaluates Rezoning Applicationss, determines actions to take
-func RezoningApplication() error {
-	// Get the catagoryId for 'development permits'
-	rezoningApplicationsCatagory := githubdiscussions.FindCatagory(repositoryCatagories, "Land Use Changes")
-	if rezoningApplicationsCatagory == nil {
-		return fmt.Errorf("Error: Unable to idetify the Github Discussion Catagory ID for 'Land Use Changes'")
-	}
-
-	raErr := rezoningapplications.EvaluateDevelopmentPermits(repositoryId, rezoningApplicationsCatagory.ID)
+	// Process rezoning applications  
+	raActions, raErr := rezoningapplications.EvaluateRezoningApplications(rss)
 	if raErr != nil {
-		return raErr
+		return fmt.Errorf("failed to process rezoning applications: %v", raErr)
 	}
+
+	// Trim RSS feed to keep only recent items (increased since we have both types)
+	rss.TrimToMaxItems(200)
+
+	// Save combined RSS feed
+	if err := rssfeed.SaveRSSFeed(rss, "./killarney-development.xml"); err != nil {
+		return fmt.Errorf("failed to save RSS feed: %v", err)
+	}
+
+	fmt.Printf("Combined RSS feed updated with %d development permit actions and %d rezoning application actions\n", 
+		len(dpActions), len(raActions))
 
 	return nil
 }
