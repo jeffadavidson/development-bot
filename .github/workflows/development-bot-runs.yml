@@ -36,12 +36,12 @@ jobs:
         run: go mod download
       - name: Execute Script
         run: go run main.go
-      - name: Commit Data and RSS Feed Changes
+      - name: Commit Data Changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data/ killarney-development.xml
-          git commit -m "Update development data and RSS feed" || true
+          git add data/
+          git commit -m "Update development data" || true
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
