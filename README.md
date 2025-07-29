@@ -33,39 +33,153 @@ We care about Development Permits and Land Use Redesignations in Killarney/Gleng
   * Latitude:  51.022361
   * Longitude: -114.117927
 
-## Execution
+## 🚀 How to Run
 
-### Running on local machine:
+### Prerequisites
+- Go 1.20+ installed
+- Internet connection (for Calgary Open Data API access)
 
-Assumes Go is installed
+### Local Development
+```bash
+# Clone the repository
+git clone https://github.com/kgca-development/development-bot.git
+cd development-bot
 
-```Shell
-go test -v ./...
+# Install dependencies
+go mod download
+
+# Run the application
 go run main.go
 ```
 
-The application will:
-- Fetch the latest data from Calgary Open Data
-- Compare with stored data in `./data/` 
-- Create/update RSS XML files in `./data/development-permits.xml` and `./data/rezoning-applications.xml`
-- Display console output about what RSS entries were created/updated
-## Persistent storage
+### What happens when you run it:
+1. **Fetches data** from Calgary Open Data API for development permits and rezoning applications
+2. **Compares** with stored data in `./data/` directory
+3. **Generates RSS feed** at `./output/killarney-development.xml`
+4. **Updates stored data** for future comparisons
+5. **Console output** shows what entries were created/updated:
+   ```
+   Development Permit DP2025-12345:
+       Creating RSS feed entry...
+       Created RSS feed entry!
+   Combined RSS feed processed with 5 development permit actions and 2 rezoning application actions
+   ```
 
-The bot loads files from persistent storage in the `data/` directory:
-- `development-permits.json` - Stores processed development permit data
-- `rezoning-applications.json` - Stores processed rezoning application data
+### Console Output Meanings:
+- **"Creating RSS feed entry"**: New permit/application found
+- **"Updating RSS feed entry"**: Existing permit status changed
+- **"0 actions"**: No changes detected (normal for subsequent runs)
 
-The combined RSS feed is generated at:
-- `killarney-development.xml` - Combined RSS feed for all development activity (in root directory)
+## 🧪 How to Test
 
-The JSON files track what's been processed to detect new/updated permits and store:
+### Run All Tests
+```bash
+# Run all tests with verbose output
+go test ./... -v
+
+# Run tests for specific modules
+go test ./interactions/rssfeed/ -v
+go test ./objects/developmentpermit/ -v
+go test ./objects/rezoningapplications/ -v
+```
+
+### Test Categories
+- **RSS Feed Tests**: XML generation, namespace handling, item updates
+- **Development Permit Tests**: Data parsing, action detection, timestamp handling
+- **Rezoning Application Tests**: Status changes, close detection
+- **Integration Tests**: End-to-end workflows
+
+### Manual Testing
+```bash
+# Clear stored data to test full regeneration
+rm -rf data/*.json output/*.xml
+
+# Run and verify all entries are created
+go run main.go
+
+# Run again to verify no duplicate actions
+go run main.go
+```
+
+### Validate RSS Output
+```bash
+# Check the generated RSS feed
+cat output/killarney-development.xml
+
+# Verify XML structure is valid
+xmllint --noout output/killarney-development.xml
+```
+
+## 🚀 How Deployment Works
+
+### GitHub Actions Workflow
+The application automatically deploys via GitHub Actions (`.github/workflows/development-bot-runs.yml`):
+
+#### Triggers:
+- **Daily**: 12:00 PM UTC (6:00 AM MT) 
+- **Manual**: Workflow dispatch from GitHub UI
+- **Push**: When code is pushed to main branch
+
+#### Deployment Process:
+1. **Setup Environment**:
+   ```yaml
+   - Checkout code with deploy key
+   - Install Go 1.20.1
+   - Download dependencies
+   ```
+
+2. **Execute Bot**:
+   ```bash
+   go run main.go
+   ```
+
+3. **Commit Changes**:
+   ```bash
+   git add data/ output/
+   git commit -m "Update development data and RSS feed"
+   git push origin main
+   ```
+
+4. **Deploy to GitHub Pages**:
+   ```bash
+   # Copy RSS feed to Pages directory
+   cp output/killarney-development.xml _site/
+   # Deploy to https://kgca-development.github.io/development-bot/
+   ```
+
+### Deploy Key Authentication
+- Uses `DEVELOPMENT_BOT_DEPLOY_KEY` secret for git operations
+- Bypasses branch protection rules
+- Enables automated commits to main branch
+
+### Live RSS Feed URL
+When deployed, the RSS feed is available at:
+- **RSS Feed**: [`https://kgca-development.github.io/development-bot/killarney-development.xml`](https://kgca-development.github.io/development-bot/killarney-development.xml)
+- **Web Interface**: [`https://kgca-development.github.io/development-bot/`](https://kgca-development.github.io/development-bot/)
+
+### Monitoring Deployment
+- Check [GitHub Actions](https://github.com/kgca-development/development-bot/actions) for run status
+- View commit history for data updates
+- Monitor RSS feed for new entries
+
+## Persistent Storage
+
+The bot stores data in two locations:
+
+### `./data/` Directory (Version Controlled)
+- `development-permits.json` - Processed development permit data with state history
+- `rezoning-applications.json` - Processed rezoning application data with state history
+
+### `./output/` Directory (Version Controlled)
+- `killarney-development.xml` - Combined RSS feed for all development activity
+
+### Data Structure
+JSON files track what's been processed and store:
 - **Stable RSS GUIDs** for each permit/application 
 - **Complete state history** tracking all status changes over time with timestamps
+- **Full permit data** for comparison on subsequent runs
 
-The XML file is the combined RSS feed with both development permits (🏗️) and rezoning applications (🏛️) in chronological order. Each permit/application has a stable GUID that persists through status changes, ensuring RSS readers see updates rather than duplicate entries.
-
-### State History
-Each permit/application maintains a complete audit trail of status changes:
+### State History Example
 ```json
 "state_history": [
   {
@@ -80,50 +194,24 @@ Each permit/application maintains a complete audit trail of status changes:
 ]
 ```
 
-This enables full lifecycle reconstruction and detailed reporting on permit progression.
-
-## RSS Feed URL
-
-When hosted on GitHub Pages, the RSS feed will be available at:
-- **All Development Activity**: `https://kgca-development.github.io/development-bot/killarney-development.xml`
-- **Web Interface**: `https://kgca-development.github.io/development-bot/`
-
-Each RSS entry includes comprehensive metadata and links directly to Calgary's [Development Map](https://developmentmap.calgary.ca/) for that specific permit or application.
+## RSS Feed Features
 
 ### Enhanced RSS Metadata
-Each RSS item now includes:
-- **Title**: Shows current status (e.g., "🏗️ Development Permit (Under Review): DP2025-12345 - 123 Main St")
-- **Description**: Full permit details in markdown format
+Each RSS item includes:
+- **Title**: Shows permit type and address (e.g., "🏗️ Development Permit: DP2025-12345 - 123 Main St")
+- **Description**: Full permit details with rich HTML formatting
 - **Link**: Direct link to Calgary Development Map
 - **Category**: "Development Permit" or "Land Use Rezoning"
 - **Author**: Applicant name (when available)
 - **Source**: "City of Calgary Open Data"
 - **Comments**: Link to Development Map comments section
-- **Publication Date**: Application submission date
+- **Publication Date**: Most recent timestamp from permit data (not midnight UTC!)
 - **GUID**: Stable unique identifier that persists through status changes
 
-**Status-Based Titles**: Titles automatically update to reflect the current permit status (Hold, Under Review, In Circulation, Released, Cancelled, etc.) rather than static "New" or "Closed" labels.
-
-## 🚀 Quick Start
-
-### For RSS Feed Users
-Subscribe to the live feed: [`https://kgca-development.github.io/development-bot/killarney-development.xml`](https://kgca-development.github.io/development-bot/killarney-development.xml)
-
-### For Developers
-```bash
-# Clone the repository
-git clone https://github.com/kgca-development/development-bot.git
-cd development-bot
-
-# Install dependencies
-go mod download
-
-# Run tests
-go test ./...
-
-# Run locally
-go run main.go
-```
+### XML Namespace Compliance
+- Proper `xmlns:content` namespace declaration
+- Valid `content:encoded` elements for rich content
+- Validates in all RSS readers and browsers
 
 ## 🌍 Adapting for Your City
 
