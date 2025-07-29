@@ -292,12 +292,8 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 			// Add new RSS item
 			dp := findDevelopmentPermitByPermitNum(fetchedDevelopmentPermits, val.PermitNum)
 			if dp != nil {
-				pubDate := time.Now()
-				if dp.AppliedDate != nil {
-					if parsedDate, parseErr := time.Parse("2006-01-02T15:04:05.000", *dp.AppliedDate); parseErr == nil {
-						pubDate = parsedDate
-					}
-				}
+				// Use the most recent timestamp from permit data
+				pubDate := dp.getMostRecentTimestamp()
 
 				// Generate consistent title without status
 				title := fmt.Sprintf("🏗️ Development Permit: %s", val.PermitNum)
@@ -332,13 +328,8 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 			// Update existing RSS item
 			dp := findDevelopmentPermitByPermitNum(fetchedDevelopmentPermits, val.PermitNum)
 			if dp != nil {
-				// Keep original publication date for updates
-				pubDate := time.Now()
-				if dp.AppliedDate != nil {
-					if parsedDate, parseErr := time.Parse("2006-01-02T15:04:05.000", *dp.AppliedDate); parseErr == nil {
-						pubDate = parsedDate
-					}
-				}
+				// Use the most recent timestamp from permit data
+				pubDate := dp.getMostRecentTimestamp()
 
 				// Generate consistent title without status
 				title := fmt.Sprintf("🏗️ Development Permit: %s", val.PermitNum)
@@ -441,6 +432,53 @@ func findDevelopmentPermitByPermitNum(searchSlice []DevelopmentPermit, permitNum
 	return &searchSlice[foundIndex]
 }
 
+// getMostRecentTimestamp finds the most recent timestamp from a development permit's data
+func (dp *DevelopmentPermit) getMostRecentTimestamp() time.Time {
+	var mostRecent time.Time
+	
+	// Check applied date
+	if dp.AppliedDate != nil {
+		if appliedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.AppliedDate); err == nil {
+			if appliedDate.After(mostRecent) {
+				mostRecent = appliedDate
+			}
+		}
+	}
+	
+	// Check decision date
+	if dp.DecisionDate != nil {
+		if decisionDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.DecisionDate); err == nil {
+			if decisionDate.After(mostRecent) {
+				mostRecent = decisionDate
+			}
+		}
+	}
+	
+	// Check release date
+	if dp.ReleaseDate != nil {
+		if releaseDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.ReleaseDate); err == nil {
+			if releaseDate.After(mostRecent) {
+				mostRecent = releaseDate
+			}
+		}
+	}
+	
+	// Check state history for most recent status change
+	for _, state := range dp.StateHistory {
+		if stateTime, err := time.Parse(time.RFC3339, state.Timestamp); err == nil {
+			if stateTime.After(mostRecent) {
+				mostRecent = stateTime
+			}
+		}
+	}
+	
+	// If no valid timestamp found, use current time
+	if mostRecent.IsZero() {
+		mostRecent = time.Now()
+	}
+	
+	return mostRecent
+}
 
 
 // getDevelopmentPermitActions - For a list of fetched and stored development permits compares permits and gets a list of actions to execute

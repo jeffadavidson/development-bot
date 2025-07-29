@@ -2,6 +2,7 @@ package rezoningapplications
 
 import (
 	"testing"
+	"time"
 
 	"github.com/jeffadavidson/development-bot/objects/fileaction"
 	"github.com/stretchr/testify/assert"
@@ -505,4 +506,62 @@ func TestRezoningApplicationActions_NoActionWhenAlreadyClosed(t *testing.T) {
 	
 	// Should generate no actions since application is already closed and unchanged
 	assert.Equal(t, 0, len(actions))
+}
+
+func TestGetMostRecentTimestamp_WithStateHistory(t *testing.T) {
+	ra := RezoningApplication{
+		PermitNum:     "LOC2025-12345",
+		AppliedDate:   strPtr("2025-01-01T10:00:00.000"),
+		CompletedDate: strPtr("2025-01-15T14:30:00.000"),
+		StateHistory: []StateChange{
+			{
+				Status:    "under review",
+				Timestamp: "2025-01-01T10:00:00-07:00",
+			},
+			{
+				Status:    "approved",
+				Timestamp: "2025-01-20T16:45:00-07:00", // This should be the most recent
+			},
+		},
+	}
+
+	mostRecent := ra.getMostRecentTimestamp()
+	
+	// Should use the most recent state history timestamp
+	expected, _ := time.Parse(time.RFC3339, "2025-01-20T16:45:00-07:00")
+	assert.Equal(t, expected.Unix(), mostRecent.Unix())
+}
+
+func TestGetMostRecentTimestamp_WithoutStateHistory(t *testing.T) {
+	ra := RezoningApplication{
+		PermitNum:     "LOC2025-12345",
+		AppliedDate:   strPtr("2025-01-01T10:00:00.000"),
+		CompletedDate: strPtr("2025-01-20T16:45:00.000"), // This should be the most recent
+		StateHistory:  []StateChange{}, // Empty state history
+	}
+
+	mostRecent := ra.getMostRecentTimestamp()
+	
+	// Should use the completed date as the most recent
+	expected, _ := time.Parse("2006-01-02T15:04:05.000", "2025-01-20T16:45:00.000")
+	assert.Equal(t, expected.Unix(), mostRecent.Unix())
+}
+
+func TestGetMostRecentTimestamp_NoTimestamps(t *testing.T) {
+	ra := RezoningApplication{
+		PermitNum:    "LOC2025-12345",
+		StateHistory: []StateChange{},
+	}
+
+	mostRecent := ra.getMostRecentTimestamp()
+	
+	// Should use current time when no timestamps are available
+	now := time.Now()
+	// Allow for a small time difference since the function calls time.Now()
+	assert.WithinDuration(t, now, mostRecent, time.Second)
+}
+
+// Helper function for string pointers
+func strPtr(s string) *string {
+	return &s
 }
