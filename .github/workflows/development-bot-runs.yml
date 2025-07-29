@@ -30,7 +30,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          ssh-key: ${{ secrets.DEVELOPMENT_BOT_DEPLOY_KEY }}
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
@@ -46,8 +46,6 @@ jobs:
           git add data/ output/
           git commit -m "Update development data and RSS feed" || true
           git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Create Pages deployment directory
