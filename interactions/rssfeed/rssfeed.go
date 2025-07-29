@@ -9,10 +9,10 @@ import (
 )
 
 type RSS struct {
-	XMLName        xml.Name `xml:"rss"`
-	Version        string   `xml:"version,attr"`
-	ContentNS      string   `xml:"xmlns:content,attr"`
-	Channel        Channel  `xml:"channel"`
+	XMLName   xml.Name `xml:"rss"`
+	Version   string   `xml:"version,attr"`
+	ContentNS string   `xml:"xmlns:content,attr"`
+	Channel   Channel  `xml:"channel"`
 }
 
 type Channel struct {
@@ -25,16 +25,16 @@ type Channel struct {
 }
 
 type Item struct {
-	Title          string        `xml:"title"`
-	Link           string        `xml:"link"`
-	Description    CDataText     `xml:"description"`
-	ContentEncoded CDataText     `xml:"content:encoded,omitempty"`
-	PubDate        string        `xml:"pubDate"`
-	GUID           string        `xml:"guid"`
-	Category       string        `xml:"category,omitempty"`
-	Author         string        `xml:"author,omitempty"`
-	Source         string        `xml:"source,omitempty"`
-	Comments       string        `xml:"comments,omitempty"`
+	Title          string    `xml:"title"`
+	Link           string    `xml:"link"`
+	Description    CDataText `xml:"description"`
+	ContentEncoded CDataText `xml:"content:encoded,omitempty"`
+	PubDate        string    `xml:"pubDate"`
+	GUID           string    `xml:"guid"`
+	Category       string    `xml:"category,omitempty"`
+	Author         string    `xml:"author,omitempty"`
+	Source         string    `xml:"source,omitempty"`
+	Comments       string    `xml:"comments,omitempty"`
 }
 
 // CDataText wraps text in CDATA sections for proper RSS compatibility
@@ -84,7 +84,7 @@ func (rss *RSS) ToXML() ([]byte, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to marshal RSS to XML: %v", err)
 	}
-	
+
 	// Add XML declaration
 	xmlString := xml.Header + string(xmlData)
 	return []byte(xmlString), nil
@@ -127,7 +127,7 @@ func (rss *RSS) UpdateItem(title, description, link, guid string, pubDate time.T
 			Source:         source,
 			Comments:       comments,
 		}
-		
+
 		// Compare current item with new item to detect changes
 		hasChanges := item.Title != newItem.Title ||
 			item.Description.Text != newItem.Description.Text ||
@@ -138,7 +138,7 @@ func (rss *RSS) UpdateItem(title, description, link, guid string, pubDate time.T
 			item.Author != newItem.Author ||
 			item.Source != newItem.Source ||
 			item.Comments != newItem.Comments
-		
+
 		if hasChanges {
 			// Update existing item
 			item.Title = newItem.Title
@@ -176,18 +176,18 @@ func GetOrCreateRSSFeed(filepath, title, description, link string) (*RSS, error)
 		// Create new feed if file doesn't exist
 		return CreateRSSFeed(title, description, link), nil
 	}
-	
+
 	// Load existing feed
 	rss, err := LoadRSSFromXML(xmlData)
 	if err != nil {
 		return nil, fmt.Errorf("failed to load existing RSS feed: %v", err)
 	}
-	
+
 	// Ensure ContentNS is properly set (fix for existing feeds with empty namespace)
 	if rss.ContentNS == "" {
 		rss.ContentNS = "http://purl.org/rss/1.0/modules/content/"
 	}
-	
+
 	return rss, nil
 }
 
@@ -197,7 +197,7 @@ func SaveRSSFeed(rss *RSS, filepath string) error {
 	if err != nil {
 		return fmt.Errorf("failed to convert RSS to XML: %v", err)
 	}
-	
+
 	return saveRSSFile(filepath, xmlData)
 }
 
@@ -206,7 +206,7 @@ func loadRSSFile(filepath string) ([]byte, error) {
 	return fileio.GetFileContents(filepath)
 }
 
-// saveRSSFile writes RSS XML to file using the existing fileio utility  
+// saveRSSFile writes RSS XML to file using the existing fileio utility
 func saveRSSFile(filepath string, data []byte) error {
 	return fileio.WriteFileContents(filepath, data)
-} 
+}

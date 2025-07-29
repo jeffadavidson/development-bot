@@ -59,35 +59,35 @@ func (ra RezoningApplication) GetStateHistorySummary() string {
 	if len(ra.StateHistory) == 0 {
 		return "No state history available"
 	}
-	
+
 	summary := fmt.Sprintf("Application %s lifecycle:\n", ra.PermitNum)
 	for i, state := range ra.StateHistory {
 		timestamp, _ := time.Parse(time.RFC3339, state.Timestamp)
-		summary += fmt.Sprintf("  %d. %s - %s\n", i+1, 
-			strings.Title(state.Status), 
+		summary += fmt.Sprintf("  %d. %s - %s\n", i+1,
+			strings.Title(state.Status),
 			timestamp.Format("Jan 2, 2006 3:04 PM"))
 	}
 	return summary
 }
 
 type RezoningApplication struct {
-	PermitType             string     `json:"permittype"`
-	PermitNum              string     `json:"permitnum"`
-	Description            *string    `json:"description"`
-	StatusCurrent          string     `json:"statuscurrent"`
-	AppliedDate            *string    `json:"applieddate"`
-	CompletedDate          *string    `json:"completeddate"`
-	Applicant              *string    `json:"applicant"`
-	FromLud                *string    `json:"fromlud"`
-	ProposedLud            *string    `json:"proposedlud"`
-	Address                *string    `json:"address"`
-	LocationAddresses      *string    `json:"locationaddresses"`
-	LocationCount          *string    `json:"locationcount"`
-	Latitude               *string    `json:"latitude"`
-	Longitude              *string    `json:"longitude"`
-	Multipoint             Multipoint `json:"multipoint"`
-	RSSGuid                string         `json:"rss_guid"`
-	StateHistory           []StateChange `json:"state_history"`
+	PermitType        string        `json:"permittype"`
+	PermitNum         string        `json:"permitnum"`
+	Description       *string       `json:"description"`
+	StatusCurrent     string        `json:"statuscurrent"`
+	AppliedDate       *string       `json:"applieddate"`
+	CompletedDate     *string       `json:"completeddate"`
+	Applicant         *string       `json:"applicant"`
+	FromLud           *string       `json:"fromlud"`
+	ProposedLud       *string       `json:"proposedlud"`
+	Address           *string       `json:"address"`
+	LocationAddresses *string       `json:"locationaddresses"`
+	LocationCount     *string       `json:"locationcount"`
+	Latitude          *string       `json:"latitude"`
+	Longitude         *string       `json:"longitude"`
+	Multipoint        Multipoint    `json:"multipoint"`
+	RSSGuid           string        `json:"rss_guid"`
+	StateHistory      []StateChange `json:"state_history"`
 }
 
 type StateChange struct {
@@ -151,15 +151,15 @@ func (ra RezoningApplication) CreateInformationMessage() string {
 // generateRSSDescription creates a self-contained HTML description for RSS feeds
 func (ra *RezoningApplication) generateRSSDescription() string {
 	var html strings.Builder
-	
+
 	// Header with application number and status
 	html.WriteString(fmt.Sprintf("<h3>🏛️ REZONING APPLICATION %s</h3>", ra.PermitNum))
 	html.WriteString(fmt.Sprintf("<p><strong>Status:</strong> %s</p>", ra.StatusCurrent))
-	
+
 	// Address and location details with map links
 	if ra.Address != nil {
 		html.WriteString(fmt.Sprintf("<p>📍 <strong>Address:</strong> %s</p>", *ra.Address))
-		
+
 		// Map links right under address
 		html.WriteString("<ul style='margin-top: 5px; margin-bottom: 15px;'>")
 		googleMapsURL := fmt.Sprintf("https://maps.google.com/?q=%s", url.QueryEscape(fmt.Sprintf("%s, Calgary, Alberta", *ra.Address)))
@@ -168,56 +168,54 @@ func (ra *RezoningApplication) generateRSSDescription() string {
 		html.WriteString(fmt.Sprintf("<li>📋 <a href='%s' target='_blank'>View on Calgary Development Map</a></li>", dmapURL))
 		html.WriteString("</ul>")
 	}
-	
+
 	// Project details
 	if ra.Description != nil {
 		html.WriteString(fmt.Sprintf("<p>🏗️ <strong>Project:</strong> %s</p>", *ra.Description))
 	}
-	
+
 	// Land use change details
 	html.WriteString("<div style='background-color: #fff3cd; padding: 10px; margin: 10px 0; border-left: 4px solid #ffc107;'>")
 	html.WriteString("<h4>🏘️ LAND USE CHANGE:</h4>")
 	html.WriteString("<ul>")
-	
+
 	if ra.FromLud != nil {
 		html.WriteString(fmt.Sprintf("<li><strong>From:</strong> %s</li>", *ra.FromLud))
 	}
-	
+
 	if ra.ProposedLud != nil {
 		html.WriteString(fmt.Sprintf("<li><strong>To:</strong> %s</li>", *ra.ProposedLud))
 	}
 	html.WriteString("</ul></div>")
-	
+
 	// Applicant information
 	if ra.Applicant != nil {
 		html.WriteString(fmt.Sprintf("<p>👤 <strong>Applicant:</strong> %s</p>", *ra.Applicant))
 	}
-	
+
 	// Timeline information
 	html.WriteString("<h4>📅 TIMELINE:</h4><ul>")
-	
+
 	if ra.AppliedDate != nil {
 		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *ra.AppliedDate); err == nil {
 			html.WriteString(fmt.Sprintf("<li>Applied: %s</li>", parsedDate.Format("January 2, 2006")))
 		}
 	}
-	
+
 	if ra.CompletedDate != nil && *ra.CompletedDate != "" {
 		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *ra.CompletedDate); err == nil {
 			html.WriteString(fmt.Sprintf("<li>Completed: %s</li>", parsedDate.Format("January 2, 2006")))
 		}
 	}
 	html.WriteString("</ul>")
-	
+
 	// Status information
 	if ra.StatusCurrent != "" && strings.Contains(strings.ToLower(ra.StatusCurrent), "approv") {
 		html.WriteString("<div style='background-color: #d4edda; padding: 10px; margin: 10px 0; border-left: 4px solid #28a745;'>")
 		html.WriteString(fmt.Sprintf("<strong>✅ STATUS:</strong> %s", ra.StatusCurrent))
 		html.WriteString("</div>")
 	}
-	
 
-	
 	return html.String()
 }
 
@@ -246,7 +244,7 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 				}
 
 				link := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s", val.PermitNum)
-				
+
 				// Enhanced RSS metadata
 				category := "Land Use Rezoning"
 				author := "Unknown"
@@ -255,10 +253,10 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 				}
 				source := "City of Calgary Open Data"
 				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
-				
+
 				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := ra.generateRSSDescription()
-				
+
 				// Only update RSS and print messages if actual changes were made
 				wasUpdated := rss.UpdateItem(title, fullContent, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
 				if wasUpdated {
@@ -282,7 +280,7 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 				}
 
 				link := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s", val.PermitNum)
-				
+
 				// Enhanced RSS metadata
 				category := "Land Use Rezoning"
 				author := "Unknown"
@@ -291,10 +289,10 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 				}
 				source := "City of Calgary Open Data"
 				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
-				
+
 				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := ra.generateRSSDescription()
-				
+
 				// Only update RSS and print messages if actual changes were made
 				wasUpdated := rss.UpdateItem(title, fullContent, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
 				if wasUpdated {
@@ -380,7 +378,7 @@ func findRezoningApplicationByID(searchSlice []RezoningApplication, id string) *
 // getMostRecentTimestamp finds the most recent timestamp from a rezoning application's data
 func (ra *RezoningApplication) getMostRecentTimestamp() time.Time {
 	var mostRecent time.Time
-	
+
 	// Check applied date
 	if ra.AppliedDate != nil {
 		if appliedDate, err := time.Parse("2006-01-02T15:04:05.000", *ra.AppliedDate); err == nil {
@@ -389,7 +387,7 @@ func (ra *RezoningApplication) getMostRecentTimestamp() time.Time {
 			}
 		}
 	}
-	
+
 	// Check completed date
 	if ra.CompletedDate != nil {
 		if completedDate, err := time.Parse("2006-01-02T15:04:05.000", *ra.CompletedDate); err == nil {
@@ -398,7 +396,7 @@ func (ra *RezoningApplication) getMostRecentTimestamp() time.Time {
 			}
 		}
 	}
-	
+
 	// Check state history for most recent status change
 	for _, state := range ra.StateHistory {
 		if stateTime, err := time.Parse(time.RFC3339, state.Timestamp); err == nil {
@@ -407,15 +405,14 @@ func (ra *RezoningApplication) getMostRecentTimestamp() time.Time {
 			}
 		}
 	}
-	
+
 	// If no valid timestamp found, use current time
 	if mostRecent.IsZero() {
 		mostRecent = time.Now()
 	}
-	
+
 	return mostRecent
 }
-
 
 // getRezoningApplicationActions - Compares fetched and stored rezoning applications and returns a list of actions to execute
 func getRezoningApplicationActions(fetchedRezoningApplications []RezoningApplication, storedPermits []RezoningApplication) []fileaction.FileAction {
@@ -500,7 +497,7 @@ func isRezoningApplicationClosed(fetchedRA RezoningApplication, storedRA Rezonin
 	close_statuses := [3]string{"Approved", "Cancelled", "Refused"}
 	currentlyInCloseStatus := toolbox.SliceContains([]string(close_statuses[:]), fetchedRA.StatusCurrent)
 	previouslyInCloseStatus := toolbox.SliceContains([]string(close_statuses[:]), storedRA.StatusCurrent)
-	
+
 	// Only close if currently in close status AND wasn't previously in close status
 	if currentlyInCloseStatus && !previouslyInCloseStatus {
 		toClose = true

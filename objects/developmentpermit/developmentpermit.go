@@ -69,12 +69,12 @@ func (dp DevelopmentPermit) GetStateHistorySummary() string {
 	if len(dp.StateHistory) == 0 {
 		return "No state history available"
 	}
-	
+
 	summary := fmt.Sprintf("Permit %s lifecycle:\n", dp.PermitNum)
 	for i, state := range dp.StateHistory {
 		timestamp, _ := time.Parse(time.RFC3339, state.Timestamp)
-		summary += fmt.Sprintf("  %d. %s - %s", i+1, 
-			strings.Title(state.Status), 
+		summary += fmt.Sprintf("  %d. %s - %s", i+1,
+			strings.Title(state.Status),
 			timestamp.Format("Jan 2, 2006 3:04 PM"))
 		if state.Decision != "" {
 			summary += fmt.Sprintf(" (Decision: %s)", state.Decision)
@@ -85,37 +85,37 @@ func (dp DevelopmentPermit) GetStateHistorySummary() string {
 }
 
 type DevelopmentPermit struct {
-	Point                  Point   `json:"point"`
-	PermitNum              string  `json:"permitnum"`
-	Address                *string `json:"address"`
-	Applicant              *string `json:"applicant"`
-	Category               *string `json:"category"`
-	Description            *string `json:"description"`
-	ProposedUseCode        *string `json:"proposedusecode"`
-	ProposedUseDesc        *string `json:"proposedusedescription"`
-	PermittedDiscretion    *string `json:"permitteddiscretionary"`
-	LandUseDistrict        *string `json:"landusedistrict"`
-	LandUseDistrictDesc    *string `json:"landusedistrictdescription"`
-	StatusCurrent          string  `json:"statuscurrent"`
-	AppliedDate            *string `json:"applieddate"`
-	CommunityCode          *string `json:"communitycode"`
-	CommunityName          *string `json:"communityname"`
-	Ward                   *string `json:"ward"`
-	Quadrant               *string `json:"quadrant"`
-	Latitude               *string `json:"latitude"`
-	Longitude              *string `json:"longitude"`
-	LocationCount          *string `json:"locationcount"`
-	LocationTypes          *string `json:"locationtypes"`
-	LocationAddresses      *string `json:"locationaddresses"`
-	LocationsGeoJSON       *string `json:"locationsgeojson"`
-	LocationsWKT           *string `json:"locationswkt"`
-	DecisionDate           *string `json:"decisiondate"`
-	MustCommenceDate       *string `json:"mustcommencedate"`
-	Decision               *string `json:"decision"`
-	DecisionBy             *string `json:"decisionby"`
-	ReleaseDate            *string `json:"releasedate"`
-	RSSGuid                string         `json:"rss_guid"`
-	StateHistory           []StateChange `json:"state_history"`
+	Point               Point         `json:"point"`
+	PermitNum           string        `json:"permitnum"`
+	Address             *string       `json:"address"`
+	Applicant           *string       `json:"applicant"`
+	Category            *string       `json:"category"`
+	Description         *string       `json:"description"`
+	ProposedUseCode     *string       `json:"proposedusecode"`
+	ProposedUseDesc     *string       `json:"proposedusedescription"`
+	PermittedDiscretion *string       `json:"permitteddiscretionary"`
+	LandUseDistrict     *string       `json:"landusedistrict"`
+	LandUseDistrictDesc *string       `json:"landusedistrictdescription"`
+	StatusCurrent       string        `json:"statuscurrent"`
+	AppliedDate         *string       `json:"applieddate"`
+	CommunityCode       *string       `json:"communitycode"`
+	CommunityName       *string       `json:"communityname"`
+	Ward                *string       `json:"ward"`
+	Quadrant            *string       `json:"quadrant"`
+	Latitude            *string       `json:"latitude"`
+	Longitude           *string       `json:"longitude"`
+	LocationCount       *string       `json:"locationcount"`
+	LocationTypes       *string       `json:"locationtypes"`
+	LocationAddresses   *string       `json:"locationaddresses"`
+	LocationsGeoJSON    *string       `json:"locationsgeojson"`
+	LocationsWKT        *string       `json:"locationswkt"`
+	DecisionDate        *string       `json:"decisiondate"`
+	MustCommenceDate    *string       `json:"mustcommencedate"`
+	Decision            *string       `json:"decision"`
+	DecisionBy          *string       `json:"decisionby"`
+	ReleaseDate         *string       `json:"releasedate"`
+	RSSGuid             string        `json:"rss_guid"`
+	StateHistory        []StateChange `json:"state_history"`
 }
 
 type StateChange struct {
@@ -192,15 +192,15 @@ func (dp DevelopmentPermit) CreateInformationMessage() string {
 // generateRSSDescription creates a self-contained HTML description for RSS feeds
 func (dp *DevelopmentPermit) generateRSSDescription() string {
 	var html strings.Builder
-	
+
 	// Header with permit number and status
 	html.WriteString(fmt.Sprintf("<h3>🏗️ DEVELOPMENT PERMIT %s</h3>", dp.PermitNum))
 	html.WriteString(fmt.Sprintf("<p><strong>Status:</strong> %s</p>", dp.StatusCurrent))
-	
+
 	// Address and location details with map links
 	if dp.Address != nil {
 		html.WriteString(fmt.Sprintf("<p>📍 <strong>Address:</strong> %s</p>", *dp.Address))
-		
+
 		// Map links right under address
 		html.WriteString("<ul style='margin-top: 5px; margin-bottom: 15px;'>")
 		googleMapsURL := fmt.Sprintf("https://maps.google.com/?q=%s", url.QueryEscape(fmt.Sprintf("%s, Calgary, Alberta", *dp.Address)))
@@ -209,7 +209,7 @@ func (dp *DevelopmentPermit) generateRSSDescription() string {
 		html.WriteString(fmt.Sprintf("<li>📋 <a href='%s' target='_blank'>View on Calgary Development Map</a></li>", dmapURL))
 		html.WriteString("</ul>")
 	}
-	
+
 	if dp.CommunityName != nil {
 		html.WriteString(fmt.Sprintf("<p>🏘️ <strong>Community:</strong> %s", *dp.CommunityName))
 		if dp.Ward != nil {
@@ -217,53 +217,53 @@ func (dp *DevelopmentPermit) generateRSSDescription() string {
 		}
 		html.WriteString("</p>")
 	}
-	
+
 	// Project details
 	if dp.Description != nil {
 		html.WriteString(fmt.Sprintf("<p>🏗️ <strong>Project:</strong> %s</p>", *dp.Description))
 	}
-	
+
 	if dp.LandUseDistrictDesc != nil {
 		html.WriteString(fmt.Sprintf("<p>🏘️ <strong>Land Use:</strong> %s</p>", *dp.LandUseDistrictDesc))
 	}
-	
+
 	if dp.PermittedDiscretion != nil {
 		html.WriteString(fmt.Sprintf("<p>📋 <strong>Application Type:</strong> %s</p>", *dp.PermittedDiscretion))
 	}
-	
+
 	// Applicant information
 	if dp.Applicant != nil {
 		html.WriteString(fmt.Sprintf("<p>👤 <strong>Applicant:</strong> %s</p>", *dp.Applicant))
 	}
-	
+
 	// Timeline information
 	html.WriteString("<h4>📅 TIMELINE:</h4><ul>")
-	
+
 	if dp.AppliedDate != nil {
 		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.AppliedDate); err == nil {
 			html.WriteString(fmt.Sprintf("<li>Applied: %s</li>", parsedDate.Format("January 2, 2006")))
 		}
 	}
-	
+
 	if dp.DecisionDate != nil && *dp.DecisionDate != "" {
 		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.DecisionDate); err == nil {
 			html.WriteString(fmt.Sprintf("<li>Decision: %s</li>", parsedDate.Format("January 2, 2006")))
 		}
 	}
-	
+
 	if dp.ReleaseDate != nil && *dp.ReleaseDate != "" {
 		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.ReleaseDate); err == nil {
 			html.WriteString(fmt.Sprintf("<li>Released: %s</li>", parsedDate.Format("January 2, 2006")))
 		}
 	}
-	
+
 	if dp.MustCommenceDate != nil && *dp.MustCommenceDate != "" {
 		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.MustCommenceDate); err == nil {
 			html.WriteString(fmt.Sprintf("<li>Must Commence By: %s</li>", parsedDate.Format("January 2, 2006")))
 		}
 	}
 	html.WriteString("</ul>")
-	
+
 	// Decision information
 	if dp.Decision != nil && *dp.Decision != "" {
 		html.WriteString("<div style='background-color: #d4edda; padding: 10px; margin: 10px 0; border-left: 4px solid #28a745;'>")
@@ -273,9 +273,7 @@ func (dp *DevelopmentPermit) generateRSSDescription() string {
 		}
 		html.WriteString("</div>")
 	}
-	
 
-	
 	return html.String()
 }
 
@@ -302,7 +300,7 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 				}
 
 				link := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s", val.PermitNum)
-				
+
 				// Enhanced RSS metadata
 				category := "Development Permit"
 				author := "Unknown"
@@ -311,10 +309,10 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 				}
 				source := "City of Calgary Open Data"
 				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
-				
+
 				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := dp.generateRSSDescription()
-				
+
 				// Only update RSS and print messages if actual changes were made
 				wasUpdated := rss.UpdateItem(title, fullContent, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
 				if wasUpdated {
@@ -338,7 +336,7 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 				}
 
 				link := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s", val.PermitNum)
-				
+
 				// Enhanced RSS metadata
 				category := "Development Permit"
 				author := "Unknown"
@@ -347,10 +345,10 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 				}
 				source := "City of Calgary Open Data"
 				comments := fmt.Sprintf("https://developmentmap.calgary.ca/?find=%s#comments", val.PermitNum)
-				
+
 				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := dp.generateRSSDescription()
-				
+
 				// Only update RSS and print messages if actual changes were made
 				wasUpdated := rss.UpdateItem(title, fullContent, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
 				if wasUpdated {
@@ -435,7 +433,7 @@ func findDevelopmentPermitByPermitNum(searchSlice []DevelopmentPermit, permitNum
 // getMostRecentTimestamp finds the most recent timestamp from a development permit's data
 func (dp *DevelopmentPermit) getMostRecentTimestamp() time.Time {
 	var mostRecent time.Time
-	
+
 	// Check applied date
 	if dp.AppliedDate != nil {
 		if appliedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.AppliedDate); err == nil {
@@ -444,7 +442,7 @@ func (dp *DevelopmentPermit) getMostRecentTimestamp() time.Time {
 			}
 		}
 	}
-	
+
 	// Check decision date
 	if dp.DecisionDate != nil {
 		if decisionDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.DecisionDate); err == nil {
@@ -453,7 +451,7 @@ func (dp *DevelopmentPermit) getMostRecentTimestamp() time.Time {
 			}
 		}
 	}
-	
+
 	// Check release date
 	if dp.ReleaseDate != nil {
 		if releaseDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.ReleaseDate); err == nil {
@@ -462,7 +460,7 @@ func (dp *DevelopmentPermit) getMostRecentTimestamp() time.Time {
 			}
 		}
 	}
-	
+
 	// Check state history for most recent status change
 	for _, state := range dp.StateHistory {
 		if stateTime, err := time.Parse(time.RFC3339, state.Timestamp); err == nil {
@@ -471,20 +469,19 @@ func (dp *DevelopmentPermit) getMostRecentTimestamp() time.Time {
 			}
 		}
 	}
-	
+
 	// If no valid timestamp found, use current time
 	if mostRecent.IsZero() {
 		mostRecent = time.Now()
 	}
-	
+
 	return mostRecent
 }
-
 
 // getDevelopmentPermitActions - For a list of fetched and stored development permits compares permits and gets a list of actions to execute
 func getDevelopmentPermitActions(fetchedDevelopmentPermits []DevelopmentPermit, storedDevelopmentPermits []DevelopmentPermit) []fileaction.FileAction {
 	var fileActions []fileaction.FileAction
-	
+
 	for _, fetchedDP := range fetchedDevelopmentPermits {
 		storedDpPtr := findDevelopmentPermitByPermitNum(storedDevelopmentPermits, fetchedDP.PermitNum)
 		if storedDpPtr == nil {
@@ -574,7 +571,7 @@ func isDevelopmentPermitClosed(fetchedDP DevelopmentPermit, storedDP Development
 	close_statuses := [3]string{"Released", "Cancelled", "Cancelled - Pending Refund"}
 	currentlyInCloseStatus := toolbox.SliceContains([]string(close_statuses[:]), fetchedDP.StatusCurrent)
 	previouslyInCloseStatus := toolbox.SliceContains([]string(close_statuses[:]), storedDP.StatusCurrent)
-	
+
 	// Only close if currently in close status AND wasn't previously in close status
 	if currentlyInCloseStatus && !previouslyInCloseStatus {
 		toClose = true
