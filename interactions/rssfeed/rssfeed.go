@@ -28,7 +28,7 @@ type Item struct {
 	Title          string    `xml:"title"`
 	Link           string    `xml:"link"`
 	Description    CDataText `xml:"description"`
-	ContentEncoded CDataText `xml:"content:encoded,omitempty"`
+	ContentEncoded CDataText `xml:"content:encoded"`
 	PubDate        string    `xml:"pubDate"`
 	GUID           string    `xml:"guid"`
 	Category       string    `xml:"category,omitempty"`
@@ -186,6 +186,13 @@ func GetOrCreateRSSFeed(filepath, title, description, link string) (*RSS, error)
 	// Ensure ContentNS is properly set (fix for existing feeds with empty namespace)
 	if rss.ContentNS == "" {
 		rss.ContentNS = "http://purl.org/rss/1.0/modules/content/"
+	}
+
+	// Fix empty content:encoded fields by copying from description
+	for i := range rss.Channel.Items {
+		if rss.Channel.Items[i].ContentEncoded.Text == "" && rss.Channel.Items[i].Description.Text != "" {
+			rss.Channel.Items[i].ContentEncoded.Text = rss.Channel.Items[i].Description.Text
+		}
 	}
 
 	return rss, nil

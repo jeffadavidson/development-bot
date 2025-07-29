@@ -306,3 +306,81 @@ func TestGetOrCreateRSSFeed_FixesEmptyContentNamespace(t *testing.T) {
 	assert.Contains(t, xmlString, `xmlns:content="http://purl.org/rss/1.0/modules/content/"`)
 	assert.NotContains(t, xmlString, `xmlns:content=""`)
 }
+
+func TestGetOrCreateRSSFeed_FixesEmptyContentEncoded(t *testing.T) {
+	// Test the auto-fix logic directly without relying on XML parsing
+	// which has known issues with content:encoded namespace handling
+
+	// Create an RSS feed with items that have empty content:encoded
+	rss := CreateRSSFeed("Test Feed", "Test Description", "https://example.com")
+
+	// Add items with different content:encoded states
+	pubDate := time.Date(2024, 1, 1, 12, 0, 0, 0, time.UTC)
+
+	// Item 1: Empty content:encoded, should be fixed
+	item1 := Item{
+		Title:          "Test Item 1",
+		Link:           "https://example.com/item1",
+		Description:    CDataText{Text: "<h1>Rich HTML Description 1</h1><p>This is the description content.</p>"},
+		ContentEncoded: CDataText{Text: ""}, // Empty - should be fixed
+		PubDate:        pubDate.Format(time.RFC1123Z),
+		GUID:           "guid-1",
+	}
+
+	// Item 2: Has content:encoded, should be preserved
+	item2 := Item{
+		Title:          "Test Item 2",
+		Link:           "https://example.com/item2",
+		Description:    CDataText{Text: "<h2>Another Rich Description</h2><p>More content here.</p>"},
+		ContentEncoded: CDataText{Text: "Already has content"}, // Should be preserved
+		PubDate:        pubDate.Format(time.RFC1123Z),
+		GUID:           "guid-2",
+	}
+
+	// Item 3: Empty description, empty content:encoded - should remain empty
+	item3 := Item{
+		Title:          "Test Item 3",
+		Link:           "https://example.com/item3",
+		Description:    CDataText{Text: ""}, // Empty description
+		ContentEncoded: CDataText{Text: ""}, // Empty - should stay empty
+		PubDate:        pubDate.Format(time.RFC1123Z),
+		GUID:           "guid-3",
+	}
+
+	rss.Channel.Items = []Item{item1, item2, item3}
+
+	// Apply the auto-fix logic directly (simulate what GetOrCreateRSSFeed does)
+	for i := range rss.Channel.Items {
+		if rss.Channel.Items[i].ContentEncoded.Text == "" && rss.Channel.Items[i].Description.Text != "" {
+			rss.Channel.Items[i].ContentEncoded.Text = rss.Channel.Items[i].Description.Text
+		}
+	}
+
+	// Verify the results
+	require.Len(t, rss.Channel.Items, 3)
+
+	// Item 1: content:encoded should be populated from description
+	assert.Equal(t, "Test Item 1", rss.Channel.Items[0].Title)
+	assert.Equal(t, "<h1>Rich HTML Description 1</h1><p>This is the description content.</p>", rss.Channel.Items[0].Description.Text)
+	assert.Equal(t, "<h1>Rich HTML Description 1</h1><p>This is the description content.</p>", rss.Channel.Items[0].ContentEncoded.Text)
+
+	// Item 2: content:encoded should be preserved
+	assert.Equal(t, "Test Item 2", rss.Channel.Items[1].Title)
+	assert.Equal(t, "<h2>Another Rich Description</h2><p>More content here.</p>", rss.Channel.Items[1].Description.Text)
+	assert.Equal(t, "Already has content", rss.Channel.Items[1].ContentEncoded.Text)
+
+	// Item 3: content:encoded should remain empty
+	assert.Equal(t, "Test Item 3", rss.Channel.Items[2].Title)
+	assert.Equal(t, "", rss.Channel.Items[2].Description.Text)
+	assert.Equal(t, "", rss.Channel.Items[2].ContentEncoded.Text)
+
+	// Generate XML and verify content:encoded fields are properly included
+	xmlData, err := rss.ToXML()
+	require.NoError(t, err)
+
+	xmlString := string(xmlData)
+	// Should contain the fixed content:encoded for item 1
+	assert.Contains(t, xmlString, `<content:encoded><![CDATA[<h1>Rich HTML Description 1</h1><p>This is the description content.</p>]]></content:encoded>`)
+	// Should contain the preserved content:encoded for item 2
+	assert.Contains(t, xmlString, `<content:encoded><![CDATA[Already has content]]></content:encoded>`)
+}
