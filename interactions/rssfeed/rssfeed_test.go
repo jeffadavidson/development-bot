@@ -221,3 +221,52 @@ func TestLoadRSSFromXML_InvalidXML(t *testing.T) {
 	assert.Error(t, err)
 	assert.Contains(t, err.Error(), "failed to unmarshal RSS from XML")
 } 
+
+func TestUpdateItem_ReturnsTrue_WhenActualChanges(t *testing.T) {
+	rss := CreateRSSFeed("Test", "Test", "https://example.com")
+	pubDate := time.Now()
+	
+	// Add initial item
+	rss.AddItem("Old Title", "Old Desc", "https://example.com/old", "guid-123", pubDate, "Old Category", "", "", "", "Old content")
+	
+	// Update the item with different content
+	newPubDate := pubDate.Add(time.Hour)
+	wasUpdated := rss.UpdateItem("New Title", "New Desc", "https://example.com/new", "guid-123", newPubDate, "New Category", "New Author", "", "", "New content")
+	
+	// Should return true because content changed
+	assert.True(t, wasUpdated)
+	
+	// Verify the item was actually updated
+	item := rss.Channel.Items[0]
+	assert.Equal(t, "New Title", item.Title)
+	assert.Equal(t, "New Desc", item.Description.Text)
+}
+
+func TestUpdateItem_ReturnsFalse_WhenNoChanges(t *testing.T) {
+	rss := CreateRSSFeed("Test", "Test", "https://example.com")
+	pubDate := time.Now()
+	
+	// Add initial item
+	rss.AddItem("Title", "Description", "https://example.com/link", "guid-123", pubDate, "Category", "Author", "Source", "Comments", "Content")
+	
+	// Update with identical content
+	wasUpdated := rss.UpdateItem("Title", "Description", "https://example.com/link", "guid-123", pubDate, "Category", "Author", "Source", "Comments", "Content")
+	
+	// Should return false because nothing changed
+	assert.False(t, wasUpdated)
+}
+
+func TestUpdateItem_ReturnsTrue_WhenAddingNewItem(t *testing.T) {
+	rss := CreateRSSFeed("Test", "Test", "https://example.com")
+	pubDate := time.Now()
+	
+	// Update non-existent item (should add it)
+	wasUpdated := rss.UpdateItem("New Item", "New Desc", "https://example.com/new", "guid-456", pubDate, "Category", "", "", "", "New content")
+	
+	// Should return true because a new item was added
+	assert.True(t, wasUpdated)
+	
+	require.Len(t, rss.Channel.Items, 1)
+	item := rss.Channel.Items[0]
+	assert.Equal(t, "New Item", item.Title)
+} 

@@ -677,3 +677,131 @@ func TestContains_DevelopmentPermitAction_Create(t *testing.T) {
 	assert.Equal(t, expectedActions[0].PermitNum, createdActions[0].PermitNum)
 	assert.Equal(t, expectedActions[0].Action, createdActions[0].Action)
 }
+
+func TestDevelopmentPermitActions_CreateVsUpdate(t *testing.T) {
+	// Test CREATE action - new permit not in stored data
+	storedDP := []byte(`[]`)
+	fetchedDP := []byte(`
+[
+	{
+		"point": {
+			"type": "Point",
+			"coordinates": [-114.13992156438134, 51.02930819585162]
+		},
+		"permitnum": "DP2025-12345",
+		"address": "123 Test ST SW",
+		"statuscurrent": "In Progress",
+		"applieddate": "2025-01-01T00:00:00.000"
+	}
+]
+`)
+
+	storedPermits, errS := parseDevelopmentPermits(storedDP)
+	fetchedPermits, errF := parseDevelopmentPermits(fetchedDP)
+
+	assert.NoError(t, errS)
+	assert.NoError(t, errF)
+
+	actions := getDevelopmentPermitActions(fetchedPermits, storedPermits)
+	
+	// Should generate CREATE action for new permit
+	assert.Equal(t, 1, len(actions))
+	assert.Equal(t, "DP2025-12345", actions[0].PermitNum)
+	assert.Equal(t, "CREATE", actions[0].Action)
+}
+
+func TestDevelopmentPermitActions_UpdateAction(t *testing.T) {
+	// Test UPDATE action - existing permit with status change
+	storedDP := []byte(`
+[
+	{
+		"point": {
+			"type": "Point",
+			"coordinates": [-114.13992156438134, 51.02930819585162]
+		},
+		"permitnum": "DP2025-12345",
+		"address": "123 Test ST SW",
+		"statuscurrent": "In Progress",
+		"applieddate": "2025-01-01T00:00:00.000"
+	}
+]
+`)
+	fetchedDP := []byte(`
+[
+	{
+		"point": {
+			"type": "Point",
+			"coordinates": [-114.13992156438134, 51.02930819585162]
+		},
+		"permitnum": "DP2025-12345",
+		"address": "123 Test ST SW",
+		"statuscurrent": "Released",
+		"applieddate": "2025-01-01T00:00:00.000",
+		"decision": "Approval",
+		"decisiondate": "2025-01-15T00:00:00.000"
+	}
+]
+`)
+
+	storedPermits, errS := parseDevelopmentPermits(storedDP)
+	fetchedPermits, errF := parseDevelopmentPermits(fetchedDP)
+
+	assert.NoError(t, errS)
+	assert.NoError(t, errF)
+
+	actions := getDevelopmentPermitActions(fetchedPermits, storedPermits)
+	
+	// Should generate CLOSE action for status change to Released
+	assert.Equal(t, 1, len(actions))
+	assert.Equal(t, "DP2025-12345", actions[0].PermitNum)
+	assert.Equal(t, "CLOSE", actions[0].Action)
+	assert.Contains(t, actions[0].Message, "Status updated")
+	assert.Contains(t, actions[0].Message, "Closing file")
+}
+
+func TestDevelopmentPermitActions_NoActionWhenAlreadyClosed(t *testing.T) {
+	// Test no action when permit is already in closed status
+	storedDP := []byte(`
+[
+	{
+		"point": {
+			"type": "Point",
+			"coordinates": [-114.13992156438134, 51.02930819585162]
+		},
+		"permitnum": "DP2025-12345",
+		"address": "123 Test ST SW",
+		"statuscurrent": "Released",
+		"applieddate": "2025-01-01T00:00:00.000",
+		"decision": "Approval",
+		"decisiondate": "2025-01-15T00:00:00.000"
+	}
+]
+`)
+	fetchedDP := []byte(`
+[
+	{
+		"point": {
+			"type": "Point",
+			"coordinates": [-114.13992156438134, 51.02930819585162]
+		},
+		"permitnum": "DP2025-12345",
+		"address": "123 Test ST SW",
+		"statuscurrent": "Released",
+		"applieddate": "2025-01-01T00:00:00.000",
+		"decision": "Approval",
+		"decisiondate": "2025-01-15T00:00:00.000"
+	}
+]
+`)
+
+	storedPermits, errS := parseDevelopmentPermits(storedDP)
+	fetchedPermits, errF := parseDevelopmentPermits(fetchedDP)
+
+	assert.NoError(t, errS)
+	assert.NoError(t, errF)
+
+	actions := getDevelopmentPermitActions(fetchedPermits, storedPermits)
+	
+	// Should generate no actions since permit is already closed and unchanged
+	assert.Equal(t, 0, len(actions))
+}

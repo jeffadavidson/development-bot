@@ -315,7 +315,7 @@ func Test_RezoningApplication_StatusUpdateApproved(t *testing.T) {
 		{
 			PermitNum: "RZ2023-00001",
 			Action:    "CLOSE",
-			Message:   "Status updated from 'In Circulation' to 'Approved'\n\nClosing file as it is in status 'Approved'",
+			Message:   "Status updated from 'In Circulation' to 'Approved'\n\nClosing file as it changed to status 'Approved'",
 		},
 	}
 
@@ -377,4 +377,132 @@ func Test_RezoningApplication_CreateRaDiscussion(t *testing.T) {
 	assert.Equal(t, 1, len(createdActions))
 	assert.Equal(t, expectedActions[0].PermitNum, createdActions[0].PermitNum)
 	assert.Equal(t, expectedActions[0].Action, createdActions[0].Action)
+}
+
+func TestRezoningApplicationActions_CreateVsUpdate(t *testing.T) {
+	// Test CREATE action - new application not in stored data
+	storedRA := []byte(`[]`)
+	fetchedRA := []byte(`
+[
+	{
+		"point": {
+			"type": "Point",
+			"coordinates": [-114.13992156438134, 51.02930819585162]
+		},
+		"permitnum": "LOC2025-12345",
+		"address": "123 Test ST SW",
+		"statuscurrent": "Under Review",
+		"applieddate": "2025-01-01T00:00:00.000"
+	}
+]
+`)
+
+	storedApplications, errS := parseRezoningApplications(storedRA)
+	fetchedApplications, errF := parseRezoningApplications(fetchedRA)
+
+	assert.NoError(t, errS)
+	assert.NoError(t, errF)
+
+	actions := getRezoningApplicationActions(fetchedApplications, storedApplications)
+	
+	// Should generate CREATE action for new application
+	assert.Equal(t, 1, len(actions))
+	assert.Equal(t, "LOC2025-12345", actions[0].PermitNum)
+	assert.Equal(t, "CREATE", actions[0].Action)
+}
+
+func TestRezoningApplicationActions_UpdateAction(t *testing.T) {
+	// Test UPDATE action - existing application with status change
+	storedRA := []byte(`
+[
+	{
+		"point": {
+			"type": "Point",
+			"coordinates": [-114.13992156438134, 51.02930819585162]
+		},
+		"permitnum": "LOC2025-12345",
+		"address": "123 Test ST SW",
+		"statuscurrent": "Under Review",
+		"applieddate": "2025-01-01T00:00:00.000"
+	}
+]
+`)
+	fetchedRA := []byte(`
+[
+	{
+		"point": {
+			"type": "Point",
+			"coordinates": [-114.13992156438134, 51.02930819585162]
+		},
+		"permitnum": "LOC2025-12345",
+		"address": "123 Test ST SW",
+		"statuscurrent": "Approved",
+		"applieddate": "2025-01-01T00:00:00.000",
+		"decision": "Approved",
+		"decisiondate": "2025-01-15T00:00:00.000"
+	}
+]
+`)
+
+	storedApplications, errS := parseRezoningApplications(storedRA)
+	fetchedApplications, errF := parseRezoningApplications(fetchedRA)
+
+	assert.NoError(t, errS)
+	assert.NoError(t, errF)
+
+	actions := getRezoningApplicationActions(fetchedApplications, storedApplications)
+	
+	// Should generate CLOSE action for status change to Approved
+	assert.Equal(t, 1, len(actions))
+	assert.Equal(t, "LOC2025-12345", actions[0].PermitNum)
+	assert.Equal(t, "CLOSE", actions[0].Action)
+	assert.Contains(t, actions[0].Message, "Status updated")
+	assert.Contains(t, actions[0].Message, "Closing file")
+}
+
+func TestRezoningApplicationActions_NoActionWhenAlreadyClosed(t *testing.T) {
+	// Test no action when application is already in closed status
+	storedRA := []byte(`
+[
+	{
+		"point": {
+			"type": "Point",
+			"coordinates": [-114.13992156438134, 51.02930819585162]
+		},
+		"permitnum": "LOC2025-12345",
+		"address": "123 Test ST SW",
+		"statuscurrent": "Approved",
+		"applieddate": "2025-01-01T00:00:00.000",
+		"decision": "Approved",
+		"decisiondate": "2025-01-15T00:00:00.000"
+	}
+]
+`)
+	fetchedRA := []byte(`
+[
+	{
+		"point": {
+			"type": "Point",
+			"coordinates": [-114.13992156438134, 51.02930819585162]
+		},
+		"permitnum": "LOC2025-12345",
+		"address": "123 Test ST SW",
+		"statuscurrent": "Approved",
+		"applieddate": "2025-01-01T00:00:00.000",
+		"decision": "Approved",
+		"decisiondate": "2025-01-15T00:00:00.000"
+	}
+]
+`)
+
+	storedApplications, errS := parseRezoningApplications(storedRA)
+	fetchedApplications, errF := parseRezoningApplications(fetchedRA)
+
+	assert.NoError(t, errS)
+	assert.NoError(t, errF)
+
+	actions := getRezoningApplicationActions(fetchedApplications, storedApplications)
+	
+	// Should generate no actions since application is already closed and unchanged
+	assert.Equal(t, 0, len(actions))
 }

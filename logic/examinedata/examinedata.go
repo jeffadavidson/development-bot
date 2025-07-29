@@ -46,7 +46,7 @@ func ProcessAllDevelopmentActivity() error {
 		return fmt.Errorf("failed to save RSS feed: %v", err)
 	}
 
-	fmt.Printf("Combined RSS feed updated with %d development permit actions and %d rezoning application actions\n", 
+	fmt.Printf("Combined RSS feed processed with %d development permit actions and %d rezoning application actions\n", 
 		len(dpActions), len(raActions))
 
 	return nil

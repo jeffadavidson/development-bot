@@ -110,25 +110,55 @@ func (rss *RSS) FindItemByGUID(guid string) *Item {
 	return nil
 }
 
-// UpdateItem updates an existing item or adds it if not found
-func (rss *RSS) UpdateItem(title, description, link, guid string, pubDate time.Time, category, author, source, comments, contentEncoded string) {
+// UpdateItem updates an existing item or adds a new one if it doesn't exist
+// Returns true if any actual changes were made to the feed
+func (rss *RSS) UpdateItem(title, description, link, guid string, pubDate time.Time, category, author, source, comments, contentEncoded string) bool {
 	item := rss.FindItemByGUID(guid)
 	if item != nil {
-		// Update existing item
-		item.Title = title
-		item.Description = CDataText{Text: description}
-		item.ContentEncoded = CDataText{Text: contentEncoded}
-		item.Link = link
-		item.PubDate = pubDate.Format(time.RFC1123Z)
-		item.Category = category
-		item.Author = author
-		item.Source = source
-		item.Comments = comments
+		// Check if any content actually changed
+		newItem := Item{
+			Title:          title,
+			Description:    CDataText{Text: description},
+			ContentEncoded: CDataText{Text: contentEncoded},
+			Link:           link,
+			PubDate:        pubDate.Format(time.RFC1123Z),
+			Category:       category,
+			Author:         author,
+			Source:         source,
+			Comments:       comments,
+		}
+		
+		// Compare current item with new item to detect changes
+		hasChanges := item.Title != newItem.Title ||
+			item.Description.Text != newItem.Description.Text ||
+			item.ContentEncoded.Text != newItem.ContentEncoded.Text ||
+			item.Link != newItem.Link ||
+			item.PubDate != newItem.PubDate ||
+			item.Category != newItem.Category ||
+			item.Author != newItem.Author ||
+			item.Source != newItem.Source ||
+			item.Comments != newItem.Comments
+		
+		if hasChanges {
+			// Update existing item
+			item.Title = newItem.Title
+			item.Description = newItem.Description
+			item.ContentEncoded = newItem.ContentEncoded
+			item.Link = newItem.Link
+			item.PubDate = newItem.PubDate
+			item.Category = newItem.Category
+			item.Author = newItem.Author
+			item.Source = newItem.Source
+			item.Comments = newItem.Comments
+			rss.Channel.LastBuildDate = time.Now().Format(time.RFC1123Z)
+			return true
+		}
+		return false
 	} else {
 		// Add new item
 		rss.AddItem(title, description, link, guid, pubDate, category, author, source, comments, contentEncoded)
+		return true
 	}
-	rss.Channel.LastBuildDate = time.Now().Format(time.RFC1123Z)
 }
 
 // TrimToMaxItems keeps only the most recent N items in the feed

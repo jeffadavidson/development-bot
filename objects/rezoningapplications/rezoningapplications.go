@@ -233,9 +233,7 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 	// Process actions for Rezoning Applications
 	for _, val := range fileActions {
 		if val.Action == "CREATE" {
-			fmt.Printf("Rezoning Application %s:\n\tUpdating RSS feed...\n", val.PermitNum)
-			
-						// Add new RSS item
+			// Add new RSS item
 			ra := findRezoningApplicationByID(fetchedPermits, val.PermitNum)
 			if ra != nil {
 				pubDate := time.Now()
@@ -265,15 +263,17 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := ra.generateRSSDescription()
 				
-				rss.UpdateItem(title, fullContent, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
-				fmt.Printf("\tUpdated RSS feed!\n")
+				// Only update RSS and print messages if actual changes were made
+				wasUpdated := rss.UpdateItem(title, fullContent, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
+				if wasUpdated {
+					fmt.Printf("Rezoning Application %s:\n\tCreating RSS feed entry...\n", val.PermitNum)
+					fmt.Printf("\tCreated RSS feed entry!\n")
+				}
 			}
 		}
 
 		if val.Action == "UPDATE" || val.Action == "CLOSE" {
-			fmt.Printf("Rezoning Application %s:\n\tUpdating RSS feed...\n", val.PermitNum)
-			
-						// Update existing RSS item
+			// Update existing RSS item
 			ra := findRezoningApplicationByID(fetchedPermits, val.PermitNum)
 			if ra != nil {
 				// Keep original publication date for updates
@@ -304,8 +304,12 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := ra.generateRSSDescription()
 				
-				rss.UpdateItem(title, fullContent, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
-				fmt.Printf("\tUpdated in RSS feed!\n")
+				// Only update RSS and print messages if actual changes were made
+				wasUpdated := rss.UpdateItem(title, fullContent, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
+				if wasUpdated {
+					fmt.Printf("Rezoning Application %s:\n\tUpdating RSS feed entry...\n", val.PermitNum)
+					fmt.Printf("\tUpdated RSS feed entry!\n")
+				}
 			}
 		}
 	}
@@ -463,11 +467,17 @@ func isRezoningApplicationClosed(fetchedRA RezoningApplication, storedRA Rezonin
 	toClose := false
 	closeMessage := ""
 
-	// Check for close
+	// Check for close statuses
 	close_statuses := [3]string{"Approved", "Cancelled", "Refused"}
-	if toolbox.SliceContains([]string(close_statuses[:]), fetchedRA.StatusCurrent) {
+	currentlyInCloseStatus := toolbox.SliceContains([]string(close_statuses[:]), fetchedRA.StatusCurrent)
+	previouslyInCloseStatus := toolbox.SliceContains([]string(close_statuses[:]), storedRA.StatusCurrent)
+	
+	// Only close if currently in close status AND wasn't previously in close status
+	if currentlyInCloseStatus && !previouslyInCloseStatus {
 		toClose = true
-		closeMessage = fmt.Sprintf("Closing file as it is in status '%s'", fetchedRA.StatusCurrent)
+		closeMessage = fmt.Sprintf("Closing file as it changed to status '%s'", fetchedRA.StatusCurrent)
+	} else if currentlyInCloseStatus && previouslyInCloseStatus {
+		// No action needed if already in closed status
 	}
 
 	return toClose, closeMessage

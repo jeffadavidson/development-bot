@@ -289,9 +289,7 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 	// Process actions for Development Permits
 	for _, val := range fileActions {
 		if val.Action == "CREATE" {
-			fmt.Printf("Development Permit %s:\n\tUpdating RSS feed...\n", val.PermitNum)
-			
-						// Add new RSS item
+			// Add new RSS item
 			dp := findDevelopmentPermitByPermitNum(fetchedDevelopmentPermits, val.PermitNum)
 			if dp != nil {
 				pubDate := time.Now()
@@ -321,15 +319,17 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := dp.generateRSSDescription()
 				
-				rss.UpdateItem(title, fullContent, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
-				fmt.Printf("\tUpdated RSS feed!\n")
+				// Only update RSS and print messages if actual changes were made
+				wasUpdated := rss.UpdateItem(title, fullContent, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
+				if wasUpdated {
+					fmt.Printf("Development Permit %s:\n\tCreating RSS feed entry...\n", val.PermitNum)
+					fmt.Printf("\tCreated RSS feed entry!\n")
+				}
 			}
 		}
 
 		if val.Action == "UPDATE" || val.Action == "CLOSE" {
-			fmt.Printf("Development Permit %s:\n\tUpdating RSS feed...\n", val.PermitNum)
-			
-						// Update existing RSS item
+			// Update existing RSS item
 			dp := findDevelopmentPermitByPermitNum(fetchedDevelopmentPermits, val.PermitNum)
 			if dp != nil {
 				// Keep original publication date for updates
@@ -360,8 +360,12 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := dp.generateRSSDescription()
 				
-				rss.UpdateItem(title, fullContent, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
-				fmt.Printf("\tUpdated in RSS feed!\n")
+				// Only update RSS and print messages if actual changes were made
+				wasUpdated := rss.UpdateItem(title, fullContent, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
+				if wasUpdated {
+					fmt.Printf("Development Permit %s:\n\tUpdating RSS feed entry...\n", val.PermitNum)
+					fmt.Printf("\tUpdated RSS feed entry!\n")
+				}
 			}
 		}
 	}
@@ -442,6 +446,7 @@ func findDevelopmentPermitByPermitNum(searchSlice []DevelopmentPermit, permitNum
 // getDevelopmentPermitActions - For a list of fetched and stored development permits compares permits and gets a list of actions to execute
 func getDevelopmentPermitActions(fetchedDevelopmentPermits []DevelopmentPermit, storedDevelopmentPermits []DevelopmentPermit) []fileaction.FileAction {
 	var fileActions []fileaction.FileAction
+	
 	for _, fetchedDP := range fetchedDevelopmentPermits {
 		storedDpPtr := findDevelopmentPermitByPermitNum(storedDevelopmentPermits, fetchedDP.PermitNum)
 		if storedDpPtr == nil {
@@ -527,11 +532,17 @@ func isDevelopmentPermitClosed(fetchedDP DevelopmentPermit, storedDP Development
 	toClose := false
 	closeMessage := ""
 
-	// Check for close
+	// Check for close statuses
 	close_statuses := [3]string{"Released", "Cancelled", "Cancelled - Pending Refund"}
-	if toolbox.SliceContains([]string(close_statuses[:]), fetchedDP.StatusCurrent) {
+	currentlyInCloseStatus := toolbox.SliceContains([]string(close_statuses[:]), fetchedDP.StatusCurrent)
+	previouslyInCloseStatus := toolbox.SliceContains([]string(close_statuses[:]), storedDP.StatusCurrent)
+	
+	// Only close if currently in close status AND wasn't previously in close status
+	if currentlyInCloseStatus && !previouslyInCloseStatus {
 		toClose = true
-		closeMessage = fmt.Sprintf("Closing file as it is in status '%s'", fetchedDP.StatusCurrent)
+		closeMessage = fmt.Sprintf("Closing file as it changed to status '%s'", fetchedDP.StatusCurrent)
+	} else if currentlyInCloseStatus && previouslyInCloseStatus {
+		// No action needed if already in closed status
 	}
 
 	return toClose, closeMessage
