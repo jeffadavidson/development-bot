@@ -1,6 +1,3 @@
-# Generated RSS feed (not tracked in version control)
-killarney-development.xml
-
 # Go build artifacts
 *.exe
 *.exe~
