@@ -289,17 +289,11 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 	// Process actions for Development Permits
 	for _, val := range fileActions {
 		if val.Action == "CREATE" {
-			fmt.Printf("Development Permit %s:\n\tUpdating RSS feed...\n", val.PermitNum)
-			
-						// Add new RSS item
+			// Add new RSS item
 			dp := findDevelopmentPermitByPermitNum(fetchedDevelopmentPermits, val.PermitNum)
 			if dp != nil {
-				pubDate := time.Now()
-				if dp.AppliedDate != nil {
-					if parsedDate, parseErr := time.Parse("2006-01-02T15:04:05.000", *dp.AppliedDate); parseErr == nil {
-						pubDate = parsedDate
-					}
-				}
+				// Use the most recent timestamp from permit data
+				pubDate := dp.getMostRecentTimestamp()
 
 				// Generate consistent title without status
 				title := fmt.Sprintf("🏗️ Development Permit: %s", val.PermitNum)
@@ -321,24 +315,21 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := dp.generateRSSDescription()
 				
-				rss.UpdateItem(title, fullContent, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
-				fmt.Printf("\tUpdated RSS feed!\n")
+				// Only update RSS and print messages if actual changes were made
+				wasUpdated := rss.UpdateItem(title, fullContent, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
+				if wasUpdated {
+					fmt.Printf("Development Permit %s:\n\tCreating RSS feed entry...\n", val.PermitNum)
+					fmt.Printf("\tCreated RSS feed entry!\n")
+				}
 			}
 		}
 
 		if val.Action == "UPDATE" || val.Action == "CLOSE" {
-			fmt.Printf("Development Permit %s:\n\tUpdating RSS feed...\n", val.PermitNum)
-			
-						// Update existing RSS item
+			// Update existing RSS item
 			dp := findDevelopmentPermitByPermitNum(fetchedDevelopmentPermits, val.PermitNum)
 			if dp != nil {
-				// Keep original publication date for updates
-				pubDate := time.Now()
-				if dp.AppliedDate != nil {
-					if parsedDate, parseErr := time.Parse("2006-01-02T15:04:05.000", *dp.AppliedDate); parseErr == nil {
-						pubDate = parsedDate
-					}
-				}
+				// Use the most recent timestamp from permit data
+				pubDate := dp.getMostRecentTimestamp()
 
 				// Generate consistent title without status
 				title := fmt.Sprintf("🏗️ Development Permit: %s", val.PermitNum)
@@ -360,8 +351,12 @@ func EvaluateDevelopmentPermits(rss *rssfeed.RSS) ([]fileaction.FileAction, erro
 				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := dp.generateRSSDescription()
 				
-				rss.UpdateItem(title, fullContent, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
-				fmt.Printf("\tUpdated in RSS feed!\n")
+				// Only update RSS and print messages if actual changes were made
+				wasUpdated := rss.UpdateItem(title, fullContent, link, dp.RSSGuid, pubDate, category, author, source, comments, fullContent)
+				if wasUpdated {
+					fmt.Printf("Development Permit %s:\n\tUpdating RSS feed entry...\n", val.PermitNum)
+					fmt.Printf("\tUpdated RSS feed entry!\n")
+				}
 			}
 		}
 	}
@@ -437,11 +432,59 @@ func findDevelopmentPermitByPermitNum(searchSlice []DevelopmentPermit, permitNum
 	return &searchSlice[foundIndex]
 }
 
+// getMostRecentTimestamp finds the most recent timestamp from a development permit's data
+func (dp *DevelopmentPermit) getMostRecentTimestamp() time.Time {
+	var mostRecent time.Time
+	
+	// Check applied date
+	if dp.AppliedDate != nil {
+		if appliedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.AppliedDate); err == nil {
+			if appliedDate.After(mostRecent) {
+				mostRecent = appliedDate
+			}
+		}
+	}
+	
+	// Check decision date
+	if dp.DecisionDate != nil {
+		if decisionDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.DecisionDate); err == nil {
+			if decisionDate.After(mostRecent) {
+				mostRecent = decisionDate
+			}
+		}
+	}
+	
+	// Check release date
+	if dp.ReleaseDate != nil {
+		if releaseDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.ReleaseDate); err == nil {
+			if releaseDate.After(mostRecent) {
+				mostRecent = releaseDate
+			}
+		}
+	}
+	
+	// Check state history for most recent status change
+	for _, state := range dp.StateHistory {
+		if stateTime, err := time.Parse(time.RFC3339, state.Timestamp); err == nil {
+			if stateTime.After(mostRecent) {
+				mostRecent = stateTime
+			}
+		}
+	}
+	
+	// If no valid timestamp found, use current time
+	if mostRecent.IsZero() {
+		mostRecent = time.Now()
+	}
+	
+	return mostRecent
+}
 
 
 // getDevelopmentPermitActions - For a list of fetched and stored development permits compares permits and gets a list of actions to execute
 func getDevelopmentPermitActions(fetchedDevelopmentPermits []DevelopmentPermit, storedDevelopmentPermits []DevelopmentPermit) []fileaction.FileAction {
 	var fileActions []fileaction.FileAction
+	
 	for _, fetchedDP := range fetchedDevelopmentPermits {
 		storedDpPtr := findDevelopmentPermitByPermitNum(storedDevelopmentPermits, fetchedDP.PermitNum)
 		if storedDpPtr == nil {
@@ -527,11 +570,17 @@ func isDevelopmentPermitClosed(fetchedDP DevelopmentPermit, storedDP Development
 	toClose := false
 	closeMessage := ""
 
-	// Check for close
+	// Check for close statuses
 	close_statuses := [3]string{"Released", "Cancelled", "Cancelled - Pending Refund"}
-	if toolbox.SliceContains([]string(close_statuses[:]), fetchedDP.StatusCurrent) {
+	currentlyInCloseStatus := toolbox.SliceContains([]string(close_statuses[:]), fetchedDP.StatusCurrent)
+	previouslyInCloseStatus := toolbox.SliceContains([]string(close_statuses[:]), storedDP.StatusCurrent)
+	
+	// Only close if currently in close status AND wasn't previously in close status
+	if currentlyInCloseStatus && !previouslyInCloseStatus {
 		toClose = true
-		closeMessage = fmt.Sprintf("Closing file as it is in status '%s'", fetchedDP.StatusCurrent)
+		closeMessage = fmt.Sprintf("Closing file as it changed to status '%s'", fetchedDP.StatusCurrent)
+	} else if currentlyInCloseStatus && previouslyInCloseStatus {
+		// No action needed if already in closed status
 	}
 
 	return toClose, closeMessage

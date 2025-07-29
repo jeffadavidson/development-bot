@@ -30,7 +30,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          ssh-key: ${{ secrets.DEVELOPMENT_BOT_DEPLOY_KEY }}
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
@@ -43,17 +43,15 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data/
-          git commit -m "Update development data" || true
+          git add data/ output/
+          git commit -m "Update development data and RSS feed" || true
           git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Create Pages deployment directory
         run: |
           mkdir -p _site
-          cp killarney-development.xml _site/
+          cp output/killarney-development.xml _site/
           cp README.md _site/
           # Create a simple index.html that redirects to the RSS feed
           cat > _site/index.html << 'EOF'

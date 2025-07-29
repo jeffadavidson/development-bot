@@ -17,7 +17,7 @@ func ManualInit() error {
 func ProcessAllDevelopmentActivity() error {
 	// Load or create combined RSS feed
 	rss, err := rssfeed.GetOrCreateRSSFeed(
-		"./killarney-development.xml",
+		"./output/killarney-development.xml",
 		"Killarney Development Activity",
 		"All development permits and land use rezoning applications for the Killarney neighborhood in Calgary",
 		"https://calgary.ca/development",
@@ -42,11 +42,11 @@ func ProcessAllDevelopmentActivity() error {
 	rss.TrimToMaxItems(200)
 
 	// Save combined RSS feed
-	if err := rssfeed.SaveRSSFeed(rss, "./killarney-development.xml"); err != nil {
+	if err := rssfeed.SaveRSSFeed(rss, "./output/killarney-development.xml"); err != nil {
 		return fmt.Errorf("failed to save RSS feed: %v", err)
 	}
 
-	fmt.Printf("Combined RSS feed updated with %d development permit actions and %d rezoning application actions\n", 
+	fmt.Printf("Combined RSS feed processed with %d development permit actions and %d rezoning application actions\n", 
 		len(dpActions), len(raActions))
 
 	return nil

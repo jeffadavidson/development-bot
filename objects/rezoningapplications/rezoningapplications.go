@@ -233,17 +233,11 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 	// Process actions for Rezoning Applications
 	for _, val := range fileActions {
 		if val.Action == "CREATE" {
-			fmt.Printf("Rezoning Application %s:\n\tUpdating RSS feed...\n", val.PermitNum)
-			
-						// Add new RSS item
+			// Add new RSS item
 			ra := findRezoningApplicationByID(fetchedPermits, val.PermitNum)
 			if ra != nil {
-				pubDate := time.Now()
-				if ra.AppliedDate != nil {
-					if parsedDate, parseErr := time.Parse("2006-01-02T15:04:05.000", *ra.AppliedDate); parseErr == nil {
-						pubDate = parsedDate
-					}
-				}
+				// Use the most recent timestamp from application data
+				pubDate := ra.getMostRecentTimestamp()
 
 				// Generate consistent title without status
 				title := fmt.Sprintf("🏛️ Rezoning Application: %s", val.PermitNum)
@@ -265,24 +259,21 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := ra.generateRSSDescription()
 				
-				rss.UpdateItem(title, fullContent, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
-				fmt.Printf("\tUpdated RSS feed!\n")
+				// Only update RSS and print messages if actual changes were made
+				wasUpdated := rss.UpdateItem(title, fullContent, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
+				if wasUpdated {
+					fmt.Printf("Rezoning Application %s:\n\tCreating RSS feed entry...\n", val.PermitNum)
+					fmt.Printf("\tCreated RSS feed entry!\n")
+				}
 			}
 		}
 
 		if val.Action == "UPDATE" || val.Action == "CLOSE" {
-			fmt.Printf("Rezoning Application %s:\n\tUpdating RSS feed...\n", val.PermitNum)
-			
-						// Update existing RSS item
+			// Update existing RSS item
 			ra := findRezoningApplicationByID(fetchedPermits, val.PermitNum)
 			if ra != nil {
-				// Keep original publication date for updates
-				pubDate := time.Now()
-				if ra.AppliedDate != nil {
-					if parsedDate, parseErr := time.Parse("2006-01-02T15:04:05.000", *ra.AppliedDate); parseErr == nil {
-						pubDate = parsedDate
-					}
-				}
+				// Use the most recent timestamp from application data
+				pubDate := ra.getMostRecentTimestamp()
 
 				// Generate consistent title without status
 				title := fmt.Sprintf("🏛️ Rezoning Application: %s", val.PermitNum)
@@ -304,8 +295,12 @@ func EvaluateRezoningApplications(rss *rssfeed.RSS) ([]fileaction.FileAction, er
 				// Use full content in both description and content:encoded for maximum compatibility
 				fullContent := ra.generateRSSDescription()
 				
-				rss.UpdateItem(title, fullContent, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
-				fmt.Printf("\tUpdated in RSS feed!\n")
+				// Only update RSS and print messages if actual changes were made
+				wasUpdated := rss.UpdateItem(title, fullContent, link, ra.RSSGuid, pubDate, category, author, source, comments, fullContent)
+				if wasUpdated {
+					fmt.Printf("Rezoning Application %s:\n\tUpdating RSS feed entry...\n", val.PermitNum)
+					fmt.Printf("\tUpdated RSS feed entry!\n")
+				}
 			}
 		}
 	}
@@ -382,6 +377,44 @@ func findRezoningApplicationByID(searchSlice []RezoningApplication, id string) *
 	return &searchSlice[foundIndex]
 }
 
+// getMostRecentTimestamp finds the most recent timestamp from a rezoning application's data
+func (ra *RezoningApplication) getMostRecentTimestamp() time.Time {
+	var mostRecent time.Time
+	
+	// Check applied date
+	if ra.AppliedDate != nil {
+		if appliedDate, err := time.Parse("2006-01-02T15:04:05.000", *ra.AppliedDate); err == nil {
+			if appliedDate.After(mostRecent) {
+				mostRecent = appliedDate
+			}
+		}
+	}
+	
+	// Check completed date
+	if ra.CompletedDate != nil {
+		if completedDate, err := time.Parse("2006-01-02T15:04:05.000", *ra.CompletedDate); err == nil {
+			if completedDate.After(mostRecent) {
+				mostRecent = completedDate
+			}
+		}
+	}
+	
+	// Check state history for most recent status change
+	for _, state := range ra.StateHistory {
+		if stateTime, err := time.Parse(time.RFC3339, state.Timestamp); err == nil {
+			if stateTime.After(mostRecent) {
+				mostRecent = stateTime
+			}
+		}
+	}
+	
+	// If no valid timestamp found, use current time
+	if mostRecent.IsZero() {
+		mostRecent = time.Now()
+	}
+	
+	return mostRecent
+}
 
 
 // getRezoningApplicationActions - Compares fetched and stored rezoning applications and returns a list of actions to execute
@@ -463,11 +496,17 @@ func isRezoningApplicationClosed(fetchedRA RezoningApplication, storedRA Rezonin
 	toClose := false
 	closeMessage := ""
 
-	// Check for close
+	// Check for close statuses
 	close_statuses := [3]string{"Approved", "Cancelled", "Refused"}
-	if toolbox.SliceContains([]string(close_statuses[:]), fetchedRA.StatusCurrent) {
+	currentlyInCloseStatus := toolbox.SliceContains([]string(close_statuses[:]), fetchedRA.StatusCurrent)
+	previouslyInCloseStatus := toolbox.SliceContains([]string(close_statuses[:]), storedRA.StatusCurrent)
+	
+	// Only close if currently in close status AND wasn't previously in close status
+	if currentlyInCloseStatus && !previouslyInCloseStatus {
 		toClose = true
-		closeMessage = fmt.Sprintf("Closing file as it is in status '%s'", fetchedRA.StatusCurrent)
+		closeMessage = fmt.Sprintf("Closing file as it changed to status '%s'", fetchedRA.StatusCurrent)
+	} else if currentlyInCloseStatus && previouslyInCloseStatus {
+		// No action needed if already in closed status
 	}
 
 	return toClose, closeMessage
