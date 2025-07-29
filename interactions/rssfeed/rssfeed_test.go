@@ -1,6 +1,7 @@
 package rssfeed
 
 import (
+	"os"
 	"testing"
 	"time"
 
@@ -269,4 +270,39 @@ func TestUpdateItem_ReturnsTrue_WhenAddingNewItem(t *testing.T) {
 	require.Len(t, rss.Channel.Items, 1)
 	item := rss.Channel.Items[0]
 	assert.Equal(t, "New Item", item.Title)
+} 
+
+func TestGetOrCreateRSSFeed_FixesEmptyContentNamespace(t *testing.T) {
+	// Create a test XML with empty xmlns:content
+	brokenXML := `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="">
+  <channel>
+    <title>Test Feed</title>
+    <link>https://example.com</link>
+    <description>Test Description</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jan 2024 12:00:00 +0000</lastBuildDate>
+  </channel>
+</rss>`
+
+	// Write to a temp file
+	tempFile := "/tmp/test-feed.xml"
+	err := os.WriteFile(tempFile, []byte(brokenXML), 0644)
+	require.NoError(t, err)
+	defer os.Remove(tempFile)
+
+	// Load the RSS feed - should fix the empty namespace
+	rss, err := GetOrCreateRSSFeed(tempFile, "Test", "Test Desc", "https://example.com")
+	require.NoError(t, err)
+
+	// Should have the correct content namespace
+	assert.Equal(t, "http://purl.org/rss/1.0/modules/content/", rss.ContentNS)
+
+	// Generate XML and verify namespace is present
+	xmlData, err := rss.ToXML()
+	require.NoError(t, err)
+	
+	xmlString := string(xmlData)
+	assert.Contains(t, xmlString, `xmlns:content="http://purl.org/rss/1.0/modules/content/"`)
+	assert.NotContains(t, xmlString, `xmlns:content=""`)
 } 

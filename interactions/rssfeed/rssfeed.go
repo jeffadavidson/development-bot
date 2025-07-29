@@ -183,6 +183,11 @@ func GetOrCreateRSSFeed(filepath, title, description, link string) (*RSS, error)
 		return nil, fmt.Errorf("failed to load existing RSS feed: %v", err)
 	}
 	
+	// Ensure ContentNS is properly set (fix for existing feeds with empty namespace)
+	if rss.ContentNS == "" {
+		rss.ContentNS = "http://purl.org/rss/1.0/modules/content/"
+	}
+	
 	return rss, nil
 }
 
