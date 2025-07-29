@@ -2,7 +2,7 @@
 # Development Bot 🏗️
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Go Version](https://img.shields.io/badge/Go-1.20+-blue.svg)](https://golang.org/)
+[![Go Version](https://img.shields.io/badge/Go-1.24+-blue.svg)](https://golang.org/)
 [![Tests](https://github.com/kgca-development/development-bot/workflows/Tests/badge.svg)](https://github.com/kgca-development/development-bot/actions)
 
 An automated civic technology tool that generates RSS feeds for local development activity. Originally built for the Killarney/Glengarry community in Calgary, but designed to be adaptable for any city with open data APIs.
@@ -36,7 +36,7 @@ We care about Development Permits and Land Use Redesignations in Killarney/Gleng
 ## 🚀 How to Run
 
 ### Prerequisites
-- Go 1.20+ installed
+- Go 1.24+ installed
 - Internet connection (for Calgary Open Data API access)
 
 ### Local Development
@@ -124,7 +124,7 @@ The application automatically deploys via GitHub Actions (`.github/workflows/dev
 1. **Setup Environment**:
    ```yaml
    - Checkout code with deploy key
-   - Install Go 1.20.1
+   - Install Go 1.24
    - Download dependencies
    ```
 
