@@ -704,7 +704,7 @@ func TestDevelopmentPermitActions_CreateVsUpdate(t *testing.T) {
 	assert.NoError(t, errF)
 
 	actions := getDevelopmentPermitActions(fetchedPermits, storedPermits)
-	
+
 	// Should generate CREATE action for new permit
 	assert.Equal(t, 1, len(actions))
 	assert.Equal(t, "DP2025-12345", actions[0].PermitNum)
@@ -751,7 +751,7 @@ func TestDevelopmentPermitActions_UpdateAction(t *testing.T) {
 	assert.NoError(t, errF)
 
 	actions := getDevelopmentPermitActions(fetchedPermits, storedPermits)
-	
+
 	// Should generate CLOSE action for status change to Released
 	assert.Equal(t, 1, len(actions))
 	assert.Equal(t, "DP2025-12345", actions[0].PermitNum)
@@ -802,15 +802,15 @@ func TestDevelopmentPermitActions_NoActionWhenAlreadyClosed(t *testing.T) {
 	assert.NoError(t, errF)
 
 	actions := getDevelopmentPermitActions(fetchedPermits, storedPermits)
-	
+
 	// Should generate no actions since permit is already closed and unchanged
 	assert.Equal(t, 0, len(actions))
 }
 
 func TestGetMostRecentTimestamp_WithStateHistory(t *testing.T) {
 	dp := DevelopmentPermit{
-		PermitNum:   "DP2025-12345",
-		AppliedDate: strPtr("2025-01-01T10:00:00.000"),
+		PermitNum:    "DP2025-12345",
+		AppliedDate:  strPtr("2025-01-01T10:00:00.000"),
 		DecisionDate: strPtr("2025-01-15T14:30:00.000"),
 		StateHistory: []StateChange{
 			{
@@ -825,7 +825,7 @@ func TestGetMostRecentTimestamp_WithStateHistory(t *testing.T) {
 	}
 
 	mostRecent := dp.getMostRecentTimestamp()
-	
+
 	// Should use the most recent state history timestamp
 	expected, _ := time.Parse(time.RFC3339, "2025-01-20T16:45:00-07:00")
 	assert.Equal(t, expected.Unix(), mostRecent.Unix())
@@ -837,11 +837,11 @@ func TestGetMostRecentTimestamp_WithoutStateHistory(t *testing.T) {
 		AppliedDate:  strPtr("2025-01-01T10:00:00.000"),
 		DecisionDate: strPtr("2025-01-15T14:30:00.000"),
 		ReleaseDate:  strPtr("2025-01-20T16:45:00.000"), // This should be the most recent
-		StateHistory: []StateChange{}, // Empty state history
+		StateHistory: []StateChange{},                   // Empty state history
 	}
 
 	mostRecent := dp.getMostRecentTimestamp()
-	
+
 	// Should use the release date as the most recent
 	expected, _ := time.Parse("2006-01-02T15:04:05.000", "2025-01-20T16:45:00.000")
 	assert.Equal(t, expected.Unix(), mostRecent.Unix())
@@ -854,7 +854,7 @@ func TestGetMostRecentTimestamp_NoTimestamps(t *testing.T) {
 	}
 
 	mostRecent := dp.getMostRecentTimestamp()
-	
+
 	// Should use current time when no timestamps are available
 	now := time.Now()
 	// Allow for a small time difference since the function calls time.Now()

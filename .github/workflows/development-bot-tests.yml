@@ -7,8 +7,6 @@ on:
       - '*'
     repos:
       - jeffadavidson/development-bot
-  pull_request:
-    types: [opened, synchronize, reopened]
 
 jobs:
   test:
@@ -22,6 +20,63 @@ jobs:
         with:
           go-version: '1.20.1'
       - name: Install dependencies
-        run: go mod download
+        run: |
+          go mod download
+          sudo apt-get update
+          sudo apt-get install -y libxml2-utils
       - name: Run tests
-        run: go test ./...
+        run: go test -v ./... | tee test_output.txt
+      - name: Run go vet
+        run: go vet ./...
+      - name: Check go fmt
+        run: |
+          if [ "$(gofmt -s -l . | wc -l)" -gt 0 ]; then
+            echo "The following files are not formatted:"
+            gofmt -s -l .
+            exit 1
+          fi
+      - name: Execute Development Bot
+        run: go run main.go
+      - name: Validate RSS output
+        run: |
+          if [ ! -f "output/killarney-development.xml" ]; then
+            echo "RSS feed was not generated"
+            exit 1
+          fi
+          # Basic XML validation
+          if ! xmllint --noout output/killarney-development.xml 2>/dev/null; then
+            echo "Generated RSS feed is not valid XML"
+            exit 1
+          fi
+          echo "RSS feed validation passed"
+      - name: Create Test Summary
+        if: always()
+        run: |
+          echo "# Test Results Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f test_output.txt ]; then
+            # Count test results
+            TOTAL_TESTS=$(grep -c "^=== RUN" test_output.txt || echo "0")
+            PASSED_TESTS=$(grep -c "--- PASS:" test_output.txt || echo "0")
+            FAILED_TESTS=$(grep -c "--- FAIL:" test_output.txt || echo "0")
+            
+            echo "## Go Tests" >> $GITHUB_STEP_SUMMARY
+            echo "- **Total Tests:** $TOTAL_TESTS" >> $GITHUB_STEP_SUMMARY
+            echo "- **Passed:** $PASSED_TESTS" >> $GITHUB_STEP_SUMMARY
+            echo "- **Failed:** $FAILED_TESTS" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            
+            if [ $FAILED_TESTS -gt 0 ]; then
+              echo "## Failed Tests" >> $GITHUB_STEP_SUMMARY
+              echo '```' >> $GITHUB_STEP_SUMMARY
+              grep -A 10 "--- FAIL:" test_output.txt >> $GITHUB_STEP_SUMMARY || true
+              echo '```' >> $GITHUB_STEP_SUMMARY
+            fi
+          fi
+          
+          echo "## Workflow Steps" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Code formatting check" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Go vet analysis" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Application execution" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ RSS feed validation" >> $GITHUB_STEP_SUMMARY

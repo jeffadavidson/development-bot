@@ -27,12 +27,12 @@ func TestCreateRSSFeed(t *testing.T) {
 
 func TestAddItem(t *testing.T) {
 	rss := CreateRSSFeed("Test", "Test", "https://example.com")
-	
+
 	pubDate := time.Date(2025, 7, 28, 12, 0, 0, 0, time.UTC)
-	
+
 	rss.AddItem(
 		"Test Item",
-		"Test Description", 
+		"Test Description",
 		"https://example.com/item1",
 		"guid-123",
 		pubDate,
@@ -44,7 +44,7 @@ func TestAddItem(t *testing.T) {
 	)
 
 	require.Len(t, rss.Channel.Items, 1)
-	
+
 	item := rss.Channel.Items[0]
 	assert.Equal(t, "Test Item", item.Title)
 	assert.Equal(t, "Test Description", item.Description.Text)
@@ -60,16 +60,16 @@ func TestAddItem(t *testing.T) {
 func TestFindItemByGUID(t *testing.T) {
 	rss := CreateRSSFeed("Test", "Test", "https://example.com")
 	pubDate := time.Now()
-	
+
 	// Add test items
 	rss.AddItem("Item 1", "Desc 1", "https://example.com/1", "guid-1", pubDate, "", "", "", "", "Content 1")
 	rss.AddItem("Item 2", "Desc 2", "https://example.com/2", "guid-2", pubDate, "", "", "", "", "Content 2")
-	
+
 	// Test finding existing item
 	foundItem := rss.FindItemByGUID("guid-1")
 	require.NotNil(t, foundItem)
 	assert.Equal(t, "Item 1", foundItem.Title)
-	
+
 	// Test not finding non-existent item
 	notFoundItem := rss.FindItemByGUID("guid-nonexistent")
 	assert.Nil(t, notFoundItem)
@@ -78,17 +78,17 @@ func TestFindItemByGUID(t *testing.T) {
 func TestUpdateItem_ExistingItem(t *testing.T) {
 	rss := CreateRSSFeed("Test", "Test", "https://example.com")
 	pubDate := time.Now()
-	
+
 	// Add initial item
 	rss.AddItem("Old Title", "Old Desc", "https://example.com/old", "guid-123", pubDate, "Old Category", "", "", "", "Old content")
-	
+
 	// Update the item
 	newPubDate := pubDate.Add(time.Hour)
 	rss.UpdateItem("New Title", "New Desc", "https://example.com/new", "guid-123", newPubDate, "New Category", "New Author", "", "", "New content")
-	
+
 	// Should still have only one item
 	require.Len(t, rss.Channel.Items, 1)
-	
+
 	item := rss.Channel.Items[0]
 	assert.Equal(t, "New Title", item.Title)
 	assert.Equal(t, "New Desc", item.Description.Text)
@@ -102,12 +102,12 @@ func TestUpdateItem_ExistingItem(t *testing.T) {
 func TestUpdateItem_NewItem(t *testing.T) {
 	rss := CreateRSSFeed("Test", "Test", "https://example.com")
 	pubDate := time.Now()
-	
+
 	// Update non-existent item (should add it)
 	rss.UpdateItem("New Item", "New Desc", "https://example.com/new", "guid-456", pubDate, "Category", "", "", "", "New content")
-	
+
 	require.Len(t, rss.Channel.Items, 1)
-	
+
 	item := rss.Channel.Items[0]
 	assert.Equal(t, "New Item", item.Title)
 	assert.Equal(t, "guid-456", item.GUID)
@@ -116,7 +116,7 @@ func TestUpdateItem_NewItem(t *testing.T) {
 func TestTrimToMaxItems(t *testing.T) {
 	rss := CreateRSSFeed("Test", "Test", "https://example.com")
 	pubDate := time.Now()
-	
+
 	// Add 5 items
 	for i := 0; i < 5; i++ {
 		rss.AddItem(
@@ -128,12 +128,12 @@ func TestTrimToMaxItems(t *testing.T) {
 			"", "", "", "", "Content "+string(rune('A'+i)),
 		)
 	}
-	
+
 	require.Len(t, rss.Channel.Items, 5)
-	
+
 	// Trim to 3 items
 	rss.TrimToMaxItems(3)
-	
+
 	assert.Len(t, rss.Channel.Items, 3)
 	// Should keep most recent items (added to beginning)
 	assert.Equal(t, "Item E", rss.Channel.Items[0].Title)
@@ -144,7 +144,7 @@ func TestTrimToMaxItems(t *testing.T) {
 func TestToXML(t *testing.T) {
 	rss := CreateRSSFeed("Test Feed", "Test Description", "https://example.com")
 	pubDate := time.Date(2025, 7, 28, 12, 0, 0, 0, time.UTC)
-	
+
 	rss.AddItem(
 		"Test Item",
 		"Test Description",
@@ -157,12 +157,12 @@ func TestToXML(t *testing.T) {
 		"https://example.com/comments",
 		"Test content",
 	)
-	
+
 	xmlData, err := rss.ToXML()
 	require.NoError(t, err)
-	
+
 	xmlString := string(xmlData)
-	
+
 	// Check XML structure
 	assert.Contains(t, xmlString, `<?xml version="1.0" encoding="UTF-8"?>`)
 	assert.Contains(t, xmlString, `<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">`)
@@ -199,12 +199,12 @@ func TestLoadRSSFromXML(t *testing.T) {
 
 	rss, err := LoadRSSFromXML([]byte(xmlData))
 	require.NoError(t, err)
-	
+
 	assert.Equal(t, "2.0", rss.Version)
 	assert.Equal(t, "Test Feed", rss.Channel.Title)
 	assert.Equal(t, "https://example.com", rss.Channel.Link)
 	assert.Equal(t, "Test Description", rss.Channel.Description)
-	
+
 	require.Len(t, rss.Channel.Items, 1)
 	item := rss.Channel.Items[0]
 	assert.Equal(t, "Test Item", item.Title)
@@ -217,26 +217,26 @@ func TestLoadRSSFromXML(t *testing.T) {
 
 func TestLoadRSSFromXML_InvalidXML(t *testing.T) {
 	invalidXML := `<invalid>xml</invalid>`
-	
+
 	_, err := LoadRSSFromXML([]byte(invalidXML))
 	assert.Error(t, err)
 	assert.Contains(t, err.Error(), "failed to unmarshal RSS from XML")
-} 
+}
 
 func TestUpdateItem_ReturnsTrue_WhenActualChanges(t *testing.T) {
 	rss := CreateRSSFeed("Test", "Test", "https://example.com")
 	pubDate := time.Now()
-	
+
 	// Add initial item
 	rss.AddItem("Old Title", "Old Desc", "https://example.com/old", "guid-123", pubDate, "Old Category", "", "", "", "Old content")
-	
+
 	// Update the item with different content
 	newPubDate := pubDate.Add(time.Hour)
 	wasUpdated := rss.UpdateItem("New Title", "New Desc", "https://example.com/new", "guid-123", newPubDate, "New Category", "New Author", "", "", "New content")
-	
+
 	// Should return true because content changed
 	assert.True(t, wasUpdated)
-	
+
 	// Verify the item was actually updated
 	item := rss.Channel.Items[0]
 	assert.Equal(t, "New Title", item.Title)
@@ -246,13 +246,13 @@ func TestUpdateItem_ReturnsTrue_WhenActualChanges(t *testing.T) {
 func TestUpdateItem_ReturnsFalse_WhenNoChanges(t *testing.T) {
 	rss := CreateRSSFeed("Test", "Test", "https://example.com")
 	pubDate := time.Now()
-	
+
 	// Add initial item
 	rss.AddItem("Title", "Description", "https://example.com/link", "guid-123", pubDate, "Category", "Author", "Source", "Comments", "Content")
-	
+
 	// Update with identical content
 	wasUpdated := rss.UpdateItem("Title", "Description", "https://example.com/link", "guid-123", pubDate, "Category", "Author", "Source", "Comments", "Content")
-	
+
 	// Should return false because nothing changed
 	assert.False(t, wasUpdated)
 }
@@ -260,17 +260,17 @@ func TestUpdateItem_ReturnsFalse_WhenNoChanges(t *testing.T) {
 func TestUpdateItem_ReturnsTrue_WhenAddingNewItem(t *testing.T) {
 	rss := CreateRSSFeed("Test", "Test", "https://example.com")
 	pubDate := time.Now()
-	
+
 	// Update non-existent item (should add it)
 	wasUpdated := rss.UpdateItem("New Item", "New Desc", "https://example.com/new", "guid-456", pubDate, "Category", "", "", "", "New content")
-	
+
 	// Should return true because a new item was added
 	assert.True(t, wasUpdated)
-	
+
 	require.Len(t, rss.Channel.Items, 1)
 	item := rss.Channel.Items[0]
 	assert.Equal(t, "New Item", item.Title)
-} 
+}
 
 func TestGetOrCreateRSSFeed_FixesEmptyContentNamespace(t *testing.T) {
 	// Create a test XML with empty xmlns:content
@@ -301,8 +301,8 @@ func TestGetOrCreateRSSFeed_FixesEmptyContentNamespace(t *testing.T) {
 	// Generate XML and verify namespace is present
 	xmlData, err := rss.ToXML()
 	require.NoError(t, err)
-	
+
 	xmlString := string(xmlData)
 	assert.Contains(t, xmlString, `xmlns:content="http://purl.org/rss/1.0/modules/content/"`)
 	assert.NotContains(t, xmlString, `xmlns:content=""`)
-} 
+}
