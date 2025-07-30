@@ -61,7 +61,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "Pending Decision",
     "applieddate": "2025-07-22T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -76,14 +76,19 @@
     "locationswkt": "MULTIPOINT ((-114.12939049046896 51.03573987102251),(-114.12921627373584 51.03572457442951))",
     "decisiondate": null,
     "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
+    "decision": "Approval",
+    "decisionby": "Development Authority",
     "releasedate": null,
     "rss_guid": "90efc103e339f981ba7558f11ed89aa5",
     "state_history": [
       {
         "status": "under review",
         "timestamp": "2025-07-28T22:18:50-06:00"
+      },
+      {
+        "status": "pending decision",
+        "timestamp": "2025-07-30T15:28:02Z",
+        "decision": "Approval"
       }
     ]
   },
@@ -672,7 +677,7 @@
     "address": "#1 2711 17 AV SW",
     "applicant": "MINDFUL PLAYFUL EDUCATION",
     "category": "Renovations - Non-Residential",
-    "description": "CHANGES TO SITE PLAN: CHILD CARE SERVICE (OUTDOOR PLAY AREA)",
+    "description": "CHANGE OF USE: CHILD CARE SERVICE (70 CHILDREN); CHANGES TO SITE PLAN: CHILD CARE SERVICE (OUTDOOR PLAY AREA)",
     "proposedusecode": "C1310",
     "proposedusedescription": "CHILD CARE SERVICE",
     "permitteddiscretionary": "Discretionary",
