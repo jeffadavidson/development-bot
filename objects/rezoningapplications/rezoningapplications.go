@@ -485,6 +485,20 @@ func getRezoningApplicationUpdates(fetchedRA RezoningApplication, storedRA Rezon
 		updateMessage += fmt.Sprintf("Status updated from '%s' to '%s'\n", storedRA.StatusCurrent, fetchedRA.StatusCurrent)
 	}
 
+	// check state history changes (new status change timestamps)
+	if len(fetchedRA.StateHistory) != len(storedRA.StateHistory) {
+		hasUpdate = true
+		updateMessage += "Status change detected\n"
+	} else if len(fetchedRA.StateHistory) > 0 && len(storedRA.StateHistory) > 0 {
+		// Compare most recent state history entry
+		fetchedRecent := fetchedRA.StateHistory[len(fetchedRA.StateHistory)-1]
+		storedRecent := storedRA.StateHistory[len(storedRA.StateHistory)-1]
+		if fetchedRecent.Timestamp != storedRecent.Timestamp || fetchedRecent.Status != storedRecent.Status {
+			hasUpdate = true
+			updateMessage += "Status change timestamp updated\n"
+		}
+	}
+
 	return hasUpdate, updateMessage
 }
 
