@@ -3,6 +3,50 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.13708014884335,
+        51.03595788014956
+      ]
+    },
+    "permitnum": "DP2025-04362",
+    "address": "2003 34 ST SW",
+    "applicant": "CALGREEN HOMES",
+    "category": "Residential - Multi-Family",
+    "description": "NEW: ROWHOUSE BUILDING (3 BUILDINGS), SECONDARY SUITE (12 SUITES), ACCESSORY RESIDENTIAL BUILDING (GARAGE, CARPORT)",
+    "proposedusecode": "C1020; C2540; C2626",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; ROWHOUSE BUILDING; SECONDARY SUITE",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-07-29T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.036",
+    "longitude": "-114.137",
+    "locationcount": "3",
+    "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
+    "locationaddresses": "2007 34 ST SW;2011 34 ST SW;2003 34 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370801,51.0359579],[-114.1370932,51.0358209],[-114.1370839,51.0360948]]}",
+    "locationswkt": "MULTIPOINT ((-114.13708014884335 51.03595788014956),(-114.13709316147603 51.03582093298247),(-114.13708391777693 51.03609482560874))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "23bedff0db3e1cd8fd8b0ff4b7103253",
+    "state_history": [
+      {
+        "status": "hold",
+        "timestamp": "2025-07-30T17:24:01Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.14225390854736,
         51.03171363875322
       ]
@@ -683,7 +727,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "MU-1 f4.5h23",
     "landusedistrictdescription": "Mixed Use - General",
-    "statuscurrent": "Hold",
+    "statuscurrent": "In Circulation",
     "applieddate": "2025-05-23T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -706,6 +750,10 @@
       {
         "status": "hold",
         "timestamp": "2025-07-28T22:18:50-06:00"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-07-30T17:24:01Z"
       }
     ]
   },
@@ -771,7 +819,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Hold",
+    "statuscurrent": "Pending Decision",
     "applieddate": "2025-05-21T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -786,58 +834,19 @@
     "locationswkt": "MULTIPOINT ((-114.13426060197405 51.032312922040994),(-114.1343854376572 51.03231393823904))",
     "decisiondate": null,
     "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
+    "decision": "Approval",
+    "decisionby": "Development Authority",
     "releasedate": null,
     "rss_guid": "0534371f6ea547c436cfd1f227dc7099",
     "state_history": [
       {
         "status": "hold",
         "timestamp": "2025-07-28T22:18:50-06:00"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.12932046445222,
-        51.02408836460148
-      ]
-    },
-    "permitnum": "DP2025-02940",
-    "address": "3420 SARCEE RD SW",
-    "applicant": null,
-    "category": "Residential - Multi-Family",
-    "description": "NEW: DWELLING UNITS (8 PHASES, 6 BUILDINGS)",
-    "proposedusecode": "C1540",
-    "proposedusedescription": "DWELLING UNIT",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "MU-1 f2.0h22; MU-1 h14",
-    "landusedistrictdescription": "Mixed Use - General ; Mixed Use - General ",
-    "statuscurrent": "Hold",
-    "applieddate": "2025-05-20T00:00:00.000",
-    "communitycode": "RIC",
-    "communityname": "RICHMOND",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.024",
-    "longitude": "-114.129",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "3420 SARCEE RD SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1293205,51.0240884]}",
-    "locationswkt": "POINT (-114.12932046445222 51.02408836460148)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "d2e1a13402e923bc2977818afebce782",
-    "state_history": [
+      },
       {
-        "status": "hold",
-        "timestamp": "2025-07-28T22:18:50-06:00"
+        "status": "pending decision",
+        "timestamp": "2025-07-30T17:24:01Z",
+        "decision": "Approval"
       }
     ]
   },
@@ -883,6 +892,50 @@
         "status": "in advertising",
         "timestamp": "2025-07-28T22:18:50-06:00",
         "decision": "Approval"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.12932046445222,
+        51.02408836460148
+      ]
+    },
+    "permitnum": "DP2025-02940",
+    "address": "3420 SARCEE RD SW",
+    "applicant": null,
+    "category": "Residential - Multi-Family",
+    "description": "NEW: DWELLING UNITS (8 PHASES, 6 BUILDINGS)",
+    "proposedusecode": "C1540",
+    "proposedusedescription": "DWELLING UNIT",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "MU-1 f2.0h22; MU-1 h14",
+    "landusedistrictdescription": "Mixed Use - General ; Mixed Use - General ",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-05-20T00:00:00.000",
+    "communitycode": "RIC",
+    "communityname": "RICHMOND",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.024",
+    "longitude": "-114.129",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "3420 SARCEE RD SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1293205,51.0240884]}",
+    "locationswkt": "POINT (-114.12932046445222 51.02408836460148)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "d2e1a13402e923bc2977818afebce782",
+    "state_history": [
+      {
+        "status": "hold",
+        "timestamp": "2025-07-28T22:18:50-06:00"
       }
     ]
   },
