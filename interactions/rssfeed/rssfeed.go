@@ -30,11 +30,17 @@ type Item struct {
 	Description    CDataText `xml:"description"`
 	ContentEncoded CDataText `xml:"content:encoded"`
 	PubDate        string    `xml:"pubDate"`
-	GUID           string    `xml:"guid"`
+	GUID           GUID      `xml:"guid"`
 	Category       string    `xml:"category,omitempty"`
 	Author         string    `xml:"author,omitempty"`
 	Source         string    `xml:"source,omitempty"`
 	Comments       string    `xml:"comments,omitempty"`
+}
+
+// GUID represents an RSS GUID with isPermaLink attribute
+type GUID struct {
+	Value       string `xml:",chardata"`
+	IsPermaLink string `xml:"isPermaLink,attr"`
 }
 
 // CDataText wraps text in CDATA sections for proper RSS compatibility
@@ -66,7 +72,7 @@ func (rss *RSS) AddItem(title, description, link, guid string, pubDate time.Time
 		Description:    CDataText{Text: description},
 		ContentEncoded: CDataText{Text: contentEncoded},
 		PubDate:        pubDate.Format(time.RFC1123Z),
-		GUID:           guid,
+		GUID:           GUID{Value: guid, IsPermaLink: "false"},
 		Category:       category,
 		Author:         author,
 		Source:         source,
@@ -103,7 +109,7 @@ func LoadRSSFromXML(xmlData []byte) (*RSS, error) {
 // FindItemByGUID finds an item in the RSS feed by its GUID
 func (rss *RSS) FindItemByGUID(guid string) *Item {
 	for i := range rss.Channel.Items {
-		if rss.Channel.Items[i].GUID == guid {
+		if rss.Channel.Items[i].GUID.Value == guid {
 			return &rss.Channel.Items[i]
 		}
 	}
@@ -122,6 +128,7 @@ func (rss *RSS) UpdateItem(title, description, link, guid string, pubDate time.T
 			ContentEncoded: CDataText{Text: contentEncoded},
 			Link:           link,
 			PubDate:        pubDate.Format(time.RFC1123Z),
+			GUID:           GUID{Value: guid, IsPermaLink: "false"},
 			Category:       category,
 			Author:         author,
 			Source:         source,
@@ -134,6 +141,7 @@ func (rss *RSS) UpdateItem(title, description, link, guid string, pubDate time.T
 			item.ContentEncoded.Text != newItem.ContentEncoded.Text ||
 			item.Link != newItem.Link ||
 			item.PubDate != newItem.PubDate ||
+			item.GUID.Value != newItem.GUID.Value ||
 			item.Category != newItem.Category ||
 			item.Author != newItem.Author ||
 			item.Source != newItem.Source ||
@@ -146,6 +154,7 @@ func (rss *RSS) UpdateItem(title, description, link, guid string, pubDate time.T
 			item.ContentEncoded = newItem.ContentEncoded
 			item.Link = newItem.Link
 			item.PubDate = newItem.PubDate
+			item.GUID = newItem.GUID
 			item.Category = newItem.Category
 			item.Author = newItem.Author
 			item.Source = newItem.Source
@@ -192,6 +201,10 @@ func GetOrCreateRSSFeed(filepath, title, description, link string) (*RSS, error)
 	for i := range rss.Channel.Items {
 		if rss.Channel.Items[i].ContentEncoded.Text == "" && rss.Channel.Items[i].Description.Text != "" {
 			rss.Channel.Items[i].ContentEncoded.Text = rss.Channel.Items[i].Description.Text
+		}
+		// Fix GUID isPermaLink attribute for existing items (migration)
+		if rss.Channel.Items[i].GUID.IsPermaLink == "" {
+			rss.Channel.Items[i].GUID.IsPermaLink = "false"
 		}
 	}
 

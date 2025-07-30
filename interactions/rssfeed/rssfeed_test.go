@@ -50,7 +50,7 @@ func TestAddItem(t *testing.T) {
 	assert.Equal(t, "Test Description", item.Description.Text)
 	assert.Equal(t, "Test content", item.ContentEncoded.Text)
 	assert.Equal(t, "https://example.com/item1", item.Link)
-	assert.Equal(t, "guid-123", item.GUID)
+	assert.Equal(t, "guid-123", item.GUID.Value)
 	assert.Equal(t, "Development Permit", item.Category)
 	assert.Equal(t, "Test Author", item.Author)
 	assert.Equal(t, "Test Source", item.Source)
@@ -94,7 +94,7 @@ func TestUpdateItem_ExistingItem(t *testing.T) {
 	assert.Equal(t, "New Desc", item.Description.Text)
 	assert.Equal(t, "New content", item.ContentEncoded.Text)
 	assert.Equal(t, "https://example.com/new", item.Link)
-	assert.Equal(t, "guid-123", item.GUID)
+	assert.Equal(t, "guid-123", item.GUID.Value)
 	assert.Equal(t, "New Category", item.Category)
 	assert.Equal(t, "New Author", item.Author)
 }
@@ -110,7 +110,7 @@ func TestUpdateItem_NewItem(t *testing.T) {
 
 	item := rss.Channel.Items[0]
 	assert.Equal(t, "New Item", item.Title)
-	assert.Equal(t, "guid-456", item.GUID)
+	assert.Equal(t, "guid-456", item.GUID.Value)
 }
 
 func TestTrimToMaxItems(t *testing.T) {
@@ -171,7 +171,7 @@ func TestToXML(t *testing.T) {
 	assert.Contains(t, xmlString, `<title>Test Item</title>`)
 	assert.Contains(t, xmlString, `<description><![CDATA[Test Description]]></description>`)
 	assert.Contains(t, xmlString, `<content:encoded><![CDATA[Test content]]></content:encoded>`)
-	assert.Contains(t, xmlString, `<guid>guid-123</guid>`)
+	assert.Contains(t, xmlString, `<guid isPermaLink="false">guid-123</guid>`)
 	assert.Contains(t, xmlString, `<category>Development Permit</category>`)
 	assert.Contains(t, xmlString, `<author>Test Author</author>`)
 }
@@ -211,7 +211,7 @@ func TestLoadRSSFromXML(t *testing.T) {
 	assert.Equal(t, "Item Description", item.Description.Text)
 	// Note: content:encoded parsing may not work in tests due to namespace handling
 	// assert.Equal(t, "Item Content", item.ContentEncoded.Text)
-	assert.Equal(t, "guid-123", item.GUID)
+	assert.Equal(t, "guid-123", item.GUID.Value)
 	assert.Equal(t, "Development Permit", item.Category)
 }
 
@@ -324,7 +324,7 @@ func TestGetOrCreateRSSFeed_FixesEmptyContentEncoded(t *testing.T) {
 		Description:    CDataText{Text: "<h1>Rich HTML Description 1</h1><p>This is the description content.</p>"},
 		ContentEncoded: CDataText{Text: ""}, // Empty - should be fixed
 		PubDate:        pubDate.Format(time.RFC1123Z),
-		GUID:           "guid-1",
+		GUID:           GUID{Value: "guid-1", IsPermaLink: "false"},
 	}
 
 	// Item 2: Has content:encoded, should be preserved
@@ -334,7 +334,7 @@ func TestGetOrCreateRSSFeed_FixesEmptyContentEncoded(t *testing.T) {
 		Description:    CDataText{Text: "<h2>Another Rich Description</h2><p>More content here.</p>"},
 		ContentEncoded: CDataText{Text: "Already has content"}, // Should be preserved
 		PubDate:        pubDate.Format(time.RFC1123Z),
-		GUID:           "guid-2",
+		GUID:           GUID{Value: "guid-2", IsPermaLink: "false"},
 	}
 
 	// Item 3: Empty description, empty content:encoded - should remain empty
@@ -344,7 +344,7 @@ func TestGetOrCreateRSSFeed_FixesEmptyContentEncoded(t *testing.T) {
 		Description:    CDataText{Text: ""}, // Empty description
 		ContentEncoded: CDataText{Text: ""}, // Empty - should stay empty
 		PubDate:        pubDate.Format(time.RFC1123Z),
-		GUID:           "guid-3",
+		GUID:           GUID{Value: "guid-3", IsPermaLink: "false"},
 	}
 
 	rss.Channel.Items = []Item{item1, item2, item3}

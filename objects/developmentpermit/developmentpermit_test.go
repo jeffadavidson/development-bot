@@ -861,6 +861,97 @@ func TestGetMostRecentTimestamp_NoTimestamps(t *testing.T) {
 	assert.WithinDuration(t, now, mostRecent, time.Second)
 }
 
+func TestGetDevelopmentPermitUpdates_StateHistoryChange(t *testing.T) {
+	// Test that changes in state history are detected as updates
+	storedDP := DevelopmentPermit{
+		PermitNum:     "DP2025-12345",
+		StatusCurrent: "Under Review",
+		StateHistory: []StateChange{
+			{
+				Status:    "under review",
+				Timestamp: "2025-07-28T22:18:50-06:00",
+			},
+		},
+	}
+
+	fetchedDP := DevelopmentPermit{
+		PermitNum:     "DP2025-12345",
+		StatusCurrent: "Under Review", // Same status
+		StateHistory: []StateChange{
+			{
+				Status:    "under review",
+				Timestamp: "2025-07-28T22:18:50-06:00",
+			},
+			{
+				Status:    "pending decision",
+				Timestamp: "2025-07-30T08:42:41-07:00",
+			},
+		},
+	}
+
+	hasUpdate, message := getDevelopmentPermitUpdates(fetchedDP, storedDP)
+
+	assert.True(t, hasUpdate, "Should detect state history change as update")
+	assert.Contains(t, message, "Status change detected", "Should mention status change in message")
+}
+
+func TestGetDevelopmentPermitUpdates_StateHistoryTimestampChange(t *testing.T) {
+	// Test that timestamp changes in state history are detected
+	storedDP := DevelopmentPermit{
+		PermitNum:     "DP2025-12345",
+		StatusCurrent: "Under Review",
+		StateHistory: []StateChange{
+			{
+				Status:    "under review",
+				Timestamp: "2025-07-28T22:18:50-06:00",
+			},
+		},
+	}
+
+	fetchedDP := DevelopmentPermit{
+		PermitNum:     "DP2025-12345",
+		StatusCurrent: "Under Review",
+		StateHistory: []StateChange{
+			{
+				Status:    "under review",
+				Timestamp: "2025-07-28T22:21:39-06:00", // Different timestamp
+			},
+		},
+	}
+
+	hasUpdate, message := getDevelopmentPermitUpdates(fetchedDP, storedDP)
+
+	assert.True(t, hasUpdate, "Should detect timestamp change as update")
+	assert.Contains(t, message, "Status change timestamp updated", "Should mention timestamp update in message")
+}
+
+func TestGetDevelopmentPermitUpdates_NoStateHistoryChange(t *testing.T) {
+	// Test that identical state history doesn't trigger updates
+	stateHistory := []StateChange{
+		{
+			Status:    "under review",
+			Timestamp: "2025-07-28T22:18:50-06:00",
+		},
+	}
+
+	storedDP := DevelopmentPermit{
+		PermitNum:     "DP2025-12345",
+		StatusCurrent: "Under Review",
+		StateHistory:  stateHistory,
+	}
+
+	fetchedDP := DevelopmentPermit{
+		PermitNum:     "DP2025-12345",
+		StatusCurrent: "Under Review",
+		StateHistory:  stateHistory,
+	}
+
+	hasUpdate, message := getDevelopmentPermitUpdates(fetchedDP, storedDP)
+
+	assert.False(t, hasUpdate, "Should not detect update when state history is identical")
+	assert.Empty(t, message, "Should have empty message when no changes")
+}
+
 // Helper function for string pointers
 func strPtr(s string) *string {
 	return &s

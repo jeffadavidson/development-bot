@@ -559,6 +559,20 @@ func getDevelopmentPermitUpdates(fetchedDP DevelopmentPermit, storedDP Developme
 		}
 	}
 
+	// check state history changes (new status change timestamps)
+	if len(fetchedDP.StateHistory) != len(storedDP.StateHistory) {
+		hasUpdate = true
+		updateMessage += "Status change detected\n"
+	} else if len(fetchedDP.StateHistory) > 0 && len(storedDP.StateHistory) > 0 {
+		// Compare most recent state history entry
+		fetchedRecent := fetchedDP.StateHistory[len(fetchedDP.StateHistory)-1]
+		storedRecent := storedDP.StateHistory[len(storedDP.StateHistory)-1]
+		if fetchedRecent.Timestamp != storedRecent.Timestamp || fetchedRecent.Status != storedRecent.Status {
+			hasUpdate = true
+			updateMessage += "Status change timestamp updated\n"
+		}
+	}
+
 	return hasUpdate, updateMessage
 }
 

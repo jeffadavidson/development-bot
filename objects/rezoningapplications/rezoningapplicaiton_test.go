@@ -565,3 +565,94 @@ func TestGetMostRecentTimestamp_NoTimestamps(t *testing.T) {
 func strPtr(s string) *string {
 	return &s
 }
+
+func TestGetRezoningApplicationUpdates_StateHistoryChange(t *testing.T) {
+	// Test that changes in state history are detected as updates
+	storedRA := RezoningApplication{
+		PermitNum:     "LOC2025-0111",
+		StatusCurrent: "Submitted",
+		StateHistory: []StateChange{
+			{
+				Status:    "submitted",
+				Timestamp: "2025-07-28T22:18:50-06:00",
+			},
+		},
+	}
+
+	fetchedRA := RezoningApplication{
+		PermitNum:     "LOC2025-0111",
+		StatusCurrent: "Submitted", // Same status
+		StateHistory: []StateChange{
+			{
+				Status:    "submitted",
+				Timestamp: "2025-07-28T22:18:50-06:00",
+			},
+			{
+				Status:    "under review",
+				Timestamp: "2025-07-30T10:15:32-06:00",
+			},
+		},
+	}
+
+	hasUpdate, message := getRezoningApplicationUpdates(fetchedRA, storedRA)
+
+	assert.True(t, hasUpdate, "Should detect state history change as update")
+	assert.Contains(t, message, "Status change detected", "Should mention status change in message")
+}
+
+func TestGetRezoningApplicationUpdates_StateHistoryTimestampChange(t *testing.T) {
+	// Test that timestamp changes in state history are detected
+	storedRA := RezoningApplication{
+		PermitNum:     "LOC2025-0111",
+		StatusCurrent: "Submitted",
+		StateHistory: []StateChange{
+			{
+				Status:    "submitted",
+				Timestamp: "2025-07-28T22:18:50-06:00",
+			},
+		},
+	}
+
+	fetchedRA := RezoningApplication{
+		PermitNum:     "LOC2025-0111",
+		StatusCurrent: "Submitted",
+		StateHistory: []StateChange{
+			{
+				Status:    "submitted",
+				Timestamp: "2025-07-28T22:21:39-06:00", // Different timestamp
+			},
+		},
+	}
+
+	hasUpdate, message := getRezoningApplicationUpdates(fetchedRA, storedRA)
+
+	assert.True(t, hasUpdate, "Should detect timestamp change as update")
+	assert.Contains(t, message, "Status change timestamp updated", "Should mention timestamp update in message")
+}
+
+func TestGetRezoningApplicationUpdates_NoStateHistoryChange(t *testing.T) {
+	// Test that identical state history doesn't trigger updates
+	stateHistory := []StateChange{
+		{
+			Status:    "submitted",
+			Timestamp: "2025-07-28T22:18:50-06:00",
+		},
+	}
+
+	storedRA := RezoningApplication{
+		PermitNum:     "LOC2025-0111",
+		StatusCurrent: "Submitted",
+		StateHistory:  stateHistory,
+	}
+
+	fetchedRA := RezoningApplication{
+		PermitNum:     "LOC2025-0111",
+		StatusCurrent: "Submitted",
+		StateHistory:  stateHistory,
+	}
+
+	hasUpdate, message := getRezoningApplicationUpdates(fetchedRA, storedRA)
+
+	assert.False(t, hasUpdate, "Should not detect update when state history is identical")
+	assert.Empty(t, message, "Should have empty message when no changes")
+}
