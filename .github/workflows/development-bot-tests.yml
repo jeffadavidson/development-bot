@@ -3,10 +3,8 @@ run-name: Development-Bot-Tests-${{ github.run_number }}
 on:
   workflow_dispatch: #allow for manual triggering
   push:
-    branches:
-      - '*'
-    repos:
-      - jeffadavidson/development-bot
+    branches-ignore:
+      - main
 
 jobs:
   test:
