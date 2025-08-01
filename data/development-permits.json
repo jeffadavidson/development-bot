@@ -863,6 +863,50 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.12932046445222,
+        51.02408836460148
+      ]
+    },
+    "permitnum": "DP2025-02940",
+    "address": "3420 SARCEE RD SW",
+    "applicant": null,
+    "category": "Residential - Multi-Family",
+    "description": "NEW: DWELLING UNITS (8 PHASES, 6 BUILDINGS)",
+    "proposedusecode": "C1540",
+    "proposedusedescription": "DWELLING UNIT",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "MU-1 f2.0h22; MU-1 h14",
+    "landusedistrictdescription": "Mixed Use - General ; Mixed Use - General ",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-05-20T00:00:00.000",
+    "communitycode": "RIC",
+    "communityname": "RICHMOND",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.024",
+    "longitude": "-114.129",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "3420 SARCEE RD SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1293205,51.0240884]}",
+    "locationswkt": "POINT (-114.12932046445222 51.02408836460148)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "d2e1a13402e923bc2977818afebce782",
+    "state_history": [
+      {
+        "status": "hold",
+        "timestamp": "2025-07-28T22:18:50-06:00"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.12536559724933,
         51.02919436613306
       ]
@@ -901,50 +945,6 @@
         "status": "in advertising",
         "timestamp": "2025-07-28T22:18:50-06:00",
         "decision": "Approval"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.12932046445222,
-        51.02408836460148
-      ]
-    },
-    "permitnum": "DP2025-02940",
-    "address": "3420 SARCEE RD SW",
-    "applicant": null,
-    "category": "Residential - Multi-Family",
-    "description": "NEW: DWELLING UNITS (8 PHASES, 6 BUILDINGS)",
-    "proposedusecode": "C1540",
-    "proposedusedescription": "DWELLING UNIT",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "MU-1 f2.0h22; MU-1 h14",
-    "landusedistrictdescription": "Mixed Use - General ; Mixed Use - General ",
-    "statuscurrent": "Hold",
-    "applieddate": "2025-05-20T00:00:00.000",
-    "communitycode": "RIC",
-    "communityname": "RICHMOND",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.024",
-    "longitude": "-114.129",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "3420 SARCEE RD SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1293205,51.0240884]}",
-    "locationswkt": "POINT (-114.12932046445222 51.02408836460148)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "d2e1a13402e923bc2977818afebce782",
-    "state_history": [
-      {
-        "status": "hold",
-        "timestamp": "2025-07-28T22:18:50-06:00"
       }
     ]
   },
