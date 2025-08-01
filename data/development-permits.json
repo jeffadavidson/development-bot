@@ -3,8 +3,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13708014884335,
-        51.03595788014956
+        -114.13709316147603,
+        51.03582093298247
       ]
     },
     "permitnum": "DP2025-04362",
@@ -17,7 +17,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Hold",
+    "statuscurrent": "Under Review",
     "applieddate": "2025-07-29T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -27,9 +27,9 @@
     "longitude": "-114.137",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "2007 34 ST SW;2011 34 ST SW;2003 34 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370801,51.0359579],[-114.1370932,51.0358209],[-114.1370839,51.0360948]]}",
-    "locationswkt": "MULTIPOINT ((-114.13708014884335 51.03595788014956),(-114.13709316147603 51.03582093298247),(-114.13708391777693 51.03609482560874))",
+    "locationaddresses": "2011 34 ST SW;2007 34 ST SW;2003 34 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370932,51.0358209],[-114.1370801,51.0359579],[-114.1370839,51.0360948]]}",
+    "locationswkt": "MULTIPOINT ((-114.13709316147603 51.03582093298247),(-114.13708014884335 51.03595788014956),(-114.13708391777693 51.03609482560874))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -40,6 +40,10 @@
       {
         "status": "hold",
         "timestamp": "2025-07-30T17:24:01Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-08-01T12:43:51Z"
       }
     ]
   },
@@ -819,7 +823,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Pending Decision",
+    "statuscurrent": "Approved",
     "applieddate": "2025-05-21T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -832,8 +836,8 @@
     "locationaddresses": "2423 32 ST SW;2423 32 ST SW",
     "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1342606,51.0323129],[-114.1343854,51.0323139]]}",
     "locationswkt": "MULTIPOINT ((-114.13426060197405 51.032312922040994),(-114.1343854376572 51.03231393823904))",
-    "decisiondate": null,
-    "mustcommencedate": null,
+    "decisiondate": "2025-07-30T00:00:00.000",
+    "mustcommencedate": "2027-07-30T00:00:00.000",
     "decision": "Approval",
     "decisionby": "Development Authority",
     "releasedate": null,
@@ -846,6 +850,11 @@
       {
         "status": "pending decision",
         "timestamp": "2025-07-30T17:24:01Z",
+        "decision": "Approval"
+      },
+      {
+        "status": "approved",
+        "timestamp": "2025-08-01T12:43:51Z",
         "decision": "Approval"
       }
     ]
