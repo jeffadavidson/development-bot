@@ -3,6 +3,50 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.1394034466646,
+        51.02617588261987
+      ]
+    },
+    "permitnum": "DP2025-04444",
+    "address": "3621 KILDARE CR SW",
+    "applicant": "RMH DRAFTING \u0026 CONSULTING",
+    "category": "Residential - New Single / Semi / Duplex",
+    "description": "NEW: SEMI-DETACHED DWELLING, ACCESSORY BUILDING (GARAGE)",
+    "proposedusecode": "C1020; C2640",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SEMI-DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "DC",
+    "landusedistrictdescription": "Direct Control (1P2007)",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-07-31T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.026",
+    "longitude": "-114.139",
+    "locationcount": "4",
+    "locationtypes": "Titled Parcel;Titled Parcel;Building;Building",
+    "locationaddresses": "3623 KILDARE CR SW;3621 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1394034,51.0261759],[-114.1393004,51.026176],[-114.1393065,51.026079],[-114.139398,51.0260779]]}",
+    "locationswkt": "MULTIPOINT ((-114.1394034466646 51.02617588261987),(-114.13930036955283 51.02617600553337),(-114.13930649362594 51.026079034602745),(-114.13939804946767 51.02607788261432))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "c0e5421b8facababca174e9bd9a7df31",
+    "state_history": [
+      {
+        "status": "hold",
+        "timestamp": "2025-08-02T12:40:03Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.13709316147603,
         51.03582093298247
       ]
@@ -151,14 +195,14 @@
     "permitnum": "DP2025-04205",
     "address": "2627 31 ST SW",
     "applicant": "ANDISON RESIDENTIAL DESIGN",
-    "category": "Residential - Additions over 10 sq metres",
-    "description": "ADDITION: SINGLE DETACHED DWELLING (REAR, BALCONY)",
+    "category": "Residential - Single/Semi/Duplex Renovations",
+    "description": "REVISION: SINGLE DETACHED DWELLING (CHANGES TO DP2024-05301, 2 PHASES)",
     "proposedusecode": "C2730",
     "proposedusedescription": "SINGLE DETACHED DWELLING",
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "In Circulation",
     "applieddate": "2025-07-21T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -166,11 +210,11 @@
     "quadrant": "SW",
     "latitude": "51.031",
     "longitude": "-114.133",
-    "locationcount": "2",
-    "locationtypes": "Titled Parcel;Building",
-    "locationaddresses": "2627 31 ST SW;2627 31 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1328436,51.0306245],[-114.1329801,51.030637]]}",
-    "locationswkt": "MULTIPOINT ((-114.1328435510868 51.030624466775635),(-114.13298014808683 51.03063699597565))",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "2627 31 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1328436,51.0306245]}",
+    "locationswkt": "POINT (-114.1328435510868 51.030624466775635)",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -181,6 +225,10 @@
       {
         "status": "under review",
         "timestamp": "2025-07-28T22:18:50-06:00"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-08-02T12:40:03Z"
       }
     ]
   },
