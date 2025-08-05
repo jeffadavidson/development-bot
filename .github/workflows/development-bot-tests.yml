@@ -31,10 +31,10 @@ jobs:
           go test -v ./... 2>&1 | tee test_output.txt
           
           # Parse results for summary
-          TOTAL_TESTS=$(grep '"Action":"run"' test_output_json.txt | wc -l)
-          PASSED_TESTS=$(grep '"Action":"pass"' test_output_json.txt | wc -l)
-          FAILED_TESTS=$(grep '"Action":"fail"' test_output_json.txt | wc -l)
-          SKIPPED_TESTS=$(grep '"Action":"skip"' test_output_json.txt | wc -l)
+          TOTAL_TESTS=$(grep '"Action":"run"' test_output_json.txt | grep '"Test":' | wc -l)
+          PASSED_TESTS=$(grep '"Action":"pass"' test_output_json.txt | grep '"Test":' | wc -l)
+          FAILED_TESTS=$(grep '"Action":"fail"' test_output_json.txt | grep '"Test":' | wc -l)
+          SKIPPED_TESTS=$(grep '"Action":"skip"' test_output_json.txt | grep '"Test":' | wc -l)
           
           echo "total_tests=$TOTAL_TESTS" >> $GITHUB_OUTPUT
           echo "passed_tests=$PASSED_TESTS" >> $GITHUB_OUTPUT
