@@ -172,26 +172,31 @@ jobs:
       - name: Validate RSS output
         id: rss_validation
         run: |
-          # Set default values
-          echo "rss_items=0" >> $GITHUB_OUTPUT
-          echo "rss_size=0" >> $GITHUB_OUTPUT
-          
           if [ ! -f "output/killarney-development.xml" ]; then
+            echo "rss_items=0" >> $GITHUB_OUTPUT
+            echo "rss_size=0" >> $GITHUB_OUTPUT
             exit 1
           fi
           
           # Basic XML validation
           if ! xmllint --noout output/killarney-development.xml; then
+            echo "rss_items=0" >> $GITHUB_OUTPUT
+            echo "rss_size=0" >> $GITHUB_OUTPUT
             exit 1
           fi
           
           # Get RSS feed stats for summary
-          ITEM_COUNT=$(xmllint --xpath 'count(//item)' output/killarney-development.xml 2>/dev/null || echo "0")
-          FILE_SIZE=$(stat -c%s output/killarney-development.xml 2>/dev/null || echo "0")
+          if ITEM_COUNT=$(xmllint --xpath 'count(//item)' output/killarney-development.xml 2>/dev/null); then
+            echo "rss_items=$ITEM_COUNT" >> $GITHUB_OUTPUT
+          else
+            echo "rss_items=0" >> $GITHUB_OUTPUT
+          fi
           
-          # Update with actual values if successful
-          echo "rss_items=$ITEM_COUNT" >> $GITHUB_OUTPUT
-          echo "rss_size=$FILE_SIZE" >> $GITHUB_OUTPUT
+          if FILE_SIZE=$(stat -c%s output/killarney-development.xml 2>/dev/null); then
+            echo "rss_size=$FILE_SIZE" >> $GITHUB_OUTPUT
+          else
+            echo "rss_size=0" >> $GITHUB_OUTPUT
+          fi
         
       - name: Create Execution Summary
         if: always()
