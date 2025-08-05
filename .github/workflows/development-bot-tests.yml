@@ -41,129 +41,50 @@ jobs:
           echo "failed_tests=$FAILED_TESTS" >> $GITHUB_OUTPUT
           echo "skipped_tests=$SKIPPED_TESTS" >> $GITHUB_OUTPUT
           
-          # Add test results to summary
-          echo "## 🧪 Test Execution Results" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          
-          if [ $FAILED_TESTS -gt 0 ]; then
-            echo "❌ **$FAILED_TESTS test(s) failed out of $TOTAL_TESTS total tests**" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "### Failed Tests" >> $GITHUB_STEP_SUMMARY
-            echo "| Package | Test | Status |" >> $GITHUB_STEP_SUMMARY
-            echo "|---------|------|--------|" >> $GITHUB_STEP_SUMMARY
-            grep '"Action":"fail"' test_output_json.txt | while read line; do
-              TEST_NAME=$(echo "$line" | jq -r '.Test // "Unknown"')
-              PACKAGE=$(echo "$line" | jq -r '.Package // "Unknown"')
-              echo "| $PACKAGE | $TEST_NAME | ❌ Failed |" >> $GITHUB_STEP_SUMMARY
-            done
-          else
-            echo "✅ **All $PASSED_TESTS tests passed successfully!**" >> $GITHUB_STEP_SUMMARY
-          fi
-          echo "" >> $GITHUB_STEP_SUMMARY
+
         continue-on-error: true
       
       - name: Run go vet
         id: vet_check
         run: |
-          echo "## 🔍 Static Analysis (go vet)" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          
-          if ! go vet ./... 2>&1 | tee vet_output.txt; then
-            echo "❌ **Static analysis found issues**" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "### Issues Found" >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-            cat vet_output.txt >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
+          if ! go vet ./...; then
             exit 1
-          else
-            echo "✅ **No static analysis issues found**" >> $GITHUB_STEP_SUMMARY
           fi
-          echo "" >> $GITHUB_STEP_SUMMARY
       
       - name: Check go fmt
         id: fmt_check
         run: |
-          echo "## 🎨 Code Formatting Check" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          
           UNFORMATTED=$(gofmt -s -l . | wc -l)
           if [ "$UNFORMATTED" -gt 0 ]; then
-            echo "❌ **$UNFORMATTED file(s) need formatting**" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "### Files that need formatting:" >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-            gofmt -s -l . >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
             exit 1
-          else
-            echo "✅ **All files are properly formatted**" >> $GITHUB_STEP_SUMMARY
           fi
-          echo "" >> $GITHUB_STEP_SUMMARY
       
       - name: Execute Development Bot
         id: bot_execution
         run: |
-          echo "## 🤖 Development Bot Execution" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          
           echo "::group::Development Bot Execution"
-          if go run main.go 2>&1 | tee bot_output.txt; then
-            echo "::endgroup::"
-            echo "✅ **Development bot ran successfully**" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "### Execution Output" >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-            tail -20 bot_output.txt >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-          else
-            echo "::endgroup::"
-            echo "❌ **Development bot execution failed**" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "### Error Output" >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-            tail -50 bot_output.txt >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-            exit 1
-          fi
-          echo "" >> $GITHUB_STEP_SUMMARY
+          go run main.go 2>&1 | tee bot_output.txt
+          echo "::endgroup::"
         continue-on-error: true
       
       - name: Validate RSS output
         id: rss_validation
         run: |
-          echo "## 📡 RSS Feed Validation" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          
           if [ ! -f "output/killarney-development.xml" ]; then
-            echo "❌ **RSS feed was not generated**" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
             exit 1
           fi
           
           # Basic XML validation
-          if ! xmllint --noout output/killarney-development.xml 2>validation_errors.txt; then
-            echo "❌ **Generated RSS feed is not valid XML**" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "### Validation Errors" >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-            cat validation_errors.txt >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
+          if ! xmllint --noout output/killarney-development.xml; then
             exit 1
           fi
           
-          # Get RSS feed stats
+          # Get RSS feed stats for summary
           ITEM_COUNT=$(xmllint --xpath 'count(//item)' output/killarney-development.xml 2>/dev/null)
           FILE_SIZE=$(stat -c%s output/killarney-development.xml)
           
-          echo "✅ **Generated valid RSS feed**" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### RSS Feed Statistics" >> $GITHUB_STEP_SUMMARY
-          echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
-          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
-          echo "| 📰 Items | $ITEM_COUNT |" >> $GITHUB_STEP_SUMMARY
-          echo "| 📦 File Size | $FILE_SIZE bytes |" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "rss_items=$ITEM_COUNT" >> $GITHUB_OUTPUT
+          echo "rss_size=$FILE_SIZE" >> $GITHUB_OUTPUT
       
       - name: Create Final Summary
         if: always()
@@ -194,7 +115,7 @@ jobs:
           echo "| 🎨 Formatting | ${{ steps.fmt_check.outcome == 'success' && '✅ Passed' || '❌ Failed' }} | Code formatting check |" >> $GITHUB_STEP_SUMMARY
           echo "| 🔍 Static Analysis | ${{ steps.vet_check.outcome == 'success' && '✅ Passed' || '❌ Failed' }} | Go vet analysis |" >> $GITHUB_STEP_SUMMARY
           echo "| 🤖 Bot Execution | ${{ steps.bot_execution.outcome == 'success' && '✅ Passed' || '❌ Failed' }} | Development bot run |" >> $GITHUB_STEP_SUMMARY
-          echo "| 📡 RSS Validation | ${{ steps.rss_validation.outcome == 'success' && '✅ Passed' || '❌ Failed' }} | RSS feed generation |" >> $GITHUB_STEP_SUMMARY
+          echo "| 📡 RSS Validation | ${{ steps.rss_validation.outcome == 'success' && '✅ Passed' || '❌ Failed' }} | ${{ steps.rss_validation.outputs.rss_items }} items, ${{ steps.rss_validation.outputs.rss_size }} bytes |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
           echo "*Detailed results are shown in the sections above.*" >> $GITHUB_STEP_SUMMARY

@@ -161,6 +161,25 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         
+      - name: Validate RSS output
+        id: rss_validation
+        run: |
+          if [ ! -f "output/killarney-development.xml" ]; then
+            exit 1
+          fi
+          
+          # Basic XML validation
+          if ! xmllint --noout output/killarney-development.xml; then
+            exit 1
+          fi
+          
+          # Get RSS feed stats for summary
+          ITEM_COUNT=$(xmllint --xpath 'count(//item)' output/killarney-development.xml 2>/dev/null)
+          FILE_SIZE=$(stat -c%s output/killarney-development.xml)
+          
+          echo "rss_items=$ITEM_COUNT" >> $GITHUB_OUTPUT
+          echo "rss_size=$FILE_SIZE" >> $GITHUB_OUTPUT
+        
       - name: Create Execution Summary
         if: always()
         run: |
@@ -181,10 +200,11 @@ jobs:
           
           # Deployment info
           echo "## 🚀 Deployment Status" >> $GITHUB_STEP_SUMMARY
-          echo "| Component | Status |" >> $GITHUB_STEP_SUMMARY
-          echo "|-----------|--------|" >> $GITHUB_STEP_SUMMARY
-          echo "| 📡 RSS Feed Generation | ${{ steps.bot_execution.outcome == 'success' && '✅ Success' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| 📄 GitHub Pages Deployment | ${{ steps.deployment.outcome == 'success' && '✅ Success' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Component | Status | Details |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----------|--------|---------|" >> $GITHUB_STEP_SUMMARY
+          echo "| 📡 RSS Feed Generation | ${{ steps.bot_execution.outcome == 'success' && '✅ Success' || '❌ Failed' }} | Bot execution |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🔍 RSS Feed Validation | ${{ steps.rss_validation.outcome == 'success' && '✅ Success' || '❌ Failed' }} | ${{ steps.rss_validation.outputs.rss_items }} items, ${{ steps.rss_validation.outputs.rss_size }} bytes |" >> $GITHUB_STEP_SUMMARY
+          echo "| 📄 GitHub Pages Deployment | ${{ steps.deployment.outcome == 'success' && '✅ Success' || '❌ Failed' }} | RSS feed published |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
           # Links
