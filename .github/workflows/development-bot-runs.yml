@@ -72,7 +72,7 @@ jobs:
             DP_MATCH=$(echo "$SUMMARY_LINE" | grep -oE '[0-9]+ development permit actions' || echo "")
             echo "DEBUG: DP match: '$DP_MATCH'"
             if [ -n "$DP_MATCH" ]; then
-              DP_ACTIONS=$(echo "$DP_MATCH" | grep -oE '[0-9]+' | head -1)
+              DP_ACTIONS=$(echo "$DP_MATCH" | grep -oE '[0-9]+' | head -1 | tr -d '\n\r')
               echo "DEBUG: DP_ACTIONS extracted: '$DP_ACTIONS'"
             else
               DP_ACTIONS=0
@@ -83,7 +83,7 @@ jobs:
             RA_MATCH=$(echo "$SUMMARY_LINE" | grep -oE '[0-9]+ rezoning application actions' || echo "")
             echo "DEBUG: RA match: '$RA_MATCH'"
             if [ -n "$RA_MATCH" ]; then
-              RA_ACTIONS=$(echo "$RA_MATCH" | grep -oE '[0-9]+' | head -1)
+              RA_ACTIONS=$(echo "$RA_MATCH" | grep -oE '[0-9]+' | head -1 | tr -d '\n\r')
               echo "DEBUG: RA_ACTIONS extracted: '$RA_ACTIONS'"
             else
               RA_ACTIONS=0
@@ -93,24 +93,42 @@ jobs:
             echo "DEBUG: No summary line found, using defaults"
           fi
           
-          echo "DEBUG: Final values - DP_ACTIONS=$DP_ACTIONS, RA_ACTIONS=$RA_ACTIONS"
+          # Ensure main action variables are clean and numeric
+          DP_ACTIONS=${DP_ACTIONS:-0}
+          RA_ACTIONS=${RA_ACTIONS:-0}
+          
+          echo "DEBUG: Final values - DP_ACTIONS='$DP_ACTIONS', RA_ACTIONS='$RA_ACTIONS'"
           
           # Count specific actions from detailed output
           echo "DEBUG: Counting specific actions..."
-          NEW_DPS=$(grep -c "Development Permit.*Creating RSS feed entry" bot_execution_output.txt || echo "0")
-          UPDATED_DPS=$(grep -c "Development Permit.*Updating RSS feed entry" bot_execution_output.txt || echo "0")
-          NEW_RAS=$(grep -c "Rezoning Application.*Creating RSS feed entry" bot_execution_output.txt || echo "0")
-          UPDATED_RAS=$(grep -c "Rezoning Application.*Updating RSS feed entry" bot_execution_output.txt || echo "0")
+          NEW_DPS=$(grep -c "Development Permit.*Creating RSS feed entry" bot_execution_output.txt 2>/dev/null | head -1 | tr -d '\n\r' || echo "0")
+          UPDATED_DPS=$(grep -c "Development Permit.*Updating RSS feed entry" bot_execution_output.txt 2>/dev/null | head -1 | tr -d '\n\r' || echo "0")
+          NEW_RAS=$(grep -c "Rezoning Application.*Creating RSS feed entry" bot_execution_output.txt 2>/dev/null | head -1 | tr -d '\n\r' || echo "0")
+          UPDATED_RAS=$(grep -c "Rezoning Application.*Updating RSS feed entry" bot_execution_output.txt 2>/dev/null | head -1 | tr -d '\n\r' || echo "0")
           
-          echo "DEBUG: Counts - NEW_DPS=$NEW_DPS, UPDATED_DPS=$UPDATED_DPS, NEW_RAS=$NEW_RAS, UPDATED_RAS=$UPDATED_RAS"
+          # Ensure all variables are numeric
+          NEW_DPS=${NEW_DPS:-0}
+          UPDATED_DPS=${UPDATED_DPS:-0}
+          NEW_RAS=${NEW_RAS:-0}
+          UPDATED_RAS=${UPDATED_RAS:-0}
+          
+          echo "DEBUG: Counts - NEW_DPS='$NEW_DPS', UPDATED_DPS='$UPDATED_DPS', NEW_RAS='$NEW_RAS', UPDATED_RAS='$UPDATED_RAS'"
           
           # Set outputs for summary
+          echo "DEBUG: Setting GitHub outputs..."
+          echo "DEBUG: About to write dp_actions=$DP_ACTIONS"
           echo "dp_actions=$DP_ACTIONS" >> $GITHUB_OUTPUT
+          echo "DEBUG: About to write ra_actions=$RA_ACTIONS"
           echo "ra_actions=$RA_ACTIONS" >> $GITHUB_OUTPUT
+          echo "DEBUG: About to write new_dps=$NEW_DPS"
           echo "new_dps=$NEW_DPS" >> $GITHUB_OUTPUT
+          echo "DEBUG: About to write updated_dps=$UPDATED_DPS"
           echo "updated_dps=$UPDATED_DPS" >> $GITHUB_OUTPUT
+          echo "DEBUG: About to write new_ras=$NEW_RAS"
           echo "new_ras=$NEW_RAS" >> $GITHUB_OUTPUT
+          echo "DEBUG: About to write updated_ras=$UPDATED_RAS"
           echo "updated_ras=$UPDATED_RAS" >> $GITHUB_OUTPUT
+          echo "DEBUG: GitHub outputs set successfully"
           
           # Add bot execution results to summary
           echo "## 🤖 Bot Execution Results" >> $GITHUB_STEP_SUMMARY
