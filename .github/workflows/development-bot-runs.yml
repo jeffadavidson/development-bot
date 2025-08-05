@@ -36,7 +36,10 @@ jobs:
           go-version: '1.24'
             
       - name: Install dependencies
-        run: go mod download
+        run: |
+          go mod download
+          sudo apt-get update
+          sudo apt-get install -y libxml2-utils
         
       - name: Verify dependencies
         run: go mod verify
@@ -194,43 +197,27 @@ jobs:
       - name: Validate RSS output
         id: rss_validation
         run: |
-          echo "DEBUG: Starting RSS validation..."
-          echo "DEBUG: Checking if output directory exists..."
-          ls -la output/ || echo "DEBUG: output directory doesn't exist"
-          
-          echo "DEBUG: Checking if RSS file exists..."
           if [ ! -f "output/killarney-development.xml" ]; then
-            echo "DEBUG: RSS file does not exist!"
             echo "rss_items=0" >> $GITHUB_OUTPUT
             echo "rss_size=0" >> $GITHUB_OUTPUT
             exit 1
           fi
-          echo "DEBUG: RSS file exists"
-          
-          echo "DEBUG: Checking file contents..."
-          head -5 output/killarney-development.xml || echo "DEBUG: Could not read file"
           
           # Basic XML validation
-          echo "DEBUG: Running XML validation..."
-          if ! xmllint --noout output/killarney-development.xml 2>&1; then
-            echo "DEBUG: XML validation failed!"
+          if ! xmllint --noout output/killarney-development.xml 2>/dev/null; then
             echo "rss_items=0" >> $GITHUB_OUTPUT
             echo "rss_size=0" >> $GITHUB_OUTPUT
             exit 1
           fi
-          echo "DEBUG: XML validation passed"
           
           # Get RSS feed stats for summary with better error handling
-          echo "DEBUG: Counting RSS items..."
           ITEM_COUNT=$(xmllint --xpath 'count(//item)' output/killarney-development.xml 2>/dev/null | head -1 || echo "0")
           if [ -z "$ITEM_COUNT" ] || ! [[ "$ITEM_COUNT" =~ ^[0-9]+$ ]]; then
             ITEM_COUNT=0
           fi
-          echo "DEBUG: Found $ITEM_COUNT items"
           echo "rss_items=$ITEM_COUNT" >> $GITHUB_OUTPUT
           
           # Get file size with cross-platform compatibility
-          echo "DEBUG: Getting file size..."
           if command -v stat >/dev/null 2>&1; then
             if stat -c%s output/killarney-development.xml >/dev/null 2>&1; then
               FILE_SIZE=$(stat -c%s output/killarney-development.xml 2>/dev/null || echo "0")
@@ -244,9 +231,7 @@ jobs:
           if [ -z "$FILE_SIZE" ] || ! [[ "$FILE_SIZE" =~ ^[0-9]+$ ]]; then
             FILE_SIZE=0
           fi
-          echo "DEBUG: File size is $FILE_SIZE bytes"
           echo "rss_size=$FILE_SIZE" >> $GITHUB_OUTPUT
-          echo "DEBUG: RSS validation completed successfully"
         
       - name: Create Execution Summary
         if: always()
