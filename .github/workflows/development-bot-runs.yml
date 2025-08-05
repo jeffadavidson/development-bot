@@ -3,9 +3,6 @@ run-name: Development-Bot-Runs-${{ github.run_number }}
 on:
   #workflow_dispatch for manual triggering
   workflow_dispatch: 
-  # Trigger on pushes to main branch
-  push:
-    branches: [main]
   # Schedule 12PM UTC/6AM MT for just kgca-development/development-bot main branch
   schedule:
     - cron: '00 12 * * *'
@@ -42,7 +39,60 @@ jobs:
         run: go mod verify
           
       - name: Execute Development Bot
-        run: go run main.go
+        id: bot_execution
+        run: |
+          echo "::group::Development Bot Execution"
+          go run main.go 2>&1 | tee bot_execution_output.txt
+          echo "::endgroup::"
+          
+          # Parse the output for development activity counts
+          DP_ACTIONS=0
+          RA_ACTIONS=0
+          NEW_DPS=0
+          UPDATED_DPS=0
+          NEW_RAS=0
+          UPDATED_RAS=0
+          
+          # Extract final summary line
+          if grep -q "Combined RSS feed processed with" bot_execution_output.txt; then
+            SUMMARY_LINE=$(grep "Combined RSS feed processed with" bot_execution_output.txt)
+            DP_ACTIONS=$(echo "$SUMMARY_LINE" | grep -o '[0-9]\+ development permit actions' | grep -o '[0-9]\+' || echo "0")
+            RA_ACTIONS=$(echo "$SUMMARY_LINE" | grep -o '[0-9]\+ rezoning application actions' | grep -o '[0-9]\+' || echo "0")
+          fi
+          
+          # Count specific actions from detailed output
+          NEW_DPS=$(grep -c "Development Permit.*Creating RSS feed entry" bot_execution_output.txt || echo "0")
+          UPDATED_DPS=$(grep -c "Development Permit.*Updating RSS feed entry" bot_execution_output.txt || echo "0")
+          NEW_RAS=$(grep -c "Rezoning Application.*Creating RSS feed entry" bot_execution_output.txt || echo "0")
+          UPDATED_RAS=$(grep -c "Rezoning Application.*Updating RSS feed entry" bot_execution_output.txt || echo "0")
+          
+          # Set outputs for summary
+          echo "dp_actions=$DP_ACTIONS" >> $GITHUB_OUTPUT
+          echo "ra_actions=$RA_ACTIONS" >> $GITHUB_OUTPUT
+          echo "new_dps=$NEW_DPS" >> $GITHUB_OUTPUT
+          echo "updated_dps=$UPDATED_DPS" >> $GITHUB_OUTPUT
+          echo "new_ras=$NEW_RAS" >> $GITHUB_OUTPUT
+          echo "updated_ras=$UPDATED_RAS" >> $GITHUB_OUTPUT
+          
+          # Create annotations based on activity
+          TOTAL_ACTIVITY=$((DP_ACTIONS + RA_ACTIONS))
+          if [ $TOTAL_ACTIVITY -gt 0 ]; then
+            echo "::notice title=Development Activity Detected::Found $DP_ACTIONS DP actions and $RA_ACTIONS rezoning actions"
+            if [ $NEW_DPS -gt 0 ]; then
+              echo "::notice title=New Development Permits::$NEW_DPS new development permit(s) added to RSS feed"
+            fi
+            if [ $UPDATED_DPS -gt 0 ]; then
+              echo "::notice title=Updated Development Permits::$UPDATED_DPS development permit(s) updated in RSS feed"
+            fi
+            if [ $NEW_RAS -gt 0 ]; then
+              echo "::notice title=New Rezoning Applications::$NEW_RAS new rezoning application(s) added to RSS feed"
+            fi
+            if [ $UPDATED_RAS -gt 0 ]; then
+              echo "::notice title=Updated Rezoning Applications::$UPDATED_RAS rezoning application(s) updated in RSS feed"
+            fi
+          else
+            echo "::notice title=No New Activity::No development activity changes detected"
+          fi
           
       - name: Commit Data Changes
         run: |
@@ -89,3 +139,44 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        
+      - name: Create Execution Summary
+        if: always()
+        run: |
+          echo "# 🤖 Development Bot Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Activity summary table
+          echo "## 📊 Development Activity" >> $GITHUB_STEP_SUMMARY
+          echo "| Activity Type | Count |" >> $GITHUB_STEP_SUMMARY
+          echo "|---------------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| 🏗️ Total DP Actions | ${{ steps.bot_execution.outputs.dp_actions }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🏛️ Total Rezoning Actions | ${{ steps.bot_execution.outputs.ra_actions }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🆕 New Development Permits | ${{ steps.bot_execution.outputs.new_dps }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🔄 Updated Development Permits | ${{ steps.bot_execution.outputs.updated_dps }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🆕 New Rezoning Applications | ${{ steps.bot_execution.outputs.new_ras }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🔄 Updated Rezoning Applications | ${{ steps.bot_execution.outputs.updated_ras }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Deployment info
+          echo "## 🚀 Deployment Status" >> $GITHUB_STEP_SUMMARY
+          echo "| Component | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| 📡 RSS Feed Generation | ${{ steps.bot_execution.outcome == 'success' && '✅ Success' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 📄 GitHub Pages Deployment | ${{ steps.deployment.outcome == 'success' && '✅ Success' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Links
+          echo "## 🔗 Links" >> $GITHUB_STEP_SUMMARY
+          echo "- 📡 [RSS Feed](${{ steps.deployment.outputs.page_url }}killarney-development.xml)" >> $GITHUB_STEP_SUMMARY
+          echo "- 🏠 [Documentation](${{ steps.deployment.outputs.page_url }}README.md)" >> $GITHUB_STEP_SUMMARY
+          echo "- 🌐 [GitHub Pages Site](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Detailed output for debugging (if there were issues)
+          if [ -f bot_execution_output.txt ] && [ "${{ steps.bot_execution.outcome }}" != "success" ]; then
+            echo "## 🔍 Execution Details" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            tail -20 bot_execution_output.txt >> $GITHUB_STEP_SUMMARY || true
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          fi

@@ -22,59 +22,130 @@ jobs:
           go mod download
           sudo apt-get update
           sudo apt-get install -y libxml2-utils
-      - name: Run tests
-        run: go test -v ./... | tee test_output.txt
-      - name: Run go vet
-        run: go vet ./...
-      - name: Check go fmt
+      
+      - name: Run tests with JSON output
+        id: test_results
         run: |
-          if [ "$(gofmt -s -l . | wc -l)" -gt 0 ]; then
+          # Run tests with verbose output and JSON format
+          go test -v -json ./... 2>&1 | tee test_output_json.txt
+          go test -v ./... 2>&1 | tee test_output.txt
+          
+          # Parse results for annotations
+          TOTAL_TESTS=$(grep '"Action":"run"' test_output_json.txt | wc -l)
+          PASSED_TESTS=$(grep '"Action":"pass"' test_output_json.txt | wc -l)
+          FAILED_TESTS=$(grep '"Action":"fail"' test_output_json.txt | wc -l)
+          SKIPPED_TESTS=$(grep '"Action":"skip"' test_output_json.txt | wc -l)
+          
+          echo "total_tests=$TOTAL_TESTS" >> $GITHUB_OUTPUT
+          echo "passed_tests=$PASSED_TESTS" >> $GITHUB_OUTPUT
+          echo "failed_tests=$FAILED_TESTS" >> $GITHUB_OUTPUT
+          echo "skipped_tests=$SKIPPED_TESTS" >> $GITHUB_OUTPUT
+          
+          # Create annotations for failed tests
+          if [ $FAILED_TESTS -gt 0 ]; then
+            echo "::error title=Test Failures::$FAILED_TESTS test(s) failed"
+            grep '"Action":"fail"' test_output_json.txt | while read line; do
+              TEST_NAME=$(echo "$line" | jq -r '.Test // "Unknown"')
+              PACKAGE=$(echo "$line" | jq -r '.Package // "Unknown"')
+              echo "::error title=Failed Test::$PACKAGE: $TEST_NAME"
+            done
+          fi
+          
+          # Success annotation
+          if [ $FAILED_TESTS -eq 0 ]; then
+            echo "::notice title=All Tests Passed::$PASSED_TESTS tests passed successfully"
+          fi
+        continue-on-error: true
+      
+      - name: Run go vet
+        id: vet_check
+        run: |
+          if ! go vet ./...; then
+            echo "::error title=Go Vet Failed::Static analysis found issues"
+            exit 1
+          else
+            echo "::notice title=Go Vet Passed::No static analysis issues found"
+          fi
+      
+      - name: Check go fmt
+        id: fmt_check
+        run: |
+          UNFORMATTED=$(gofmt -s -l . | wc -l)
+          if [ "$UNFORMATTED" -gt 0 ]; then
+            echo "::error title=Format Check Failed::$UNFORMATTED file(s) need formatting"
             echo "The following files are not formatted:"
             gofmt -s -l .
             exit 1
+          else
+            echo "::notice title=Format Check Passed::All files are properly formatted"
           fi
+      
       - name: Execute Development Bot
-        run: go run main.go
+        id: bot_execution
+        run: |
+          echo "::group::Development Bot Execution"
+          go run main.go 2>&1 | tee bot_output.txt
+          echo "::endgroup::"
+          
+          # Check if execution was successful
+          if [ $? -eq 0 ]; then
+            echo "::notice title=Bot Execution Successful::Development bot ran successfully"
+          else
+            echo "::error title=Bot Execution Failed::Development bot execution failed"
+            exit 1
+          fi
+        continue-on-error: true
+      
       - name: Validate RSS output
+        id: rss_validation
         run: |
           if [ ! -f "output/killarney-development.xml" ]; then
-            echo "RSS feed was not generated"
+            echo "::error title=RSS Generation Failed::RSS feed was not generated"
             exit 1
           fi
+          
           # Basic XML validation
           if ! xmllint --noout output/killarney-development.xml 2>/dev/null; then
-            echo "Generated RSS feed is not valid XML"
+            echo "::error title=RSS Validation Failed::Generated RSS feed is not valid XML"
             exit 1
           fi
-          echo "RSS feed validation passed"
-      - name: Create Test Summary
+          
+          # Get RSS feed stats
+          ITEM_COUNT=$(xmllint --xpath 'count(//item)' output/killarney-development.xml 2>/dev/null)
+          FILE_SIZE=$(stat -c%s output/killarney-development.xml)
+          
+          echo "::notice title=RSS Validation Passed::Generated valid RSS feed with $ITEM_COUNT items ($FILE_SIZE bytes)"
+      
+      - name: Create Test Annotations Summary
         if: always()
         run: |
-          echo "# Test Results Summary" >> $GITHUB_STEP_SUMMARY
+          echo "# 🧪 Test Results Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
-          if [ -f test_output.txt ]; then
-            # Count test results
-            TOTAL_TESTS=$(grep -c "^=== RUN" test_output.txt || echo "0")
-            PASSED_TESTS=$(grep -c "--- PASS:" test_output.txt || echo "0")
-            FAILED_TESTS=$(grep -c "--- FAIL:" test_output.txt || echo "0")
-            
-            echo "## Go Tests" >> $GITHUB_STEP_SUMMARY
-            echo "- **Total Tests:** $TOTAL_TESTS" >> $GITHUB_STEP_SUMMARY
-            echo "- **Passed:** $PASSED_TESTS" >> $GITHUB_STEP_SUMMARY
-            echo "- **Failed:** $FAILED_TESTS" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            
-            if [ $FAILED_TESTS -gt 0 ]; then
-              echo "## Failed Tests" >> $GITHUB_STEP_SUMMARY
-              echo '```' >> $GITHUB_STEP_SUMMARY
-              grep -A 10 "--- FAIL:" test_output.txt >> $GITHUB_STEP_SUMMARY || true
-              echo '```' >> $GITHUB_STEP_SUMMARY
-            fi
-          fi
+          # Test results table
+          echo "## Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "| Metric | Count |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| 🧪 Total Tests | ${{ steps.test_results.outputs.total_tests }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| ✅ Passed | ${{ steps.test_results.outputs.passed_tests }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| ❌ Failed | ${{ steps.test_results.outputs.failed_tests }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| ⏭️ Skipped | ${{ steps.test_results.outputs.skipped_tests }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           
-          echo "## Workflow Steps" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Code formatting check" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Go vet analysis" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Application execution" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ RSS feed validation" >> $GITHUB_STEP_SUMMARY
+          # Quality checks
+          echo "## Quality Checks" >> $GITHUB_STEP_SUMMARY
+          echo "| Check | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| 🎨 Code Formatting | ${{ steps.fmt_check.outcome == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🔍 Static Analysis | ${{ steps.vet_check.outcome == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🤖 Bot Execution | ${{ steps.bot_execution.outcome == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 📡 RSS Validation | ${{ steps.rss_validation.outcome == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Failed test details
+          if [ -f test_output.txt ] && [ "${{ steps.test_results.outputs.failed_tests }}" -gt 0 ]; then
+            echo "## ❌ Failed Test Details" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            grep -A 5 "--- FAIL:" test_output.txt | head -50 >> $GITHUB_STEP_SUMMARY || true
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          fi
