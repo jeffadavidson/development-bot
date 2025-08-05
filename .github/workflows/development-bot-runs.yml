@@ -6,6 +6,12 @@ on:
   # Schedule 12PM UTC/6AM MT for just kgca-development/development-bot main branch
   schedule:
     - cron: '00 12 * * *'
+  # Run on pushes to any branch except main (which gets full deployment)
+  push:
+    branches-ignore:
+      - main
+    paths:
+      - '.github/workflows/development-bot-runs.yml'
 
 # Need to grant actions token write permissions to push to git repo and deploy to GitHub Pages
 permissions:
@@ -15,17 +21,14 @@ permissions:
 
 jobs:
   build-and-deploy:
-    name: Build, and Deploy RSS Feed
+    name: Build and Deploy RSS Feed
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          ssh-key: ${{ secrets.DEVELOPMENT_BOT_DEPLOY_KEY }}
+          ssh-key: ${{ github.ref == 'refs/heads/main' && secrets.DEVELOPMENT_BOT_DEPLOY_KEY || '' }}
           
       - name: Set up Go
         uses: actions/setup-go@v5
@@ -33,7 +36,10 @@ jobs:
           go-version: '1.24'
             
       - name: Install dependencies
-        run: go mod download
+        run: |
+          go mod download
+          sudo apt-get update
+          sudo apt-get install -y libxml2-utils
         
       - name: Verify dependencies
         run: go mod verify
@@ -56,15 +62,37 @@ jobs:
           # Extract final summary line
           if grep -q "Combined RSS feed processed with" bot_execution_output.txt; then
             SUMMARY_LINE=$(grep "Combined RSS feed processed with" bot_execution_output.txt)
-            DP_ACTIONS=$(echo "$SUMMARY_LINE" | grep -o '[0-9]\+ development permit actions' | grep -o '[0-9]\+' || echo "0")
-            RA_ACTIONS=$(echo "$SUMMARY_LINE" | grep -o '[0-9]\+ rezoning application actions' | grep -o '[0-9]\+' || echo "0")
+            
+            DP_MATCH=$(echo "$SUMMARY_LINE" | grep -oE '[0-9]+ development permit actions' || echo "")
+            if [ -n "$DP_MATCH" ]; then
+              DP_ACTIONS=$(echo "$DP_MATCH" | grep -oE '[0-9]+' | head -1 | tr -d '\n\r')
+            else
+              DP_ACTIONS=0
+            fi
+            
+            RA_MATCH=$(echo "$SUMMARY_LINE" | grep -oE '[0-9]+ rezoning application actions' || echo "")
+            if [ -n "$RA_MATCH" ]; then
+              RA_ACTIONS=$(echo "$RA_MATCH" | grep -oE '[0-9]+' | head -1 | tr -d '\n\r')
+            else
+              RA_ACTIONS=0
+            fi
           fi
           
+          # Ensure main action variables are clean and numeric
+          DP_ACTIONS=${DP_ACTIONS:-0}
+          RA_ACTIONS=${RA_ACTIONS:-0}
+          
           # Count specific actions from detailed output
-          NEW_DPS=$(grep -c "Development Permit.*Creating RSS feed entry" bot_execution_output.txt || echo "0")
-          UPDATED_DPS=$(grep -c "Development Permit.*Updating RSS feed entry" bot_execution_output.txt || echo "0")
-          NEW_RAS=$(grep -c "Rezoning Application.*Creating RSS feed entry" bot_execution_output.txt || echo "0")
-          UPDATED_RAS=$(grep -c "Rezoning Application.*Updating RSS feed entry" bot_execution_output.txt || echo "0")
+          NEW_DPS=$(grep -c "Development Permit.*Creating RSS feed entry" bot_execution_output.txt 2>/dev/null | head -1 | tr -d '\n\r' || echo "0")
+          UPDATED_DPS=$(grep -c "Development Permit.*Updating RSS feed entry" bot_execution_output.txt 2>/dev/null | head -1 | tr -d '\n\r' || echo "0")
+          NEW_RAS=$(grep -c "Rezoning Application.*Creating RSS feed entry" bot_execution_output.txt 2>/dev/null | head -1 | tr -d '\n\r' || echo "0")
+          UPDATED_RAS=$(grep -c "Rezoning Application.*Updating RSS feed entry" bot_execution_output.txt 2>/dev/null | head -1 | tr -d '\n\r' || echo "0")
+          
+          # Ensure all variables are numeric
+          NEW_DPS=${NEW_DPS:-0}
+          UPDATED_DPS=${UPDATED_DPS:-0}
+          NEW_RAS=${NEW_RAS:-0}
+          UPDATED_RAS=${UPDATED_RAS:-0}
           
           # Set outputs for summary
           echo "dp_actions=$DP_ACTIONS" >> $GITHUB_OUTPUT
@@ -116,6 +144,7 @@ jobs:
           fi
           
       - name: Commit Data Changes
+        if: github.ref == 'refs/heads/main'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
@@ -128,9 +157,11 @@ jobs:
           fi
           
       - name: Setup Pages
+        if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v5
         
       - name: Create Pages deployment directory
+        if: github.ref == 'refs/heads/main'
         run: |
           mkdir -p _site
           cp output/killarney-development.xml _site/
@@ -153,11 +184,13 @@ jobs:
           EOF
           
       - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
           
       - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
         id: deployment
         uses: actions/deploy-pages@v4
         
@@ -165,19 +198,39 @@ jobs:
         id: rss_validation
         run: |
           if [ ! -f "output/killarney-development.xml" ]; then
+            echo "rss_items=0" >> $GITHUB_OUTPUT
+            echo "rss_size=0" >> $GITHUB_OUTPUT
             exit 1
           fi
           
           # Basic XML validation
-          if ! xmllint --noout output/killarney-development.xml; then
+          if ! xmllint --noout output/killarney-development.xml 2>/dev/null; then
+            echo "rss_items=0" >> $GITHUB_OUTPUT
+            echo "rss_size=0" >> $GITHUB_OUTPUT
             exit 1
           fi
           
-          # Get RSS feed stats for summary
-          ITEM_COUNT=$(xmllint --xpath 'count(//item)' output/killarney-development.xml 2>/dev/null)
-          FILE_SIZE=$(stat -c%s output/killarney-development.xml)
-          
+          # Get RSS feed stats for summary with better error handling
+          ITEM_COUNT=$(xmllint --xpath 'count(//item)' output/killarney-development.xml 2>/dev/null | head -1 || echo "0")
+          if [ -z "$ITEM_COUNT" ] || ! [[ "$ITEM_COUNT" =~ ^[0-9]+$ ]]; then
+            ITEM_COUNT=0
+          fi
           echo "rss_items=$ITEM_COUNT" >> $GITHUB_OUTPUT
+          
+          # Get file size with cross-platform compatibility
+          if command -v stat >/dev/null 2>&1; then
+            if stat -c%s output/killarney-development.xml >/dev/null 2>&1; then
+              FILE_SIZE=$(stat -c%s output/killarney-development.xml 2>/dev/null || echo "0")
+            else
+              FILE_SIZE=$(stat -f%z output/killarney-development.xml 2>/dev/null || echo "0")
+            fi
+          else
+            FILE_SIZE=$(wc -c < output/killarney-development.xml 2>/dev/null | tr -d ' ' || echo "0")
+          fi
+          
+          if [ -z "$FILE_SIZE" ] || ! [[ "$FILE_SIZE" =~ ^[0-9]+$ ]]; then
+            FILE_SIZE=0
+          fi
           echo "rss_size=$FILE_SIZE" >> $GITHUB_OUTPUT
         
       - name: Create Execution Summary
@@ -204,15 +257,21 @@ jobs:
           echo "|-----------|--------|---------|" >> $GITHUB_STEP_SUMMARY
           echo "| 📡 RSS Feed Generation | ${{ steps.bot_execution.outcome == 'success' && '✅ Success' || '❌ Failed' }} | Bot execution |" >> $GITHUB_STEP_SUMMARY
           echo "| 🔍 RSS Feed Validation | ${{ steps.rss_validation.outcome == 'success' && '✅ Success' || '❌ Failed' }} | ${{ steps.rss_validation.outputs.rss_items }} items, ${{ steps.rss_validation.outputs.rss_size }} bytes |" >> $GITHUB_STEP_SUMMARY
-          echo "| 📄 GitHub Pages Deployment | ${{ steps.deployment.outcome == 'success' && '✅ Success' || '❌ Failed' }} | RSS feed published |" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ github.ref }}" != "refs/heads/main" ]; then
+            echo "| 📄 GitHub Pages Deployment | ⏭️ Skipped | Branch build - no deployment |" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "| 📄 GitHub Pages Deployment | ${{ steps.deployment.outcome == 'success' && '✅ Success' || '❌ Failed' }} | RSS feed published |" >> $GITHUB_STEP_SUMMARY
+          fi
           echo "" >> $GITHUB_STEP_SUMMARY
           
-          # Links
-          echo "## 🔗 Links" >> $GITHUB_STEP_SUMMARY
-          echo "- 📡 [RSS Feed](${{ steps.deployment.outputs.page_url }}killarney-development.xml)" >> $GITHUB_STEP_SUMMARY
-          echo "- 🏠 [Documentation](${{ steps.deployment.outputs.page_url }}README.md)" >> $GITHUB_STEP_SUMMARY
-          echo "- 🌐 [GitHub Pages Site](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
+          # Links (only for main branch builds)
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "## 🔗 Links" >> $GITHUB_STEP_SUMMARY
+            echo "- 📡 [RSS Feed](${{ steps.deployment.outputs.page_url }}killarney-development.xml)" >> $GITHUB_STEP_SUMMARY
+            echo "- 🏠 [Documentation](${{ steps.deployment.outputs.page_url }}README.md)" >> $GITHUB_STEP_SUMMARY
+            echo "- 🌐 [GitHub Pages Site](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+          fi
           
           # Detailed output for debugging (if there were issues)
           if [ -f bot_execution_output.txt ] && [ "${{ steps.bot_execution.outcome }}" != "success" ]; then
