@@ -74,24 +74,45 @@ jobs:
           echo "new_ras=$NEW_RAS" >> $GITHUB_OUTPUT
           echo "updated_ras=$UPDATED_RAS" >> $GITHUB_OUTPUT
           
-          # Create annotations based on activity
+          # Add bot execution results to summary
+          echo "## 🤖 Bot Execution Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
           TOTAL_ACTIVITY=$((DP_ACTIONS + RA_ACTIONS))
           if [ $TOTAL_ACTIVITY -gt 0 ]; then
-            echo "::notice title=Development Activity Detected::Found $DP_ACTIONS DP actions and $RA_ACTIONS rezoning actions"
-            if [ $NEW_DPS -gt 0 ]; then
-              echo "::notice title=New Development Permits::$NEW_DPS new development permit(s) added to RSS feed"
-            fi
-            if [ $UPDATED_DPS -gt 0 ]; then
-              echo "::notice title=Updated Development Permits::$UPDATED_DPS development permit(s) updated in RSS feed"
-            fi
-            if [ $NEW_RAS -gt 0 ]; then
-              echo "::notice title=New Rezoning Applications::$NEW_RAS new rezoning application(s) added to RSS feed"
-            fi
-            if [ $UPDATED_RAS -gt 0 ]; then
-              echo "::notice title=Updated Rezoning Applications::$UPDATED_RAS rezoning application(s) updated in RSS feed"
+            echo "🎉 **Development Activity Detected!**" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Found **$DP_ACTIONS** development permit actions and **$RA_ACTIONS** rezoning application actions." >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            
+            echo "### Activity Breakdown" >> $GITHUB_STEP_SUMMARY
+            echo "| Type | New | Updated |" >> $GITHUB_STEP_SUMMARY
+            echo "|------|-----|---------|" >> $GITHUB_STEP_SUMMARY
+            echo "| 🏗️ Development Permits | $NEW_DPS | $UPDATED_DPS |" >> $GITHUB_STEP_SUMMARY
+            echo "| 🏛️ Rezoning Applications | $NEW_RAS | $UPDATED_RAS |" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            
+            if [ $NEW_DPS -gt 0 ] || [ $UPDATED_DPS -gt 0 ] || [ $NEW_RAS -gt 0 ] || [ $UPDATED_RAS -gt 0 ]; then
+              echo "### Summary" >> $GITHUB_STEP_SUMMARY
+              if [ $NEW_DPS -gt 0 ]; then
+                echo "- ✨ $NEW_DPS new development permit(s) added to RSS feed" >> $GITHUB_STEP_SUMMARY
+              fi
+              if [ $UPDATED_DPS -gt 0 ]; then
+                echo "- 🔄 $UPDATED_DPS development permit(s) updated in RSS feed" >> $GITHUB_STEP_SUMMARY
+              fi
+              if [ $NEW_RAS -gt 0 ]; then
+                echo "- ✨ $NEW_RAS new rezoning application(s) added to RSS feed" >> $GITHUB_STEP_SUMMARY
+              fi
+              if [ $UPDATED_RAS -gt 0 ]; then
+                echo "- 🔄 $UPDATED_RAS rezoning application(s) updated in RSS feed" >> $GITHUB_STEP_SUMMARY
+              fi
+              echo "" >> $GITHUB_STEP_SUMMARY
             fi
           else
-            echo "::notice title=No New Activity::No development activity changes detected"
+            echo "😴 **No New Activity**" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "No development activity changes detected. The RSS feed remains current." >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
           fi
           
       - name: Commit Data Changes
