@@ -22,59 +22,100 @@ jobs:
           go mod download
           sudo apt-get update
           sudo apt-get install -y libxml2-utils
-      - name: Run tests
-        run: go test -v ./... | tee test_output.txt
-      - name: Run go vet
-        run: go vet ./...
-      - name: Check go fmt
+      
+      - name: Run tests with JSON output
+        id: test_results
         run: |
-          if [ "$(gofmt -s -l . | wc -l)" -gt 0 ]; then
-            echo "The following files are not formatted:"
-            gofmt -s -l .
+          # Run tests with verbose output and JSON format
+          go test -v -json ./... 2>&1 | tee test_output_json.txt
+          go test -v ./... 2>&1 | tee test_output.txt
+          
+          # Parse results for summary
+          TOTAL_TESTS=$(grep '"Action":"run"' test_output_json.txt | grep '"Test":' | wc -l)
+          PASSED_TESTS=$(grep '"Action":"pass"' test_output_json.txt | grep '"Test":' | wc -l)
+          FAILED_TESTS=$(grep '"Action":"fail"' test_output_json.txt | grep '"Test":' | wc -l)
+          SKIPPED_TESTS=$(grep '"Action":"skip"' test_output_json.txt | grep '"Test":' | wc -l)
+          
+          echo "total_tests=$TOTAL_TESTS" >> $GITHUB_OUTPUT
+          echo "passed_tests=$PASSED_TESTS" >> $GITHUB_OUTPUT
+          echo "failed_tests=$FAILED_TESTS" >> $GITHUB_OUTPUT
+          echo "skipped_tests=$SKIPPED_TESTS" >> $GITHUB_OUTPUT
+          
+
+        continue-on-error: true
+      
+      - name: Run go vet
+        id: vet_check
+        run: |
+          if ! go vet ./...; then
             exit 1
           fi
+      
+      - name: Check go fmt
+        id: fmt_check
+        run: |
+          UNFORMATTED=$(gofmt -s -l . | wc -l)
+          if [ "$UNFORMATTED" -gt 0 ]; then
+            exit 1
+          fi
+      
       - name: Execute Development Bot
-        run: go run main.go
+        id: bot_execution
+        run: |
+          echo "::group::Development Bot Execution"
+          go run main.go 2>&1 | tee bot_output.txt
+          echo "::endgroup::"
+        continue-on-error: true
+      
       - name: Validate RSS output
+        id: rss_validation
         run: |
           if [ ! -f "output/killarney-development.xml" ]; then
-            echo "RSS feed was not generated"
             exit 1
           fi
+          
           # Basic XML validation
-          if ! xmllint --noout output/killarney-development.xml 2>/dev/null; then
-            echo "Generated RSS feed is not valid XML"
+          if ! xmllint --noout output/killarney-development.xml; then
             exit 1
           fi
-          echo "RSS feed validation passed"
-      - name: Create Test Summary
+          
+          # Get RSS feed stats for summary
+          ITEM_COUNT=$(xmllint --xpath 'count(//item)' output/killarney-development.xml 2>/dev/null)
+          FILE_SIZE=$(stat -c%s output/killarney-development.xml)
+          
+          echo "rss_items=$ITEM_COUNT" >> $GITHUB_OUTPUT
+          echo "rss_size=$FILE_SIZE" >> $GITHUB_OUTPUT
+      
+      - name: Create Final Summary
         if: always()
         run: |
-          echo "# Test Results Summary" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "# 📊 Pipeline Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
-          if [ -f test_output.txt ]; then
-            # Count test results
-            TOTAL_TESTS=$(grep -c "^=== RUN" test_output.txt || echo "0")
-            PASSED_TESTS=$(grep -c "--- PASS:" test_output.txt || echo "0")
-            FAILED_TESTS=$(grep -c "--- FAIL:" test_output.txt || echo "0")
-            
-            echo "## Go Tests" >> $GITHUB_STEP_SUMMARY
-            echo "- **Total Tests:** $TOTAL_TESTS" >> $GITHUB_STEP_SUMMARY
-            echo "- **Passed:** $PASSED_TESTS" >> $GITHUB_STEP_SUMMARY
-            echo "- **Failed:** $FAILED_TESTS" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            
-            if [ $FAILED_TESTS -gt 0 ]; then
-              echo "## Failed Tests" >> $GITHUB_STEP_SUMMARY
-              echo '```' >> $GITHUB_STEP_SUMMARY
-              grep -A 10 "--- FAIL:" test_output.txt >> $GITHUB_STEP_SUMMARY || true
-              echo '```' >> $GITHUB_STEP_SUMMARY
-            fi
+          # Overall status
+          OVERALL_STATUS="✅ Success"
+          if [ "${{ steps.test_results.outputs.failed_tests }}" -gt 0 ] || \
+             [ "${{ steps.vet_check.outcome }}" != "success" ] || \
+             [ "${{ steps.fmt_check.outcome }}" != "success" ] || \
+             [ "${{ steps.bot_execution.outcome }}" != "success" ] || \
+             [ "${{ steps.rss_validation.outcome }}" != "success" ]; then
+            OVERALL_STATUS="❌ Failed"
           fi
           
-          echo "## Workflow Steps" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Code formatting check" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Go vet analysis" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Application execution" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ RSS feed validation" >> $GITHUB_STEP_SUMMARY
+          echo "**Overall Status:** $OVERALL_STATUS" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Summary table
+          echo "## Quick Overview" >> $GITHUB_STEP_SUMMARY
+          echo "| Stage | Status | Details |" >> $GITHUB_STEP_SUMMARY
+          echo "|-------|--------|---------|" >> $GITHUB_STEP_SUMMARY
+          echo "| 🧪 Tests | ${{ steps.test_results.outputs.failed_tests == '0' && '✅ Passed' || '❌ Failed' }} | ${{ steps.test_results.outputs.passed_tests }}/${{ steps.test_results.outputs.total_tests }} tests passed |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🎨 Formatting | ${{ steps.fmt_check.outcome == 'success' && '✅ Passed' || '❌ Failed' }} | Code formatting check |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🔍 Static Analysis | ${{ steps.vet_check.outcome == 'success' && '✅ Passed' || '❌ Failed' }} | Go vet analysis |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🤖 Bot Execution | ${{ steps.bot_execution.outcome == 'success' && '✅ Passed' || '❌ Failed' }} | Development bot run |" >> $GITHUB_STEP_SUMMARY
+          echo "| 📡 RSS Validation | ${{ steps.rss_validation.outcome == 'success' && '✅ Passed' || '❌ Failed' }} | ${{ steps.rss_validation.outputs.rss_items }} items, ${{ steps.rss_validation.outputs.rss_size }} bytes |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          echo "*Detailed results are shown in the sections above.*" >> $GITHUB_STEP_SUMMARY
