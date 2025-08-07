@@ -27,9 +27,9 @@
     "longitude": "-114.139",
     "locationcount": "4",
     "locationtypes": "Titled Parcel;Titled Parcel;Building;Building",
-    "locationaddresses": "3623 KILDARE CR SW;3621 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1394034,51.0261759],[-114.1393004,51.026176],[-114.1393065,51.026079],[-114.139398,51.0260779]]}",
-    "locationswkt": "MULTIPOINT ((-114.1394034466646 51.02617588261987),(-114.13930036955283 51.02617600553337),(-114.13930649362594 51.026079034602745),(-114.13939804946767 51.02607788261432))",
+    "locationaddresses": "3623 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1394034,51.0261759],[-114.1393004,51.026176],[-114.139398,51.0260779],[-114.1393065,51.026079]]}",
+    "locationswkt": "MULTIPOINT ((-114.1394034466646 51.02617588261987),(-114.13930036955283 51.02617600553337),(-114.13939804946767 51.02607788261432),(-114.13930649362594 51.026079034602745))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -47,8 +47,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13709316147603,
-        51.03582093298247
+        -114.13708014884335,
+        51.03595788014956
       ]
     },
     "permitnum": "DP2025-04362",
@@ -71,9 +71,9 @@
     "longitude": "-114.137",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "2011 34 ST SW;2007 34 ST SW;2003 34 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370932,51.0358209],[-114.1370801,51.0359579],[-114.1370839,51.0360948]]}",
-    "locationswkt": "MULTIPOINT ((-114.13709316147603 51.03582093298247),(-114.13708014884335 51.03595788014956),(-114.13708391777693 51.03609482560874))",
+    "locationaddresses": "2007 34 ST SW;2003 34 ST SW;2011 34 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370801,51.0359579],[-114.1370839,51.0360948],[-114.1370932,51.0358209]]}",
+    "locationswkt": "MULTIPOINT ((-114.13708014884335 51.03595788014956),(-114.13708391777693 51.03609482560874),(-114.13709316147603 51.03582093298247))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -153,7 +153,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Approved",
+    "statuscurrent": "Released",
     "applieddate": "2025-07-22T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -170,7 +170,7 @@
     "mustcommencedate": "2027-08-01T00:00:00.000",
     "decision": "Approval",
     "decisionby": "Development Authority",
-    "releasedate": null,
+    "releasedate": "2025-08-05T00:00:00.000",
     "rss_guid": "90efc103e339f981ba7558f11ed89aa5",
     "state_history": [
       {
@@ -185,6 +185,11 @@
       {
         "status": "approved",
         "timestamp": "2025-08-03T12:42:00Z",
+        "decision": "Approval"
+      },
+      {
+        "status": "released",
+        "timestamp": "2025-08-07T12:46:34Z",
         "decision": "Approval"
       }
     ]
@@ -651,7 +656,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "In Circulation",
+    "statuscurrent": "Hold",
     "applieddate": "2025-06-25T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -674,6 +679,10 @@
       {
         "status": "in circulation",
         "timestamp": "2025-07-28T22:18:50-06:00"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2025-08-07T12:46:34Z"
       }
     ]
   },
@@ -876,7 +885,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Approved",
+    "statuscurrent": "Pending Release",
     "applieddate": "2025-05-21T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -908,6 +917,11 @@
       {
         "status": "approved",
         "timestamp": "2025-08-01T12:43:51Z",
+        "decision": "Approval"
+      },
+      {
+        "status": "pending release",
+        "timestamp": "2025-08-07T12:46:34Z",
         "decision": "Approval"
       }
     ]
