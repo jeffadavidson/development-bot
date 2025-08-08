@@ -3,8 +3,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.1394034466646,
-        51.02617588261987
+        -114.13930036955283,
+        51.02617600553337
       ]
     },
     "permitnum": "DP2025-04444",
@@ -17,7 +17,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "DC",
     "landusedistrictdescription": "Direct Control (1P2007)",
-    "statuscurrent": "Hold",
+    "statuscurrent": "Application Received",
     "applieddate": "2025-07-31T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -27,9 +27,9 @@
     "longitude": "-114.139",
     "locationcount": "4",
     "locationtypes": "Titled Parcel;Titled Parcel;Building;Building",
-    "locationaddresses": "3623 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1394034,51.0261759],[-114.1393004,51.026176],[-114.139398,51.0260779],[-114.1393065,51.026079]]}",
-    "locationswkt": "MULTIPOINT ((-114.1394034466646 51.02617588261987),(-114.13930036955283 51.02617600553337),(-114.13939804946767 51.02607788261432),(-114.13930649362594 51.026079034602745))",
+    "locationaddresses": "3621 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1393004,51.026176],[-114.1394034,51.0261759],[-114.1393065,51.026079],[-114.139398,51.0260779]]}",
+    "locationswkt": "MULTIPOINT ((-114.13930036955283 51.02617600553337),(-114.1394034466646 51.02617588261987),(-114.13930649362594 51.026079034602745),(-114.13939804946767 51.02607788261432))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -40,6 +40,10 @@
       {
         "status": "hold",
         "timestamp": "2025-08-02T12:40:03Z"
+      },
+      {
+        "status": "application received",
+        "timestamp": "2025-08-08T12:46:05Z"
       }
     ]
   },
@@ -47,8 +51,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13708014884335,
-        51.03595788014956
+        -114.13708391777693,
+        51.03609482560874
       ]
     },
     "permitnum": "DP2025-04362",
@@ -61,7 +65,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "In Circulation",
     "applieddate": "2025-07-29T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -71,9 +75,9 @@
     "longitude": "-114.137",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "2007 34 ST SW;2003 34 ST SW;2011 34 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370801,51.0359579],[-114.1370839,51.0360948],[-114.1370932,51.0358209]]}",
-    "locationswkt": "MULTIPOINT ((-114.13708014884335 51.03595788014956),(-114.13708391777693 51.03609482560874),(-114.13709316147603 51.03582093298247))",
+    "locationaddresses": "2003 34 ST SW;2007 34 ST SW;2011 34 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370839,51.0360948],[-114.1370801,51.0359579],[-114.1370932,51.0358209]]}",
+    "locationswkt": "MULTIPOINT ((-114.13708391777693 51.03609482560874),(-114.13708014884335 51.03595788014956),(-114.13709316147603 51.03582093298247))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -88,6 +92,10 @@
       {
         "status": "under review",
         "timestamp": "2025-08-01T12:43:51Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-08-08T12:46:05Z"
       }
     ]
   },
@@ -793,7 +801,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "MU-1 f4.5h23",
     "landusedistrictdescription": "Mixed Use - General",
-    "statuscurrent": "In Circulation",
+    "statuscurrent": "Pending Decision",
     "applieddate": "2025-05-23T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -808,8 +816,8 @@
     "locationswkt": "MULTIPOINT ((-114.12488813697297 51.03764861818658),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595))",
     "decisiondate": null,
     "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
+    "decision": "Approval",
+    "decisionby": "Development Authority",
     "releasedate": null,
     "rss_guid": "20f918951508fc0226ac14f329fb46ea",
     "state_history": [
@@ -820,6 +828,11 @@
       {
         "status": "in circulation",
         "timestamp": "2025-07-30T17:24:01Z"
+      },
+      {
+        "status": "pending decision",
+        "timestamp": "2025-08-08T12:46:05Z",
+        "decision": "Approval"
       }
     ]
   },
@@ -1145,50 +1158,6 @@
     "state_history": [
       {
         "status": "cancelled",
-        "timestamp": "2025-07-28T22:18:50-06:00"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.13955938499701,
-        51.029618776351874
-      ]
-    },
-    "permitnum": "DP2025-02730",
-    "address": "2812 36 ST SW",
-    "applicant": "COLLECTIVE DESIGN YYC",
-    "category": "Residential - Multi-Family",
-    "description": "NEW: DWELLING UNITS (2 BUILDINGS), SECONDARY SUITE (5 SUITES), ACCESSORY RESIDENTIAL BUILDING (CARPORT)",
-    "proposedusecode": "C1020; C1540; C2626",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; DWELLING UNIT; SECONDARY SUITE",
-    "permitteddiscretionary": "Permitted",
-    "landusedistrict": "H-GO",
-    "landusedistrictdescription": "Housing - Grade Oriented District (H-GO)",
-    "statuscurrent": "Hold",
-    "applieddate": "2025-05-08T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.030",
-    "longitude": "-114.140",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "2812 36 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1395594,51.0296188]}",
-    "locationswkt": "POINT (-114.13955938499701 51.029618776351874)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "beba7863d809a19be4e83cb5de3444a5",
-    "state_history": [
-      {
-        "status": "hold",
         "timestamp": "2025-07-28T22:18:50-06:00"
       }
     ]
