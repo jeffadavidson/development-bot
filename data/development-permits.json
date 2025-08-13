@@ -99,8 +99,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13708391777693,
-        51.03609482560874
+        -114.13709316147603,
+        51.03582093298247
       ]
     },
     "permitnum": "DP2025-04362",
@@ -123,9 +123,9 @@
     "longitude": "-114.137",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "2003 34 ST SW;2007 34 ST SW;2011 34 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370839,51.0360948],[-114.1370801,51.0359579],[-114.1370932,51.0358209]]}",
-    "locationswkt": "MULTIPOINT ((-114.13708391777693 51.03609482560874),(-114.13708014884335 51.03595788014956),(-114.13709316147603 51.03582093298247))",
+    "locationaddresses": "2011 34 ST SW;2007 34 ST SW;2003 34 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370932,51.0358209],[-114.1370801,51.0359579],[-114.1370839,51.0360948]]}",
+    "locationswkt": "MULTIPOINT ((-114.13709316147603 51.03582093298247),(-114.13708014884335 51.03595788014956),(-114.13708391777693 51.03609482560874))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -853,7 +853,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "MU-1 f4.5h23",
     "landusedistrictdescription": "Mixed Use - General",
-    "statuscurrent": "Pending Decision",
+    "statuscurrent": "Approved",
     "applieddate": "2025-05-23T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -866,8 +866,8 @@
     "locationaddresses": "2711 17 AV SW;2711 17 AV SW;#1 2711 17 AV SW",
     "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1248881,51.0376486],[-114.1247452,51.0375048],[-114.1247452,51.0375048]]}",
     "locationswkt": "MULTIPOINT ((-114.12488813697297 51.03764861818658),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595))",
-    "decisiondate": null,
-    "mustcommencedate": null,
+    "decisiondate": "2025-08-11T00:00:00.000",
+    "mustcommencedate": "2027-08-11T00:00:00.000",
     "decision": "Approval",
     "decisionby": "Development Authority",
     "releasedate": null,
@@ -884,6 +884,11 @@
       {
         "status": "pending decision",
         "timestamp": "2025-08-08T12:46:05Z",
+        "decision": "Approval"
+      },
+      {
+        "status": "approved",
+        "timestamp": "2025-08-13T12:46:19Z",
         "decision": "Approval"
       }
     ]
