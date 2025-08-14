@@ -47,8 +47,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13930036955283,
-        51.02617600553337
+        -114.1394034466646,
+        51.02617588261987
       ]
     },
     "permitnum": "DP2025-04444",
@@ -71,9 +71,9 @@
     "longitude": "-114.139",
     "locationcount": "4",
     "locationtypes": "Titled Parcel;Titled Parcel;Building;Building",
-    "locationaddresses": "3621 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1393004,51.026176],[-114.1394034,51.0261759],[-114.1393065,51.026079],[-114.139398,51.0260779]]}",
-    "locationswkt": "MULTIPOINT ((-114.13930036955283 51.02617600553337),(-114.1394034466646 51.02617588261987),(-114.13930649362594 51.026079034602745),(-114.13939804946767 51.02607788261432))",
+    "locationaddresses": "3623 KILDARE CR SW;3621 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1394034,51.0261759],[-114.1393004,51.026176],[-114.1393065,51.026079],[-114.139398,51.0260779]]}",
+    "locationswkt": "MULTIPOINT ((-114.1394034466646 51.02617588261987),(-114.13930036955283 51.02617600553337),(-114.13930649362594 51.026079034602745),(-114.13939804946767 51.02607788261432))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -492,7 +492,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "DC",
     "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
-    "statuscurrent": "Hold",
+    "statuscurrent": "In Circulation",
     "applieddate": "2025-07-07T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -515,6 +515,10 @@
       {
         "status": "hold",
         "timestamp": "2025-07-28T22:18:50-06:00"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-08-14T12:43:16Z"
       }
     ]
   },
@@ -672,7 +676,7 @@
     "permitteddiscretionary": "Permitted with a Relaxation",
     "landusedistrict": "DC",
     "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
-    "statuscurrent": "In Circulation",
+    "statuscurrent": "Hold",
     "applieddate": "2025-07-02T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -695,6 +699,10 @@
       {
         "status": "in circulation",
         "timestamp": "2025-07-28T22:18:50-06:00"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2025-08-14T12:43:16Z"
       }
     ]
   },
@@ -716,7 +724,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Hold",
+    "statuscurrent": "Pending Decision",
     "applieddate": "2025-06-25T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -731,8 +739,8 @@
     "locationswkt": "MULTIPOINT ((-114.13813673397317 51.034269942604105),(-114.13798192686912 51.03427474621305))",
     "decisiondate": null,
     "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
+    "decision": "Approval",
+    "decisionby": "Development Authority",
     "releasedate": null,
     "rss_guid": "d9d94b7673dd3e9e4ea79081265f2a5a",
     "state_history": [
@@ -743,6 +751,11 @@
       {
         "status": "hold",
         "timestamp": "2025-08-07T12:46:34Z"
+      },
+      {
+        "status": "pending decision",
+        "timestamp": "2025-08-14T12:43:16Z",
+        "decision": "Approval"
       }
     ]
   },
@@ -853,7 +866,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "MU-1 f4.5h23",
     "landusedistrictdescription": "Mixed Use - General",
-    "statuscurrent": "Approved",
+    "statuscurrent": "In Advertising",
     "applieddate": "2025-05-23T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -889,6 +902,11 @@
       {
         "status": "approved",
         "timestamp": "2025-08-13T12:46:19Z",
+        "decision": "Approval"
+      },
+      {
+        "status": "in advertising",
+        "timestamp": "2025-08-14T12:43:16Z",
         "decision": "Approval"
       }
     ]
@@ -1122,51 +1140,6 @@
     "decisionby": "Development Authority",
     "releasedate": "2025-07-22T00:00:00.000",
     "rss_guid": "e3cea638da24b6ced350d7082ce70378",
-    "state_history": [
-      {
-        "status": "released",
-        "timestamp": "2025-07-28T22:18:50-06:00",
-        "decision": "Approval"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.12100734160029,
-        51.03584238988257
-      ]
-    },
-    "permitnum": "DP2025-02844",
-    "address": "2009 25 ST SW",
-    "applicant": null,
-    "category": "Relaxation - Existing - Compliance Follow-Up",
-    "description": "RELAXATION: SINGLE DETACHED DWELLING (EXISTING COVERED DECK) - BUILDING SETBACK FROM SIDE PROPERTY LINE",
-    "proposedusecode": "C1455; C2730",
-    "proposedusedescription": "DECK; SINGLE DETACHED DWELLING",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Released",
-    "applieddate": "2025-05-14T00:00:00.000",
-    "communitycode": "RIC",
-    "communityname": "RICHMOND",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.036",
-    "longitude": "-114.121",
-    "locationcount": "2",
-    "locationtypes": "Titled Parcel;Building",
-    "locationaddresses": "2009 25 ST SW;2009 25 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1210073,51.0358424],[-114.1211611,51.0358471]]}",
-    "locationswkt": "MULTIPOINT ((-114.12100734160029 51.03584238988257),(-114.12116105408064 51.03584709408433))",
-    "decisiondate": "2025-05-26T00:00:00.000",
-    "mustcommencedate": "2027-05-26T00:00:00.000",
-    "decision": "Approval",
-    "decisionby": "Development Authority",
-    "releasedate": "2025-06-20T00:00:00.000",
-    "rss_guid": "8fb63cbfb760fe36e01ea9eda43cae2b",
     "state_history": [
       {
         "status": "released",
