@@ -47,8 +47,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.1394034466646,
-        51.02617588261987
+        -114.13930036955283,
+        51.02617600553337
       ]
     },
     "permitnum": "DP2025-04444",
@@ -71,9 +71,9 @@
     "longitude": "-114.139",
     "locationcount": "4",
     "locationtypes": "Titled Parcel;Titled Parcel;Building;Building",
-    "locationaddresses": "3623 KILDARE CR SW;3621 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1394034,51.0261759],[-114.1393004,51.026176],[-114.1393065,51.026079],[-114.139398,51.0260779]]}",
-    "locationswkt": "MULTIPOINT ((-114.1394034466646 51.02617588261987),(-114.13930036955283 51.02617600553337),(-114.13930649362594 51.026079034602745),(-114.13939804946767 51.02607788261432))",
+    "locationaddresses": "3621 KILDARE CR SW;3623 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1393004,51.026176],[-114.1394034,51.0261759],[-114.139398,51.0260779],[-114.1393065,51.026079]]}",
+    "locationswkt": "MULTIPOINT ((-114.13930036955283 51.02617600553337),(-114.1394034466646 51.02617588261987),(-114.13939804946767 51.02607788261432),(-114.13930649362594 51.026079034602745))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -99,8 +99,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13709316147603,
-        51.03582093298247
+        -114.13708391777693,
+        51.03609482560874
       ]
     },
     "permitnum": "DP2025-04362",
@@ -123,9 +123,9 @@
     "longitude": "-114.137",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "2011 34 ST SW;2007 34 ST SW;2003 34 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370932,51.0358209],[-114.1370801,51.0359579],[-114.1370839,51.0360948]]}",
-    "locationswkt": "MULTIPOINT ((-114.13709316147603 51.03582093298247),(-114.13708014884335 51.03595788014956),(-114.13708391777693 51.03609482560874))",
+    "locationaddresses": "2003 34 ST SW;2011 34 ST SW;2007 34 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370839,51.0360948],[-114.1370932,51.0358209],[-114.1370801,51.0359579]]}",
+    "locationswkt": "MULTIPOINT ((-114.13708391777693 51.03609482560874),(-114.13709316147603 51.03582093298247),(-114.13708014884335 51.03595788014956))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -354,7 +354,7 @@
     "address": "3422 RICHMOND RD SW",
     "applicant": "MKL DESIGN STUDIO",
     "category": "Residential - Multi-Family",
-    "description": "NEW: DWELLING UNITS (1 BUILDING), SECONDARY SUITE (4 SUITES), ACCESSORY RESIDENTIAL BUILDING (1 BUILDING)",
+    "description": "NEW: DWELLING UNIT (1 BUILDING), SECONDARY SUITE (4 SUITES), ACCESSORY RESIDENTIAL BUILDING (1 BUILDING)",
     "proposedusecode": "C1020; C1540; C2626",
     "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; DWELLING UNIT; SECONDARY SUITE",
     "permitteddiscretionary": "Permitted",
@@ -1100,51 +1100,6 @@
       {
         "status": "hold",
         "timestamp": "2025-07-28T22:18:50-06:00"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.13813176419455,
-        51.03578744583626
-      ]
-    },
-    "permitnum": "DP2025-02893",
-    "address": "2012 35 ST SW",
-    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
-    "category": "Residential - Contextual Dwelling",
-    "description": "NEW: CONTEXTUAL SEMI-DETACHED DWELLING, SECONDARY SUITE (BASEMENT - 2), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
-    "proposedusecode": "C1020; C1368; C2626",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; CONTEXTUAL SEMI-DETACHED DWELLING; SECONDARY SUITE",
-    "permitteddiscretionary": "Permitted",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Released",
-    "applieddate": "2025-05-15T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.036",
-    "longitude": "-114.138",
-    "locationcount": "2",
-    "locationtypes": "Titled Parcel;Building",
-    "locationaddresses": "2012 35 ST SW;2012 35 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1381318,51.0357874],[-114.1379999,51.0358201]]}",
-    "locationswkt": "MULTIPOINT ((-114.13813176419455 51.03578744583626),(-114.13799989028806 51.0358201445289))",
-    "decisiondate": "2025-07-06T00:00:00.000",
-    "mustcommencedate": "2027-07-06T00:00:00.000",
-    "decision": "Approval",
-    "decisionby": "Development Authority",
-    "releasedate": "2025-07-22T00:00:00.000",
-    "rss_guid": "e3cea638da24b6ced350d7082ce70378",
-    "state_history": [
-      {
-        "status": "released",
-        "timestamp": "2025-07-28T22:18:50-06:00",
-        "decision": "Approval"
       }
     ]
   }
