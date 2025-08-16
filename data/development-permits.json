@@ -316,7 +316,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "MU-2 f5.0h26",
     "landusedistrictdescription": "Mixed Use - Active Frontage",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "Pending Decision",
     "applieddate": "2025-07-18T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -331,14 +331,19 @@
     "locationswkt": "POINT (-114.13875905257959 51.03763916678755)",
     "decisiondate": null,
     "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
+    "decision": "Approval",
+    "decisionby": "Development Authority",
     "releasedate": null,
     "rss_guid": "431e1c5eb93293e5009a9e10374e0c5c",
     "state_history": [
       {
         "status": "under review",
         "timestamp": "2025-07-28T22:18:50-06:00"
+      },
+      {
+        "status": "pending decision",
+        "timestamp": "2025-08-16T12:38:35Z",
+        "decision": "Approval"
       }
     ]
   },
@@ -763,6 +768,50 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.12203419163367,
+        51.03848430838552
+      ]
+    },
+    "permitnum": "DP2025-03629",
+    "address": "1734 25A ST SW",
+    "applicant": "ZEE CUSTOM HOMES",
+    "category": "Residential - New Single / Semi / Duplex",
+    "description": "NEW: SINGLE DETACHED DWELLING (SOUTH PARCEL), SECONDARY SUITE (BASEMENT), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "proposedusecode": "C1020; C2626; C2730",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SECONDARY SUITE; SINGLE DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-06-22T00:00:00.000",
+    "communitycode": "SHG",
+    "communityname": "SHAGANAPPI",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.038",
+    "longitude": "-114.122",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "1734 25A ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1220342,51.0384843]}",
+    "locationswkt": "POINT (-114.12203419163367 51.03848430838552)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "03901fa36665b8b0b189020bd0934285",
+    "state_history": [
+      {
+        "status": "hold",
+        "timestamp": "2025-08-16T12:38:35Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.12501237472979,
         51.02640493317043
       ]
@@ -777,7 +826,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "In Circulation",
+    "statuscurrent": "Pending Decision",
     "applieddate": "2025-06-16T00:00:00.000",
     "communitycode": "RIC",
     "communityname": "RICHMOND",
@@ -792,14 +841,19 @@
     "locationswkt": "POINT (-114.12501237472979 51.02640493317043)",
     "decisiondate": null,
     "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
+    "decision": "Approval",
+    "decisionby": "Development Authority",
     "releasedate": null,
     "rss_guid": "42189a77122ef786dff029e8b2f4243b",
     "state_history": [
       {
         "status": "in circulation",
         "timestamp": "2025-07-28T22:18:50-06:00"
+      },
+      {
+        "status": "pending decision",
+        "timestamp": "2025-08-16T12:38:35Z",
+        "decision": "Approval"
       }
     ]
   },
@@ -1032,7 +1086,7 @@
     "permitteddiscretionary": "Permitted with a Relaxation",
     "landusedistrict": "H-GO",
     "landusedistrictdescription": "Housing - Grade Oriented District (H-GO)",
-    "statuscurrent": "In Advertising",
+    "statuscurrent": "Pending Release",
     "applieddate": "2025-05-20T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -1055,6 +1109,11 @@
       {
         "status": "in advertising",
         "timestamp": "2025-07-28T22:18:50-06:00",
+        "decision": "Approval"
+      },
+      {
+        "status": "pending release",
+        "timestamp": "2025-08-16T12:38:35Z",
         "decision": "Approval"
       }
     ]
