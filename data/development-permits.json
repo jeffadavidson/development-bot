@@ -58,7 +58,7 @@
     "permitnum": "DP2025-04792",
     "address": "2308 24 ST SW",
     "applicant": "SMITH AND CO STUDIO",
-    "category": "Change of Use - With Change to Site Plan",
+    "category": "Renovations - Non-Residential",
     "description": "CHANGES TO SITE PLAN: CHILD CARE SERVICE (OUTDOOR PLAY AREA)",
     "proposedusecode": "C1310",
     "proposedusedescription": "CHILD CARE SERVICE",
@@ -295,8 +295,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13709316147603,
-        51.03582093298247
+        -114.13708014884335,
+        51.03595788014956
       ]
     },
     "permitnum": "DP2025-04362",
@@ -319,9 +319,9 @@
     "longitude": "-114.137",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "2011 34 ST SW;2007 34 ST SW;2003 34 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370932,51.0358209],[-114.1370801,51.0359579],[-114.1370839,51.0360948]]}",
-    "locationswkt": "MULTIPOINT ((-114.13709316147603 51.03582093298247),(-114.13708014884335 51.03595788014956),(-114.13708391777693 51.03609482560874))",
+    "locationaddresses": "2007 34 ST SW;2003 34 ST SW;2011 34 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370801,51.0359579],[-114.1370839,51.0360948],[-114.1370932,51.0358209]]}",
+    "locationswkt": "MULTIPOINT ((-114.13708014884335 51.03595788014956),(-114.13708391777693 51.03609482560874),(-114.13709316147603 51.03582093298247))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -845,54 +845,6 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.12646772767906,
-        51.034310454362455
-      ]
-    },
-    "permitnum": "DP2025-03825",
-    "address": "2210 27 ST SW",
-    "applicant": "BRAVEHOMES",
-    "category": "Residential - Secondary Suite",
-    "description": "NEW: BACKYARD SUITE",
-    "proposedusecode": "C1175",
-    "proposedusedescription": "BACKYARD SUITE",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Hold",
-    "applieddate": "2025-07-02T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.034",
-    "longitude": "-114.126",
-    "locationcount": "2",
-    "locationtypes": "Titled Parcel;Building",
-    "locationaddresses": "2210 27 ST SW;2210 27 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1264677,51.0343105],[-114.1263386,51.0343107]]}",
-    "locationswkt": "MULTIPOINT ((-114.12646772767906 51.034310454362455),(-114.1263386272762 51.034310701870915))",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "eed3a2ab4795ebd4dae9f02fe7199fef",
-    "state_history": [
-      {
-        "status": "in circulation",
-        "timestamp": "2025-07-28T22:18:50-06:00"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2025-08-23T12:36:23Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
         -114.13764871031333,
         51.025662264626845
       ]
@@ -945,8 +897,56 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13813673397317,
-        51.034269942604105
+        -114.12646772767906,
+        51.034310454362455
+      ]
+    },
+    "permitnum": "DP2025-03825",
+    "address": "2210 27 ST SW",
+    "applicant": "BRAVEHOMES",
+    "category": "Residential - Secondary Suite",
+    "description": "NEW: BACKYARD SUITE",
+    "proposedusecode": "C1175",
+    "proposedusedescription": "BACKYARD SUITE",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-07-02T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.034",
+    "longitude": "-114.126",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "2210 27 ST SW;2210 27 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1264677,51.0343105],[-114.1263386,51.0343107]]}",
+    "locationswkt": "MULTIPOINT ((-114.12646772767906 51.034310454362455),(-114.1263386272762 51.034310701870915))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "eed3a2ab4795ebd4dae9f02fe7199fef",
+    "state_history": [
+      {
+        "status": "in circulation",
+        "timestamp": "2025-07-28T22:18:50-06:00"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2025-08-23T12:36:23Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.1381363063019,
+        51.03431312090109
       ]
     },
     "permitnum": "DP2025-03710",
@@ -970,8 +970,8 @@
     "locationcount": "2",
     "locationtypes": "Titled Parcel;Building",
     "locationaddresses": "2212 35 ST SW;2212 35 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1381367,51.0342699],[-114.1379819,51.0342747]]}",
-    "locationswkt": "MULTIPOINT ((-114.13813673397317 51.034269942604105),(-114.13798192686912 51.03427474621305))",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1381363,51.0343131],[-114.1379819,51.0342747]]}",
+    "locationswkt": "MULTIPOINT ((-114.1381363063019 51.03431312090109),(-114.13798192686912 51.03427474621305))",
     "decisiondate": "2025-08-18T00:00:00.000",
     "mustcommencedate": "2027-08-18T00:00:00.000",
     "decision": "Approval",
