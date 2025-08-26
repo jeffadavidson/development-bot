@@ -236,27 +236,38 @@ func (dp *DevelopmentPermit) generateRSSDescription() string {
 		html.WriteString(fmt.Sprintf("<p>👤 <strong>Applicant:</strong> %s</p>", *dp.Applicant))
 	}
 
-	// Timeline information
+	// Timeline information - include state history
 	html.WriteString("<h4>📅 TIMELINE:</h4><ul>")
 
-	if dp.AppliedDate != nil {
-		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.AppliedDate); err == nil {
-			html.WriteString(fmt.Sprintf("<li>Applied: %s</li>", parsedDate.Format("January 2, 2006")))
+	// Add state history timeline
+	for _, state := range dp.StateHistory {
+		// Parse timestamp (handle both Z and timezone formats)
+		var parsedTime time.Time
+		var err error
+
+		// Try parsing with Z suffix first
+		if parsedTime, err = time.Parse("2006-01-02T15:04:05Z", state.Timestamp); err != nil {
+			// Try parsing with timezone offset
+			if parsedTime, err = time.Parse("2006-01-02T15:04:05-07:00", state.Timestamp); err != nil {
+				// Try parsing with .000 milliseconds
+				if parsedTime, err = time.Parse("2006-01-02T15:04:05.000", state.Timestamp); err != nil {
+					continue // Skip if we can't parse the timestamp
+				}
+			}
 		}
+
+		// Format status name for display
+		statusDisplay := strings.Title(strings.Replace(state.Status, "_", " ", -1))
+		html.WriteString(fmt.Sprintf("<li>%s: %s", statusDisplay, parsedTime.Format("January 2, 2006")))
+
+		// Add decision info if present
+		if state.Decision != "" {
+			html.WriteString(fmt.Sprintf(" (%s)", state.Decision))
+		}
+		html.WriteString("</li>")
 	}
 
-	if dp.DecisionDate != nil && *dp.DecisionDate != "" {
-		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.DecisionDate); err == nil {
-			html.WriteString(fmt.Sprintf("<li>Decision: %s</li>", parsedDate.Format("January 2, 2006")))
-		}
-	}
-
-	if dp.ReleaseDate != nil && *dp.ReleaseDate != "" {
-		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.ReleaseDate); err == nil {
-			html.WriteString(fmt.Sprintf("<li>Released: %s</li>", parsedDate.Format("January 2, 2006")))
-		}
-	}
-
+	// Add must commence date if available
 	if dp.MustCommenceDate != nil && *dp.MustCommenceDate != "" {
 		if parsedDate, err := time.Parse("2006-01-02T15:04:05.000", *dp.MustCommenceDate); err == nil {
 			html.WriteString(fmt.Sprintf("<li>Must Commence By: %s</li>", parsedDate.Format("January 2, 2006")))
