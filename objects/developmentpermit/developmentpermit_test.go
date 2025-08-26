@@ -956,3 +956,152 @@ func TestGetDevelopmentPermitUpdates_NoStateHistoryChange(t *testing.T) {
 func strPtr(s string) *string {
 	return &s
 }
+
+func TestGenerateRSSDescription_WithStateHistory(t *testing.T) {
+	// Test that RSS description includes full state history timeline
+	address := "2212 35 ST SW"
+	community := "KILLARNEY/GLENGARRY"
+	ward := "8"
+	description := "NEW: CONTEXTUAL SEMI-DETACHED DWELLING"
+	landUse := "Residential - Grade-Oriented Infill"
+	appType := "Permitted"
+	applicant := "JOHN TRINH & ASSOCIATES"
+	appliedDate := "2025-06-25T00:00:00.000"
+	mustCommenceDate := "2027-08-18T00:00:00.000"
+	decision := "Approval"
+	decisionBy := "Development Authority"
+
+	dp := DevelopmentPermit{
+		PermitNum:           "DP2025-03710",
+		Address:             &address,
+		CommunityName:       &community,
+		Ward:                &ward,
+		Description:         &description,
+		LandUseDistrictDesc: &landUse,
+		PermittedDiscretion: &appType,
+		Applicant:           &applicant,
+		StatusCurrent:       "Pending Release",
+		AppliedDate:         &appliedDate,
+		MustCommenceDate:    &mustCommenceDate,
+		Decision:            &decision,
+		DecisionBy:          &decisionBy,
+		StateHistory: []StateChange{
+			{
+				Status:    "in circulation",
+				Timestamp: "2025-07-28T22:18:50-06:00",
+			},
+			{
+				Status:    "hold",
+				Timestamp: "2025-08-07T12:46:34Z",
+			},
+			{
+				Status:    "pending decision",
+				Timestamp: "2025-08-14T12:43:16Z",
+				Decision:  "Approval",
+			},
+			{
+				Status:    "approved",
+				Timestamp: "2025-08-20T12:40:30Z",
+				Decision:  "Approval",
+			},
+			{
+				Status:    "pending release",
+				Timestamp: "2025-08-21T12:40:04Z",
+				Decision:  "Approval",
+			},
+		},
+	}
+
+	rssDesc := dp.generateRSSDescription()
+
+	// Check that all state history entries are included in timeline
+	assert.Contains(t, rssDesc, "In Circulation: July 28, 2025")
+	assert.Contains(t, rssDesc, "Hold: August 7, 2025")
+	assert.Contains(t, rssDesc, "Pending Decision: August 14, 2025 (Approval)")
+	assert.Contains(t, rssDesc, "Approved: August 20, 2025 (Approval)")
+	assert.Contains(t, rssDesc, "Pending Release: August 21, 2025 (Approval)")
+	assert.Contains(t, rssDesc, "Must Commence By: August 18, 2027")
+
+	// Check that basic permit info is still present
+	assert.Contains(t, rssDesc, "DP2025-03710")
+	assert.Contains(t, rssDesc, "Pending Release")
+	assert.Contains(t, rssDesc, "2212 35 ST SW")
+	assert.Contains(t, rssDesc, "KILLARNEY/GLENGARRY")
+	assert.Contains(t, rssDesc, "JOHN TRINH & ASSOCIATES")
+}
+
+func TestGenerateRSSDescription_EmptyStateHistory(t *testing.T) {
+	// Test that RSS description works with no state history
+	address := "123 Test ST SW"
+	mustCommenceDate := "2027-08-18T00:00:00.000"
+
+	dp := DevelopmentPermit{
+		PermitNum:        "DP2025-12345",
+		Address:          &address,
+		StatusCurrent:    "Under Review",
+		MustCommenceDate: &mustCommenceDate,
+		StateHistory:     []StateChange{}, // Empty state history
+	}
+
+	rssDesc := dp.generateRSSDescription()
+
+	// Should still include timeline section and must commence date
+	assert.Contains(t, rssDesc, "📅 TIMELINE:")
+	assert.Contains(t, rssDesc, "Must Commence By: August 18, 2027")
+	assert.Contains(t, rssDesc, "DP2025-12345")
+	assert.Contains(t, rssDesc, "Under Review")
+}
+
+func TestGenerateRSSDescription_MixedTimestampFormats(t *testing.T) {
+	// Test that different timestamp formats are handled correctly
+	dp := DevelopmentPermit{
+		PermitNum:     "DP2025-99999",
+		StatusCurrent: "Test Status",
+		StateHistory: []StateChange{
+			{
+				Status:    "format1",
+				Timestamp: "2025-08-07T12:46:34Z", // Z format
+			},
+			{
+				Status:    "format2",
+				Timestamp: "2025-08-14T12:43:16-07:00", // Timezone offset format
+			},
+			{
+				Status:    "format3",
+				Timestamp: "2025-08-21T12:40:04.000", // Milliseconds format
+			},
+		},
+	}
+
+	rssDesc := dp.generateRSSDescription()
+
+	// All formats should be parsed and displayed correctly
+	assert.Contains(t, rssDesc, "Format1: August 7, 2025")
+	assert.Contains(t, rssDesc, "Format2: August 14, 2025")
+	assert.Contains(t, rssDesc, "Format3: August 21, 2025")
+}
+
+func TestGenerateRSSDescription_StatusDisplayFormatting(t *testing.T) {
+	// Test that status names are properly formatted for display
+	dp := DevelopmentPermit{
+		PermitNum:     "DP2025-88888",
+		StatusCurrent: "pending_release",
+		StateHistory: []StateChange{
+			{
+				Status:    "in_circulation",
+				Timestamp: "2025-07-28T22:18:50-06:00",
+			},
+			{
+				Status:    "pending_decision",
+				Timestamp: "2025-08-14T12:43:16Z",
+				Decision:  "Approval",
+			},
+		},
+	}
+
+	rssDesc := dp.generateRSSDescription()
+
+	// Status names should be title-cased and underscores replaced with spaces
+	assert.Contains(t, rssDesc, "In Circulation: July 28, 2025")
+	assert.Contains(t, rssDesc, "Pending Decision: August 14, 2025 (Approval)")
+}
