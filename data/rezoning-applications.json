@@ -10,13 +10,17 @@
     "fromlud": "MU-2 f3.0h46;M-C2;DC;DC",
     "proposedlud": "MU-1;MU-1;MU-1;MU-1",
     "address": "1632 38 ST SW",
-    "locationaddresses": "1630 38 ST SW;1628 38 ST SW;1626 38 ST SW;3820 17 AV SW;1632 38 ST SW",
+    "locationaddresses": "1632 38 ST SW;1630 38 ST SW;1628 38 ST SW;1626 38 ST SW;3820 17 AV SW",
     "locationcount": "5",
-    "latitude": "51.03845063395375",
-    "longitude": "-114.14241479953844",
+    "latitude": "51.03830818247702",
+    "longitude": "-114.14241473357733",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
+        [
+          -114.14241473357733,
+          51.03830818247702
+        ],
         [
           -114.14241479953844,
           51.03845063395375
@@ -32,10 +36,6 @@
         [
           -114.14204941425523,
           51.03806165168982
-        ],
-        [
-          -114.14241473357733,
-          51.03830818247702
         ]
       ]
     },
@@ -152,38 +152,6 @@
       {
         "status": "submitted",
         "timestamp": "2025-08-22T12:38:51Z"
-      }
-    ]
-  },
-  {
-    "permittype": "LU / OP / Closure (LOC)",
-    "permitnum": "LOC2025-0111",
-    "description": "Land Use Amendment to accommodate M-C2",
-    "statuscurrent": "Submitted",
-    "applieddate": "2025-05-28T08:26:50.000",
-    "completeddate": null,
-    "applicant": "PRIME DESIGN SOLUTIONS",
-    "fromlud": "M-C1",
-    "proposedlud": "M-C2",
-    "address": "2436 37 ST SW",
-    "locationaddresses": "2436 37 ST SW",
-    "locationcount": "1",
-    "latitude": "51.03189651098075",
-    "longitude": "-114.14096831477313",
-    "multipoint": {
-      "type": "MultiPoint",
-      "coordinates": [
-        [
-          -114.14096831477313,
-          51.03189651098075
-        ]
-      ]
-    },
-    "rss_guid": "ec5a25764414444fff64a94e472fd415",
-    "state_history": [
-      {
-        "status": "submitted",
-        "timestamp": "2025-07-28T22:18:50-06:00"
       }
     ]
   }
