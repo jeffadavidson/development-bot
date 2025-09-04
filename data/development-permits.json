@@ -3,6 +3,50 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.138055412929,
+        51.03769228445937
+      ]
+    },
+    "permitnum": "DP2025-05055",
+    "address": "#104 3515 17 AV SW",
+    "applicant": null,
+    "category": "Change of Use - Discretionary Use or Relaxations Required",
+    "description": "CHANGE OF USE: OFFICE",
+    "proposedusecode": "C2110",
+    "proposedusedescription": "OFFICE",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "MU-2 f5.0h26",
+    "landusedistrictdescription": "Mixed Use - Active Frontage",
+    "statuscurrent": "Cancelled - Pending Refund",
+    "applieddate": "2025-09-02T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.038",
+    "longitude": "-114.138",
+    "locationcount": "4",
+    "locationtypes": "Titled Parcel;Titled Parcel;Building;Building Suite",
+    "locationaddresses": "3515 17 AV SW;1912 35 ST SW;3515 17 AV SW;#104 3515 17 AV SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1380554,51.0376923],[-114.1381373,51.037374],[-114.1379834,51.0374631],[-114.1380555,51.0374855]]}",
+    "locationswkt": "MULTIPOINT ((-114.138055412929 51.03769228445937),(-114.13813727970769 51.03737397755878),(-114.13798343998594 51.03746313983147),(-114.13805549711964 51.03748550214136))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "6601d4e3a378466c7e092c8b73d2db22",
+    "state_history": [
+      {
+        "status": "cancelled - pending refund",
+        "timestamp": "2025-09-04T12:36:52Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.13708353113603,
         51.02638051916688
       ]
@@ -61,7 +105,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "M-C1",
     "landusedistrictdescription": "Multi-Residential - Contextual Low Profile",
-    "statuscurrent": "Hold",
+    "statuscurrent": "Application Received",
     "applieddate": "2025-08-28T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -84,6 +128,10 @@
       {
         "status": "hold",
         "timestamp": "2025-08-30T12:35:13Z"
+      },
+      {
+        "status": "application received",
+        "timestamp": "2025-09-04T12:36:52Z"
       }
     ]
   },
@@ -197,7 +245,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "MU-1 f3.0h16",
     "landusedistrictdescription": "Mixed Use - General",
-    "statuscurrent": "Hold",
+    "statuscurrent": "In Circulation",
     "applieddate": "2025-08-20T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -232,6 +280,10 @@
       {
         "status": "hold",
         "timestamp": "2025-08-30T12:35:13Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-09-04T12:36:52Z"
       }
     ]
   },
@@ -495,8 +547,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13708391777693,
-        51.03609482560874
+        -114.13709316147603,
+        51.03582093298247
       ]
     },
     "permitnum": "DP2025-04362",
@@ -519,9 +571,9 @@
     "longitude": "-114.137",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "2003 34 ST SW;2011 34 ST SW;2007 34 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370839,51.0360948],[-114.1370932,51.0358209],[-114.1370801,51.0359579]]}",
-    "locationswkt": "MULTIPOINT ((-114.13708391777693 51.03609482560874),(-114.13709316147603 51.03582093298247),(-114.13708014884335 51.03595788014956))",
+    "locationaddresses": "2011 34 ST SW;2003 34 ST SW;2007 34 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370932,51.0358209],[-114.1370839,51.0360948],[-114.1370801,51.0359579]]}",
+    "locationswkt": "MULTIPOINT ((-114.13709316147603 51.03582093298247),(-114.13708391777693 51.03609482560874),(-114.13708014884335 51.03595788014956))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -1067,54 +1119,6 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.12646772767906,
-        51.034310454362455
-      ]
-    },
-    "permitnum": "DP2025-03825",
-    "address": "2210 27 ST SW",
-    "applicant": "BRAVEHOMES",
-    "category": "Residential - Secondary Suite",
-    "description": "NEW: BACKYARD SUITE",
-    "proposedusecode": "C1175",
-    "proposedusedescription": "BACKYARD SUITE",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Hold",
-    "applieddate": "2025-07-02T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.034",
-    "longitude": "-114.126",
-    "locationcount": "2",
-    "locationtypes": "Titled Parcel;Building",
-    "locationaddresses": "2210 27 ST SW;2210 27 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1264677,51.0343105],[-114.1263386,51.0343107]]}",
-    "locationswkt": "MULTIPOINT ((-114.12646772767906 51.034310454362455),(-114.1263386272762 51.034310701870915))",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "eed3a2ab4795ebd4dae9f02fe7199fef",
-    "state_history": [
-      {
-        "status": "in circulation",
-        "timestamp": "2025-07-28T22:18:50-06:00"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2025-08-23T12:36:23Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
         -114.13764871031333,
         51.025662264626845
       ]
@@ -1160,6 +1164,54 @@
       {
         "status": "in circulation",
         "timestamp": "2025-08-20T12:40:30Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.12646772767906,
+        51.034310454362455
+      ]
+    },
+    "permitnum": "DP2025-03825",
+    "address": "2210 27 ST SW",
+    "applicant": "BRAVEHOMES",
+    "category": "Residential - Secondary Suite",
+    "description": "NEW: BACKYARD SUITE",
+    "proposedusecode": "C1175",
+    "proposedusedescription": "BACKYARD SUITE",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-07-02T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.034",
+    "longitude": "-114.126",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "2210 27 ST SW;2210 27 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1264677,51.0343105],[-114.1263386,51.0343107]]}",
+    "locationswkt": "MULTIPOINT ((-114.12646772767906 51.034310454362455),(-114.1263386272762 51.034310701870915))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "eed3a2ab4795ebd4dae9f02fe7199fef",
+    "state_history": [
+      {
+        "status": "in circulation",
+        "timestamp": "2025-07-28T22:18:50-06:00"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2025-08-23T12:36:23Z"
       }
     ]
   },
