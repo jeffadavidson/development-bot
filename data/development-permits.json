@@ -3,6 +3,50 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.13425928414583,
+        51.0383944912467
+      ]
+    },
+    "permitnum": "DP2025-05118",
+    "address": "1735 32 ST SW",
+    "applicant": "FORMED ALLIANCE ARCHITECTURE STUDIO",
+    "category": "Residential - Multi-Family",
+    "description": "REVISION: MULTI-RESIDENTIAL DEVELOPMENT (CHANGE TO DP2022-06274)",
+    "proposedusecode": "C1020; C2050; C2626",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; MULTI-RESIDENTIAL DEVELOPMENT; SECONDARY SUITE",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "M-C2",
+    "landusedistrictdescription": "Multi-Residential - Contextual Medium Profile",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-09-04T00:00:00.000",
+    "communitycode": "SHG",
+    "communityname": "SHAGANAPPI",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.038",
+    "longitude": "-114.134",
+    "locationcount": "3",
+    "locationtypes": "Titled Parcel;Building;Building",
+    "locationaddresses": "1735 32 ST SW;1735 32 ST SW;1729 32 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1342593,51.0383945],[-114.1343945,51.0383535],[-114.1344035,51.0384864]]}",
+    "locationswkt": "MULTIPOINT ((-114.13425928414583 51.0383944912467),(-114.13439448038324 51.03835345048674),(-114.13440347712172 51.03848635356444))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "05b7c0950e02a8e0c61adf56684aafc6",
+    "state_history": [
+      {
+        "status": "hold",
+        "timestamp": "2025-09-06T12:35:23Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.12780304757428,
         51.02616576239821
       ]
@@ -147,7 +191,7 @@
     "address": "2008 37 ST SW",
     "applicant": null,
     "category": "Residential - Multi-Family",
-    "description": "NEW: MULTI-RESIDENTIAL DEVELOPMENT (2 BUILDINGS), ACCESSORY RESIDENTIAL BUILDING (BIKE STORAGE)",
+    "description": "NEW: MULTI-RESIDENTIAL DEVELOPMENT (2 BUILDINGS), SECONDARY SUITES (8 SUITES), ACCESSORY RESIDENTIAL BUILDING (BIKE STORAGE)",
     "proposedusecode": "C1020; C2050",
     "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; MULTI-RESIDENTIAL DEVELOPMENT",
     "permitteddiscretionary": "Discretionary",
@@ -357,7 +401,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "C-N2",
     "landusedistrictdescription": "Commercial - Neighbourhood 2",
-    "statuscurrent": "Hold",
+    "statuscurrent": "In Circulation",
     "applieddate": "2025-08-18T00:00:00.000",
     "communitycode": "RIC",
     "communityname": "RICHMOND",
@@ -380,6 +424,10 @@
       {
         "status": "hold",
         "timestamp": "2025-08-20T12:40:30Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-09-06T12:35:23Z"
       }
     ]
   },
@@ -543,8 +591,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.1394034466646,
-        51.02617588261987
+        -114.13930036955283,
+        51.02617600553337
       ]
     },
     "permitnum": "DP2025-04444",
@@ -567,9 +615,9 @@
     "longitude": "-114.139",
     "locationcount": "4",
     "locationtypes": "Titled Parcel;Titled Parcel;Building;Building",
-    "locationaddresses": "3623 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1394034,51.0261759],[-114.1393004,51.026176],[-114.139398,51.0260779],[-114.1393065,51.026079]]}",
-    "locationswkt": "MULTIPOINT ((-114.1394034466646 51.02617588261987),(-114.13930036955283 51.02617600553337),(-114.13939804946767 51.02607788261432),(-114.13930649362594 51.026079034602745))",
+    "locationaddresses": "3621 KILDARE CR SW;3623 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1393004,51.026176],[-114.1394034,51.0261759],[-114.139398,51.0260779],[-114.1393065,51.026079]]}",
+    "locationswkt": "MULTIPOINT ((-114.13930036955283 51.02617600553337),(-114.1394034466646 51.02617588261987),(-114.13939804946767 51.02607788261432),(-114.13930649362594 51.026079034602745))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -599,8 +647,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13708014884335,
-        51.03595788014956
+        -114.13709316147603,
+        51.03582093298247
       ]
     },
     "permitnum": "DP2025-04362",
@@ -623,9 +671,9 @@
     "longitude": "-114.137",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "2007 34 ST SW;2011 34 ST SW;2003 34 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370801,51.0359579],[-114.1370932,51.0358209],[-114.1370839,51.0360948]]}",
-    "locationswkt": "MULTIPOINT ((-114.13708014884335 51.03595788014956),(-114.13709316147603 51.03582093298247),(-114.13708391777693 51.03609482560874))",
+    "locationaddresses": "2011 34 ST SW;2007 34 ST SW;2003 34 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370932,51.0358209],[-114.1370801,51.0359579],[-114.1370839,51.0360948]]}",
+    "locationswkt": "MULTIPOINT ((-114.13709316147603 51.03582093298247),(-114.13708014884335 51.03595788014956),(-114.13708391777693 51.03609482560874))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -665,7 +713,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "In Circulation",
     "applieddate": "2025-07-25T00:00:00.000",
     "communitycode": "GDL",
     "communityname": "GLENDALE",
@@ -696,6 +744,10 @@
       {
         "status": "under review",
         "timestamp": "2025-08-30T12:35:13Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-09-06T12:35:23Z"
       }
     ]
   },
@@ -1175,6 +1227,54 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.12646772767906,
+        51.034310454362455
+      ]
+    },
+    "permitnum": "DP2025-03825",
+    "address": "2210 27 ST SW",
+    "applicant": "BRAVEHOMES",
+    "category": "Residential - Secondary Suite",
+    "description": "NEW: BACKYARD SUITE",
+    "proposedusecode": "C1175",
+    "proposedusedescription": "BACKYARD SUITE",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-07-02T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.034",
+    "longitude": "-114.126",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "2210 27 ST SW;2210 27 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1264677,51.0343105],[-114.1263386,51.0343107]]}",
+    "locationswkt": "MULTIPOINT ((-114.12646772767906 51.034310454362455),(-114.1263386272762 51.034310701870915))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "eed3a2ab4795ebd4dae9f02fe7199fef",
+    "state_history": [
+      {
+        "status": "in circulation",
+        "timestamp": "2025-07-28T22:18:50-06:00"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2025-08-23T12:36:23Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.13764871031333,
         51.025662264626845
       ]
@@ -1225,54 +1325,6 @@
         "status": "pending decision",
         "timestamp": "2025-09-05T12:37:52Z",
         "decision": "Approval"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.12646772767906,
-        51.034310454362455
-      ]
-    },
-    "permitnum": "DP2025-03825",
-    "address": "2210 27 ST SW",
-    "applicant": "BRAVEHOMES",
-    "category": "Residential - Secondary Suite",
-    "description": "NEW: BACKYARD SUITE",
-    "proposedusecode": "C1175",
-    "proposedusedescription": "BACKYARD SUITE",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Hold",
-    "applieddate": "2025-07-02T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.034",
-    "longitude": "-114.126",
-    "locationcount": "2",
-    "locationtypes": "Titled Parcel;Building",
-    "locationaddresses": "2210 27 ST SW;2210 27 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1264677,51.0343105],[-114.1263386,51.0343107]]}",
-    "locationswkt": "MULTIPOINT ((-114.12646772767906 51.034310454362455),(-114.1263386272762 51.034310701870915))",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "eed3a2ab4795ebd4dae9f02fe7199fef",
-    "state_history": [
-      {
-        "status": "in circulation",
-        "timestamp": "2025-07-28T22:18:50-06:00"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2025-08-23T12:36:23Z"
       }
     ]
   },
@@ -1357,7 +1409,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Hold",
+    "statuscurrent": "Under Review",
     "applieddate": "2025-06-22T00:00:00.000",
     "communitycode": "SHG",
     "communityname": "SHAGANAPPI",
@@ -1380,6 +1432,10 @@
       {
         "status": "hold",
         "timestamp": "2025-08-16T12:38:35Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-09-06T12:35:23Z"
       }
     ]
   },
