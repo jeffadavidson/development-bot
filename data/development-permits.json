@@ -143,13 +143,13 @@
     "address": "3115 KILKENNY RD SW",
     "applicant": "JOHN TRINH \u0026 ASSOCIATES",
     "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SEMI-DETACHED DWELLING, ACCESSORY BUILDING (GARAGE)",
+    "description": "NEW: SEMI-DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (DETACHED GARAGE)",
     "proposedusecode": "B1005; B8095",
     "proposedusedescription": "ACCESSORY BUILDING; SEMI-DETACHED DWELLING",
     "permitteddiscretionary": "Permitted with a Relaxation",
     "landusedistrict": "DC",
     "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "In Circulation",
     "applieddate": "2025-08-29T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -176,6 +176,10 @@
       {
         "status": "under review",
         "timestamp": "2025-09-05T12:37:52Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-09-07T12:36:05Z"
       }
     ]
   },
@@ -591,8 +595,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13930036955283,
-        51.02617600553337
+        -114.1394034466646,
+        51.02617588261987
       ]
     },
     "permitnum": "DP2025-04444",
@@ -615,9 +619,9 @@
     "longitude": "-114.139",
     "locationcount": "4",
     "locationtypes": "Titled Parcel;Titled Parcel;Building;Building",
-    "locationaddresses": "3621 KILDARE CR SW;3623 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1393004,51.026176],[-114.1394034,51.0261759],[-114.139398,51.0260779],[-114.1393065,51.026079]]}",
-    "locationswkt": "MULTIPOINT ((-114.13930036955283 51.02617600553337),(-114.1394034466646 51.02617588261987),(-114.13939804946767 51.02607788261432),(-114.13930649362594 51.026079034602745))",
+    "locationaddresses": "3623 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1394034,51.0261759],[-114.1393004,51.026176],[-114.139398,51.0260779],[-114.1393065,51.026079]]}",
+    "locationswkt": "MULTIPOINT ((-114.1394034466646 51.02617588261987),(-114.13930036955283 51.02617600553337),(-114.13939804946767 51.02607788261432),(-114.13930649362594 51.026079034602745))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -647,8 +651,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13709316147603,
-        51.03582093298247
+        -114.13708391777693,
+        51.03609482560874
       ]
     },
     "permitnum": "DP2025-04362",
@@ -671,9 +675,9 @@
     "longitude": "-114.137",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "2011 34 ST SW;2007 34 ST SW;2003 34 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370932,51.0358209],[-114.1370801,51.0359579],[-114.1370839,51.0360948]]}",
-    "locationswkt": "MULTIPOINT ((-114.13709316147603 51.03582093298247),(-114.13708014884335 51.03595788014956),(-114.13708391777693 51.03609482560874))",
+    "locationaddresses": "2003 34 ST SW;2007 34 ST SW;2011 34 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370839,51.0360948],[-114.1370801,51.0359579],[-114.1370932,51.0358209]]}",
+    "locationswkt": "MULTIPOINT ((-114.13708391777693 51.03609482560874),(-114.13708014884335 51.03595788014956),(-114.13709316147603 51.03582093298247))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -1093,7 +1097,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "DC",
     "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
-    "statuscurrent": "In Circulation",
+    "statuscurrent": "Pending Decision",
     "applieddate": "2025-07-07T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -1108,8 +1112,8 @@
     "locationswkt": "MULTIPOINT ((-114.12827869932724 51.02670553517707),(-114.12838691809897 51.02670337566022))",
     "decisiondate": null,
     "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
+    "decision": "Approval",
+    "decisionby": "Development Authority",
     "releasedate": null,
     "rss_guid": "be44960c78dd096457d6322e0a7bc0e1",
     "state_history": [
@@ -1120,6 +1124,11 @@
       {
         "status": "in circulation",
         "timestamp": "2025-08-14T12:43:16Z"
+      },
+      {
+        "status": "pending decision",
+        "timestamp": "2025-09-07T12:36:05Z",
+        "decision": "Approval"
       }
     ]
   },
@@ -1141,7 +1150,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "DC",
     "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
-    "statuscurrent": "Hold",
+    "statuscurrent": "In Circulation",
     "applieddate": "2025-07-04T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -1168,6 +1177,10 @@
       {
         "status": "hold",
         "timestamp": "2025-08-21T12:40:04Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-09-07T12:36:05Z"
       }
     ]
   },
@@ -1189,7 +1202,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "In Circulation",
+    "statuscurrent": "Under Review",
     "applieddate": "2025-07-03T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -1220,6 +1233,10 @@
       {
         "status": "in circulation",
         "timestamp": "2025-08-29T12:40:20Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-09-07T12:36:05Z"
       }
     ]
   },

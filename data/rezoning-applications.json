@@ -1,6 +1,42 @@
 [
   {
     "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2025-0179",
+    "description": "Land Use Amendment to accommodate H-GO",
+    "statuscurrent": "Submitted",
+    "applieddate": "2025-09-05T21:03:36.000",
+    "completeddate": null,
+    "applicant": null,
+    "fromlud": "DC",
+    "proposedlud": "H-GO",
+    "address": "3040 29 ST SW",
+    "locationaddresses": "3036 29 ST SW;3040 29 ST SW",
+    "locationcount": "2",
+    "latitude": "51.02725215343569",
+    "longitude": "-114.12936734346609",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.12936734346609,
+          51.02725215343569
+        ],
+        [
+          -114.12936699119656,
+          51.02711535657239
+        ]
+      ]
+    },
+    "rss_guid": "bf58c8113348792ca1f7b885fd461609",
+    "state_history": [
+      {
+        "status": "submitted",
+        "timestamp": "2025-09-07T12:36:06Z"
+      }
+    ]
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2025-0165",
     "description": "Land Use Amendment",
     "statuscurrent": "Under Review",
@@ -10,17 +46,13 @@
     "fromlud": "MU-2 f3.0h46;M-C2;DC;DC",
     "proposedlud": "MU-1;MU-1;MU-1;MU-1",
     "address": "1632 38 ST SW",
-    "locationaddresses": "1628 38 ST SW;1626 38 ST SW;1632 38 ST SW;1630 38 ST SW;3820 17 AV SW",
+    "locationaddresses": "1626 38 ST SW;1632 38 ST SW;3820 17 AV SW;1630 38 ST SW;1628 38 ST SW",
     "locationcount": "5",
-    "latitude": "51.03858540815848",
-    "longitude": "-114.14241488474212",
+    "latitude": "51.03872063184581",
+    "longitude": "-114.14241497132501",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
-        [
-          -114.14241488474212,
-          51.03858540815848
-        ],
         [
           -114.14241497132501,
           51.03872063184581
@@ -30,12 +62,16 @@
           51.03830818247702
         ],
         [
+          -114.14204941425523,
+          51.03806165168982
+        ],
+        [
           -114.14241479953844,
           51.03845063395375
         ],
         [
-          -114.14204941425523,
-          51.03806165168982
+          -114.14241488474212,
+          51.03858540815848
         ]
       ]
     },
