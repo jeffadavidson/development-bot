@@ -3,6 +3,50 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.12488813697297,
+        51.03764861818658
+      ]
+    },
+    "permitnum": "DP2025-05254",
+    "address": "#A 2711 17 AV SW",
+    "applicant": null,
+    "category": "Signs - Permitted Use",
+    "description": "NEW: SIGN - CLASS B (FASCIA SIGN)",
+    "proposedusecode": "C2680",
+    "proposedusedescription": "SIGN - CLASS B",
+    "permitteddiscretionary": "Permitted",
+    "landusedistrict": "MU-1 f4.5h23",
+    "landusedistrictdescription": "Mixed Use - General",
+    "statuscurrent": "New",
+    "applieddate": "2025-09-10T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.038",
+    "longitude": "-114.125",
+    "locationcount": "12",
+    "locationtypes": "Titled Parcel;Building;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Entryway",
+    "locationaddresses": "2711 17 AV SW;2711 17 AV SW;#4 2711 17 AV SW;#1 2711 17 AV SW;#3 2711 17 AV SW;#C 2711 17 AV SW;#2 2711 17 AV SW;#A 2711 17 AV SW;#201 2711 17 AV SW;#203 2711 17 AV SW;#202 2711 17 AV SW;2711C 17 AV SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1248881,51.0376486],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048]]}",
+    "locationswkt": "MULTIPOINT ((-114.12488813697297 51.03764861818658),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "85b5f4e1ea8710c8c3b2874d36194dfc",
+    "state_history": [
+      {
+        "status": "new",
+        "timestamp": "2025-09-12T12:38:40Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.14139551143805,
         51.03844450894664
       ]
@@ -61,7 +105,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "M-C2",
     "landusedistrictdescription": "Multi-Residential - Contextual Medium Profile",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "In Circulation",
     "applieddate": "2025-09-04T00:00:00.000",
     "communitycode": "SHG",
     "communityname": "SHAGANAPPI",
@@ -92,6 +136,10 @@
       {
         "status": "under review",
         "timestamp": "2025-09-11T12:37:45Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-09-12T12:38:40Z"
       }
     ]
   },
@@ -143,8 +191,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13813727970769,
-        51.03737397755878
+        -114.138055412929,
+        51.03769228445937
       ]
     },
     "permitnum": "DP2025-05055",
@@ -163,13 +211,13 @@
     "communityname": "KILLARNEY/GLENGARRY",
     "ward": "8",
     "quadrant": "SW",
-    "latitude": "51.037",
+    "latitude": "51.038",
     "longitude": "-114.138",
     "locationcount": "4",
     "locationtypes": "Titled Parcel;Titled Parcel;Building;Building Suite",
-    "locationaddresses": "1912 35 ST SW;3515 17 AV SW;3515 17 AV SW;#104 3515 17 AV SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1381373,51.037374],[-114.1380554,51.0376923],[-114.1379834,51.0374631],[-114.1380555,51.0374855]]}",
-    "locationswkt": "MULTIPOINT ((-114.13813727970769 51.03737397755878),(-114.138055412929 51.03769228445937),(-114.13798343998594 51.03746313983147),(-114.13805549711964 51.03748550214136))",
+    "locationaddresses": "3515 17 AV SW;1912 35 ST SW;3515 17 AV SW;#104 3515 17 AV SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1380554,51.0376923],[-114.1381373,51.037374],[-114.1379834,51.0374631],[-114.1380555,51.0374855]]}",
+    "locationswkt": "MULTIPOINT ((-114.138055412929 51.03769228445937),(-114.13813727970769 51.03737397755878),(-114.13798343998594 51.03746313983147),(-114.13805549711964 51.03748550214136))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -309,7 +357,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "In Circulation",
     "applieddate": "2025-08-27T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -336,6 +384,10 @@
       {
         "status": "under review",
         "timestamp": "2025-08-30T12:35:13Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-09-12T12:38:40Z"
       }
     ]
   },
@@ -651,8 +703,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13930036955283,
-        51.02617600553337
+        -114.1394034466646,
+        51.02617588261987
       ]
     },
     "permitnum": "DP2025-04444",
@@ -675,9 +727,9 @@
     "longitude": "-114.139",
     "locationcount": "4",
     "locationtypes": "Titled Parcel;Titled Parcel;Building;Building",
-    "locationaddresses": "3621 KILDARE CR SW;3623 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1393004,51.026176],[-114.1394034,51.0261759],[-114.139398,51.0260779],[-114.1393065,51.026079]]}",
-    "locationswkt": "MULTIPOINT ((-114.13930036955283 51.02617600553337),(-114.1394034466646 51.02617588261987),(-114.13939804946767 51.02607788261432),(-114.13930649362594 51.026079034602745))",
+    "locationaddresses": "3623 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1394034,51.0261759],[-114.1393004,51.026176],[-114.139398,51.0260779],[-114.1393065,51.026079]]}",
+    "locationswkt": "MULTIPOINT ((-114.1394034466646 51.02617588261987),(-114.13930036955283 51.02617600553337),(-114.13939804946767 51.02607788261432),(-114.13930649362594 51.026079034602745))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -1357,8 +1409,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13764871031333,
-        51.025662264626845
+        -114.13769317004821,
+        51.025647513979905
       ]
     },
     "permitnum": "DP2025-03838",
@@ -1382,8 +1434,8 @@
     "locationcount": "2",
     "locationtypes": "Titled Parcel;Building",
     "locationaddresses": "3207 KILKENNY RD SW;3207 KILKENNY RD SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1376487,51.0256623],[-114.1377188,51.025745]]}",
-    "locationswkt": "MULTIPOINT ((-114.13764871031333 51.025662264626845),(-114.13771881814662 51.02574499576939))",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1376932,51.0256475],[-114.1377188,51.025745]]}",
+    "locationswkt": "MULTIPOINT ((-114.13769317004821 51.025647513979905),(-114.13771881814662 51.02574499576939))",
     "decisiondate": "2025-09-08T00:00:00.000",
     "mustcommencedate": "2028-09-08T00:00:00.000",
     "decision": "Approval",
@@ -1433,7 +1485,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Pending Release",
+    "statuscurrent": "Released",
     "applieddate": "2025-06-25T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -1450,7 +1502,7 @@
     "mustcommencedate": "2027-08-18T00:00:00.000",
     "decision": "Approval",
     "decisionby": "Development Authority",
-    "releasedate": null,
+    "releasedate": "2025-09-10T00:00:00.000",
     "rss_guid": "d9d94b7673dd3e9e4ea79081265f2a5a",
     "state_history": [
       {
@@ -1474,6 +1526,11 @@
       {
         "status": "pending release",
         "timestamp": "2025-08-26T09:00:44-06:00",
+        "decision": "Approval"
+      },
+      {
+        "status": "released",
+        "timestamp": "2025-09-12T12:38:40Z",
         "decision": "Approval"
       }
     ]
