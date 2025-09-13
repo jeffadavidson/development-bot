@@ -3,12 +3,56 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.12818817496743,
+        51.02561337788566
+      ]
+    },
+    "permitnum": "DP2025-05273",
+    "address": "2907 RICHMOND RD SW",
+    "applicant": "PQ SIGNS AND DESIGNS",
+    "category": "Signs - Permitted Use",
+    "description": "NEW: SIGN - CLASS B (FASCIA SIGN)",
+    "proposedusecode": "C2680",
+    "proposedusedescription": "SIGN - CLASS B",
+    "permitteddiscretionary": "Permitted",
+    "landusedistrict": "C-N1",
+    "landusedistrictdescription": "Commercial - Neighbourhood 1",
+    "statuscurrent": "New",
+    "applieddate": "2025-09-11T00:00:00.000",
+    "communitycode": "RIC",
+    "communityname": "RICHMOND",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.026",
+    "longitude": "-114.128",
+    "locationcount": "3",
+    "locationtypes": "Titled Parcel;Building;Entryway",
+    "locationaddresses": "2905 31 AV SW;2905 RICHMOND RD SW;2907 RICHMOND RD SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1281882,51.0256134],[-114.1283261,51.0255168],[-114.1283261,51.0255168]]}",
+    "locationswkt": "MULTIPOINT ((-114.12818817496743 51.02561337788566),(-114.12832610829327 51.02551680225785),(-114.12832610829327 51.02551680225785))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "9703375f985f458a63500ca7d184c36d",
+    "state_history": [
+      {
+        "status": "new",
+        "timestamp": "2025-09-13T12:35:37Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.12488813697297,
         51.03764861818658
       ]
     },
     "permitnum": "DP2025-05254",
-    "address": "#A 2711 17 AV SW",
+    "address": "#1 2711 17 AV SW",
     "applicant": null,
     "category": "Signs - Permitted Use",
     "description": "NEW: SIGN - CLASS B (FASCIA SIGN)",
@@ -17,7 +61,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "MU-1 f4.5h23",
     "landusedistrictdescription": "Mixed Use - General",
-    "statuscurrent": "New",
+    "statuscurrent": "Hold",
     "applieddate": "2025-09-10T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -25,11 +69,11 @@
     "quadrant": "SW",
     "latitude": "51.038",
     "longitude": "-114.125",
-    "locationcount": "12",
-    "locationtypes": "Titled Parcel;Building;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Entryway",
-    "locationaddresses": "2711 17 AV SW;2711 17 AV SW;#4 2711 17 AV SW;#1 2711 17 AV SW;#3 2711 17 AV SW;#C 2711 17 AV SW;#2 2711 17 AV SW;#A 2711 17 AV SW;#201 2711 17 AV SW;#203 2711 17 AV SW;#202 2711 17 AV SW;2711C 17 AV SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1248881,51.0376486],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048],[-114.1247452,51.0375048]]}",
-    "locationswkt": "MULTIPOINT ((-114.12488813697297 51.03764861818658),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595))",
+    "locationcount": "3",
+    "locationtypes": "Titled Parcel;Building;Building Suite",
+    "locationaddresses": "2711 17 AV SW;2711 17 AV SW;#1 2711 17 AV SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1248881,51.0376486],[-114.1247452,51.0375048],[-114.1247452,51.0375048]]}",
+    "locationswkt": "MULTIPOINT ((-114.12488813697297 51.03764861818658),(-114.12474515193037 51.037504791077595),(-114.12474515193037 51.037504791077595))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -40,6 +84,10 @@
       {
         "status": "new",
         "timestamp": "2025-09-12T12:38:40Z"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2025-09-13T12:35:37Z"
       }
     ]
   },
@@ -161,7 +209,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "S-CI",
     "landusedistrictdescription": "Special Purpose - Community Institution",
-    "statuscurrent": "Hold",
+    "statuscurrent": "Application Received",
     "applieddate": "2025-09-03T00:00:00.000",
     "communitycode": "RIC",
     "communityname": "RICHMOND",
@@ -184,6 +232,10 @@
       {
         "status": "hold",
         "timestamp": "2025-09-05T12:37:52Z"
+      },
+      {
+        "status": "application received",
+        "timestamp": "2025-09-13T12:35:37Z"
       }
     ]
   },
@@ -287,8 +339,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.14096841006933,
-        51.03595525958091
+        -114.14096842236778,
+        51.03581833664747
       ]
     },
     "permitnum": "DP2025-05011",
@@ -311,9 +363,9 @@
     "longitude": "-114.141",
     "locationcount": "2",
     "locationtypes": "Titled Parcel;Titled Parcel",
-    "locationaddresses": "2008 37 ST SW;2012 37 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409684,51.0359553],[-114.1409684,51.0358183]]}",
-    "locationswkt": "MULTIPOINT ((-114.14096841006933 51.03595525958091),(-114.14096842236778 51.03581833664747))",
+    "locationaddresses": "2012 37 ST SW;2008 37 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409684,51.0358183],[-114.1409684,51.0359553]]}",
+    "locationswkt": "MULTIPOINT ((-114.14096842236778 51.03581833664747),(-114.14096841006933 51.03595525958091))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -547,6 +599,54 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.12498493321968,
+        51.03482729722953
+      ]
+    },
+    "permitnum": "DP2025-04734",
+    "address": "2716 21 AV SW",
+    "applicant": "ZOOM SURVEYS",
+    "category": "Relaxation - Existing - Compliance Follow-Up",
+    "description": "RELAXATION: SINGLE DETACHED DWELLING (EXISTING) - BUILDING SETBACK FROM FRONT PROPERTY LINE, ACCESSORY RESIDENTIAL BUILDING (EXISTING PERGOLA) - SEPARATION FROM MAIN RESIDENTIAL BUILDING",
+    "proposedusecode": "C1020; C2730",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "Under Review",
+    "applieddate": "2025-08-15T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.035",
+    "longitude": "-114.125",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "2716 21 AV SW;2716 21 AV SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1249849,51.0348273],[-114.1249878,51.0348606]]}",
+    "locationswkt": "MULTIPOINT ((-114.12498493321968 51.03482729722953),(-114.12498778890316 51.03486064615839))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "ba4c8b2663faa35655e3fa07dfe030cd",
+    "state_history": [
+      {
+        "status": "application received",
+        "timestamp": "2025-08-17T12:39:30Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-08-21T12:40:04Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.12538799511687,
         51.03545061046477
       ]
@@ -592,54 +692,6 @@
       {
         "status": "cancelled",
         "timestamp": "2025-08-29T12:40:20Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.12498493321968,
-        51.03482729722953
-      ]
-    },
-    "permitnum": "DP2025-04734",
-    "address": "2716 21 AV SW",
-    "applicant": "ZOOM SURVEYS",
-    "category": "Relaxation - Existing - Compliance Follow-Up",
-    "description": "RELAXATION: SINGLE DETACHED DWELLING (EXISTING) - BUILDING SETBACK FROM FRONT PROPERTY LINE, ACCESSORY RESIDENTIAL BUILDING (EXISTING PERGOLA) - SEPARATION FROM MAIN RESIDENTIAL BUILDING",
-    "proposedusecode": "C1020; C2730",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Under Review",
-    "applieddate": "2025-08-15T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.035",
-    "longitude": "-114.125",
-    "locationcount": "2",
-    "locationtypes": "Titled Parcel;Building",
-    "locationaddresses": "2716 21 AV SW;2716 21 AV SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1249849,51.0348273],[-114.1249878,51.0348606]]}",
-    "locationswkt": "MULTIPOINT ((-114.12498493321968 51.03482729722953),(-114.12498778890316 51.03486064615839))",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "ba4c8b2663faa35655e3fa07dfe030cd",
-    "state_history": [
-      {
-        "status": "application received",
-        "timestamp": "2025-08-17T12:39:30Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-08-21T12:40:04Z"
       }
     ]
   },
@@ -727,9 +779,9 @@
     "longitude": "-114.139",
     "locationcount": "4",
     "locationtypes": "Titled Parcel;Titled Parcel;Building;Building",
-    "locationaddresses": "3623 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1394034,51.0261759],[-114.1393004,51.026176],[-114.139398,51.0260779],[-114.1393065,51.026079]]}",
-    "locationswkt": "MULTIPOINT ((-114.1394034466646 51.02617588261987),(-114.13930036955283 51.02617600553337),(-114.13939804946767 51.02607788261432),(-114.13930649362594 51.026079034602745))",
+    "locationaddresses": "3623 KILDARE CR SW;3621 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1394034,51.0261759],[-114.1393004,51.026176],[-114.1393065,51.026079],[-114.139398,51.0260779]]}",
+    "locationswkt": "MULTIPOINT ((-114.1394034466646 51.02617588261987),(-114.13930036955283 51.02617600553337),(-114.13930649362594 51.026079034602745),(-114.13939804946767 51.02607788261432))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -823,7 +875,7 @@
     "address": "3808 25 AV SW",
     "applicant": "NINES DESIGN",
     "category": "Residential - Multi-Family - Minor and Rowhouses",
-    "description": "NEW: TOWNHOUSE BUILDING (1 BUILDING), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "description": "NEW: ROWHOUSE BUILDING (1 BUILDING), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
     "proposedusecode": "C1020; C2870",
     "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; TOWNHOUSE",
     "permitteddiscretionary": "Discretionary",
@@ -1002,7 +1054,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "MU-2 f5.0h26",
     "landusedistrictdescription": "Mixed Use - Active Frontage",
-    "statuscurrent": "In Advertising",
+    "statuscurrent": "Pending Release",
     "applieddate": "2025-07-18T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -1039,6 +1091,11 @@
       {
         "status": "in advertising",
         "timestamp": "2025-08-21T12:40:04Z",
+        "decision": "Approval"
+      },
+      {
+        "status": "pending release",
+        "timestamp": "2025-09-13T12:35:37Z",
         "decision": "Approval"
       }
     ]
@@ -1361,54 +1418,6 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.12646772767906,
-        51.034310454362455
-      ]
-    },
-    "permitnum": "DP2025-03825",
-    "address": "2210 27 ST SW",
-    "applicant": "BRAVEHOMES",
-    "category": "Residential - Secondary Suite",
-    "description": "NEW: BACKYARD SUITE",
-    "proposedusecode": "C1175",
-    "proposedusedescription": "BACKYARD SUITE",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Hold",
-    "applieddate": "2025-07-02T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.034",
-    "longitude": "-114.126",
-    "locationcount": "2",
-    "locationtypes": "Titled Parcel;Building",
-    "locationaddresses": "2210 27 ST SW;2210 27 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1264677,51.0343105],[-114.1263386,51.0343107]]}",
-    "locationswkt": "MULTIPOINT ((-114.12646772767906 51.034310454362455),(-114.1263386272762 51.034310701870915))",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "eed3a2ab4795ebd4dae9f02fe7199fef",
-    "state_history": [
-      {
-        "status": "in circulation",
-        "timestamp": "2025-07-28T22:18:50-06:00"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2025-08-23T12:36:23Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
         -114.13769317004821,
         51.025647513979905
       ]
@@ -1464,6 +1473,54 @@
         "status": "in advertising",
         "timestamp": "2025-09-10T12:40:26Z",
         "decision": "Approval"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.12646772767906,
+        51.034310454362455
+      ]
+    },
+    "permitnum": "DP2025-03825",
+    "address": "2210 27 ST SW",
+    "applicant": "BRAVEHOMES",
+    "category": "Residential - Secondary Suite",
+    "description": "NEW: BACKYARD SUITE",
+    "proposedusecode": "C1175",
+    "proposedusedescription": "BACKYARD SUITE",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-07-02T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.034",
+    "longitude": "-114.126",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "2210 27 ST SW;2210 27 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1264677,51.0343105],[-114.1263386,51.0343107]]}",
+    "locationswkt": "MULTIPOINT ((-114.12646772767906 51.034310454362455),(-114.1263386272762 51.034310701870915))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "eed3a2ab4795ebd4dae9f02fe7199fef",
+    "state_history": [
+      {
+        "status": "in circulation",
+        "timestamp": "2025-07-28T22:18:50-06:00"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2025-08-23T12:36:23Z"
       }
     ]
   },
@@ -1601,7 +1658,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "In Advertising",
+    "statuscurrent": "Pending Release",
     "applieddate": "2025-06-16T00:00:00.000",
     "communitycode": "RIC",
     "communityname": "RICHMOND",
@@ -1638,6 +1695,11 @@
       {
         "status": "in advertising",
         "timestamp": "2025-08-21T12:40:04Z",
+        "decision": "Approval"
+      },
+      {
+        "status": "pending release",
+        "timestamp": "2025-09-13T12:35:37Z",
         "decision": "Approval"
       }
     ]
