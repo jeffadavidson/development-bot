@@ -109,7 +109,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "MU-1 f4.5h22",
     "landusedistrictdescription": "Mixed Use - General",
-    "statuscurrent": "Hold",
+    "statuscurrent": "Application Received",
     "applieddate": "2025-09-06T00:00:00.000",
     "communitycode": "RCK",
     "communityname": "ROSSCARROCK",
@@ -132,6 +132,10 @@
       {
         "status": "hold",
         "timestamp": "2025-09-09T12:42:40Z"
+      },
+      {
+        "status": "application received",
+        "timestamp": "2025-09-14T12:35:28Z"
       }
     ]
   },
@@ -209,7 +213,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "S-CI",
     "landusedistrictdescription": "Special Purpose - Community Institution",
-    "statuscurrent": "Application Received",
+    "statuscurrent": "Under Review",
     "applieddate": "2025-09-03T00:00:00.000",
     "communitycode": "RIC",
     "communityname": "RICHMOND",
@@ -236,6 +240,10 @@
       {
         "status": "application received",
         "timestamp": "2025-09-13T12:35:37Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-09-14T12:35:28Z"
       }
     ]
   },
@@ -339,8 +347,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.14096842236778,
-        51.03581833664747
+        -114.14096841006933,
+        51.03595525958091
       ]
     },
     "permitnum": "DP2025-05011",
@@ -363,9 +371,9 @@
     "longitude": "-114.141",
     "locationcount": "2",
     "locationtypes": "Titled Parcel;Titled Parcel",
-    "locationaddresses": "2012 37 ST SW;2008 37 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409684,51.0358183],[-114.1409684,51.0359553]]}",
-    "locationswkt": "MULTIPOINT ((-114.14096842236778 51.03581833664747),(-114.14096841006933 51.03595525958091))",
+    "locationaddresses": "2008 37 ST SW;2012 37 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409684,51.0359553],[-114.1409684,51.0358183]]}",
+    "locationswkt": "MULTIPOINT ((-114.14096841006933 51.03595525958091),(-114.14096842236778 51.03581833664747))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -599,54 +607,6 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.12498493321968,
-        51.03482729722953
-      ]
-    },
-    "permitnum": "DP2025-04734",
-    "address": "2716 21 AV SW",
-    "applicant": "ZOOM SURVEYS",
-    "category": "Relaxation - Existing - Compliance Follow-Up",
-    "description": "RELAXATION: SINGLE DETACHED DWELLING (EXISTING) - BUILDING SETBACK FROM FRONT PROPERTY LINE, ACCESSORY RESIDENTIAL BUILDING (EXISTING PERGOLA) - SEPARATION FROM MAIN RESIDENTIAL BUILDING",
-    "proposedusecode": "C1020; C2730",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Under Review",
-    "applieddate": "2025-08-15T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.035",
-    "longitude": "-114.125",
-    "locationcount": "2",
-    "locationtypes": "Titled Parcel;Building",
-    "locationaddresses": "2716 21 AV SW;2716 21 AV SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1249849,51.0348273],[-114.1249878,51.0348606]]}",
-    "locationswkt": "MULTIPOINT ((-114.12498493321968 51.03482729722953),(-114.12498778890316 51.03486064615839))",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "ba4c8b2663faa35655e3fa07dfe030cd",
-    "state_history": [
-      {
-        "status": "application received",
-        "timestamp": "2025-08-17T12:39:30Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-08-21T12:40:04Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
         -114.12538799511687,
         51.03545061046477
       ]
@@ -692,6 +652,54 @@
       {
         "status": "cancelled",
         "timestamp": "2025-08-29T12:40:20Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.12498493321968,
+        51.03482729722953
+      ]
+    },
+    "permitnum": "DP2025-04734",
+    "address": "2716 21 AV SW",
+    "applicant": "ZOOM SURVEYS",
+    "category": "Relaxation - Existing - Compliance Follow-Up",
+    "description": "RELAXATION: SINGLE DETACHED DWELLING (EXISTING) - BUILDING SETBACK FROM FRONT PROPERTY LINE, ACCESSORY RESIDENTIAL BUILDING (EXISTING PERGOLA) - SEPARATION FROM MAIN RESIDENTIAL BUILDING",
+    "proposedusecode": "C1020; C2730",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "Under Review",
+    "applieddate": "2025-08-15T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.035",
+    "longitude": "-114.125",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "2716 21 AV SW;2716 21 AV SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1249849,51.0348273],[-114.1249878,51.0348606]]}",
+    "locationswkt": "MULTIPOINT ((-114.12498493321968 51.03482729722953),(-114.12498778890316 51.03486064615839))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "ba4c8b2663faa35655e3fa07dfe030cd",
+    "state_history": [
+      {
+        "status": "application received",
+        "timestamp": "2025-08-17T12:39:30Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-08-21T12:40:04Z"
       }
     ]
   },
@@ -779,9 +787,9 @@
     "longitude": "-114.139",
     "locationcount": "4",
     "locationtypes": "Titled Parcel;Titled Parcel;Building;Building",
-    "locationaddresses": "3623 KILDARE CR SW;3621 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1394034,51.0261759],[-114.1393004,51.026176],[-114.1393065,51.026079],[-114.139398,51.0260779]]}",
-    "locationswkt": "MULTIPOINT ((-114.1394034466646 51.02617588261987),(-114.13930036955283 51.02617600553337),(-114.13930649362594 51.026079034602745),(-114.13939804946767 51.02607788261432))",
+    "locationaddresses": "3623 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1394034,51.0261759],[-114.1393004,51.026176],[-114.139398,51.0260779],[-114.1393065,51.026079]]}",
+    "locationswkt": "MULTIPOINT ((-114.1394034466646 51.02617588261987),(-114.13930036955283 51.02617600553337),(-114.13939804946767 51.02607788261432),(-114.13930649362594 51.026079034602745))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -1365,13 +1373,13 @@
     "address": "2019 35 ST SW",
     "applicant": "DISTINCTIVE LIFESTYLE DESIGN \u0026 DRAFTING",
     "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SEMI-DETACHED DWELLING, SECONDARY SUITE (BASEMENT), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "description": "NEW: SEMI-DETACHED DWELLING, SECONDARY SUITE (BASEMENT - 2), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
     "proposedusecode": "C1020; C2626; C2640",
     "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SECONDARY SUITE; SEMI-DETACHED DWELLING",
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Pending Decision",
+    "statuscurrent": "In Advertising",
     "applieddate": "2025-07-03T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -1384,8 +1392,8 @@
     "locationaddresses": "2019 35 ST SW;2019 35 ST SW",
     "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1385084,51.0355443],[-114.1386168,51.035544]]}",
     "locationswkt": "MULTIPOINT ((-114.13850840284333 51.03554427675597),(-114.13861678994259 51.03554400441576))",
-    "decisiondate": null,
-    "mustcommencedate": null,
+    "decisiondate": "2025-09-12T00:00:00.000",
+    "mustcommencedate": "2027-09-12T00:00:00.000",
     "decision": "Approval",
     "decisionby": "Development Authority",
     "releasedate": null,
@@ -1410,6 +1418,11 @@
       {
         "status": "pending decision",
         "timestamp": "2025-09-10T12:40:26Z",
+        "decision": "Approval"
+      },
+      {
+        "status": "in advertising",
+        "timestamp": "2025-09-14T12:35:28Z",
         "decision": "Approval"
       }
     ]
