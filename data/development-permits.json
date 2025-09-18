@@ -17,7 +17,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "C-N1",
     "landusedistrictdescription": "Commercial - Neighbourhood 1",
-    "statuscurrent": "Hold",
+    "statuscurrent": "Application Received",
     "applieddate": "2025-09-11T00:00:00.000",
     "communitycode": "RIC",
     "communityname": "RICHMOND",
@@ -44,6 +44,10 @@
       {
         "status": "hold",
         "timestamp": "2025-09-17T12:39:31Z"
+      },
+      {
+        "status": "application received",
+        "timestamp": "2025-09-18T12:40:47Z"
       }
     ]
   },
@@ -113,7 +117,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "MU-1 f4.5h22",
     "landusedistrictdescription": "Mixed Use - General",
-    "statuscurrent": "Application Received",
+    "statuscurrent": "Under Review",
     "applieddate": "2025-09-06T00:00:00.000",
     "communitycode": "RCK",
     "communityname": "ROSSCARROCK",
@@ -140,6 +144,10 @@
       {
         "status": "application received",
         "timestamp": "2025-09-14T12:35:28Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-09-18T12:40:47Z"
       }
     ]
   },
@@ -477,7 +485,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "DC",
     "landusedistrictdescription": "Direct Control (1P2007)",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "Pending Decision",
     "applieddate": "2025-08-26T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -492,14 +500,19 @@
     "locationswkt": "MULTIPOINT ((-114.12244611057386 51.02897271746575),(-114.12260030587703 51.02897446163449))",
     "decisiondate": null,
     "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
+    "decision": "Approval",
+    "decisionby": "Development Authority",
     "releasedate": null,
     "rss_guid": "e9cafead4cf5c46321b18bde286b527f",
     "state_history": [
       {
         "status": "under review",
         "timestamp": "2025-08-29T12:40:20Z"
+      },
+      {
+        "status": "pending decision",
+        "timestamp": "2025-09-18T12:40:47Z",
+        "decision": "Approval"
       }
     ]
   },
@@ -771,8 +784,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13930036955283,
-        51.02617600553337
+        -114.1394034466646,
+        51.02617588261987
       ]
     },
     "permitnum": "DP2025-04444",
@@ -795,9 +808,9 @@
     "longitude": "-114.139",
     "locationcount": "4",
     "locationtypes": "Titled Parcel;Titled Parcel;Building;Building",
-    "locationaddresses": "3621 KILDARE CR SW;3623 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1393004,51.026176],[-114.1394034,51.0261759],[-114.139398,51.0260779],[-114.1393065,51.026079]]}",
-    "locationswkt": "MULTIPOINT ((-114.13930036955283 51.02617600553337),(-114.1394034466646 51.02617588261987),(-114.13939804946767 51.02607788261432),(-114.13930649362594 51.026079034602745))",
+    "locationaddresses": "3623 KILDARE CR SW;3621 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1394034,51.0261759],[-114.1393004,51.026176],[-114.1393065,51.026079],[-114.139398,51.0260779]]}",
+    "locationswkt": "MULTIPOINT ((-114.1394034466646 51.02617588261987),(-114.13930036955283 51.02617600553337),(-114.13930649362594 51.026079034602745),(-114.13939804946767 51.02607788261432))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -827,8 +840,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13709316147603,
-        51.03582093298247
+        -114.13708014884335,
+        51.03595788014956
       ]
     },
     "permitnum": "DP2025-04362",
@@ -851,9 +864,9 @@
     "longitude": "-114.137",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "2011 34 ST SW;2007 34 ST SW;2003 34 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370932,51.0358209],[-114.1370801,51.0359579],[-114.1370839,51.0360948]]}",
-    "locationswkt": "MULTIPOINT ((-114.13709316147603 51.03582093298247),(-114.13708014884335 51.03595788014956),(-114.13708391777693 51.03609482560874))",
+    "locationaddresses": "2007 34 ST SW;2011 34 ST SW;2003 34 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370801,51.0359579],[-114.1370932,51.0358209],[-114.1370839,51.0360948]]}",
+    "locationswkt": "MULTIPOINT ((-114.13708014884335 51.03595788014956),(-114.13709316147603 51.03582093298247),(-114.13708391777693 51.03609482560874))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -1340,7 +1353,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "DC",
     "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
-    "statuscurrent": "In Circulation",
+    "statuscurrent": "Hold",
     "applieddate": "2025-07-04T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -1371,6 +1384,10 @@
       {
         "status": "in circulation",
         "timestamp": "2025-09-07T12:36:05Z"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2025-09-18T12:40:47Z"
       }
     ]
   },
@@ -1378,8 +1395,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13850840284333,
-        51.03554427675597
+        -114.13850756764195,
+        51.0355128136112
       ]
     },
     "permitnum": "DP2025-03858",
@@ -1403,8 +1420,8 @@
     "locationcount": "2",
     "locationtypes": "Titled Parcel;Building",
     "locationaddresses": "2019 35 ST SW;2019 35 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1385084,51.0355443],[-114.1386168,51.035544]]}",
-    "locationswkt": "MULTIPOINT ((-114.13850840284333 51.03554427675597),(-114.13861678994259 51.03554400441576))",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1385076,51.0355128],[-114.1386168,51.035544]]}",
+    "locationswkt": "MULTIPOINT ((-114.13850756764195 51.0355128136112),(-114.13861678994259 51.03554400441576))",
     "decisiondate": "2025-09-12T00:00:00.000",
     "mustcommencedate": "2027-09-12T00:00:00.000",
     "decision": "Approval",
