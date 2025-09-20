@@ -131,7 +131,7 @@
     "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2025-0149",
     "description": "Land Use Amendment to accommodate R-CG",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "Submitted",
     "applieddate": "2025-07-18T08:39:14.000",
     "completeddate": null,
     "applicant": "HORIZON LAND SURVEYS",
@@ -160,6 +160,10 @@
       {
         "status": "under review",
         "timestamp": "2025-07-29T15:33:05Z"
+      },
+      {
+        "status": "submitted",
+        "timestamp": "2025-09-20T12:37:02Z"
       }
     ]
   },
