@@ -3,43 +3,131 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13105342264434,
-        51.02676987971174
+        -114.1328466380388,
+        51.03848600297573
       ]
     },
-    "permitnum": "DP2025-05391",
-    "address": "3204 30 ST SW",
-    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
+    "permitnum": "DP2025-05446",
+    "address": "#101B 1729 31 ST SW",
+    "applicant": "CALGREEN HOMES",
     "category": "Residential - Multi-Family",
-    "description": "NEW: ROWHOUSE BUILDING (1 BUILDING), SECONDARY SUITE (4 SUITES), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
-    "proposedusecode": "B1005; B9996; C2626",
-    "proposedusedescription": "ACCESSORY BUILDING; OTHER RESIDENTIAL; SECONDARY SUITE",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "DC",
-    "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
-    "statuscurrent": "Hold",
-    "applieddate": "2025-09-18T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
+    "description": "REVISION: SECONDARY SUITE (CHANGE OF USE TO DP2023-07085, DECREASE DWELLING UNITS)",
+    "proposedusecode": "C2626",
+    "proposedusedescription": "SECONDARY SUITE",
+    "permitteddiscretionary": "Permitted",
+    "landusedistrict": "M-C1",
+    "landusedistrictdescription": "Multi-Residential - Contextual Low Profile",
+    "statuscurrent": "Under Review",
+    "applieddate": "2025-09-22T00:00:00.000",
+    "communitycode": "SHG",
+    "communityname": "SHAGANAPPI",
     "ward": "8",
     "quadrant": "SW",
-    "latitude": "51.027",
-    "longitude": "-114.131",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "3204 30 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1310534,51.0267699]}",
-    "locationswkt": "POINT (-114.13105342264434 51.02676987971174)",
+    "latitude": "51.038",
+    "longitude": "-114.133",
+    "locationcount": "9",
+    "locationtypes": "Titled Parcel;Building;Building;Building;Building;Building Suite;Building Suite;Building Suite;Building Suite",
+    "locationaddresses": "1729 31 ST SW;#101 1729 31 ST SW;#102 1729 31 ST SW;#201 1729 31 ST SW;#202 1729 31 ST SW;#201B 1729 31 ST SW;#202B 1729 31 ST SW;#101B 1729 31 ST SW;#102B 1729 31 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1328466,51.038486],[-114.1329039,51.0385216],[-114.1329067,51.038455],[-114.1331385,51.0385171],[-114.1331384,51.0384567],[-114.1330887,51.0384934],[-114.1330924,51.0384791],[-114.1328563,51.0384922],[-114.132863,51.0384793]]}",
+    "locationswkt": "MULTIPOINT ((-114.1328466380388 51.03848600297573),(-114.1329038889433 51.03852164516424),(-114.13290672123661 51.03845503690246),(-114.1331385318071 51.038517098982396),(-114.13313835865283 51.03845667908497),(-114.13308867235106 51.03849336889755),(-114.13309239574299 51.03847908893808),(-114.1328562661477 51.03849220394704),(-114.13286303079528 51.0384793499076))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
     "decisionby": null,
     "releasedate": null,
-    "rss_guid": "5f1ab7e3426c0fcc5566c87ba2a2b08f",
+    "rss_guid": "22aea19172845dbf59c7502f3047367e",
+    "state_history": [
+      {
+        "status": "under review",
+        "timestamp": "2025-09-24T12:40:20Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.140968298445,
+        51.03175954303746
+      ]
+    },
+    "permitnum": "DP2025-05452",
+    "address": "2440 37 ST SW",
+    "applicant": "DAAS - DESIGN AND ARCHITECTURE STUDIO",
+    "category": "Commercial - Other Areas",
+    "description": "REVISION: HEALTH CARE SERVICE (CHANGE TO DP2025-00749)",
+    "proposedusecode": "C1695",
+    "proposedusedescription": "HEALTH CARE SERVICE",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "C-N1",
+    "landusedistrictdescription": "Commercial - Neighbourhood 1",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-09-22T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.032",
+    "longitude": "-114.141",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "2440 37 ST SW;2440 37 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409683,51.0317595],[-114.1408428,51.03176]]}",
+    "locationswkt": "MULTIPOINT ((-114.140968298445 51.03175954303746),(-114.14084282687946 51.031759955019766))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "2bf62d897d9c16a02aad7bb3ca8077c4",
     "state_history": [
       {
         "status": "hold",
-        "timestamp": "2025-09-20T12:37:01Z"
+        "timestamp": "2025-09-24T12:40:20Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.12488813697297,
+        51.03764861818658
+      ]
+    },
+    "permitnum": "DP2025-05468",
+    "address": "2711 17 AV SW",
+    "applicant": null,
+    "category": "Change of Use - With Change to Site Plan",
+    "description": "CHANGES TO SITE PLAN: MULTI-USE COMMERCIAL (WASTE AND RECYCLING ENCLOSURE)",
+    "proposedusecode": "C9999",
+    "proposedusedescription": "OTHER",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "MU-1 f4.5h23",
+    "landusedistrictdescription": "Mixed Use - General",
+    "statuscurrent": "Application Received",
+    "applieddate": "2025-09-22T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.038",
+    "longitude": "-114.125",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "2711 17 AV SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1248881,51.0376486]}",
+    "locationswkt": "POINT (-114.12488813697297 51.03764861818658)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "107868921180a2a5ebb2a95912fdee6f",
+    "state_history": [
+      {
+        "status": "application received",
+        "timestamp": "2025-09-24T12:40:20Z"
       }
     ]
   },
@@ -61,7 +149,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "DC",
     "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
-    "statuscurrent": "Application Received",
+    "statuscurrent": "Under Review",
     "applieddate": "2025-09-18T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -84,6 +172,58 @@
       {
         "status": "application received",
         "timestamp": "2025-09-20T12:37:01Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-09-24T12:40:20Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.13105342264434,
+        51.02676987971174
+      ]
+    },
+    "permitnum": "DP2025-05391",
+    "address": "3204 30 ST SW",
+    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
+    "category": "Residential - Multi-Family",
+    "description": "NEW: ROWHOUSE BUILDING (1 BUILDING), SECONDARY SUITE (4 SUITES), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "proposedusecode": "B1005; B9996; C2626",
+    "proposedusedescription": "ACCESSORY BUILDING; OTHER RESIDENTIAL; SECONDARY SUITE",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "DC",
+    "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
+    "statuscurrent": "Under Review",
+    "applieddate": "2025-09-18T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.027",
+    "longitude": "-114.131",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "3204 30 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1310534,51.0267699]}",
+    "locationswkt": "POINT (-114.13105342264434 51.02676987971174)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "5f1ab7e3426c0fcc5566c87ba2a2b08f",
+    "state_history": [
+      {
+        "status": "hold",
+        "timestamp": "2025-09-20T12:37:01Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-09-24T12:40:20Z"
       }
     ]
   },
@@ -99,13 +239,13 @@
     "address": "2419 35 ST SW",
     "applicant": "SE7EN DEZIGN",
     "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "description": "NEW: SINGLE DETACHED DWELLING (SOUTH PARCEL), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
     "proposedusecode": "C1020; C2730",
     "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "In Circulation",
     "applieddate": "2025-09-17T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -132,6 +272,10 @@
       {
         "status": "under review",
         "timestamp": "2025-09-20T12:37:01Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-09-24T12:40:20Z"
       }
     ]
   },
@@ -139,47 +283,51 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.14148672068546,
-        51.03487097244771
+        -114.14096831477313,
+        51.03189651098075
       ]
     },
-    "permitnum": "DP2025-05367",
-    "address": "2031 37 ST SW",
-    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
-    "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
-    "proposedusecode": "C1020; C2730",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
+    "permitnum": "DP2025-05375",
+    "address": "#3 2436 37 ST SW",
+    "applicant": "PRIME DESIGN SOLUTIONS",
+    "category": "Residential - Secondary Suite",
+    "description": "NEW: ACCESSORY RESIDENTIAL BUILDING (GARAGE), BACKYARD SUITE -2 (ABOVE GARAGE)",
+    "proposedusecode": "C1175",
+    "proposedusedescription": "BACKYARD SUITE",
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "M-C1",
     "landusedistrictdescription": "Multi-Residential - Contextual Low Profile",
     "statuscurrent": "Under Review",
     "applieddate": "2025-09-17T00:00:00.000",
-    "communitycode": "GDL",
-    "communityname": "GLENDALE",
-    "ward": "6",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
     "quadrant": "SW",
-    "latitude": "51.035",
+    "latitude": "51.032",
     "longitude": "-114.141",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "2031 37 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1414867,51.034871]}",
-    "locationswkt": "POINT (-114.14148672068546 51.03487097244771)",
+    "locationcount": "5",
+    "locationtypes": "Titled Parcel;Building;Building;Building;Building",
+    "locationaddresses": "2436 37 ST SW;#2 2436 37 ST SW;#3 2436 37 ST SW;#4 2436 37 ST SW;#1 2436 37 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409683,51.0318965],[-114.1407458,51.0319226],[-114.1408699,51.0318706],[-114.1407439,51.0318693],[-114.1408748,51.0319241]]}",
+    "locationswkt": "MULTIPOINT ((-114.14096831477313 51.03189651098075),(-114.14074580401507 51.031922606742455),(-114.1408699362327 51.03187057728533),(-114.14074394603564 51.031869308701665),(-114.14087480305547 51.03192405149247))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
     "decisionby": null,
     "releasedate": null,
-    "rss_guid": "aa8d94e24977fcad6d2082759b68c24c",
+    "rss_guid": "7ee09309266fe3742452064e63660aa2",
     "state_history": [
       {
-        "status": "application received",
+        "status": "new",
         "timestamp": "2025-09-19T12:39:52Z"
       },
       {
+        "status": "application received",
+        "timestamp": "2025-09-21T12:36:32Z"
+      },
+      {
         "status": "under review",
-        "timestamp": "2025-09-20T12:37:01Z"
+        "timestamp": "2025-09-24T12:40:20Z"
       }
     ]
   },
@@ -195,13 +343,13 @@
     "address": "2419 35 ST SW",
     "applicant": "SE7EN DEZIGN",
     "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "description": "NEW: SINGLE DETACHED DWELLING (NORTH), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
     "proposedusecode": "C1020; C2730",
     "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "In Circulation",
     "applieddate": "2025-09-17T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -228,102 +376,10 @@
       {
         "status": "under review",
         "timestamp": "2025-09-20T12:37:01Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.14096831477313,
-        51.03189651098075
-      ]
-    },
-    "permitnum": "DP2025-05375",
-    "address": "#3 2436 37 ST SW",
-    "applicant": "PRIME DESIGN SOLUTIONS",
-    "category": "Residential - Secondary Suite",
-    "description": "NEW: ACCESSORY RESIDENTIAL BUILDING (GARAGE), BACKYARD SUITE -2 (ABOVE GARAGE)",
-    "proposedusecode": "C1175",
-    "proposedusedescription": "BACKYARD SUITE",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "M-C1",
-    "landusedistrictdescription": "Multi-Residential - Contextual Low Profile",
-    "statuscurrent": "Application Received",
-    "applieddate": "2025-09-17T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.032",
-    "longitude": "-114.141",
-    "locationcount": "5",
-    "locationtypes": "Titled Parcel;Building;Building;Building;Building",
-    "locationaddresses": "2436 37 ST SW;#1 2436 37 ST SW;#4 2436 37 ST SW;#2 2436 37 ST SW;#3 2436 37 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409683,51.0318965],[-114.1408748,51.0319241],[-114.1407439,51.0318693],[-114.1407458,51.0319226],[-114.1408699,51.0318706]]}",
-    "locationswkt": "MULTIPOINT ((-114.14096831477313 51.03189651098075),(-114.14087480305547 51.03192405149247),(-114.14074394603564 51.031869308701665),(-114.14074580401507 51.031922606742455),(-114.1408699362327 51.03187057728533))",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "7ee09309266fe3742452064e63660aa2",
-    "state_history": [
-      {
-        "status": "new",
-        "timestamp": "2025-09-19T12:39:52Z"
       },
       {
-        "status": "application received",
-        "timestamp": "2025-09-21T12:36:32Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.14148672068546,
-        51.03487097244771
-      ]
-    },
-    "permitnum": "DP2025-05369",
-    "address": "2031 37 ST SW",
-    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
-    "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
-    "proposedusecode": "C1020; C2730",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "M-C1",
-    "landusedistrictdescription": "Multi-Residential - Contextual Low Profile",
-    "statuscurrent": "Under Review",
-    "applieddate": "2025-09-17T00:00:00.000",
-    "communitycode": "GDL",
-    "communityname": "GLENDALE",
-    "ward": "6",
-    "quadrant": "SW",
-    "latitude": "51.035",
-    "longitude": "-114.141",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "2031 37 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1414867,51.034871]}",
-    "locationswkt": "POINT (-114.14148672068546 51.03487097244771)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "9631b1724422a2d3671b5f0e797c7dc3",
-    "state_history": [
-      {
-        "status": "application received",
-        "timestamp": "2025-09-19T12:39:52Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-09-20T12:37:01Z"
+        "status": "in circulation",
+        "timestamp": "2025-09-24T12:40:20Z"
       }
     ]
   },
@@ -519,9 +575,9 @@
     "longitude": "-114.134",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Building;Building",
-    "locationaddresses": "1735 32 ST SW;1735 32 ST SW;1729 32 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1342593,51.0383945],[-114.1343945,51.0383535],[-114.1344035,51.0384864]]}",
-    "locationswkt": "MULTIPOINT ((-114.13425928414583 51.0383944912467),(-114.13439448038324 51.03835345048674),(-114.13440347712172 51.03848635356444))",
+    "locationaddresses": "1735 32 ST SW;1729 32 ST SW;1735 32 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1342593,51.0383945],[-114.1344035,51.0384864],[-114.1343945,51.0383535]]}",
+    "locationswkt": "MULTIPOINT ((-114.13425928414583 51.0383944912467),(-114.13440347712172 51.03848635356444),(-114.13439448038324 51.03835345048674))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -703,8 +759,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.14096842236778,
-        51.03581833664747
+        -114.14096841006933,
+        51.03595525958091
       ]
     },
     "permitnum": "DP2025-05011",
@@ -727,9 +783,9 @@
     "longitude": "-114.141",
     "locationcount": "2",
     "locationtypes": "Titled Parcel;Titled Parcel",
-    "locationaddresses": "2012 37 ST SW;2008 37 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409684,51.0358183],[-114.1409684,51.0359553]]}",
-    "locationswkt": "MULTIPOINT ((-114.14096842236778 51.03581833664747),(-114.14096841006933 51.03595525958091))",
+    "locationaddresses": "2008 37 ST SW;2012 37 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409684,51.0359553],[-114.1409684,51.0358183]]}",
+    "locationswkt": "MULTIPOINT ((-114.14096841006933 51.03595525958091),(-114.14096842236778 51.03581833664747))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -825,7 +881,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "DC",
     "landusedistrictdescription": "Direct Control (1P2007)",
-    "statuscurrent": "Pending Decision",
+    "statuscurrent": "Under Review",
     "applieddate": "2025-08-26T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -852,6 +908,11 @@
       {
         "status": "pending decision",
         "timestamp": "2025-09-18T12:40:47Z",
+        "decision": "Approval"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-09-24T12:40:20Z",
         "decision": "Approval"
       }
     ]
@@ -982,7 +1043,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Pending Decision",
+    "statuscurrent": "Under Review",
     "applieddate": "2025-08-15T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -1013,6 +1074,11 @@
       {
         "status": "pending decision",
         "timestamp": "2025-09-20T12:37:01Z",
+        "decision": "Approval"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-09-24T12:40:20Z",
         "decision": "Approval"
       }
     ]
@@ -1185,8 +1251,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13708391777693,
-        51.03609482560874
+        -114.13708014884335,
+        51.03595788014956
       ]
     },
     "permitnum": "DP2025-04362",
@@ -1209,9 +1275,9 @@
     "longitude": "-114.137",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "2003 34 ST SW;2007 34 ST SW;2011 34 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370839,51.0360948],[-114.1370801,51.0359579],[-114.1370932,51.0358209]]}",
-    "locationswkt": "MULTIPOINT ((-114.13708391777693 51.03609482560874),(-114.13708014884335 51.03595788014956),(-114.13709316147603 51.03582093298247))",
+    "locationaddresses": "2007 34 ST SW;2011 34 ST SW;2003 34 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1370801,51.0359579],[-114.1370932,51.0358209],[-114.1370839,51.0360948]]}",
+    "locationswkt": "MULTIPOINT ((-114.13708014884335 51.03595788014956),(-114.13709316147603 51.03582093298247),(-114.13708391777693 51.03609482560874))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -1816,6 +1882,54 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.12646772767906,
+        51.034310454362455
+      ]
+    },
+    "permitnum": "DP2025-03825",
+    "address": "2210 27 ST SW",
+    "applicant": "BRAVEHOMES",
+    "category": "Residential - Secondary Suite",
+    "description": "NEW: BACKYARD SUITE",
+    "proposedusecode": "C1175",
+    "proposedusedescription": "BACKYARD SUITE",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-07-02T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.034",
+    "longitude": "-114.126",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "2210 27 ST SW;2210 27 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1264677,51.0343105],[-114.1263386,51.0343107]]}",
+    "locationswkt": "MULTIPOINT ((-114.12646772767906 51.034310454362455),(-114.1263386272762 51.034310701870915))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "eed3a2ab4795ebd4dae9f02fe7199fef",
+    "state_history": [
+      {
+        "status": "in circulation",
+        "timestamp": "2025-07-28T22:18:50-06:00"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2025-08-23T12:36:23Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.13769317004821,
         51.025647513979905
       ]
@@ -1871,54 +1985,6 @@
         "status": "in advertising",
         "timestamp": "2025-09-10T12:40:26Z",
         "decision": "Approval"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.12646772767906,
-        51.034310454362455
-      ]
-    },
-    "permitnum": "DP2025-03825",
-    "address": "2210 27 ST SW",
-    "applicant": "BRAVEHOMES",
-    "category": "Residential - Secondary Suite",
-    "description": "NEW: BACKYARD SUITE",
-    "proposedusecode": "C1175",
-    "proposedusedescription": "BACKYARD SUITE",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Hold",
-    "applieddate": "2025-07-02T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.034",
-    "longitude": "-114.126",
-    "locationcount": "2",
-    "locationtypes": "Titled Parcel;Building",
-    "locationaddresses": "2210 27 ST SW;2210 27 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1264677,51.0343105],[-114.1263386,51.0343107]]}",
-    "locationswkt": "MULTIPOINT ((-114.12646772767906 51.034310454362455),(-114.1263386272762 51.034310701870915))",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "eed3a2ab4795ebd4dae9f02fe7199fef",
-    "state_history": [
-      {
-        "status": "in circulation",
-        "timestamp": "2025-07-28T22:18:50-06:00"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2025-08-23T12:36:23Z"
       }
     ]
   },
