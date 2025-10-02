@@ -46,16 +46,20 @@
     "fromlud": "MU-2 f3.0h46;M-C2;DC;DC",
     "proposedlud": "MU-1;MU-1;MU-1;MU-1",
     "address": "1632 38 ST SW",
-    "locationaddresses": "3820 17 AV SW;1632 38 ST SW;1630 38 ST SW;1628 38 ST SW;1626 38 ST SW",
+    "locationaddresses": "1628 38 ST SW;1626 38 ST SW;1632 38 ST SW;1630 38 ST SW;3820 17 AV SW",
     "locationcount": "5",
-    "latitude": "51.03806165168982",
-    "longitude": "-114.14204941425523",
+    "latitude": "51.03858540815848",
+    "longitude": "-114.14241488474212",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
         [
-          -114.14204941425523,
-          51.03806165168982
+          -114.14241488474212,
+          51.03858540815848
+        ],
+        [
+          -114.14241497132501,
+          51.03872063184581
         ],
         [
           -114.14241473357733,
@@ -66,12 +70,8 @@
           51.03845063395375
         ],
         [
-          -114.14241488474212,
-          51.03858540815848
-        ],
-        [
-          -114.14241497132501,
-          51.03872063184581
+          -114.14204941425523,
+          51.03806165168982
         ]
       ]
     },
@@ -172,50 +172,6 @@
       {
         "status": "submitted",
         "timestamp": "2025-09-20T12:37:02Z"
-      },
-      {
-        "status": "miscellaneous",
-        "timestamp": "2025-09-24T12:40:20Z"
-      }
-    ]
-  },
-  {
-    "permittype": "LU / OP / Closure (LOC)",
-    "permitnum": "LOC2025-0138",
-    "description": "Land Use Amendment to accommodate R-CG",
-    "statuscurrent": "Miscellaneous",
-    "applieddate": "2025-07-02T10:54:53.000",
-    "completeddate": null,
-    "applicant": null,
-    "fromlud": "DC",
-    "proposedlud": "R-CG",
-    "address": "2034 28 ST SW",
-    "locationaddresses": "2034 28 ST SW",
-    "locationcount": "1",
-    "latitude": "51.035030429926834",
-    "longitude": "-114.12793407700039",
-    "multipoint": {
-      "type": "MultiPoint",
-      "coordinates": [
-        [
-          -114.12793407700039,
-          51.035030429926834
-        ]
-      ]
-    },
-    "rss_guid": "27d63476d7593b6818b290fe549f6100",
-    "state_history": [
-      {
-        "status": "under review",
-        "timestamp": "2025-07-28T22:18:50-06:00"
-      },
-      {
-        "status": "submitted",
-        "timestamp": "2025-08-22T12:38:51Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-09-19T12:39:52Z"
       },
       {
         "status": "miscellaneous",
