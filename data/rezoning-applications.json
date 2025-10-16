@@ -39,7 +39,7 @@
     "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2025-0165",
     "description": "Land Use Amendment",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "Submitted",
     "applieddate": "2025-08-11T15:09:53.000",
     "completeddate": null,
     "applicant": "O2 PLANNING AND DESIGN",
@@ -84,6 +84,10 @@
       {
         "status": "under review",
         "timestamp": "2025-08-30T12:35:13Z"
+      },
+      {
+        "status": "submitted",
+        "timestamp": "2025-10-16T12:43:09Z"
       }
     ]
   },
