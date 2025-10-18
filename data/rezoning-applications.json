@@ -10,20 +10,20 @@
     "fromlud": "DC",
     "proposedlud": "H-GO",
     "address": "3040 29 ST SW",
-    "locationaddresses": "3036 29 ST SW;3040 29 ST SW",
+    "locationaddresses": "3040 29 ST SW;3036 29 ST SW",
     "locationcount": "2",
-    "latitude": "51.02725215343569",
-    "longitude": "-114.12936734346609",
+    "latitude": "51.02711535657239",
+    "longitude": "-114.12936699119656",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
         [
-          -114.12936734346609,
-          51.02725215343569
-        ],
-        [
           -114.12936699119656,
           51.02711535657239
+        ],
+        [
+          -114.12936734346609,
+          51.02725215343569
         ]
       ]
     },
@@ -46,13 +46,21 @@
     "fromlud": "MU-2 f3.0h46;M-C2;DC;DC",
     "proposedlud": "MU-1;MU-1;MU-1;MU-1",
     "address": "1632 38 ST SW",
-    "locationaddresses": "1628 38 ST SW;1632 38 ST SW;3820 17 AV SW;1630 38 ST SW;1626 38 ST SW",
+    "locationaddresses": "1630 38 ST SW;1626 38 ST SW;1628 38 ST SW;1632 38 ST SW;3820 17 AV SW",
     "locationcount": "5",
-    "latitude": "51.03858540815848",
-    "longitude": "-114.14241488474212",
+    "latitude": "51.03845063395375",
+    "longitude": "-114.14241479953844",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
+        [
+          -114.14241479953844,
+          51.03845063395375
+        ],
+        [
+          -114.14241497132501,
+          51.03872063184581
+        ],
         [
           -114.14241488474212,
           51.03858540815848
@@ -64,14 +72,6 @@
         [
           -114.14204941425523,
           51.03806165168982
-        ],
-        [
-          -114.14241479953844,
-          51.03845063395375
-        ],
-        [
-          -114.14241497132501,
-          51.03872063184581
         ]
       ]
     },
@@ -136,50 +136,6 @@
       {
         "status": "miscellaneous",
         "timestamp": "2025-09-26T12:41:04Z"
-      }
-    ]
-  },
-  {
-    "permittype": "LU / OP / Closure (LOC)",
-    "permitnum": "LOC2025-0149",
-    "description": "Land Use Amendment to accommodate R-CG",
-    "statuscurrent": "Miscellaneous",
-    "applieddate": "2025-07-18T08:39:14.000",
-    "completeddate": null,
-    "applicant": "HORIZON LAND SURVEYS",
-    "fromlud": "DC",
-    "proposedlud": "R-CG",
-    "address": "2803 30 ST SW",
-    "locationaddresses": "2803 30 ST SW",
-    "locationcount": "1",
-    "latitude": "51.02988441367897",
-    "longitude": "-114.13142654832339",
-    "multipoint": {
-      "type": "MultiPoint",
-      "coordinates": [
-        [
-          -114.13142654832339,
-          51.02988441367897
-        ]
-      ]
-    },
-    "rss_guid": "b096f1ceae15fbd3fa175fd98694f55d",
-    "state_history": [
-      {
-        "status": "submitted",
-        "timestamp": "2025-07-28T22:18:50-06:00"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-07-29T15:33:05Z"
-      },
-      {
-        "status": "submitted",
-        "timestamp": "2025-09-20T12:37:02Z"
-      },
-      {
-        "status": "miscellaneous",
-        "timestamp": "2025-09-24T12:40:20Z"
       }
     ]
   }
