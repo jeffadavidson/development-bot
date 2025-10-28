@@ -167,11 +167,11 @@
         51.03845170555034
       ]
     },
-    "permitnum": "DP2025-05613",
+    "permitnum": "DP2025-05609",
     "address": "1731 24 ST SW",
     "applicant": "JOHN TRINH \u0026 ASSOCIATES",
     "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE) SITE D",
+    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE) SITE A",
     "proposedusecode": "C1020; C2730",
     "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
     "permitteddiscretionary": "Discretionary",
@@ -195,7 +195,7 @@
     "decision": null,
     "decisionby": null,
     "releasedate": null,
-    "rss_guid": "5fc3713cbd55262e2e676112e41930ee",
+    "rss_guid": "b5c8e1c39e1fec64ccf0a2a945f963cb",
     "state_history": [
       {
         "status": "new",
@@ -271,11 +271,11 @@
         51.03845170555034
       ]
     },
-    "permitnum": "DP2025-05609",
+    "permitnum": "DP2025-05613",
     "address": "1731 24 ST SW",
     "applicant": "JOHN TRINH \u0026 ASSOCIATES",
     "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE) SITE A",
+    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE) SITE D",
     "proposedusecode": "C1020; C2730",
     "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
     "permitteddiscretionary": "Discretionary",
@@ -299,7 +299,7 @@
     "decision": null,
     "decisionby": null,
     "releasedate": null,
-    "rss_guid": "b5c8e1c39e1fec64ccf0a2a945f963cb",
+    "rss_guid": "5fc3713cbd55262e2e676112e41930ee",
     "state_history": [
       {
         "status": "new",
@@ -728,9 +728,9 @@
     "longitude": "-114.141",
     "locationcount": "5",
     "locationtypes": "Titled Parcel;Building;Building;Building;Building",
-    "locationaddresses": "2436 37 ST SW;#3 2436 37 ST SW;#4 2436 37 ST SW;#1 2436 37 ST SW;#2 2436 37 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409683,51.0318965],[-114.1408699,51.0318706],[-114.1407439,51.0318693],[-114.1408748,51.0319241],[-114.1407458,51.0319226]]}",
-    "locationswkt": "MULTIPOINT ((-114.14096831477313 51.03189651098075),(-114.1408699362327 51.03187057728533),(-114.14074394603564 51.031869308701665),(-114.14087480305547 51.03192405149247),(-114.14074580401507 51.031922606742455))",
+    "locationaddresses": "2436 37 ST SW;#4 2436 37 ST SW;#1 2436 37 ST SW;#2 2436 37 ST SW;#3 2436 37 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409683,51.0318965],[-114.1407439,51.0318693],[-114.1408748,51.0319241],[-114.1407458,51.0319226],[-114.1408699,51.0318706]]}",
+    "locationswkt": "MULTIPOINT ((-114.14096831477313 51.03189651098075),(-114.14074394603564 51.031869308701665),(-114.14087480305547 51.03192405149247),(-114.14074580401507 51.031922606742455),(-114.1408699362327 51.03187057728533))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -1696,9 +1696,9 @@
     "longitude": "-114.139",
     "locationcount": "4",
     "locationtypes": "Titled Parcel;Titled Parcel;Building;Building",
-    "locationaddresses": "3621 KILDARE CR SW;3623 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1393004,51.026176],[-114.1394034,51.0261759],[-114.139398,51.0260779],[-114.1393065,51.026079]]}",
-    "locationswkt": "MULTIPOINT ((-114.13930036955283 51.02617600553337),(-114.1394034466646 51.02617588261987),(-114.13939804946767 51.02607788261432),(-114.13930649362594 51.026079034602745))",
+    "locationaddresses": "3621 KILDARE CR SW;3623 KILDARE CR SW;3621 KILDARE CR SW;3623 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1393004,51.026176],[-114.1394034,51.0261759],[-114.1393065,51.026079],[-114.139398,51.0260779]]}",
+    "locationswkt": "MULTIPOINT ((-114.13930036955283 51.02617600553337),(-114.1394034466646 51.02617588261987),(-114.13930649362594 51.026079034602745),(-114.13939804946767 51.02607788261432))",
     "decisiondate": "2025-10-06T00:00:00.000",
     "mustcommencedate": "2028-10-06T00:00:00.000",
     "decision": "Approval",
