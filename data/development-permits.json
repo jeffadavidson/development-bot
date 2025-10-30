@@ -17,7 +17,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "New",
+    "statuscurrent": "Application Received",
     "applieddate": "2025-10-27T00:00:00.000",
     "communitycode": "RIC",
     "communityname": "RICHMOND",
@@ -40,6 +40,10 @@
       {
         "status": "new",
         "timestamp": "2025-10-29T12:44:18Z"
+      },
+      {
+        "status": "application received",
+        "timestamp": "2025-10-30T12:41:14Z"
       }
     ]
   },
@@ -159,110 +163,6 @@
         51.03845170555034
       ]
     },
-    "permitnum": "DP2025-05613",
-    "address": "1731 24 ST SW",
-    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
-    "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE) SITE D",
-    "proposedusecode": "C1020; C2730",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "In Circulation",
-    "applieddate": "2025-09-30T00:00:00.000",
-    "communitycode": "SHG",
-    "communityname": "SHAGANAPPI",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.038",
-    "longitude": "-114.118",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "1731 24 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1180934,51.0384517]}",
-    "locationswkt": "POINT (-114.11809339906198 51.03845170555034)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "5fc3713cbd55262e2e676112e41930ee",
-    "state_history": [
-      {
-        "status": "new",
-        "timestamp": "2025-10-02T12:37:59Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-10-04T12:36:23Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2025-10-16T12:43:08Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.11809339906198,
-        51.03845170555034
-      ]
-    },
-    "permitnum": "DP2025-05612",
-    "address": "1731 24 ST SW",
-    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
-    "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE) SITE C",
-    "proposedusecode": "C1020; C2730",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "In Circulation",
-    "applieddate": "2025-09-30T00:00:00.000",
-    "communitycode": "SHG",
-    "communityname": "SHAGANAPPI",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.038",
-    "longitude": "-114.118",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "1731 24 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1180934,51.0384517]}",
-    "locationswkt": "POINT (-114.11809339906198 51.03845170555034)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "a000135319c43e8d30f22f97f1c2b13f",
-    "state_history": [
-      {
-        "status": "new",
-        "timestamp": "2025-10-02T12:37:59Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-10-04T12:36:23Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2025-10-16T12:43:08Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.11809339906198,
-        51.03845170555034
-      ]
-    },
     "permitnum": "DP2025-05609",
     "address": "1731 24 ST SW",
     "applicant": "JOHN TRINH \u0026 ASSOCIATES",
@@ -344,6 +244,110 @@
     "decisionby": null,
     "releasedate": null,
     "rss_guid": "0ae558c9a03060f13da16ce918051ead",
+    "state_history": [
+      {
+        "status": "new",
+        "timestamp": "2025-10-02T12:37:59Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-10-04T12:36:23Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-10-16T12:43:08Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.11809339906198,
+        51.03845170555034
+      ]
+    },
+    "permitnum": "DP2025-05612",
+    "address": "1731 24 ST SW",
+    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
+    "category": "Residential - New Single / Semi / Duplex",
+    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE) SITE C",
+    "proposedusecode": "C1020; C2730",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "In Circulation",
+    "applieddate": "2025-09-30T00:00:00.000",
+    "communitycode": "SHG",
+    "communityname": "SHAGANAPPI",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.038",
+    "longitude": "-114.118",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "1731 24 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1180934,51.0384517]}",
+    "locationswkt": "POINT (-114.11809339906198 51.03845170555034)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "a000135319c43e8d30f22f97f1c2b13f",
+    "state_history": [
+      {
+        "status": "new",
+        "timestamp": "2025-10-02T12:37:59Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-10-04T12:36:23Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-10-16T12:43:08Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.11809339906198,
+        51.03845170555034
+      ]
+    },
+    "permitnum": "DP2025-05613",
+    "address": "1731 24 ST SW",
+    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
+    "category": "Residential - New Single / Semi / Duplex",
+    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE) SITE D",
+    "proposedusecode": "C1020; C2730",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "In Circulation",
+    "applieddate": "2025-09-30T00:00:00.000",
+    "communitycode": "SHG",
+    "communityname": "SHAGANAPPI",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.038",
+    "longitude": "-114.118",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "1731 24 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1180934,51.0384517]}",
+    "locationswkt": "POINT (-114.11809339906198 51.03845170555034)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "5fc3713cbd55262e2e676112e41930ee",
     "state_history": [
       {
         "status": "new",
@@ -520,58 +524,6 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13425261481764,
-        51.02988393422239
-      ]
-    },
-    "permitnum": "DP2025-05397",
-    "address": "2803 32 ST SW",
-    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
-    "category": "Residential - Multi-Family",
-    "description": "NEW: ROWHOUSE BUILDING (1 BUILDING), SECONDARY SUITE (4 SUITES), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
-    "proposedusecode": "B1005; B4361; C2626",
-    "proposedusedescription": "ACCESSORY BUILDING; DWELLING UNIT; SECONDARY SUITE",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "DC",
-    "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
-    "statuscurrent": "Hold",
-    "applieddate": "2025-09-18T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.030",
-    "longitude": "-114.134",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "2803 32 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1342526,51.0298839]}",
-    "locationswkt": "POINT (-114.13425261481764 51.02988393422239)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "23ac2c18c9f4b57e1a8bfa987405f4bf",
-    "state_history": [
-      {
-        "status": "application received",
-        "timestamp": "2025-09-20T12:37:01Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-09-24T12:40:20Z"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2025-09-27T12:36:05Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
         -114.13105342264434,
         51.02676987971174
       ]
@@ -632,59 +584,51 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13850847355008,
-        51.03241134700486
+        -114.13425261481764,
+        51.02988393422239
       ]
     },
-    "permitnum": "DP2025-05381",
-    "address": "2419 35 ST SW",
-    "applicant": "SE7EN DEZIGN",
-    "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING (SOUTH PARCEL), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
-    "proposedusecode": "C1020; C2730",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
+    "permitnum": "DP2025-05397",
+    "address": "2803 32 ST SW",
+    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
+    "category": "Residential - Multi-Family",
+    "description": "NEW: ROWHOUSE BUILDING (1 BUILDING), SECONDARY SUITE (4 SUITES), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "proposedusecode": "B1005; B4361; C2626",
+    "proposedusedescription": "ACCESSORY BUILDING; DWELLING UNIT; SECONDARY SUITE",
     "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "landusedistrict": "DC",
+    "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
     "statuscurrent": "Hold",
-    "applieddate": "2025-09-17T00:00:00.000",
+    "applieddate": "2025-09-18T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
     "ward": "8",
     "quadrant": "SW",
-    "latitude": "51.032",
-    "longitude": "-114.139",
+    "latitude": "51.030",
+    "longitude": "-114.134",
     "locationcount": "1",
     "locationtypes": "Titled Parcel",
-    "locationaddresses": "2419 35 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1385085,51.0324113]}",
-    "locationswkt": "POINT (-114.13850847355008 51.03241134700486)",
+    "locationaddresses": "2803 32 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1342526,51.0298839]}",
+    "locationswkt": "POINT (-114.13425261481764 51.02988393422239)",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
     "decisionby": null,
     "releasedate": null,
-    "rss_guid": "073223dfed850d64785be3dd7f7bb974",
+    "rss_guid": "23ac2c18c9f4b57e1a8bfa987405f4bf",
     "state_history": [
       {
-        "status": "new",
-        "timestamp": "2025-09-19T12:39:52Z"
-      },
-      {
-        "status": "under review",
+        "status": "application received",
         "timestamp": "2025-09-20T12:37:01Z"
       },
       {
-        "status": "in circulation",
+        "status": "under review",
         "timestamp": "2025-09-24T12:40:20Z"
       },
       {
-        "status": "under review",
-        "timestamp": "2025-10-24T12:43:58Z"
-      },
-      {
         "status": "hold",
-        "timestamp": "2025-10-26T12:37:58Z"
+        "timestamp": "2025-09-27T12:36:05Z"
       }
     ]
   },
@@ -772,9 +716,9 @@
     "longitude": "-114.141",
     "locationcount": "5",
     "locationtypes": "Titled Parcel;Building;Building;Building;Building",
-    "locationaddresses": "2436 37 ST SW;#2 2436 37 ST SW;#3 2436 37 ST SW;#4 2436 37 ST SW;#1 2436 37 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409683,51.0318965],[-114.1407458,51.0319226],[-114.1408699,51.0318706],[-114.1407439,51.0318693],[-114.1408748,51.0319241]]}",
-    "locationswkt": "MULTIPOINT ((-114.14096831477313 51.03189651098075),(-114.14074580401507 51.031922606742455),(-114.1408699362327 51.03187057728533),(-114.14074394603564 51.031869308701665),(-114.14087480305547 51.03192405149247))",
+    "locationaddresses": "2436 37 ST SW;#2 2436 37 ST SW;#4 2436 37 ST SW;#3 2436 37 ST SW;#1 2436 37 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409683,51.0318965],[-114.1407458,51.0319226],[-114.1407439,51.0318693],[-114.1408699,51.0318706],[-114.1408748,51.0319241]]}",
+    "locationswkt": "MULTIPOINT ((-114.14096831477313 51.03189651098075),(-114.14074580401507 51.031922606742455),(-114.14074394603564 51.031869308701665),(-114.1408699362327 51.03187057728533),(-114.14087480305547 51.03192405149247))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -797,6 +741,66 @@
       {
         "status": "in circulation",
         "timestamp": "2025-10-16T12:43:08Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.13850847355008,
+        51.03241134700486
+      ]
+    },
+    "permitnum": "DP2025-05381",
+    "address": "2419 35 ST SW",
+    "applicant": "SE7EN DEZIGN",
+    "category": "Residential - New Single / Semi / Duplex",
+    "description": "NEW: SINGLE DETACHED DWELLING (SOUTH PARCEL), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "proposedusecode": "C1020; C2730",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-09-17T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.032",
+    "longitude": "-114.139",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "2419 35 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1385085,51.0324113]}",
+    "locationswkt": "POINT (-114.13850847355008 51.03241134700486)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "073223dfed850d64785be3dd7f7bb974",
+    "state_history": [
+      {
+        "status": "new",
+        "timestamp": "2025-09-19T12:39:52Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-09-20T12:37:01Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-09-24T12:40:20Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-10-24T12:43:58Z"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2025-10-26T12:37:58Z"
       }
     ]
   },
@@ -1231,8 +1235,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.14096841006933,
-        51.03595525958091
+        -114.14096842236778,
+        51.03581833664747
       ]
     },
     "permitnum": "DP2025-05011",
@@ -1255,9 +1259,9 @@
     "longitude": "-114.141",
     "locationcount": "2",
     "locationtypes": "Titled Parcel;Titled Parcel",
-    "locationaddresses": "2008 37 ST SW;2012 37 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409684,51.0359553],[-114.1409684,51.0358183]]}",
-    "locationswkt": "MULTIPOINT ((-114.14096841006933 51.03595525958091),(-114.14096842236778 51.03581833664747))",
+    "locationaddresses": "2012 37 ST SW;2008 37 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409684,51.0358183],[-114.1409684,51.0359553]]}",
+    "locationswkt": "MULTIPOINT ((-114.14096842236778 51.03581833664747),(-114.14096841006933 51.03595525958091))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -1562,7 +1566,7 @@
     "mustcommencedate": "2027-09-24T00:00:00.000",
     "decision": "Approval",
     "decisionby": "Development Authority",
-    "releasedate": null,
+    "releasedate": "2025-10-28T00:00:00.000",
     "rss_guid": "ba4c8b2663faa35655e3fa07dfe030cd",
     "state_history": [
       {
