@@ -114,37 +114,5 @@
         "timestamp": "2025-10-27T12:43:02Z"
       }
     ]
-  },
-  {
-    "permittype": "LU / OP / Closure (LOC)",
-    "permitnum": "LOC2025-0157",
-    "description": "Land Use Amendment to accommodate R-CG",
-    "statuscurrent": "Miscellaneous",
-    "applieddate": "2025-07-30T16:10:40.000",
-    "completeddate": null,
-    "applicant": "HORIZON LAND SURVEYS",
-    "fromlud": "DC",
-    "proposedlud": "R-CG",
-    "address": "3204 30 ST SW",
-    "locationaddresses": "3204 30 ST SW",
-    "locationcount": "1",
-    "latitude": "51.02676987971174",
-    "longitude": "-114.13105342264434",
-    "multipoint": {
-      "type": "MultiPoint",
-      "coordinates": [
-        [
-          -114.13105342264434,
-          51.02676987971174
-        ]
-      ]
-    },
-    "rss_guid": "e76346b4328ee033b0da5ecd6e59cd1e",
-    "state_history": [
-      {
-        "status": "miscellaneous",
-        "timestamp": "2025-10-27T12:43:02Z"
-      }
-    ]
   }
 ]
