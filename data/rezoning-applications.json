@@ -46,20 +46,20 @@
     "fromlud": "DC",
     "proposedlud": "H-GO",
     "address": "3040 29 ST SW",
-    "locationaddresses": "3040 29 ST SW;3036 29 ST SW",
+    "locationaddresses": "3036 29 ST SW;3040 29 ST SW",
     "locationcount": "2",
-    "latitude": "51.02711535657239",
-    "longitude": "-114.12936699119656",
+    "latitude": "51.02725215343569",
+    "longitude": "-114.12936734346609",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
         [
-          -114.12936699119656,
-          51.02711535657239
-        ],
-        [
           -114.12936734346609,
           51.02725215343569
+        ],
+        [
+          -114.12936699119656,
+          51.02711535657239
         ]
       ]
     },
