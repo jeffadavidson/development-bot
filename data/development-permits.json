@@ -149,7 +149,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "M-C1",
     "landusedistrictdescription": "Multi-Residential - Contextual Low Profile",
-    "statuscurrent": "Hold",
+    "statuscurrent": "Application Received",
     "applieddate": "2025-11-12T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -172,6 +172,10 @@
       {
         "status": "hold",
         "timestamp": "2025-11-15T12:36:57Z"
+      },
+      {
+        "status": "application received",
+        "timestamp": "2025-11-20T12:41:36Z"
       }
     ]
   },
@@ -193,7 +197,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "DC",
     "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
-    "statuscurrent": "Approved",
+    "statuscurrent": "In Advertising",
     "applieddate": "2025-11-09T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -224,6 +228,11 @@
       {
         "status": "approved",
         "timestamp": "2025-11-19T12:42:28Z",
+        "decision": "Approval"
+      },
+      {
+        "status": "in advertising",
+        "timestamp": "2025-11-20T12:41:36Z",
         "decision": "Approval"
       }
     ]
@@ -629,55 +638,6 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.1328466380388,
-        51.03848600297573
-      ]
-    },
-    "permitnum": "DP2025-05446",
-    "address": "#101B 1729 31 ST SW",
-    "applicant": "TRUSTPRO DEVELOPMENT",
-    "category": "Change of Use - Permitted Use",
-    "description": "REVISION: SECONDARY SUITE (CONVERSION FROM 4 BASEMENT DWELLING UNITS)",
-    "proposedusecode": "C2626",
-    "proposedusedescription": "SECONDARY SUITE",
-    "permitteddiscretionary": "Permitted",
-    "landusedistrict": "M-C1",
-    "landusedistrictdescription": "Multi-Residential - Contextual Low Profile",
-    "statuscurrent": "Released",
-    "applieddate": "2025-09-22T00:00:00.000",
-    "communitycode": "SHG",
-    "communityname": "SHAGANAPPI",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.038",
-    "longitude": "-114.133",
-    "locationcount": "9",
-    "locationtypes": "Titled Parcel;Building;Building;Building;Building;Building Suite;Building Suite;Building Suite;Building Suite",
-    "locationaddresses": "1729 31 ST SW;#102 1729 31 ST SW;#101 1729 31 ST SW;#202 1729 31 ST SW;#201 1729 31 ST SW;#101B 1729 31 ST SW;#102B 1729 31 ST SW;#201B 1729 31 ST SW;#202B 1729 31 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1328466,51.038486],[-114.1329067,51.038455],[-114.1329039,51.0385216],[-114.1331384,51.0384567],[-114.1331385,51.0385171],[-114.1328563,51.0384922],[-114.132863,51.0384793],[-114.1330887,51.0384934],[-114.1330924,51.0384791]]}",
-    "locationswkt": "MULTIPOINT ((-114.1328466380388 51.03848600297573),(-114.13290672123661 51.03845503690246),(-114.1329038889433 51.03852164516424),(-114.13313835865283 51.03845667908497),(-114.1331385318071 51.038517098982396),(-114.1328562661477 51.03849220394704),(-114.13286303079528 51.0384793499076),(-114.13308867235106 51.03849336889755),(-114.13309239574299 51.03847908893808))",
-    "decisiondate": "2025-09-24T00:00:00.000",
-    "mustcommencedate": "2027-09-24T00:00:00.000",
-    "decision": "Approval",
-    "decisionby": "Development Authority",
-    "releasedate": "2025-09-24T00:00:00.000",
-    "rss_guid": "22aea19172845dbf59c7502f3047367e",
-    "state_history": [
-      {
-        "status": "under review",
-        "timestamp": "2025-09-24T12:40:20Z"
-      },
-      {
-        "status": "released",
-        "timestamp": "2025-09-26T12:41:04Z",
-        "decision": "Approval"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
         -114.12488813697297,
         51.03764861818658
       ]
@@ -800,6 +760,55 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.1328466380388,
+        51.03848600297573
+      ]
+    },
+    "permitnum": "DP2025-05446",
+    "address": "#101B 1729 31 ST SW",
+    "applicant": "TRUSTPRO DEVELOPMENT",
+    "category": "Change of Use - Permitted Use",
+    "description": "REVISION: SECONDARY SUITE (CONVERSION FROM 4 BASEMENT DWELLING UNITS)",
+    "proposedusecode": "C2626",
+    "proposedusedescription": "SECONDARY SUITE",
+    "permitteddiscretionary": "Permitted",
+    "landusedistrict": "M-C1",
+    "landusedistrictdescription": "Multi-Residential - Contextual Low Profile",
+    "statuscurrent": "Released",
+    "applieddate": "2025-09-22T00:00:00.000",
+    "communitycode": "SHG",
+    "communityname": "SHAGANAPPI",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.038",
+    "longitude": "-114.133",
+    "locationcount": "9",
+    "locationtypes": "Titled Parcel;Building;Building;Building;Building;Building Suite;Building Suite;Building Suite;Building Suite",
+    "locationaddresses": "1729 31 ST SW;#102 1729 31 ST SW;#101 1729 31 ST SW;#202 1729 31 ST SW;#201 1729 31 ST SW;#101B 1729 31 ST SW;#102B 1729 31 ST SW;#201B 1729 31 ST SW;#202B 1729 31 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1328466,51.038486],[-114.1329067,51.038455],[-114.1329039,51.0385216],[-114.1331384,51.0384567],[-114.1331385,51.0385171],[-114.1328563,51.0384922],[-114.132863,51.0384793],[-114.1330887,51.0384934],[-114.1330924,51.0384791]]}",
+    "locationswkt": "MULTIPOINT ((-114.1328466380388 51.03848600297573),(-114.13290672123661 51.03845503690246),(-114.1329038889433 51.03852164516424),(-114.13313835865283 51.03845667908497),(-114.1331385318071 51.038517098982396),(-114.1328562661477 51.03849220394704),(-114.13286303079528 51.0384793499076),(-114.13308867235106 51.03849336889755),(-114.13309239574299 51.03847908893808))",
+    "decisiondate": "2025-09-24T00:00:00.000",
+    "mustcommencedate": "2027-09-24T00:00:00.000",
+    "decision": "Approval",
+    "decisionby": "Development Authority",
+    "releasedate": "2025-09-24T00:00:00.000",
+    "rss_guid": "22aea19172845dbf59c7502f3047367e",
+    "state_history": [
+      {
+        "status": "under review",
+        "timestamp": "2025-09-24T12:40:20Z"
+      },
+      {
+        "status": "released",
+        "timestamp": "2025-09-26T12:41:04Z",
+        "decision": "Approval"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.13105342264434,
         51.02676987971174
       ]
@@ -912,6 +921,80 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.13850847355008,
+        51.03241134700486
+      ]
+    },
+    "permitnum": "DP2025-05381",
+    "address": "2419 35 ST SW",
+    "applicant": "SE7EN DEZIGN",
+    "category": "Residential - New Single / Semi / Duplex",
+    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "proposedusecode": "C1020; C2730",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "In Advertising",
+    "applieddate": "2025-09-17T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.032",
+    "longitude": "-114.139",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "2419 35 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1385085,51.0324113]}",
+    "locationswkt": "POINT (-114.13850847355008 51.03241134700486)",
+    "decisiondate": "2025-11-14T00:00:00.000",
+    "mustcommencedate": "2027-11-14T00:00:00.000",
+    "decision": "Approval",
+    "decisionby": "Development Authority",
+    "releasedate": null,
+    "rss_guid": "073223dfed850d64785be3dd7f7bb974",
+    "state_history": [
+      {
+        "status": "new",
+        "timestamp": "2025-09-19T12:39:52Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-09-20T12:37:01Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-09-24T12:40:20Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-10-24T12:43:58Z"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2025-10-26T12:37:58Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-10-31T12:41:11Z"
+      },
+      {
+        "status": "pending decision",
+        "timestamp": "2025-11-12T12:42:45Z",
+        "decision": "Approval"
+      },
+      {
+        "status": "in advertising",
+        "timestamp": "2025-11-19T12:42:28Z",
+        "decision": "Approval"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.13850847492873,
         51.032478770184575
       ]
@@ -1001,9 +1084,9 @@
     "longitude": "-114.141",
     "locationcount": "5",
     "locationtypes": "Titled Parcel;Building;Building;Building;Building",
-    "locationaddresses": "2436 37 ST SW;#2 2436 37 ST SW;#1 2436 37 ST SW;#3 2436 37 ST SW;#4 2436 37 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409683,51.0318965],[-114.1407458,51.0319226],[-114.1408748,51.0319241],[-114.1408699,51.0318706],[-114.1407439,51.0318693]]}",
-    "locationswkt": "MULTIPOINT ((-114.14096831477313 51.03189651098075),(-114.14074580401507 51.031922606742455),(-114.14087480305547 51.03192405149247),(-114.1408699362327 51.03187057728533),(-114.14074394603564 51.031869308701665))",
+    "locationaddresses": "2436 37 ST SW;#3 2436 37 ST SW;#4 2436 37 ST SW;#1 2436 37 ST SW;#2 2436 37 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1409683,51.0318965],[-114.1408699,51.0318706],[-114.1407439,51.0318693],[-114.1408748,51.0319241],[-114.1407458,51.0319226]]}",
+    "locationswkt": "MULTIPOINT ((-114.14096831477313 51.03189651098075),(-114.1408699362327 51.03187057728533),(-114.14074394603564 51.031869308701665),(-114.14087480305547 51.03192405149247),(-114.14074580401507 51.031922606742455))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -1030,80 +1113,6 @@
       {
         "status": "hold",
         "timestamp": "2025-11-12T12:42:45Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.13850847355008,
-        51.03241134700486
-      ]
-    },
-    "permitnum": "DP2025-05381",
-    "address": "2419 35 ST SW",
-    "applicant": "SE7EN DEZIGN",
-    "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
-    "proposedusecode": "C1020; C2730",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "In Advertising",
-    "applieddate": "2025-09-17T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.032",
-    "longitude": "-114.139",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "2419 35 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1385085,51.0324113]}",
-    "locationswkt": "POINT (-114.13850847355008 51.03241134700486)",
-    "decisiondate": "2025-11-14T00:00:00.000",
-    "mustcommencedate": "2027-11-14T00:00:00.000",
-    "decision": "Approval",
-    "decisionby": "Development Authority",
-    "releasedate": null,
-    "rss_guid": "073223dfed850d64785be3dd7f7bb974",
-    "state_history": [
-      {
-        "status": "new",
-        "timestamp": "2025-09-19T12:39:52Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-09-20T12:37:01Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2025-09-24T12:40:20Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-10-24T12:43:58Z"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2025-10-26T12:37:58Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-10-31T12:41:11Z"
-      },
-      {
-        "status": "pending decision",
-        "timestamp": "2025-11-12T12:42:45Z",
-        "decision": "Approval"
-      },
-      {
-        "status": "in advertising",
-        "timestamp": "2025-11-19T12:42:28Z",
-        "decision": "Approval"
       }
     ]
   },
@@ -1338,9 +1347,9 @@
     "longitude": "-114.134",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Building;Building",
-    "locationaddresses": "1735 32 ST SW;1735 32 ST SW;1729 32 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1342593,51.0383945],[-114.1343945,51.0383535],[-114.1344035,51.0384864]]}",
-    "locationswkt": "MULTIPOINT ((-114.13425928414583 51.0383944912467),(-114.13439448038324 51.03835345048674),(-114.13440347712172 51.03848635356444))",
+    "locationaddresses": "1735 32 ST SW;1729 32 ST SW;1735 32 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1342593,51.0383945],[-114.1344035,51.0384864],[-114.1343945,51.0383535]]}",
+    "locationswkt": "MULTIPOINT ((-114.13425928414583 51.0383944912467),(-114.13440347712172 51.03848635356444),(-114.13439448038324 51.03835345048674))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -1720,90 +1729,6 @@
       {
         "status": "under review",
         "timestamp": "2025-09-24T12:40:20Z",
-        "decision": "Approval"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.14055444227661,
-        51.0363643963335
-      ]
-    },
-    "permitnum": "DP2025-04841",
-    "address": "3730 19 AV SW",
-    "applicant": "FORMED ALLIANCE ARCHITECTURE STUDIO",
-    "category": "Residential - Multi-Family",
-    "description": "REVISION: RETAIL AND CONSUMER SERVICE, RESTAURANT: FOOD SERVICE ONLY; DWELLING UNIT (CHANGE TO DP2023-08299)",
-    "proposedusecode": "C1540; C2465; C2515",
-    "proposedusedescription": "DWELLING UNIT; RESTAURANT: FOOD SERVICE ONLY; RETAIL AND CONSUMER SERVICE",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "MU-1 f3.0h16",
-    "landusedistrictdescription": "Mixed Use - General",
-    "statuscurrent": "Released",
-    "applieddate": "2025-08-20T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.036",
-    "longitude": "-114.141",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "3730 19 AV SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1405544,51.0363644]}",
-    "locationswkt": "POINT (-114.14055444227661 51.0363643963335)",
-    "decisiondate": "2025-10-06T00:00:00.000",
-    "mustcommencedate": "2027-10-06T00:00:00.000",
-    "decision": "Approval",
-    "decisionby": "Development Authority",
-    "releasedate": "2025-11-06T00:00:00.000",
-    "rss_guid": "e0e3c2ea1ec8ad55f36af772fb7c3b51",
-    "state_history": [
-      {
-        "status": "hold",
-        "timestamp": "2025-08-22T12:38:50Z"
-      },
-      {
-        "status": "application received",
-        "timestamp": "2025-08-23T12:36:23Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-08-29T12:40:20Z"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2025-08-30T12:35:13Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2025-09-04T12:36:52Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-09-29T12:42:26Z"
-      },
-      {
-        "status": "pending decision",
-        "timestamp": "2025-10-04T12:36:23Z",
-        "decision": "Approval"
-      },
-      {
-        "status": "in advertising",
-        "timestamp": "2025-10-08T12:40:39Z",
-        "decision": "Approval"
-      },
-      {
-        "status": "pending release",
-        "timestamp": "2025-11-07T12:40:41Z",
-        "decision": "Approval"
-      },
-      {
-        "status": "released",
-        "timestamp": "2025-11-12T12:42:45Z",
         "decision": "Approval"
       }
     ]
