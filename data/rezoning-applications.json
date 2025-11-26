@@ -47,7 +47,7 @@
     "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2025-0179",
     "description": "Land Use Amendment to accommodate H-GO",
-    "statuscurrent": "Submitted",
+    "statuscurrent": "Under Review",
     "applieddate": "2025-09-05T21:03:36.000",
     "completeddate": null,
     "applicant": null,
@@ -76,6 +76,10 @@
       {
         "status": "submitted",
         "timestamp": "2025-10-27T12:43:02Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-11-26T12:43:54Z"
       }
     ]
   }
