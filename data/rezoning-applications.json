@@ -10,17 +10,13 @@
     "fromlud": "M-C1",
     "proposedlud": "MU-1",
     "address": "2208 37 ST SW",
-    "locationaddresses": "2216 37 ST SW;2220 37 ST SW;2208 37 ST SW;2212 37 ST SW;2224 37 ST SW",
+    "locationaddresses": "2220 37 ST SW;2208 37 ST SW;2216 37 ST SW;2212 37 ST SW;2224 37 ST SW",
     "locationcount": "5",
-    "latitude": "51.03413146326813",
-    "longitude": "-114.14096843712646",
+    "latitude": "51.03399454030893",
+    "longitude": "-114.14096843517774",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
-        [
-          -114.14096843712646,
-          51.03413146326813
-        ],
         [
           -114.14096843517774,
           51.03399454030893
@@ -28,6 +24,10 @@
         [
           -114.14096842674165,
           51.03440530020435
+        ],
+        [
+          -114.14096843712646,
+          51.03413146326813
         ],
         [
           -114.14096842481862,
@@ -51,7 +51,7 @@
     "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2025-0211",
     "description": "Land Use Amendment to accommodate H-GO",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "Miscellaneous",
     "applieddate": "2025-10-21T10:51:04.000",
     "completeddate": null,
     "applicant": "HORIZON LAND SURVEYS",
@@ -88,46 +88,10 @@
       {
         "status": "under review",
         "timestamp": "2025-11-19T12:42:28Z"
-      }
-    ]
-  },
-  {
-    "permittype": "LU / OP / Closure (LOC)",
-    "permitnum": "LOC2025-0179",
-    "description": "Land Use Amendment to accommodate H-GO",
-    "statuscurrent": "Under Review",
-    "applieddate": "2025-09-05T21:03:36.000",
-    "completeddate": null,
-    "applicant": null,
-    "fromlud": "DC",
-    "proposedlud": "H-GO",
-    "address": "3040 29 ST SW",
-    "locationaddresses": "3040 29 ST SW;3036 29 ST SW",
-    "locationcount": "2",
-    "latitude": "51.02711535657239",
-    "longitude": "-114.12936699119656",
-    "multipoint": {
-      "type": "MultiPoint",
-      "coordinates": [
-        [
-          -114.12936699119656,
-          51.02711535657239
-        ],
-        [
-          -114.12936734346609,
-          51.02725215343569
-        ]
-      ]
-    },
-    "rss_guid": "bf58c8113348792ca1f7b885fd461609",
-    "state_history": [
-      {
-        "status": "submitted",
-        "timestamp": "2025-10-27T12:43:02Z"
       },
       {
-        "status": "under review",
-        "timestamp": "2025-11-26T12:43:54Z"
+        "status": "miscellaneous",
+        "timestamp": "2025-12-06T12:38:58Z"
       }
     ]
   }
