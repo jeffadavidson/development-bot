@@ -1,6 +1,38 @@
 [
   {
     "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2025-0244",
+    "description": "Land Use Amendment to accommodate M-C1",
+    "statuscurrent": "Submitted",
+    "applieddate": "2025-12-16T09:43:47.000",
+    "completeddate": null,
+    "applicant": "PRIME DESIGN SOLUTIONS",
+    "fromlud": "R-G",
+    "proposedlud": "M-C1",
+    "address": "3232 30 ST SW",
+    "locationaddresses": "3232 30 ST SW",
+    "locationcount": "1",
+    "latitude": "51.02582595315939",
+    "longitude": "-114.13105438177455",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.13105438177455,
+          51.02582595315939
+        ]
+      ]
+    },
+    "rss_guid": "5ec74185ebb7eb5e2bf2f70050aefeb2",
+    "state_history": [
+      {
+        "status": "submitted",
+        "timestamp": "2025-12-18T12:43:54Z"
+      }
+    ]
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2025-0234",
     "description": "Land Use Amendment to accommodate MU-1",
     "statuscurrent": "Submitted",
@@ -10,13 +42,17 @@
     "fromlud": "M-C1",
     "proposedlud": "MU-1",
     "address": "2208 37 ST SW",
-    "locationaddresses": "2220 37 ST SW;2224 37 ST SW;2212 37 ST SW;2208 37 ST SW;2216 37 ST SW",
+    "locationaddresses": "2216 37 ST SW;2220 37 ST SW;2224 37 ST SW;2212 37 ST SW;2208 37 ST SW",
     "locationcount": "5",
-    "latitude": "51.03399454030893",
-    "longitude": "-114.14096843517774",
+    "latitude": "51.03413146326813",
+    "longitude": "-114.14096843712646",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
+        [
+          -114.14096843712646,
+          51.03413146326813
+        ],
         [
           -114.14096843517774,
           51.03399454030893
@@ -32,10 +68,6 @@
         [
           -114.14096842674165,
           51.03440530020435
-        ],
-        [
-          -114.14096843712646,
-          51.03413146326813
         ]
       ]
     },
