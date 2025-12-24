@@ -7,50 +7,6 @@
         51.02617566667675
       ]
     },
-    "permitnum": "DP2025-07355",
-    "address": "3627 KILDARE CR SW",
-    "applicant": "AMAYA ARCHITECTURAL DESIGN",
-    "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING (WEST PARCEL) , ACCESSORY BUILDING (GARAGE)",
-    "proposedusecode": "B8172",
-    "proposedusedescription": "SINGLE-DETACHED DWELLING",
-    "permitteddiscretionary": "Permitted with a Relaxation",
-    "landusedistrict": "DC",
-    "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
-    "statuscurrent": "Application Received",
-    "applieddate": "2025-12-19T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.026",
-    "longitude": "-114.140",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "3627 KILDARE CR SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1395844,51.0261757]}",
-    "locationswkt": "POINT (-114.13958435547566 51.02617566667675)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "341ce7c0195e2c07a169c69cd160d68b",
-    "state_history": [
-      {
-        "status": "application received",
-        "timestamp": "2025-12-21T12:40:04Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.13958435547566,
-        51.02617566667675
-      ]
-    },
     "permitnum": "DP2025-07356",
     "address": "3627 KILDARE CR SW",
     "applicant": "AMAYA ARCHITECTURAL DESIGN",
@@ -127,6 +83,50 @@
     "state_history": [
       {
         "status": "hold",
+        "timestamp": "2025-12-21T12:40:04Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.13958435547566,
+        51.02617566667675
+      ]
+    },
+    "permitnum": "DP2025-07355",
+    "address": "3627 KILDARE CR SW",
+    "applicant": "AMAYA ARCHITECTURAL DESIGN",
+    "category": "Residential - New Single / Semi / Duplex",
+    "description": "NEW: SINGLE DETACHED DWELLING (WEST PARCEL) , ACCESSORY BUILDING (GARAGE)",
+    "proposedusecode": "B8172",
+    "proposedusedescription": "SINGLE-DETACHED DWELLING",
+    "permitteddiscretionary": "Permitted with a Relaxation",
+    "landusedistrict": "DC",
+    "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
+    "statuscurrent": "Application Received",
+    "applieddate": "2025-12-19T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.026",
+    "longitude": "-114.140",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "3627 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1395844,51.0261757]}",
+    "locationswkt": "POINT (-114.13958435547566 51.02617566667675)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "341ce7c0195e2c07a169c69cd160d68b",
+    "state_history": [
+      {
+        "status": "application received",
         "timestamp": "2025-12-21T12:40:04Z"
       }
     ]
@@ -572,62 +572,6 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13387849364783,
-        51.02990410491993
-      ]
-    },
-    "permitnum": "DP2025-06721",
-    "address": "2804 32 ST SW",
-    "applicant": "QAA DESIGNS",
-    "category": "Residential - Multi-Family",
-    "description": "NEW: DWELLING UNITS (1 BUILDING), SECONDARY SUITES, ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
-    "proposedusecode": "C1540; C2626",
-    "proposedusedescription": "DWELLING UNIT; SECONDARY SUITE",
-    "permitteddiscretionary": "Permitted",
-    "landusedistrict": "H-GO",
-    "landusedistrictdescription": "Housing - Grade Oriented District (H-GO)",
-    "statuscurrent": "In Circulation",
-    "applieddate": "2025-11-26T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.030",
-    "longitude": "-114.134",
-    "locationcount": "2",
-    "locationtypes": "Titled Parcel;Building",
-    "locationaddresses": "2804 32 ST SW;2804 32 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1338785,51.0299041],[-114.1337464,51.0298749]]}",
-    "locationswkt": "MULTIPOINT ((-114.13387849364783 51.02990410491993),(-114.13374638406422 51.029874922596036))",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "07d3c56d55707c70f87e54086c66f9ac",
-    "state_history": [
-      {
-        "status": "hold",
-        "timestamp": "2025-11-28T12:41:31Z"
-      },
-      {
-        "status": "application received",
-        "timestamp": "2025-11-29T12:38:44Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-12-03T12:45:14Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2025-12-04T12:45:30Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
         -114.13567746712597,
         51.03547951812894
       ]
@@ -677,6 +621,62 @@
       {
         "status": "in circulation",
         "timestamp": "2025-12-06T12:38:57Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.13387849364783,
+        51.02990410491993
+      ]
+    },
+    "permitnum": "DP2025-06721",
+    "address": "2804 32 ST SW",
+    "applicant": "QAA DESIGNS",
+    "category": "Residential - Multi-Family",
+    "description": "NEW: DWELLING UNITS (1 BUILDING), SECONDARY SUITES, ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "proposedusecode": "C1540; C2626",
+    "proposedusedescription": "DWELLING UNIT; SECONDARY SUITE",
+    "permitteddiscretionary": "Permitted",
+    "landusedistrict": "H-GO",
+    "landusedistrictdescription": "Housing - Grade Oriented District (H-GO)",
+    "statuscurrent": "In Circulation",
+    "applieddate": "2025-11-26T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.030",
+    "longitude": "-114.134",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "2804 32 ST SW;2804 32 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1338785,51.0299041],[-114.1337464,51.0298749]]}",
+    "locationswkt": "MULTIPOINT ((-114.13387849364783 51.02990410491993),(-114.13374638406422 51.029874922596036))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "07d3c56d55707c70f87e54086c66f9ac",
+    "state_history": [
+      {
+        "status": "hold",
+        "timestamp": "2025-11-28T12:41:31Z"
+      },
+      {
+        "status": "application received",
+        "timestamp": "2025-11-29T12:38:44Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-12-03T12:45:14Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-12-04T12:45:30Z"
       }
     ]
   },
@@ -1248,6 +1248,62 @@
         51.03845170555034
       ]
     },
+    "permitnum": "DP2025-05613",
+    "address": "1731 24 ST SW",
+    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
+    "category": "Residential - New Single / Semi / Duplex",
+    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE) SITE D",
+    "proposedusecode": "C1020; C2730",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-09-30T00:00:00.000",
+    "communitycode": "SHG",
+    "communityname": "SHAGANAPPI",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.038",
+    "longitude": "-114.118",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "1731 24 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1180934,51.0384517]}",
+    "locationswkt": "POINT (-114.11809339906198 51.03845170555034)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "5fc3713cbd55262e2e676112e41930ee",
+    "state_history": [
+      {
+        "status": "new",
+        "timestamp": "2025-10-02T12:37:59Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-10-04T12:36:23Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-10-16T12:43:08Z"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2025-11-12T12:42:45Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.11809339906198,
+        51.03845170555034
+      ]
+    },
     "permitnum": "DP2025-05612",
     "address": "1731 24 ST SW",
     "applicant": "JOHN TRINH \u0026 ASSOCIATES",
@@ -1389,62 +1445,6 @@
     "decisionby": null,
     "releasedate": null,
     "rss_guid": "b5c8e1c39e1fec64ccf0a2a945f963cb",
-    "state_history": [
-      {
-        "status": "new",
-        "timestamp": "2025-10-02T12:37:59Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-10-04T12:36:23Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2025-10-16T12:43:08Z"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2025-11-12T12:42:45Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.11809339906198,
-        51.03845170555034
-      ]
-    },
-    "permitnum": "DP2025-05613",
-    "address": "1731 24 ST SW",
-    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
-    "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING, ACCESSORY RESIDENTIAL BUILDING (GARAGE) SITE D",
-    "proposedusecode": "C1020; C2730",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Hold",
-    "applieddate": "2025-09-30T00:00:00.000",
-    "communitycode": "SHG",
-    "communityname": "SHAGANAPPI",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.038",
-    "longitude": "-114.118",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "1731 24 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1180934,51.0384517]}",
-    "locationswkt": "POINT (-114.11809339906198 51.03845170555034)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "5fc3713cbd55262e2e676112e41930ee",
     "state_history": [
       {
         "status": "new",
