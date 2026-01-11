@@ -3,6 +3,50 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.14147893563145,
+        51.03079710261521
+      ]
+    },
+    "permitnum": "DP2026-00115",
+    "address": "2619 37 ST SW",
+    "applicant": "NINES DESIGN",
+    "category": "Change of Use - Permitted Use",
+    "description": "CHANGE OF USE: RETAIL AND CONSUMER SERVICE",
+    "proposedusecode": "C2515",
+    "proposedusedescription": "RETAIL AND CONSUMER SERVICE",
+    "permitteddiscretionary": "Permitted",
+    "landusedistrict": "MU-1 f3.0h16",
+    "landusedistrictdescription": "Mixed Use - General",
+    "statuscurrent": "Hold",
+    "applieddate": "2026-01-09T00:00:00.000",
+    "communitycode": "GDL",
+    "communityname": "GLENDALE",
+    "ward": "6",
+    "quadrant": "SW",
+    "latitude": "51.031",
+    "longitude": "-114.141",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "2619 37 ST SW;2619 37 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1414789,51.0307971],[-114.1416203,51.0308028]]}",
+    "locationswkt": "MULTIPOINT ((-114.14147893563145 51.03079710261521),(-114.14162026192166 51.03080276579444))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "63b345c85b4a0d926c8f87b5459e01a9",
+    "state_history": [
+      {
+        "status": "hold",
+        "timestamp": "2026-01-11T12:41:54Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.11954564001826,
         51.03610459694285
       ]
@@ -63,54 +107,6 @@
         51.03103694649636
       ]
     },
-    "permitnum": "DP2025-07520",
-    "address": "2616 28 ST SW",
-    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
-    "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING (SOUTH PARCEL), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
-    "proposedusecode": "C1020; C2730",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "In Circulation",
-    "applieddate": "2025-12-30T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.031",
-    "longitude": "-114.128",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "2616 28 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1279178,51.0310369]}",
-    "locationswkt": "POINT (-114.12791780739575 51.03103694649636)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "fd63f8f294b8e9ba5687953a41cdfc38",
-    "state_history": [
-      {
-        "status": "under review",
-        "timestamp": "2026-01-01T12:43:30Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2026-01-08T12:48:14Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.12791780739575,
-        51.03103694649636
-      ]
-    },
     "permitnum": "DP2025-07521",
     "address": "2616 28 ST SW",
     "applicant": "JOHN TRINH \u0026 ASSOCIATES",
@@ -140,6 +136,54 @@
     "decisionby": null,
     "releasedate": null,
     "rss_guid": "002f506a7d307768c3fd53d88d46b6bf",
+    "state_history": [
+      {
+        "status": "under review",
+        "timestamp": "2026-01-01T12:43:30Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2026-01-08T12:48:14Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.12791780739575,
+        51.03103694649636
+      ]
+    },
+    "permitnum": "DP2025-07520",
+    "address": "2616 28 ST SW",
+    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
+    "category": "Residential - New Single / Semi / Duplex",
+    "description": "NEW: SINGLE DETACHED DWELLING (SOUTH PARCEL), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "proposedusecode": "C1020; C2730",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "In Circulation",
+    "applieddate": "2025-12-30T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.031",
+    "longitude": "-114.128",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "2616 28 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1279178,51.0310369]}",
+    "locationswkt": "POINT (-114.12791780739575 51.03103694649636)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "fd63f8f294b8e9ba5687953a41cdfc38",
     "state_history": [
       {
         "status": "under review",
@@ -263,54 +307,6 @@
         51.02617566667675
       ]
     },
-    "permitnum": "DP2025-07355",
-    "address": "3627 KILDARE CR SW",
-    "applicant": "AMAYA ARCHITECTURAL DESIGN",
-    "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING (EAST PARCEL), ACCESSORY BUILDING (GARAGE)",
-    "proposedusecode": "B8172",
-    "proposedusedescription": "SINGLE-DETACHED DWELLING",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "DC",
-    "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
-    "statuscurrent": "In Circulation",
-    "applieddate": "2025-12-19T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.026",
-    "longitude": "-114.140",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "3627 KILDARE CR SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1395844,51.0261757]}",
-    "locationswkt": "POINT (-114.13958435547566 51.02617566667675)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "341ce7c0195e2c07a169c69cd160d68b",
-    "state_history": [
-      {
-        "status": "application received",
-        "timestamp": "2025-12-21T12:40:04Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2025-12-31T12:43:42Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.13958435547566,
-        51.02617566667675
-      ]
-    },
     "permitnum": "DP2025-07356",
     "address": "3627 KILDARE CR SW",
     "applicant": "AMAYA ARCHITECTURAL DESIGN",
@@ -340,6 +336,54 @@
     "decisionby": null,
     "releasedate": null,
     "rss_guid": "1657677cf4a082c4f5c1348efd16f881",
+    "state_history": [
+      {
+        "status": "application received",
+        "timestamp": "2025-12-21T12:40:04Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-12-31T12:43:42Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.13958435547566,
+        51.02617566667675
+      ]
+    },
+    "permitnum": "DP2025-07355",
+    "address": "3627 KILDARE CR SW",
+    "applicant": "AMAYA ARCHITECTURAL DESIGN",
+    "category": "Residential - New Single / Semi / Duplex",
+    "description": "NEW: SINGLE DETACHED DWELLING (EAST PARCEL), ACCESSORY BUILDING (GARAGE)",
+    "proposedusecode": "B8172",
+    "proposedusedescription": "SINGLE-DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "DC",
+    "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
+    "statuscurrent": "In Circulation",
+    "applieddate": "2025-12-19T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.026",
+    "longitude": "-114.140",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "3627 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1395844,51.0261757]}",
+    "locationswkt": "POINT (-114.13958435547566 51.02617566667675)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "341ce7c0195e2c07a169c69cd160d68b",
     "state_history": [
       {
         "status": "application received",
@@ -421,7 +465,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "MU-1 f4.5h23",
     "landusedistrictdescription": "Mixed Use - General",
-    "statuscurrent": "Pending Decision",
+    "statuscurrent": "Released",
     "applieddate": "2025-12-16T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -434,11 +478,11 @@
     "locationaddresses": "1912 26A ST SW;1912 26A ST SW",
     "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1250172,51.0373781],[-114.1248736,51.0373741]]}",
     "locationswkt": "MULTIPOINT ((-114.12501718945985 51.03737807756217),(-114.12487355420431 51.03737412280358))",
-    "decisiondate": null,
-    "mustcommencedate": null,
+    "decisiondate": "2026-01-09T00:00:00.000",
+    "mustcommencedate": "2028-01-09T00:00:00.000",
     "decision": "Approval",
     "decisionby": "Development Authority",
-    "releasedate": null,
+    "releasedate": "2026-01-09T00:00:00.000",
     "rss_guid": "81a2634c3e06d189039fd4afa53882db",
     "state_history": [
       {
@@ -460,6 +504,11 @@
       {
         "status": "pending decision",
         "timestamp": "2026-01-09T12:46:26Z",
+        "decision": "Approval"
+      },
+      {
+        "status": "released",
+        "timestamp": "2026-01-11T12:41:54Z",
         "decision": "Approval"
       }
     ]
@@ -524,8 +573,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.11917901823068,
-        51.03738058086621
+        -114.11917938384823,
+        51.03751754829934
       ]
     },
     "permitnum": "DP2025-07148",
@@ -544,13 +593,13 @@
     "communityname": "RICHMOND",
     "ward": "8",
     "quadrant": "SW",
-    "latitude": "51.037",
+    "latitude": "51.038",
     "longitude": "-114.119",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "1910 24A ST SW;1906 24A ST SW;1902 24A ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.119179,51.0373806],[-114.1191794,51.0375175],[-114.1191797,51.0376545]]}",
-    "locationswkt": "MULTIPOINT ((-114.11917901823068 51.03738058086621),(-114.11917938384823 51.03751754829934),(-114.1191797352102 51.03765451574377))",
+    "locationaddresses": "1906 24A ST SW;1902 24A ST SW;1910 24A ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1191794,51.0375175],[-114.1191797,51.0376545],[-114.119179,51.0373806]]}",
+    "locationswkt": "MULTIPOINT ((-114.11917938384823 51.03751754829934),(-114.1191797352102 51.03765451574377),(-114.11917901823068 51.03738058086621))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -632,8 +681,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.117719109083,
-        51.03816513042562
+        -114.11771897063248,
+        51.03800357581678
       ]
     },
     "permitnum": "DP2025-07002",
@@ -656,9 +705,9 @@
     "longitude": "-114.118",
     "locationcount": "2",
     "locationtypes": "Titled Parcel;Titled Parcel",
-    "locationaddresses": "1740 24 ST SW;1742 24 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1177191,51.0381651],[-114.117719,51.0380036]]}",
-    "locationswkt": "MULTIPOINT ((-114.117719109083 51.03816513042562),(-114.11771897063248 51.03800357581678))",
+    "locationaddresses": "1742 24 ST SW;1740 24 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.117719,51.0380036],[-114.1177191,51.0381651]]}",
+    "locationswkt": "MULTIPOINT ((-114.11771897063248 51.03800357581678),(-114.117719109083 51.03816513042562))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -1013,6 +1062,67 @@
         51.031039851340346
       ]
     },
+    "permitnum": "DP2025-06409",
+    "address": "2616 25 ST SW",
+    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
+    "category": "Residential - New Single / Semi / Duplex",
+    "description": "NEW: SINGLE DETACHED DWELLING (NORTH PARCEL), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "proposedusecode": "C1020; C2730",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "In Advertising",
+    "applieddate": "2025-11-14T00:00:00.000",
+    "communitycode": "RIC",
+    "communityname": "RICHMOND",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.031",
+    "longitude": "-114.121",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "2616 25 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1206207,51.0310399]}",
+    "locationswkt": "POINT (-114.12062068945157 51.031039851340346)",
+    "decisiondate": "2025-12-24T00:00:00.000",
+    "mustcommencedate": "2027-12-24T00:00:00.000",
+    "decision": "Approval",
+    "decisionby": "Development Authority",
+    "releasedate": null,
+    "rss_guid": "60ecaa4d39297820f2704412f5a1f612",
+    "state_history": [
+      {
+        "status": "under review",
+        "timestamp": "2025-11-19T12:42:28Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-11-22T12:36:19Z"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2025-12-14T12:39:43Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-12-18T12:43:54Z"
+      },
+      {
+        "status": "in advertising",
+        "timestamp": "2025-12-31T12:43:42Z",
+        "decision": "Approval"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.12062068945157,
+        51.031039851340346
+      ]
+    },
     "permitnum": "DP2025-06407",
     "address": "2616 25 ST SW",
     "applicant": "JOHN TRINH \u0026 ASSOCIATES",
@@ -1070,60 +1180,55 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.12062068945157,
-        51.031039851340346
+        -114.14147463452237,
+        51.0349800777427
       ]
     },
-    "permitnum": "DP2025-06409",
-    "address": "2616 25 ST SW",
-    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
-    "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING (NORTH PARCEL), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
-    "proposedusecode": "C1020; C2730",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
+    "permitnum": "DP2025-06377",
+    "address": "2027 37 ST SW",
+    "applicant": "MIDNIGHT DESIGN STUDIO",
+    "category": "Mixed Use - Other Areas",
+    "description": "NEW: LIVE WORK UNITS (3), MULTI-RESIDENTIAL DEVELOPMENT (2 BUILDINGS)",
+    "proposedusecode": "C1920; C2050",
+    "proposedusedescription": "LIVE WORK UNIT; MULTI-RESIDENTIAL DEVELOPMENT",
     "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "In Advertising",
-    "applieddate": "2025-11-14T00:00:00.000",
-    "communitycode": "RIC",
-    "communityname": "RICHMOND",
-    "ward": "8",
+    "landusedistrict": "M-C1",
+    "landusedistrictdescription": "Multi-Residential - Contextual Low Profile",
+    "statuscurrent": "In Circulation",
+    "applieddate": "2025-11-12T00:00:00.000",
+    "communitycode": "GDL",
+    "communityname": "GLENDALE",
+    "ward": "6",
     "quadrant": "SW",
-    "latitude": "51.031",
-    "longitude": "-114.121",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "2616 25 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1206207,51.0310399]}",
-    "locationswkt": "POINT (-114.12062068945157 51.031039851340346)",
-    "decisiondate": "2025-12-24T00:00:00.000",
-    "mustcommencedate": "2027-12-24T00:00:00.000",
-    "decision": "Approval",
-    "decisionby": "Development Authority",
+    "latitude": "51.035",
+    "longitude": "-114.141",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "2027 37 ST SW;2027 37 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1414746,51.0349801],[-114.1416192,51.0349834]]}",
+    "locationswkt": "MULTIPOINT ((-114.14147463452237 51.0349800777427),(-114.14161918854539 51.034983372711906))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
     "releasedate": null,
-    "rss_guid": "60ecaa4d39297820f2704412f5a1f612",
+    "rss_guid": "84f2e8ae44c568e5ad3d634e1f66af40",
     "state_history": [
       {
+        "status": "hold",
+        "timestamp": "2025-11-15T12:36:57Z"
+      },
+      {
+        "status": "application received",
+        "timestamp": "2025-11-27T12:42:53Z"
+      },
+      {
         "status": "under review",
-        "timestamp": "2025-11-19T12:42:28Z"
+        "timestamp": "2025-11-28T12:41:31Z"
       },
       {
         "status": "in circulation",
-        "timestamp": "2025-11-22T12:36:19Z"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2025-12-14T12:39:43Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-12-18T12:43:54Z"
-      },
-      {
-        "status": "in advertising",
-        "timestamp": "2025-12-31T12:43:42Z",
-        "decision": "Approval"
+        "timestamp": "2025-12-11T12:47:27Z"
       }
     ]
   },
@@ -1184,62 +1289,6 @@
       {
         "status": "hold",
         "timestamp": "2025-12-31T12:43:42Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.14147463452237,
-        51.0349800777427
-      ]
-    },
-    "permitnum": "DP2025-06377",
-    "address": "2027 37 ST SW",
-    "applicant": "MIDNIGHT DESIGN STUDIO",
-    "category": "Mixed Use - Other Areas",
-    "description": "NEW: LIVE WORK UNITS (3), MULTI-RESIDENTIAL DEVELOPMENT (2 BUILDINGS)",
-    "proposedusecode": "C1920; C2050",
-    "proposedusedescription": "LIVE WORK UNIT; MULTI-RESIDENTIAL DEVELOPMENT",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "M-C1",
-    "landusedistrictdescription": "Multi-Residential - Contextual Low Profile",
-    "statuscurrent": "In Circulation",
-    "applieddate": "2025-11-12T00:00:00.000",
-    "communitycode": "GDL",
-    "communityname": "GLENDALE",
-    "ward": "6",
-    "quadrant": "SW",
-    "latitude": "51.035",
-    "longitude": "-114.141",
-    "locationcount": "2",
-    "locationtypes": "Titled Parcel;Building",
-    "locationaddresses": "2027 37 ST SW;2027 37 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1414746,51.0349801],[-114.1416192,51.0349834]]}",
-    "locationswkt": "MULTIPOINT ((-114.14147463452237 51.0349800777427),(-114.14161918854539 51.034983372711906))",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "84f2e8ae44c568e5ad3d634e1f66af40",
-    "state_history": [
-      {
-        "status": "hold",
-        "timestamp": "2025-11-15T12:36:57Z"
-      },
-      {
-        "status": "application received",
-        "timestamp": "2025-11-27T12:42:53Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-11-28T12:41:31Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2025-12-11T12:47:27Z"
       }
     ]
   },
