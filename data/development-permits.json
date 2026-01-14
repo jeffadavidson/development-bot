@@ -17,7 +17,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "MU-1 f3.0h16",
     "landusedistrictdescription": "Mixed Use - General",
-    "statuscurrent": "Hold",
+    "statuscurrent": "Application Received",
     "applieddate": "2026-01-09T00:00:00.000",
     "communitycode": "GDL",
     "communityname": "GLENDALE",
@@ -40,6 +40,10 @@
       {
         "status": "hold",
         "timestamp": "2026-01-11T12:41:54Z"
+      },
+      {
+        "status": "application received",
+        "timestamp": "2026-01-14T12:48:27Z"
       }
     ]
   },
@@ -573,8 +577,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.11917938384823,
-        51.03751754829934
+        -114.1191797352102,
+        51.03765451574377
       ]
     },
     "permitnum": "DP2025-07148",
@@ -597,9 +601,9 @@
     "longitude": "-114.119",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "1906 24A ST SW;1902 24A ST SW;1910 24A ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1191794,51.0375175],[-114.1191797,51.0376545],[-114.119179,51.0373806]]}",
-    "locationswkt": "MULTIPOINT ((-114.11917938384823 51.03751754829934),(-114.1191797352102 51.03765451574377),(-114.11917901823068 51.03738058086621))",
+    "locationaddresses": "1902 24A ST SW;1906 24A ST SW;1910 24A ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1191797,51.0376545],[-114.1191794,51.0375175],[-114.119179,51.0373806]]}",
+    "locationswkt": "MULTIPOINT ((-114.1191797352102 51.03765451574377),(-114.11917938384823 51.03751754829934),(-114.11917901823068 51.03738058086621))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
