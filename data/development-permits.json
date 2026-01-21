@@ -3,6 +3,50 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.13813669278441,
+        51.03331133806491
+      ]
+    },
+    "permitnum": "DP2026-00280",
+    "address": "2240 35 ST SW",
+    "applicant": "VSDG",
+    "category": "Residential - Multi-Family - Minor and Rowhouses",
+    "description": "NEW: ROWHOUSE BUILDING (1 BUILDING), SECONDARY SUITE (4 SUITES)",
+    "proposedusecode": "C2540",
+    "proposedusedescription": "ROWHOUSE BUILDING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "Hold",
+    "applieddate": "2026-01-19T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.033",
+    "longitude": "-114.138",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "2240 35 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1381367,51.0333113]}",
+    "locationswkt": "POINT (-114.13813669278441 51.03331133806491)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "6a8b6c7963ea7f78450c6a37c9a726a3",
+    "state_history": [
+      {
+        "status": "hold",
+        "timestamp": "2026-01-21T12:52:03Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.14147893563145,
         51.03079710261521
       ]
@@ -17,7 +61,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "MU-1 f3.0h16",
     "landusedistrictdescription": "Mixed Use - General",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "In Circulation",
     "applieddate": "2026-01-09T00:00:00.000",
     "communitycode": "GDL",
     "communityname": "GLENDALE",
@@ -48,6 +92,10 @@
       {
         "status": "under review",
         "timestamp": "2026-01-15T12:48:01Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2026-01-21T12:52:03Z"
       }
     ]
   },
@@ -115,54 +163,6 @@
         51.03103694649636
       ]
     },
-    "permitnum": "DP2025-07521",
-    "address": "2616 28 ST SW",
-    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
-    "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING (NORTH PARCEL), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
-    "proposedusecode": "C1020; C2730",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "In Circulation",
-    "applieddate": "2025-12-30T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.031",
-    "longitude": "-114.128",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "2616 28 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1279178,51.0310369]}",
-    "locationswkt": "POINT (-114.12791780739575 51.03103694649636)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "002f506a7d307768c3fd53d88d46b6bf",
-    "state_history": [
-      {
-        "status": "under review",
-        "timestamp": "2026-01-01T12:43:30Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2026-01-08T12:48:14Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.12791780739575,
-        51.03103694649636
-      ]
-    },
     "permitnum": "DP2025-07520",
     "address": "2616 28 ST SW",
     "applicant": "JOHN TRINH \u0026 ASSOCIATES",
@@ -192,6 +192,54 @@
     "decisionby": null,
     "releasedate": null,
     "rss_guid": "fd63f8f294b8e9ba5687953a41cdfc38",
+    "state_history": [
+      {
+        "status": "under review",
+        "timestamp": "2026-01-01T12:43:30Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2026-01-08T12:48:14Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.12791780739575,
+        51.03103694649636
+      ]
+    },
+    "permitnum": "DP2025-07521",
+    "address": "2616 28 ST SW",
+    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
+    "category": "Residential - New Single / Semi / Duplex",
+    "description": "NEW: SINGLE DETACHED DWELLING (NORTH PARCEL), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "proposedusecode": "C1020; C2730",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "In Circulation",
+    "applieddate": "2025-12-30T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.031",
+    "longitude": "-114.128",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "2616 28 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1279178,51.0310369]}",
+    "locationswkt": "POINT (-114.12791780739575 51.03103694649636)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "002f506a7d307768c3fd53d88d46b6bf",
     "state_history": [
       {
         "status": "under review",
@@ -693,8 +741,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.11771897063248,
-        51.03800357581678
+        -114.117719109083,
+        51.03816513042562
       ]
     },
     "permitnum": "DP2025-07002",
@@ -717,9 +765,9 @@
     "longitude": "-114.118",
     "locationcount": "2",
     "locationtypes": "Titled Parcel;Titled Parcel",
-    "locationaddresses": "1742 24 ST SW;1740 24 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.117719,51.0380036],[-114.1177191,51.0381651]]}",
-    "locationswkt": "MULTIPOINT ((-114.11771897063248 51.03800357581678),(-114.117719109083 51.03816513042562))",
+    "locationaddresses": "1740 24 ST SW;1742 24 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1177191,51.0381651],[-114.117719,51.0380036]]}",
+    "locationswkt": "MULTIPOINT ((-114.117719109083 51.03816513042562),(-114.11771897063248 51.03800357581678))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,

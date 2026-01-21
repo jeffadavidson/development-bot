@@ -42,7 +42,7 @@
     "fromlud": "M-C1",
     "proposedlud": "MU-1",
     "address": "2208 37 ST SW",
-    "locationaddresses": "2208 37 ST SW;2220 37 ST SW;2224 37 ST SW;2212 37 ST SW;2216 37 ST SW",
+    "locationaddresses": "2208 37 ST SW;2224 37 ST SW;2216 37 ST SW;2212 37 ST SW;2220 37 ST SW",
     "locationcount": "5",
     "latitude": "51.03440530020435",
     "longitude": "-114.14096842674165",
@@ -54,20 +54,20 @@
           51.03440530020435
         ],
         [
-          -114.14096843517774,
-          51.03399454030893
-        ],
-        [
           -114.14096841897259,
           51.0338576173637
+        ],
+        [
+          -114.14096843712646,
+          51.03413146326813
         ],
         [
           -114.14096842481862,
           51.03426838624132
         ],
         [
-          -114.14096843712646,
-          51.03413146326813
+          -114.14096843517774,
+          51.03399454030893
         ]
       ]
     },
@@ -80,54 +80,6 @@
       {
         "status": "under review",
         "timestamp": "2025-12-19T12:42:32Z"
-      }
-    ]
-  },
-  {
-    "permittype": "LU / OP / Closure (LOC)",
-    "permitnum": "LOC2025-0211",
-    "description": "Land Use Amendment to accommodate H-GO",
-    "statuscurrent": "Miscellaneous",
-    "applieddate": "2025-10-21T10:51:04.000",
-    "completeddate": null,
-    "applicant": "HORIZON LAND SURVEYS",
-    "fromlud": "DC",
-    "proposedlud": "H-GO",
-    "address": "2803 32 ST SW",
-    "locationaddresses": "2803 32 ST SW",
-    "locationcount": "1",
-    "latitude": "51.02988393422239",
-    "longitude": "-114.13425261481764",
-    "multipoint": {
-      "type": "MultiPoint",
-      "coordinates": [
-        [
-          -114.13425261481764,
-          51.02988393422239
-        ]
-      ]
-    },
-    "rss_guid": "4bec18a3c6e5d7530e6ef156b89d132b",
-    "state_history": [
-      {
-        "status": "submitted",
-        "timestamp": "2025-10-27T12:43:02Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-11-02T12:37:11Z"
-      },
-      {
-        "status": "submitted",
-        "timestamp": "2025-11-16T12:36:44Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-11-19T12:42:28Z"
-      },
-      {
-        "status": "miscellaneous",
-        "timestamp": "2025-12-06T12:38:58Z"
       }
     ]
   }
