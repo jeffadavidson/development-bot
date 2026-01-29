@@ -1,6 +1,38 @@
 [
   {
     "permittype": "LU / OP / Closure (LOC)",
+    "permitnum": "LOC2026-0009",
+    "description": "Land Use Amendment to accommodate R-CG",
+    "statuscurrent": "Submitted",
+    "applieddate": "2026-01-27T15:17:34.000",
+    "completeddate": null,
+    "applicant": "HORIZON LAND SURVEYS",
+    "fromlud": "DC",
+    "proposedlud": "R-CG",
+    "address": "2823 30 ST SW",
+    "locationaddresses": "2823 30 ST SW",
+    "locationcount": "1",
+    "latitude": "51.02919670018869",
+    "longitude": "-114.13142364827681",
+    "multipoint": {
+      "type": "MultiPoint",
+      "coordinates": [
+        [
+          -114.13142364827681,
+          51.02919670018869
+        ]
+      ]
+    },
+    "rss_guid": "327a4f4baba7aff5ecbadc76edb37ed6",
+    "state_history": [
+      {
+        "status": "submitted",
+        "timestamp": "2026-01-29T12:59:02Z"
+      }
+    ]
+  },
+  {
+    "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2025-0244",
     "description": "Land Use Amendment to accommodate M-C1",
     "statuscurrent": "Submitted",
