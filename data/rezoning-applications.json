@@ -3,7 +3,7 @@
     "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2026-0009",
     "description": "Land Use Amendment to accommodate R-CG",
-    "statuscurrent": "Submitted",
+    "statuscurrent": "Under Review",
     "applieddate": "2026-01-27T15:17:34.000",
     "completeddate": null,
     "applicant": "HORIZON LAND SURVEYS",
@@ -28,6 +28,10 @@
       {
         "status": "submitted",
         "timestamp": "2026-01-29T12:59:02Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2026-02-06T13:01:11Z"
       }
     ]
   },
@@ -67,20 +71,28 @@
     "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2025-0234",
     "description": "Land Use Amendment to accommodate MU-1",
-    "statuscurrent": "Submitted",
+    "statuscurrent": "Under Review",
     "applieddate": "2025-12-02T11:07:00.000",
     "completeddate": null,
     "applicant": "O2 PLANNING AND DESIGN",
     "fromlud": "M-C1",
     "proposedlud": "MU-1",
     "address": "2208 37 ST SW",
-    "locationaddresses": "2216 37 ST SW;2224 37 ST SW;2220 37 ST SW;2208 37 ST SW;2212 37 ST SW",
+    "locationaddresses": "2212 37 ST SW;2220 37 ST SW;2216 37 ST SW;2224 37 ST SW;2208 37 ST SW",
     "locationcount": "5",
-    "latitude": "51.03413146326813",
-    "longitude": "-114.14096843712646",
+    "latitude": "51.03426838624132",
+    "longitude": "-114.14096842481862",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
+        [
+          -114.14096842481862,
+          51.03426838624132
+        ],
+        [
+          -114.14096843517774,
+          51.03399454030893
+        ],
         [
           -114.14096843712646,
           51.03413146326813
@@ -90,16 +102,8 @@
           51.0338576173637
         ],
         [
-          -114.14096843517774,
-          51.03399454030893
-        ],
-        [
           -114.14096842674165,
           51.03440530020435
-        ],
-        [
-          -114.14096842481862,
-          51.03426838624132
         ]
       ]
     },
@@ -116,6 +120,10 @@
       {
         "status": "submitted",
         "timestamp": "2026-01-31T12:49:37Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2026-02-06T13:01:11Z"
       }
     ]
   }
