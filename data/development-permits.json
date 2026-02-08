@@ -117,7 +117,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Approved",
+    "statuscurrent": "In Advertising",
     "applieddate": "2026-01-30T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -150,6 +150,11 @@
         "status": "approved",
         "timestamp": "2026-02-05T13:04:01Z",
         "decision": "Approval"
+      },
+      {
+        "status": "in advertising",
+        "timestamp": "2026-02-08T12:51:56Z",
+        "decision": "Approval"
       }
     ]
   },
@@ -165,13 +170,13 @@
     "address": "3445 37 ST SW",
     "applicant": null,
     "category": "Signs - Discretionary Use",
-    "description": "TEMPORARY USE: SIGN - CLASS E (DIGITAL MESSAGE SIGN - )",
+    "description": "TEMPORARY USE: SIGN - CLASS E (DIGITAL MESSAGE SIGN)",
     "proposedusecode": "C2710",
     "proposedusedescription": "SIGN - CLASS E",
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Application Received",
+    "statuscurrent": "In Circulation",
     "applieddate": "2026-01-29T00:00:00.000",
     "communitycode": "GBK",
     "communityname": "GLENBROOK",
@@ -186,8 +191,8 @@
     "locationswkt": "POINT (-114.1414016842096 51.023170503221586)",
     "decisiondate": null,
     "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
+    "decision": "Approval",
+    "decisionby": "Development Authority",
     "releasedate": null,
     "rss_guid": "73c2d76655bf04efda4a3f73d5bccdfe",
     "state_history": [
@@ -198,6 +203,11 @@
       {
         "status": "application received",
         "timestamp": "2026-02-06T13:01:10Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2026-02-08T12:51:56Z",
+        "decision": "Approval"
       }
     ]
   },
@@ -219,7 +229,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "MU-1 h14",
     "landusedistrictdescription": "Mixed Use - General ",
-    "statuscurrent": "Hold",
+    "statuscurrent": "Application Received",
     "applieddate": "2026-01-28T00:00:00.000",
     "communitycode": "RIC",
     "communityname": "RICHMOND",
@@ -242,6 +252,10 @@
       {
         "status": "hold",
         "timestamp": "2026-01-30T12:57:10Z"
+      },
+      {
+        "status": "application received",
+        "timestamp": "2026-02-08T12:51:56Z"
       }
     ]
   },
@@ -645,62 +659,6 @@
         51.03103694649636
       ]
     },
-    "permitnum": "DP2025-07521",
-    "address": "2616 28 ST SW",
-    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
-    "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING (NORTH PARCEL), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
-    "proposedusecode": "C1020; C2730",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "In Circulation",
-    "applieddate": "2025-12-30T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.031",
-    "longitude": "-114.128",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "2616 28 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1279178,51.0310369]}",
-    "locationswkt": "POINT (-114.12791780739575 51.03103694649636)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "002f506a7d307768c3fd53d88d46b6bf",
-    "state_history": [
-      {
-        "status": "under review",
-        "timestamp": "2026-01-01T12:43:30Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2026-01-08T12:48:14Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2026-02-01T12:51:41Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2026-02-07T12:50:46Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.12791780739575,
-        51.03103694649636
-      ]
-    },
     "permitnum": "DP2025-07520",
     "address": "2616 28 ST SW",
     "applicant": "JOHN TRINH \u0026 ASSOCIATES",
@@ -730,6 +688,62 @@
     "decisionby": null,
     "releasedate": null,
     "rss_guid": "fd63f8f294b8e9ba5687953a41cdfc38",
+    "state_history": [
+      {
+        "status": "under review",
+        "timestamp": "2026-01-01T12:43:30Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2026-01-08T12:48:14Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2026-02-01T12:51:41Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2026-02-07T12:50:46Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.12791780739575,
+        51.03103694649636
+      ]
+    },
+    "permitnum": "DP2025-07521",
+    "address": "2616 28 ST SW",
+    "applicant": "JOHN TRINH \u0026 ASSOCIATES",
+    "category": "Residential - New Single / Semi / Duplex",
+    "description": "NEW: SINGLE DETACHED DWELLING (NORTH PARCEL), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "proposedusecode": "C1020; C2730",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; SINGLE DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "In Circulation",
+    "applieddate": "2025-12-30T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.031",
+    "longitude": "-114.128",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "2616 28 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1279178,51.0310369]}",
+    "locationswkt": "POINT (-114.12791780739575 51.03103694649636)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "002f506a7d307768c3fd53d88d46b6bf",
     "state_history": [
       {
         "status": "under review",
@@ -810,6 +824,66 @@
       {
         "status": "hold",
         "timestamp": "2026-02-05T13:04:01Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.1420060002,
+        51.023964511181774
+      ]
+    },
+    "permitnum": "DP2025-07360",
+    "address": "3812 33 AV SW",
+    "applicant": "COLLECTIVE DESIGN YYC",
+    "category": "Residential - Multi-Family",
+    "description": "NEW: ROWHOUSE BUILDING (1 BUILDING), ACCESSORY RESIDENTIAL BUILDING (GARAGE), SECONDARY SUITE (4 SUITES)",
+    "proposedusecode": "C1020; C2540; C2626",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; ROWHOUSE BUILDING; SECONDARY SUITE",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "In Circulation",
+    "applieddate": "2025-12-19T00:00:00.000",
+    "communitycode": "GBK",
+    "communityname": "GLENBROOK",
+    "ward": "6",
+    "quadrant": "SW",
+    "latitude": "51.024",
+    "longitude": "-114.142",
+    "locationcount": "2",
+    "locationtypes": "Titled Parcel;Building",
+    "locationaddresses": "3812 33 AV SW;3812 33 AV SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.142006,51.0239645],[-114.1422266,51.024018]]}",
+    "locationswkt": "MULTIPOINT ((-114.1420060002 51.023964511181774),(-114.1422266204501 51.02401804666028))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "bd5b20fabda20721abd18c13d2ddca31",
+    "state_history": [
+      {
+        "status": "hold",
+        "timestamp": "2025-12-21T12:40:04Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-12-31T12:43:42Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2026-01-24T12:42:00Z"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2026-01-28T12:52:15Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2026-02-06T13:01:10Z"
       }
     ]
   },
@@ -914,66 +988,6 @@
       {
         "status": "hold",
         "timestamp": "2026-02-04T13:00:54Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.1420060002,
-        51.023964511181774
-      ]
-    },
-    "permitnum": "DP2025-07360",
-    "address": "3812 33 AV SW",
-    "applicant": "COLLECTIVE DESIGN YYC",
-    "category": "Residential - Multi-Family",
-    "description": "NEW: ROWHOUSE BUILDING (1 BUILDING), ACCESSORY RESIDENTIAL BUILDING (GARAGE), SECONDARY SUITE (4 SUITES)",
-    "proposedusecode": "C1020; C2540; C2626",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; ROWHOUSE BUILDING; SECONDARY SUITE",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "In Circulation",
-    "applieddate": "2025-12-19T00:00:00.000",
-    "communitycode": "GBK",
-    "communityname": "GLENBROOK",
-    "ward": "6",
-    "quadrant": "SW",
-    "latitude": "51.024",
-    "longitude": "-114.142",
-    "locationcount": "2",
-    "locationtypes": "Titled Parcel;Building",
-    "locationaddresses": "3812 33 AV SW;3812 33 AV SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.142006,51.0239645],[-114.1422266,51.024018]]}",
-    "locationswkt": "MULTIPOINT ((-114.1420060002 51.023964511181774),(-114.1422266204501 51.02401804666028))",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "bd5b20fabda20721abd18c13d2ddca31",
-    "state_history": [
-      {
-        "status": "hold",
-        "timestamp": "2025-12-21T12:40:04Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2025-12-31T12:43:42Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2026-01-24T12:42:00Z"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2026-01-28T12:52:15Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2026-02-06T13:01:10Z"
       }
     ]
   },
@@ -1167,8 +1181,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.11917938384823,
-        51.03751754829934
+        -114.11917901823068,
+        51.03738058086621
       ]
     },
     "permitnum": "DP2025-07148",
@@ -1187,13 +1201,13 @@
     "communityname": "RICHMOND",
     "ward": "8",
     "quadrant": "SW",
-    "latitude": "51.038",
+    "latitude": "51.037",
     "longitude": "-114.119",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "1906 24A ST SW;1902 24A ST SW;1910 24A ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1191794,51.0375175],[-114.1191797,51.0376545],[-114.119179,51.0373806]]}",
-    "locationswkt": "MULTIPOINT ((-114.11917938384823 51.03751754829934),(-114.1191797352102 51.03765451574377),(-114.11917901823068 51.03738058086621))",
+    "locationaddresses": "1910 24A ST SW;1906 24A ST SW;1902 24A ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.119179,51.0373806],[-114.1191794,51.0375175],[-114.1191797,51.0376545]]}",
+    "locationswkt": "MULTIPOINT ((-114.11917901823068 51.03738058086621),(-114.11917938384823 51.03751754829934),(-114.1191797352102 51.03765451574377))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -1482,70 +1496,6 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.13567746712597,
-        51.03547951812894
-      ]
-    },
-    "permitnum": "DP2025-06709",
-    "address": "2021 33 ST SW",
-    "applicant": "ELLERGODT DESIGN",
-    "category": "Residential - Multi-Family",
-    "description": "NEW: DWELLING UNIT (1 BUILDING), SECONDARY SUITE (4 SUITES), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
-    "proposedusecode": "C1020; C1540; C2626",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; DWELLING UNIT; SECONDARY SUITE",
-    "permitteddiscretionary": "Permitted",
-    "landusedistrict": "H-GO",
-    "landusedistrictdescription": "Housing - Grade Oriented District (H-GO)",
-    "statuscurrent": "Hold",
-    "applieddate": "2025-11-26T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.035",
-    "longitude": "-114.136",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "2021 33 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1356775,51.0354795]}",
-    "locationswkt": "POINT (-114.13567746712597 51.03547951812894)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "47c2a6385adb35a239097f5b5224fe57",
-    "state_history": [
-      {
-        "status": "hold",
-        "timestamp": "2025-11-28T12:41:31Z"
-      },
-      {
-        "status": "application received",
-        "timestamp": "2025-11-29T12:38:44Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-12-03T12:45:14Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2025-12-06T12:38:57Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2026-01-08T12:48:14Z"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2026-01-09T12:46:26Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
         -114.13387849364783,
         51.02990410491993
       ]
@@ -1603,6 +1553,70 @@
       {
         "status": "hold",
         "timestamp": "2026-01-16T12:46:44Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.13567746712597,
+        51.03547951812894
+      ]
+    },
+    "permitnum": "DP2025-06709",
+    "address": "2021 33 ST SW",
+    "applicant": "ELLERGODT DESIGN",
+    "category": "Residential - Multi-Family",
+    "description": "NEW: DWELLING UNIT (1 BUILDING), SECONDARY SUITE (4 SUITES), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "proposedusecode": "C1020; C1540; C2626",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; DWELLING UNIT; SECONDARY SUITE",
+    "permitteddiscretionary": "Permitted",
+    "landusedistrict": "H-GO",
+    "landusedistrictdescription": "Housing - Grade Oriented District (H-GO)",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-11-26T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.035",
+    "longitude": "-114.136",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "2021 33 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1356775,51.0354795]}",
+    "locationswkt": "POINT (-114.13567746712597 51.03547951812894)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "47c2a6385adb35a239097f5b5224fe57",
+    "state_history": [
+      {
+        "status": "hold",
+        "timestamp": "2025-11-28T12:41:31Z"
+      },
+      {
+        "status": "application received",
+        "timestamp": "2025-11-29T12:38:44Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2025-12-03T12:45:14Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-12-06T12:38:57Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2026-01-08T12:48:14Z"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2026-01-09T12:46:26Z"
       }
     ]
   },
