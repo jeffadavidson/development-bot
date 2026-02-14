@@ -3,7 +3,7 @@
     "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2026-0016",
     "description": "Land Use Amendment to accommodate R-CG",
-    "statuscurrent": "Submitted",
+    "statuscurrent": "Under Review",
     "applieddate": "2026-02-05T09:54:54.000",
     "completeddate": null,
     "applicant": "HORIZON LAND SURVEYS",
@@ -28,6 +28,10 @@
       {
         "status": "submitted",
         "timestamp": "2026-02-07T12:50:47Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2026-02-14T12:50:45Z"
       }
     ]
   },
@@ -71,11 +75,11 @@
     "permittype": "LU / OP / Closure (LOC)",
     "permitnum": "LOC2025-0244",
     "description": "Land Use Amendment to accommodate M-C1",
-    "statuscurrent": "Submitted",
+    "statuscurrent": "Under Review",
     "applieddate": "2025-12-16T09:43:47.000",
     "completeddate": null,
     "applicant": "PRIME DESIGN SOLUTIONS",
-    "fromlud": "R-G",
+    "fromlud": "DC",
     "proposedlud": "M-C1",
     "address": "3232 30 ST SW",
     "locationaddresses": "3232 30 ST SW",
@@ -96,6 +100,10 @@
       {
         "status": "submitted",
         "timestamp": "2025-12-18T12:43:54Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2026-02-14T12:50:45Z"
       }
     ]
   },
@@ -110,32 +118,32 @@
     "fromlud": "M-C1",
     "proposedlud": "MU-1",
     "address": "2208 37 ST SW",
-    "locationaddresses": "2220 37 ST SW;2212 37 ST SW;2216 37 ST SW;2208 37 ST SW;2224 37 ST SW",
+    "locationaddresses": "2216 37 ST SW;2212 37 ST SW;2224 37 ST SW;2208 37 ST SW;2220 37 ST SW",
     "locationcount": "5",
-    "latitude": "51.03399454030893",
-    "longitude": "-114.14096843517774",
+    "latitude": "51.03413146326813",
+    "longitude": "-114.14096843712646",
     "multipoint": {
       "type": "MultiPoint",
       "coordinates": [
         [
-          -114.14096843517774,
-          51.03399454030893
+          -114.14096843712646,
+          51.03413146326813
         ],
         [
           -114.14096842481862,
           51.03426838624132
         ],
         [
-          -114.14096843712646,
-          51.03413146326813
+          -114.14096841897259,
+          51.0338576173637
         ],
         [
           -114.14096842674165,
           51.03440530020435
         ],
         [
-          -114.14096841897259,
-          51.0338576173637
+          -114.14096843517774,
+          51.03399454030893
         ]
       ]
     },
