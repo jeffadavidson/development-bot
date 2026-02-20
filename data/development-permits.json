@@ -17,7 +17,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "MU-1 f2.0h22; S-R",
     "landusedistrictdescription": "Mixed Use - General ; Special Purpose - Recreation",
-    "statuscurrent": "Application Received",
+    "statuscurrent": "Under Review",
     "applieddate": "2026-02-10T00:00:00.000",
     "communitycode": "RIC",
     "communityname": "RICHMOND",
@@ -48,6 +48,10 @@
       {
         "status": "application received",
         "timestamp": "2026-02-19T13:07:05Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2026-02-20T12:59:56Z"
       }
     ]
   },
@@ -69,7 +73,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "In Circulation",
     "applieddate": "2026-02-09T00:00:00.000",
     "communitycode": "RIC",
     "communityname": "RICHMOND",
@@ -100,6 +104,10 @@
       {
         "status": "under review",
         "timestamp": "2026-02-13T13:01:19Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2026-02-20T12:59:56Z"
       }
     ]
   },
@@ -501,7 +509,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "M-C1",
     "landusedistrictdescription": "Multi-Residential - Contextual Low Profile",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "Pending Decision",
     "applieddate": "2026-01-23T00:00:00.000",
     "communitycode": "KIL",
     "communityname": "KILLARNEY/GLENGARRY",
@@ -516,8 +524,8 @@
     "locationswkt": "MULTIPOINT ((-114.13530549411233 51.02959879632254),(-114.1350953998415 51.02960731894851),(-114.1350953998415 51.02960731894851))",
     "decisiondate": null,
     "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
+    "decision": "Approval",
+    "decisionby": "Development Authority",
     "releasedate": null,
     "rss_guid": "0dbaf1d92a4fce2a92792e5081726ec4",
     "state_history": [
@@ -536,6 +544,11 @@
       {
         "status": "under review",
         "timestamp": "2026-02-05T13:04:01Z"
+      },
+      {
+        "status": "pending decision",
+        "timestamp": "2026-02-20T12:59:56Z",
+        "decision": "Approval"
       }
     ]
   },
@@ -951,6 +964,58 @@
         51.02617566667675
       ]
     },
+    "permitnum": "DP2025-07356",
+    "address": "3627 KILDARE CR SW",
+    "applicant": "AMAYA ARCHITECTURAL DESIGN",
+    "category": "Residential - New Single / Semi / Duplex",
+    "description": "NEW: SINGLE DETACHED DWELLING (EAST LOT), ACCESSORY BUILDING (GARAGE)",
+    "proposedusecode": "B1005; B8172",
+    "proposedusedescription": "ACCESSORY BUILDING; SINGLE-DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "DC",
+    "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
+    "statuscurrent": "Hold",
+    "applieddate": "2025-12-19T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.026",
+    "longitude": "-114.140",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "3627 KILDARE CR SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1395844,51.0261757]}",
+    "locationswkt": "POINT (-114.13958435547566 51.02617566667675)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "1657677cf4a082c4f5c1348efd16f881",
+    "state_history": [
+      {
+        "status": "application received",
+        "timestamp": "2025-12-21T12:40:04Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2025-12-31T12:43:42Z"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2026-02-04T13:00:54Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.13958435547566,
+        51.02617566667675
+      ]
+    },
     "permitnum": "DP2025-07355",
     "address": "3627 KILDARE CR SW",
     "applicant": "AMAYA ARCHITECTURAL DESIGN",
@@ -1052,58 +1117,6 @@
       {
         "status": "in circulation",
         "timestamp": "2026-02-06T13:01:10Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.13958435547566,
-        51.02617566667675
-      ]
-    },
-    "permitnum": "DP2025-07356",
-    "address": "3627 KILDARE CR SW",
-    "applicant": "AMAYA ARCHITECTURAL DESIGN",
-    "category": "Residential - New Single / Semi / Duplex",
-    "description": "NEW: SINGLE DETACHED DWELLING (EAST LOT), ACCESSORY BUILDING (GARAGE)",
-    "proposedusecode": "B1005; B8172",
-    "proposedusedescription": "ACCESSORY BUILDING; SINGLE-DETACHED DWELLING",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "DC",
-    "landusedistrictdescription": "DIRECT CONTROL DISTRICT                                 ",
-    "statuscurrent": "Hold",
-    "applieddate": "2025-12-19T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.026",
-    "longitude": "-114.140",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "3627 KILDARE CR SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1395844,51.0261757]}",
-    "locationswkt": "POINT (-114.13958435547566 51.02617566667675)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "1657677cf4a082c4f5c1348efd16f881",
-    "state_history": [
-      {
-        "status": "application received",
-        "timestamp": "2025-12-21T12:40:04Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2025-12-31T12:43:42Z"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2026-02-04T13:00:54Z"
       }
     ]
   },
@@ -1297,8 +1310,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.1191797352102,
-        51.03765451574377
+        -114.11917901823068,
+        51.03738058086621
       ]
     },
     "permitnum": "DP2025-07148",
@@ -1317,13 +1330,13 @@
     "communityname": "RICHMOND",
     "ward": "8",
     "quadrant": "SW",
-    "latitude": "51.038",
+    "latitude": "51.037",
     "longitude": "-114.119",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "1902 24A ST SW;1906 24A ST SW;1910 24A ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1191797,51.0376545],[-114.1191794,51.0375175],[-114.119179,51.0373806]]}",
-    "locationswkt": "MULTIPOINT ((-114.1191797352102 51.03765451574377),(-114.11917938384823 51.03751754829934),(-114.11917901823068 51.03738058086621))",
+    "locationaddresses": "1910 24A ST SW;1906 24A ST SW;1902 24A ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.119179,51.0373806],[-114.1191794,51.0375175],[-114.1191797,51.0376545]]}",
+    "locationswkt": "MULTIPOINT ((-114.11917901823068 51.03738058086621),(-114.11917938384823 51.03751754829934),(-114.1191797352102 51.03765451574377))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -1413,8 +1426,8 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.117719109083,
-        51.03816513042562
+        -114.11771897063248,
+        51.03800357581678
       ]
     },
     "permitnum": "DP2025-07002",
@@ -1437,9 +1450,9 @@
     "longitude": "-114.118",
     "locationcount": "2",
     "locationtypes": "Titled Parcel;Titled Parcel",
-    "locationaddresses": "1740 24 ST SW;1742 24 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1177191,51.0381651],[-114.117719,51.0380036]]}",
-    "locationswkt": "MULTIPOINT ((-114.117719109083 51.03816513042562),(-114.11771897063248 51.03800357581678))",
+    "locationaddresses": "1742 24 ST SW;1740 24 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.117719,51.0380036],[-114.1177191,51.0381651]]}",
+    "locationswkt": "MULTIPOINT ((-114.11771897063248 51.03800357581678),(-114.117719109083 51.03816513042562))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
