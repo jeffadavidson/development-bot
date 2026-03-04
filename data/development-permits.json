@@ -3,8 +3,96 @@
     "point": {
       "type": "Point",
       "coordinates": [
-        -114.12538412158062,
-        51.037359561149444
+        -114.12780304757428,
+        51.02616576239821
+      ]
+    },
+    "permitnum": "DP2026-01134",
+    "address": "#A 3214 28 ST SW",
+    "applicant": null,
+    "category": "Signs - Permitted Use",
+    "description": "NEW: SIGN - CLASS B (FASCIA SIGN)",
+    "proposedusecode": "C2680",
+    "proposedusedescription": "SIGN - CLASS B",
+    "permitteddiscretionary": "Permitted",
+    "landusedistrict": "S-CI",
+    "landusedistrictdescription": "Special Purpose - Community Institution",
+    "statuscurrent": "New",
+    "applieddate": "2026-03-02T00:00:00.000",
+    "communitycode": "RIC",
+    "communityname": "RICHMOND",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.026",
+    "longitude": "-114.128",
+    "locationcount": "4",
+    "locationtypes": "Titled Parcel;Building;Building Suite;Building Suite",
+    "locationaddresses": "3214 28 ST SW;3214 28 ST SW;#1 3214 28 ST SW;#A 3214 28 ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.127803,51.0261658],[-114.127611,51.0261743],[-114.127611,51.0261743],[-114.127611,51.0261743]]}",
+    "locationswkt": "MULTIPOINT ((-114.12780304757428 51.02616576239821),(-114.12761097147934 51.026174296821864),(-114.12761097147934 51.026174296821864),(-114.12761097147934 51.026174296821864))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "da7229af4f1399491d1d022c8c0b4dfd",
+    "state_history": [
+      {
+        "status": "new",
+        "timestamp": "2026-03-04T12:58:00Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.12537403972065,
+        51.035108268705486
+      ]
+    },
+    "permitnum": "DP2026-01121",
+    "address": "2035 26A ST SW",
+    "applicant": null,
+    "category": "Change of Use - Discretionary Use or Relaxations Required",
+    "description": "CHANGE OF USE: CHILD CARE SERVICE",
+    "proposedusecode": "C1310",
+    "proposedusedescription": "CHILD CARE SERVICE",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "New",
+    "applieddate": "2026-03-02T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.035",
+    "longitude": "-114.125",
+    "locationcount": "3",
+    "locationtypes": "Titled Parcel;Building;Entryway",
+    "locationaddresses": "2039 26A ST SW;2039 26A ST SW;2035 26A ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.125374,51.0351083],[-114.1255247,51.0351127],[-114.1255247,51.0351127]]}",
+    "locationswkt": "MULTIPOINT ((-114.12537403972065 51.035108268705486),(-114.12552466970372 51.035112655833345),(-114.12552466970372 51.035112655833345))",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "74f3123cce10a72b4a81abfe6a831699",
+    "state_history": [
+      {
+        "status": "new",
+        "timestamp": "2026-03-04T12:58:00Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.12546419491409,
+        51.0376546086671
       ]
     },
     "permitnum": "DP2026-01048",
@@ -23,13 +111,13 @@
     "communityname": "KILLARNEY/GLENGARRY",
     "ward": "8",
     "quadrant": "SW",
-    "latitude": "51.037",
+    "latitude": "51.038",
     "longitude": "-114.125",
     "locationcount": "57",
     "locationtypes": "Titled Parcel;Titled Parcel;Building;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite",
-    "locationaddresses": "1909 26A ST SW;2719 17 AV SW;2719 17 AV SW;#322 2719 17 AV SW;#325 2719 17 AV SW;#327 2719 17 AV SW;#544 2719 17 AV SW;#646 2719 17 AV SW;#649 2719 17 AV SW;#103 2719 17 AV SW;#106 2719 17 AV SW;#214 2719 17 AV SW;#319 2719 17 AV SW;#430 2719 17 AV SW;#433 2719 17 AV SW;#435 2719 17 AV SW;#538 2719 17 AV SW;#541 2719 17 AV SW;#652 2719 17 AV SW;#654 2719 17 AV SW;#647 2719 17 AV SW;#543 2719 17 AV SW;#542 2719 17 AV SW;#540 2719 17 AV SW;#434 2719 17 AV SW;#432 2719 17 AV SW;#429 2719 17 AV SW;#324 2719 17 AV SW;#323 2719 17 AV SW;#218 2719 17 AV SW;#217 2719 17 AV SW;#210 2719 17 AV SW;#109 2719 17 AV SW;#105 2719 17 AV SW;#102 2719 17 AV SW;#101 2719 17 AV SW;#648 2719 17 AV SW;#653 2719 17 AV SW;#108 2719 17 AV SW;#211 2719 17 AV SW;#216 2719 17 AV SW;#545 2719 17 AV SW;#650 2719 17 AV SW;#651 2719 17 AV SW;#104 2719 17 AV SW;#107 2719 17 AV SW;#212 2719 17 AV SW;#213 2719 17 AV SW;#215 2719 17 AV SW;#320 2719 17 AV SW;#321 2719 17 AV SW;#326 2719 17 AV SW;#428 2719 17 AV SW;#431 2719 17 AV SW;#436 2719 17 AV SW;#537 2719 17 AV SW;#539 2719 17 AV SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1253841,51.0373596],[-114.1254642,51.0376546],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176]]}",
-    "locationswkt": "MULTIPOINT ((-114.12538412158062 51.037359561149444),(-114.12546419491409 51.0376546086671),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524))",
+    "locationaddresses": "2719 17 AV SW;1909 26A ST SW;2719 17 AV SW;#105 2719 17 AV SW;#109 2719 17 AV SW;#210 2719 17 AV SW;#217 2719 17 AV SW;#218 2719 17 AV SW;#323 2719 17 AV SW;#324 2719 17 AV SW;#429 2719 17 AV SW;#432 2719 17 AV SW;#434 2719 17 AV SW;#540 2719 17 AV SW;#542 2719 17 AV SW;#543 2719 17 AV SW;#545 2719 17 AV SW;#650 2719 17 AV SW;#651 2719 17 AV SW;#104 2719 17 AV SW;#107 2719 17 AV SW;#212 2719 17 AV SW;#213 2719 17 AV SW;#215 2719 17 AV SW;#320 2719 17 AV SW;#321 2719 17 AV SW;#326 2719 17 AV SW;#428 2719 17 AV SW;#431 2719 17 AV SW;#436 2719 17 AV SW;#537 2719 17 AV SW;#539 2719 17 AV SW;#647 2719 17 AV SW;#648 2719 17 AV SW;#653 2719 17 AV SW;#108 2719 17 AV SW;#211 2719 17 AV SW;#216 2719 17 AV SW;#322 2719 17 AV SW;#325 2719 17 AV SW;#327 2719 17 AV SW;#544 2719 17 AV SW;#646 2719 17 AV SW;#649 2719 17 AV SW;#103 2719 17 AV SW;#106 2719 17 AV SW;#214 2719 17 AV SW;#319 2719 17 AV SW;#430 2719 17 AV SW;#433 2719 17 AV SW;#435 2719 17 AV SW;#538 2719 17 AV SW;#101 2719 17 AV SW;#654 2719 17 AV SW;#652 2719 17 AV SW;#541 2719 17 AV SW;#102 2719 17 AV SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1254642,51.0376546],[-114.1253841,51.0373596],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176]]}",
+    "locationswkt": "MULTIPOINT ((-114.12546419491409 51.0376546086671),(-114.12538412158062 51.037359561149444),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -308,6 +396,50 @@
       {
         "status": "in circulation",
         "timestamp": "2026-02-20T12:59:56Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.1370937254463,
+        51.036031391405466
+      ]
+    },
+    "permitnum": "DP2026-00672",
+    "address": "2007 34 ST SW",
+    "applicant": "CALGREEN HOMES",
+    "category": "Residential - Multi-Family",
+    "description": "NEW: ROWHOUSE BUILDING (1 BUILDING), SEMI-DETACHED DWELLING (4 BUILDINGS), SECONDARY SUITE (12 SUITES), ACCESSORY RESIDENTIAL BUILDING (2 BUILDINGS - GARAGE, CARPORT)",
+    "proposedusecode": "C1020; C2540; C2626; C2640",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; ROWHOUSE BUILDING; SECONDARY SUITE; SEMI-DETACHED DWELLING",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "In Circulation",
+    "applieddate": "2026-02-06T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.036",
+    "longitude": "-114.137",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "2007 34 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1370937,51.0360314]}",
+    "locationswkt": "POINT (-114.1370937254463 51.036031391405466)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "b450a62a08a25ed532b3b99fb3588b3f",
+    "state_history": [
+      {
+        "status": "in circulation",
+        "timestamp": "2026-03-04T12:58:00Z"
       }
     ]
   },
@@ -653,6 +785,66 @@
     "point": {
       "type": "Point",
       "coordinates": [
+        -114.12538134648844,
+        51.03455075235477
+      ]
+    },
+    "permitnum": "DP2026-00397",
+    "address": "2201 26A ST SW",
+    "applicant": "GAILLARD DESIGN \u0026 PLAN",
+    "category": "Residential - Multi-Family",
+    "description": "NEW: ROWHOUSE BUILDING (1 BUILDING), SECONDARY SUITE (4 SUITES), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
+    "proposedusecode": "C1020; C2540; C2626",
+    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; ROWHOUSE BUILDING; SECONDARY SUITE",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "R-CG",
+    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
+    "statuscurrent": "In Circulation",
+    "applieddate": "2026-01-23T00:00:00.000",
+    "communitycode": "KIL",
+    "communityname": "KILLARNEY/GLENGARRY",
+    "ward": "8",
+    "quadrant": "SW",
+    "latitude": "51.035",
+    "longitude": "-114.125",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "2201 26A ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1253813,51.0345508]}",
+    "locationswkt": "POINT (-114.12538134648844 51.03455075235477)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "a48b073b6e45e9d637ddde0203923a37",
+    "state_history": [
+      {
+        "status": "hold",
+        "timestamp": "2026-01-25T12:43:29Z"
+      },
+      {
+        "status": "application received",
+        "timestamp": "2026-01-29T12:58:59Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2026-01-30T12:57:10Z"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2026-02-05T13:04:01Z"
+      },
+      {
+        "status": "in circulation",
+        "timestamp": "2026-02-25T13:06:09Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
         -114.13530549411233,
         51.02959879632254
       ]
@@ -717,66 +909,6 @@
         "status": "in advertising",
         "timestamp": "2026-02-22T12:51:33Z",
         "decision": "Approval"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.12538134648844,
-        51.03455075235477
-      ]
-    },
-    "permitnum": "DP2026-00397",
-    "address": "2201 26A ST SW",
-    "applicant": "GAILLARD DESIGN \u0026 PLAN",
-    "category": "Residential - Multi-Family",
-    "description": "NEW: ROWHOUSE BUILDING (1 BUILDING), SECONDARY SUITE (4 SUITES), ACCESSORY RESIDENTIAL BUILDING (GARAGE)",
-    "proposedusecode": "C1020; C2540; C2626",
-    "proposedusedescription": "ACCESSORY RESIDENTIAL BUILDING; ROWHOUSE BUILDING; SECONDARY SUITE",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "In Circulation",
-    "applieddate": "2026-01-23T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.035",
-    "longitude": "-114.125",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "2201 26A ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1253813,51.0345508]}",
-    "locationswkt": "POINT (-114.12538134648844 51.03455075235477)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "a48b073b6e45e9d637ddde0203923a37",
-    "state_history": [
-      {
-        "status": "hold",
-        "timestamp": "2026-01-25T12:43:29Z"
-      },
-      {
-        "status": "application received",
-        "timestamp": "2026-01-29T12:58:59Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2026-01-30T12:57:10Z"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2026-02-05T13:04:01Z"
-      },
-      {
-        "status": "in circulation",
-        "timestamp": "2026-02-25T13:06:09Z"
       }
     ]
   },
@@ -906,7 +1038,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "MU-1 f3.0h16",
     "landusedistrictdescription": "Mixed Use - General",
-    "statuscurrent": "Under Review",
+    "statuscurrent": "Hold",
     "applieddate": "2026-01-09T00:00:00.000",
     "communitycode": "GDL",
     "communityname": "GLENDALE",
@@ -945,6 +1077,10 @@
       {
         "status": "under review",
         "timestamp": "2026-02-26T13:07:35Z"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2026-03-04T12:58:00Z"
       }
     ]
   },
@@ -1274,7 +1410,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Pending Decision",
+    "statuscurrent": "In Advertising",
     "applieddate": "2025-12-19T00:00:00.000",
     "communitycode": "GBK",
     "communityname": "GLENBROOK",
@@ -1321,6 +1457,11 @@
       {
         "status": "pending decision",
         "timestamp": "2026-02-26T13:07:35Z",
+        "decision": "Approval"
+      },
+      {
+        "status": "in advertising",
+        "timestamp": "2026-03-04T12:58:00Z",
         "decision": "Approval"
       }
     ]
@@ -1395,7 +1536,7 @@
     "permitteddiscretionary": "Permitted",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Cancelled - Pending Refund",
+    "statuscurrent": "Cancelled",
     "applieddate": "2025-12-18T00:00:00.000",
     "communitycode": "RUT",
     "communityname": "RUTLAND PARK",
@@ -1434,6 +1575,10 @@
       {
         "status": "cancelled - pending refund",
         "timestamp": "2026-02-27T13:00:35Z"
+      },
+      {
+        "status": "cancelled",
+        "timestamp": "2026-03-04T12:58:00Z"
       }
     ]
   },
@@ -1595,9 +1740,9 @@
     "longitude": "-114.119",
     "locationcount": "3",
     "locationtypes": "Titled Parcel;Titled Parcel;Titled Parcel",
-    "locationaddresses": "1910 24A ST SW;1902 24A ST SW;1906 24A ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.119179,51.0373806],[-114.1191797,51.0376545],[-114.1191794,51.0375175]]}",
-    "locationswkt": "MULTIPOINT ((-114.11917901823068 51.03738058086621),(-114.1191797352102 51.03765451574377),(-114.11917938384823 51.03751754829934))",
+    "locationaddresses": "1910 24A ST SW;1906 24A ST SW;1902 24A ST SW",
+    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.119179,51.0373806],[-114.1191794,51.0375175],[-114.1191797,51.0376545]]}",
+    "locationswkt": "MULTIPOINT ((-114.11917901823068 51.03738058086621),(-114.11917938384823 51.03751754829934),(-114.1191797352102 51.03765451574377))",
     "decisiondate": null,
     "mustcommencedate": null,
     "decision": null,
@@ -1736,85 +1881,6 @@
       {
         "status": "hold",
         "timestamp": "2025-12-31T12:43:42Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.13955172538192,
-        51.033025904285125
-      ]
-    },
-    "permitnum": "DP2025-06971",
-    "address": "2402 36 ST SW",
-    "applicant": "W PANG SURVEYS",
-    "category": "Relaxation - Existing - Compliance Follow-Up",
-    "description": "RELAXATION: DECK (EXISTING) - BUILDING SETBACK FROM FRONT PROPERTY LINE, HEIGHT ",
-    "proposedusecode": "C1455",
-    "proposedusedescription": "DECK",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "R-CG",
-    "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Released",
-    "applieddate": "2025-12-04T00:00:00.000",
-    "communitycode": "KIL",
-    "communityname": "KILLARNEY/GLENGARRY",
-    "ward": "8",
-    "quadrant": "SW",
-    "latitude": "51.033",
-    "longitude": "-114.140",
-    "locationcount": "2",
-    "locationtypes": "Titled Parcel;Building",
-    "locationaddresses": "2402 36 ST SW;2402 36 ST SW",
-    "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1395517,51.0330259],[-114.1393901,51.0330286]]}",
-    "locationswkt": "MULTIPOINT ((-114.13955172538192 51.033025904285125),(-114.13939010147314 51.03302863227827))",
-    "decisiondate": "2025-12-18T00:00:00.000",
-    "mustcommencedate": "2027-12-18T00:00:00.000",
-    "decision": "Approval",
-    "decisionby": "Development Authority",
-    "releasedate": "2026-01-16T00:00:00.000",
-    "rss_guid": "f982a3fb0fa75fae1a1ebcdcc6da48e4",
-    "state_history": [
-      {
-        "status": "under review",
-        "timestamp": "2025-12-06T12:38:57Z"
-      },
-      {
-        "status": "pending decision",
-        "timestamp": "2025-12-13T12:39:27Z",
-        "decision": "Approval"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2025-12-17T12:46:28Z",
-        "decision": "Approval"
-      },
-      {
-        "status": "pending decision",
-        "timestamp": "2025-12-18T12:43:54Z",
-        "decision": "Approval"
-      },
-      {
-        "status": "approved",
-        "timestamp": "2025-12-20T12:39:14Z",
-        "decision": "Approval"
-      },
-      {
-        "status": "in advertising",
-        "timestamp": "2025-12-21T12:40:04Z",
-        "decision": "Approval"
-      },
-      {
-        "status": "pending release",
-        "timestamp": "2026-01-17T12:41:09Z",
-        "decision": "Approval"
-      },
-      {
-        "status": "released",
-        "timestamp": "2026-01-18T12:40:58Z",
-        "decision": "Approval"
       }
     ]
   }
