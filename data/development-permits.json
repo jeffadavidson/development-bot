@@ -61,7 +61,7 @@
     "permitteddiscretionary": "Discretionary",
     "landusedistrict": "R-CG",
     "landusedistrictdescription": "Residential - Grade-Oriented Infill",
-    "statuscurrent": "Application Received",
+    "statuscurrent": "Under Review",
     "applieddate": "2026-03-10T00:00:00.000",
     "communitycode": "RIC",
     "communityname": "RICHMOND",
@@ -88,62 +88,10 @@
       {
         "status": "application received",
         "timestamp": "2026-03-14T12:53:46Z"
-      }
-    ]
-  },
-  {
-    "point": {
-      "type": "Point",
-      "coordinates": [
-        -114.14140677870861,
-        51.02932888322263
-      ]
-    },
-    "permitnum": "DP2026-01177",
-    "address": "2835 37 ST SW",
-    "applicant": null,
-    "category": "Signs - Discretionary Use",
-    "description": "TEMPORARY USE: SIGN - CLASS E (DIGITAL MESSAGE SIGN)",
-    "proposedusecode": "C2710",
-    "proposedusedescription": "SIGN - CLASS E",
-    "permitteddiscretionary": "Discretionary",
-    "landusedistrict": "C-C1",
-    "landusedistrictdescription": "Commercial - Community 1",
-    "statuscurrent": "Under Review",
-    "applieddate": "2026-03-04T00:00:00.000",
-    "communitycode": "GBK",
-    "communityname": "GLENBROOK",
-    "ward": "6",
-    "quadrant": "SW",
-    "latitude": "51.029",
-    "longitude": "-114.141",
-    "locationcount": "1",
-    "locationtypes": "Titled Parcel",
-    "locationaddresses": "2835 37 ST SW",
-    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1414068,51.0293289]}",
-    "locationswkt": "POINT (-114.14140677870861 51.02932888322263)",
-    "decisiondate": null,
-    "mustcommencedate": null,
-    "decision": null,
-    "decisionby": null,
-    "releasedate": null,
-    "rss_guid": "218076ff0a5984faf2624914c0acd9ea",
-    "state_history": [
-      {
-        "status": "new",
-        "timestamp": "2026-03-06T12:57:40Z"
-      },
-      {
-        "status": "hold",
-        "timestamp": "2026-03-11T13:02:20Z"
-      },
-      {
-        "status": "application received",
-        "timestamp": "2026-03-13T13:00:16Z"
       },
       {
         "status": "under review",
-        "timestamp": "2026-03-14T12:53:46Z"
+        "timestamp": "2026-03-15T12:54:54Z"
       }
     ]
   },
@@ -192,6 +140,66 @@
       {
         "status": "application received",
         "timestamp": "2026-03-07T12:49:38Z"
+      }
+    ]
+  },
+  {
+    "point": {
+      "type": "Point",
+      "coordinates": [
+        -114.14140677870861,
+        51.02932888322263
+      ]
+    },
+    "permitnum": "DP2026-01177",
+    "address": "2835 37 ST SW",
+    "applicant": null,
+    "category": "Signs - Discretionary Use",
+    "description": "TEMPORARY USE: SIGN - CLASS G (DIGITAL THIRD PARTY ADVERTISING SIGN)",
+    "proposedusecode": "C2710",
+    "proposedusedescription": "SIGN - CLASS E",
+    "permitteddiscretionary": "Discretionary",
+    "landusedistrict": "C-C1",
+    "landusedistrictdescription": "Commercial - Community 1",
+    "statuscurrent": "Hold",
+    "applieddate": "2026-03-04T00:00:00.000",
+    "communitycode": "GBK",
+    "communityname": "GLENBROOK",
+    "ward": "6",
+    "quadrant": "SW",
+    "latitude": "51.029",
+    "longitude": "-114.141",
+    "locationcount": "1",
+    "locationtypes": "Titled Parcel",
+    "locationaddresses": "2835 37 ST SW",
+    "locationsgeojson": "{\"type\":\"Point\",\"coordinates\":[-114.1414068,51.0293289]}",
+    "locationswkt": "POINT (-114.14140677870861 51.02932888322263)",
+    "decisiondate": null,
+    "mustcommencedate": null,
+    "decision": null,
+    "decisionby": null,
+    "releasedate": null,
+    "rss_guid": "218076ff0a5984faf2624914c0acd9ea",
+    "state_history": [
+      {
+        "status": "new",
+        "timestamp": "2026-03-06T12:57:40Z"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2026-03-11T13:02:20Z"
+      },
+      {
+        "status": "application received",
+        "timestamp": "2026-03-13T13:00:16Z"
+      },
+      {
+        "status": "under review",
+        "timestamp": "2026-03-14T12:53:46Z"
+      },
+      {
+        "status": "hold",
+        "timestamp": "2026-03-15T12:54:54Z"
       }
     ]
   },
@@ -379,7 +387,7 @@
     "longitude": "-114.125",
     "locationcount": "57",
     "locationtypes": "Titled Parcel;Titled Parcel;Building;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite;Building Suite",
-    "locationaddresses": "2719 17 AV SW;1909 26A ST SW;2719 17 AV SW;#218 2719 17 AV SW;#323 2719 17 AV SW;#324 2719 17 AV SW;#429 2719 17 AV SW;#432 2719 17 AV SW;#434 2719 17 AV SW;#540 2719 17 AV SW;#542 2719 17 AV SW;#543 2719 17 AV SW;#545 2719 17 AV SW;#650 2719 17 AV SW;#651 2719 17 AV SW;#104 2719 17 AV SW;#107 2719 17 AV SW;#212 2719 17 AV SW;#213 2719 17 AV SW;#215 2719 17 AV SW;#320 2719 17 AV SW;#321 2719 17 AV SW;#326 2719 17 AV SW;#428 2719 17 AV SW;#431 2719 17 AV SW;#436 2719 17 AV SW;#537 2719 17 AV SW;#539 2719 17 AV SW;#647 2719 17 AV SW;#648 2719 17 AV SW;#653 2719 17 AV SW;#108 2719 17 AV SW;#211 2719 17 AV SW;#216 2719 17 AV SW;#322 2719 17 AV SW;#325 2719 17 AV SW;#327 2719 17 AV SW;#544 2719 17 AV SW;#646 2719 17 AV SW;#649 2719 17 AV SW;#103 2719 17 AV SW;#106 2719 17 AV SW;#214 2719 17 AV SW;#319 2719 17 AV SW;#430 2719 17 AV SW;#433 2719 17 AV SW;#435 2719 17 AV SW;#538 2719 17 AV SW;#541 2719 17 AV SW;#652 2719 17 AV SW;#654 2719 17 AV SW;#101 2719 17 AV SW;#102 2719 17 AV SW;#105 2719 17 AV SW;#109 2719 17 AV SW;#210 2719 17 AV SW;#217 2719 17 AV SW",
+    "locationaddresses": "2719 17 AV SW;1909 26A ST SW;2719 17 AV SW;#109 2719 17 AV SW;#105 2719 17 AV SW;#102 2719 17 AV SW;#101 2719 17 AV SW;#654 2719 17 AV SW;#652 2719 17 AV SW;#538 2719 17 AV SW;#435 2719 17 AV SW;#433 2719 17 AV SW;#319 2719 17 AV SW;#214 2719 17 AV SW;#106 2719 17 AV SW;#210 2719 17 AV SW;#103 2719 17 AV SW;#649 2719 17 AV SW;#646 2719 17 AV SW;#544 2719 17 AV SW;#327 2719 17 AV SW;#325 2719 17 AV SW;#322 2719 17 AV SW;#216 2719 17 AV SW;#211 2719 17 AV SW;#108 2719 17 AV SW;#541 2719 17 AV SW;#653 2719 17 AV SW;#648 2719 17 AV SW;#647 2719 17 AV SW;#539 2719 17 AV SW;#537 2719 17 AV SW;#436 2719 17 AV SW;#431 2719 17 AV SW;#326 2719 17 AV SW;#321 2719 17 AV SW;#320 2719 17 AV SW;#215 2719 17 AV SW;#213 2719 17 AV SW;#212 2719 17 AV SW;#107 2719 17 AV SW;#651 2719 17 AV SW;#104 2719 17 AV SW;#650 2719 17 AV SW;#545 2719 17 AV SW;#543 2719 17 AV SW;#542 2719 17 AV SW;#540 2719 17 AV SW;#434 2719 17 AV SW;#432 2719 17 AV SW;#429 2719 17 AV SW;#324 2719 17 AV SW;#323 2719 17 AV SW;#218 2719 17 AV SW;#217 2719 17 AV SW;#430 2719 17 AV SW;#428 2719 17 AV SW",
     "locationsgeojson": "{\"type\":\"MultiPoint\",\"coordinates\":[[-114.1254642,51.0376546],[-114.1253841,51.0373596],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176],[-114.1255872,51.0375176]]}",
     "locationswkt": "MULTIPOINT ((-114.12546419491409 51.0376546086671),(-114.12538412158062 51.037359561149444),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524),(-114.1255872456654 51.03751755364524))",
     "decisiondate": null,
