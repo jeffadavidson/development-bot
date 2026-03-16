@@ -106,41 +106,5 @@
         "timestamp": "2026-02-06T13:01:11Z"
       }
     ]
-  },
-  {
-    "permittype": "LU / OP / Closure (LOC)",
-    "permitnum": "LOC2025-0244",
-    "description": "Land Use Amendment to accommodate M-C1",
-    "statuscurrent": "Under Review",
-    "applieddate": "2025-12-16T09:43:47.000",
-    "completeddate": null,
-    "applicant": "PRIME DESIGN SOLUTIONS",
-    "fromlud": "DC",
-    "proposedlud": "M-C1",
-    "address": "3232 30 ST SW",
-    "locationaddresses": "3232 30 ST SW",
-    "locationcount": "1",
-    "latitude": "51.02582595315939",
-    "longitude": "-114.13105438177455",
-    "multipoint": {
-      "type": "MultiPoint",
-      "coordinates": [
-        [
-          -114.13105438177455,
-          51.02582595315939
-        ]
-      ]
-    },
-    "rss_guid": "5ec74185ebb7eb5e2bf2f70050aefeb2",
-    "state_history": [
-      {
-        "status": "submitted",
-        "timestamp": "2025-12-18T12:43:54Z"
-      },
-      {
-        "status": "under review",
-        "timestamp": "2026-02-14T12:50:45Z"
-      }
-    ]
   }
 ]
